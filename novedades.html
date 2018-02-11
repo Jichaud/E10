@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Estudio Diez - Novedades Impositivas">
+    <meta name="author" content="Estudio Diez - Consultores Impositivos">
+
+          <link rel="icon" 
+      type="image/png" 
+      href="images/favicon-32x32.png">
+
+    <title>Estudio Diez - Novedades Impositivas</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+  </head>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC-7p91BJOTidD1Ks5tt0xte5CVCO_XJz0",
+    authDomain: "retencion-ganancias.firebaseapp.com",
+    databaseURL: "https://retencion-ganancias.firebaseio.com",
+    projectId: "retencion-ganancias",
+    storageBucket: "retencion-ganancias.appspot.com",
+    messagingSenderId: "976119129848"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDBu61A-iVc72-pIjnmZJxjCjEkM-D_dEA",
+    authDomain: "estudio-diez-webpage.firebaseapp.com",
+    databaseURL: "https://estudio-diez-webpage.firebaseio.com",
+    projectId: "estudio-diez-webpage",
+    storageBucket: "estudio-diez-webpage.appspot.com",
+    messagingSenderId: "581159183021"
+  };  
+</script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCnzSBNe8lOq7AwWSU8f_-TuUwuOJ83VUs",
+    authDomain: "reforma-tributaria.firebaseapp.com",
+    databaseURL: "https://reforma-tributaria.firebaseio.com",
+    projectId: "reforma-tributaria",
+    storageBucket: "reforma-tributaria.appspot.com",
+    messagingSenderId: "296085476842"
+  };  
+</script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCQXoksw3C47bOWg7scIbsJWLVTPeT97p0",
+    authDomain: "estudio-diez-streaming.firebaseapp.com",
+    databaseURL: "https://estudio-diez-streaming.firebaseio.com",
+    projectId: "estudio-diez-streaming",
+    storageBucket: "estudio-diez-streaming.appspot.com",
+    messagingSenderId: "599746842056"
+  };  
+</script>
+
+    <header>
+    <div class="row">
+      <div class="col mb-4 crop">          
+        <img src="images/encabezado-suscriptores.jpg" class="img-fluid centered rounded" style="opacity: 0.5" style="background-size: cover">
+    </div>
+    </div>
+    <!--/divrow -->
+  </header
+
+  <body>
+<script>
+firebase.initializeApp(config);
+const auth=firebase.auth();
+const db=firebase.database();
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+if (user) {
+//blank if correct login
+} else {
+window.location.href = 'suscriptores.html'; 
+}
+});
+</script>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light fixed-top" style="background-color: #fff;">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+        <img src="images/logo-E10-1.png" class="img-fluid" width="100%" alt="Estudio Diez">
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarEstudio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Estudio
+              </a>
+              <div class="dropdown-menu dropdown-menu-right alert alert-primary" role="alert" aria-labelledby="navbarEstudio">
+                <a class="dropdown-item" href="perfil.html">Perfil</a>
+                <a class="dropdown-item" href="organizacion.html">Organizacion</a>
+                <a class="dropdown-item" href="socios.html">Socios</a>
+              </div>
+            </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarServicios" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Servicios
+              </a>
+              <div class="dropdown-menu dropdown-menu-right alert alert-secondary" role="alert" aria-labelledby="navbarServicios">
+                <a class="dropdown-item" href="impositivo.html">Impositivo</a>
+                <a class="dropdown-item" href="contable.html">Contable</a>
+                <a class="dropdown-item" href="juridico.html">Jurídico</a>
+              </div>
+            </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarCapacitacion" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Capacitación
+              </a>
+              <div class="dropdown-menu dropdown-menu-right alert alert-success" role="alert" aria-labelledby="navbarCapacitacion">
+                <a class="dropdown-item" href="eventos.html">Eventos</a>
+                <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="publicaciones.html">Publicaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sitios-de-interes.html">Sitios de interés</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+              <button type="button" id="signOut" class="btn btn-secondary" style="width: 10%">Salir</button>
+  <script>
+document.getElementById('signOut').addEventListener('click', function(event) {
+firebase.auth().signOut();
+});
+  </script>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3">Novedades impositivas
+        <small>Departamento de Capacitación</small>
+      </h1>
+        
+      <!-- 2018 -->
+        <div class="row">
+            <div class="alert alert-info col-lg-12" role="alert">
+  <h4 class="alert-heading">2018</h4>
+  <p>Novedades Impositivas</p>
+  <hr>
+  <p class="mb-0">Departamento de Capacitacion</p>
+            </div>
+<div class="alert alert-primary col-lg-12" role="alert">
+  <h4 class="alert-heading">Novedades impositivas</h4>  
+            </div>
+            <div class="card-deck">
+    <div class="card border-primary bg-primary text-white mb-3" style="max-width: 22rem;">
+  <div class="card-header border-light text-white">Enero 2018</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Novedades Impositivas</h5>
+    <p class="card-text"><a href="https://goo.gl/ypF4Em" target="_blank"><img src="images/enero-2018.png" class="rounded" style="width: 100%"></a></p>
+  </div>
+    </div>
+    <div class="card border-warning bg-warning text-white mb-3" style="max-width: 22rem;">
+  <div class="card-header border-light text-white">Febrero 2018</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Novedades Impositivas</h5>
+    <p class="card-text"><a href="https://goo.gl/61ts5q" target="_blank"><img src="images/febrero-2018.png" class="rounded" style="width: 100%"></a></p>
+  </div>
+    </div>
+        </div>
+    
+    <!-- Índice de impuestos -->
+                <div class="row">
+        <div class="alert alert-success col-lg-12" role="alert">
+  <h4 class="alert-heading">Índice de impuestos</h4>  
+            </div>
+
+            <div class="card-deck">
+<div class="card border-warning bg-warning mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">A.G.I.P.</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/GiCpGW" target="_blank"><img src="images/AGIP-300x66.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-success bg-success mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-light">A.R.B.A.</div>
+  <div class="card-body">
+    <h5 class="card-title text-light">Índice de impuestos</h5>
+    <a href="https://goo.gl/2ULjo7" target="_blank"><img src="images/ARBA-300x65.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-danger bg-danger mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">De interés</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/N2Dg5q" target="_blank"><img src="images/De-interes-300x66.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+            </div>
+        </div>
+
+<div class="row">
+            <div class="card-deck">
+<div class="card border-primary bg-primary mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Ganancias</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/icXvsD" target="_blank"><img src="images/Ganancias-300x66.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-secondary bg-secondary mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-light">Impuestos varios</div>
+  <div class="card-body">
+    <h5 class="card-title text-light">Índice de impuestos</h5>
+    <a href="https://goo.gl/jGKwzH" target="_blank"><img src="images/Impuestos-varios-300x66.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-primary bg-primary mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Impuesto al valor agregado</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/Bz9KoC" target="_blank"><img src="images/IVA-300x661.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+            </div>
+            </div>
+
+<div class="row">
+            <div class="card-deck">
+<div class="card border-danger bg-danger mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Monotributo</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/ENvMK3" target="_blank"><img src="images/MT-300x66.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-primary bg-primary mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-light">Previsional</div>
+  <div class="card-body">
+    <h5 class="card-title text-light">Índice de impuestos</h5>
+    <a href="https://goo.gl/Yi6tZa" target="_blank"><img src="images/Previsional-300x67.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-success bg-success mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Procedimiento tributario</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/mYXWx1" target="_blank"><img src="images/Procedimiento-tributario-300x66.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+            </div>
+            </div>
+
+
+        <!-- /.row -->
+    
+      <hr>
+
+      <!-- 2017 -->
+        <div class="row">
+            <div class="alert alert-success col-lg-12" role="alert">
+  <h4 class="alert-heading">2017</h4>
+  <p>Novedades Impositivas | Índice de impuestos</p>
+  <hr>
+  <p class="mb-0">Departamento de Capacitacion</p>
+            </div>
+            <div class="alert alert-info col-lg-12" role="alert">
+  <h4 class="alert-heading">Novedes impositivas</h4>  
+            </div>
+            <div class="card-deck">
+<div class="card border-primary bg-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header border-light text-white">Diciembre 2017</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Novedades Impositivas</h5>
+    <a href="https://goo.gl/4zcBJ8" target="_blank"><img src="images/diciembre-2017.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-success bg-success mb-3" style="max-width: 18rem;">
+  <div class="card-header border-light text-light">Noviembre 2017</div>
+  <div class="card-body">
+    <h5 class="card-title text-light">Novedades Impositivas</h5>
+    <a href="https://goo.gl/Uh26iG" target="_blank"><img src="images/noviembre-2017.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-warning bg-warning mb-3" style="max-width: 18rem;">
+  <div class="card-header border-light text-white">Octubre 2017</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Novedades Impositivas</h5>
+    <a href="https://goo.gl/1APq5m" target="_blank"><img src="images/octubre-2017.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-info bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-header border-light text-white">Septiembre 2017</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Novedades Impositivas</h5>
+    <a href="https://goo.gl/PVIWeJ" target="_blank"><img src="images/septiembre-2017.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+            </div>
+            </div>        
+        <div class="row">
+            <div class="card-deck">
+<div class="card border-info bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-header border-light text-white">Agosto 2017</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Novedades Impositivas</h5>
+    <a href="https://goo.gl/dYjN9P" target="_blank"><img src="images/agosto-2017.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-warning bg-warning mb-3" style="max-width: 18rem;">
+  <div class="card-header border-light text-light">Julio 2017</div>
+  <div class="card-body">
+    <h5 class="card-title text-light">Novedades Impositivas</h5>
+    <a href="https://goo.gl/wh89YF" target="_blank"><img src="images/julio-2017.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-success bg-success mb-3" style="max-width: 18rem;">
+  <div class="card-header border-light text-white">Junio 2017</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Novedades Impositivas</h5>
+    <a href="https://goo.gl/oNZpWb" target="_blank"><img src="images/junio-2017.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-primary bg-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header border-light text-white">Mayo 2017</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Novedades Impositivas</h5>
+    <a href="https://goo.gl/wnPcIN" target="_blank"><img src="images/mayo-2017.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+            </div>
+            </div>
+        <div class="row">
+            <div class="card-deck">
+<div class="card border-primary bg-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header border-light text-white">Abril 2017</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Novedades Impositivas</h5>
+    <a href="https://goo.gl/qRVJhg" target="_blank"><img src="images/abril-2017.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-success bg-success mb-3" style="max-width: 18rem;">
+  <div class="card-header border-light text-light">Marzo 2017</div>
+  <div class="card-body">
+    <h5 class="card-title text-light">Novedades Impositivas</h5>
+    <a href="https://goo.gl/R20DNI" target="_blank"><img src="images/marzo-2017.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-warning bg-warning mb-3" style="max-width: 18rem;">
+  <div class="card-header border-light text-white">Febrero 2017</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Novedades Impositivas</h5>
+    <a href="https://goo.gl/4s1pNr" target="_blank"><img src="images/febrero-2017.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-info bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-header border-light text-white">Enero 2017</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Novedades Impositivas</h5>
+    <a href="https://docs.google.com/document/d/1AF0JjEb55veoK7F4bPuwHNmqxEseMmsT8w9iqlz-vBg/edit" target="_blank"><img src="images/enero-2017.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+            </div>
+            </div>
+
+        <!-- Índice de impuestos -->
+        <div class="row">
+        <div class="alert alert-success col-lg-12" role="alert">
+  <h4 class="alert-heading">Índice de impuestos</h4>  
+            </div>
+            <div class="card-deck">
+<div class="card border-warning bg-warning mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">A.G.I.P.</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/i3TYjv" target="_blank"><img src="images/AGIP-300x71.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-success bg-success mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-light">A.R.B.A.</div>
+  <div class="card-body">
+    <h5 class="card-title text-light">Índice de impuestos</h5>
+    <a href="https://goo.gl/W8q5DX" target="_blank"><img src="images/ARBA-300x66.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-warning bg-warning mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Bienes personales</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/iTEFwV" target="_blank"><img src="images/BP-300x65.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+            </div>
+            </div>
+
+<div class="row">
+            <div class="card-deck">
+<div class="card border-secondary bg-secondary mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Convenio multilateral</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/r1bhhE" target="_blank"><img src="images/CM-300x66.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-danger bg-danger mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-light">De interés</div>
+  <div class="card-body">
+    <h5 class="card-title text-light">Índice de impuestos</h5>
+    <a href="https://goo.gl/sfV9p3" target="_blank"><img src="images/DI-300x67.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-warning bg-warning mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Ganancia mínima presunta</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/KaAswL" target="_blank"><img src="images/GMP-300x71.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+            </div>
+            </div>
+
+<div class="row">
+            <div class="card-deck">
+<div class="card border-primary bg-primary mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Ganancias</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/vjFxcd" target="_blank"><img src="images/IG-300x69.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-secondary bg-secondary mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-light">Impuestos varios</div>
+  <div class="card-body">
+    <h5 class="card-title text-light">Índice de impuestos</h5>
+    <a href="https://goo.gl/2mVXsm" target="_blank"><img src="images/IV-300x67.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-info bg-info mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Impuesto al valor agregado</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/qsiuba" target="_blank"><img src="images/IVA-300x66.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+            </div>
+            </div>
+
+<div class="row">
+            <div class="card-deck">
+<div class="card border-danger bg-danger mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Monotributo</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/DDxNKw" target="_blank"><img src="images/MT-300x71.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-primary bg-primary mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-light">Previsional</div>
+  <div class="card-body">
+    <h5 class="card-title text-light">Índice de impuestos</h5>
+    <a href="https://goo.gl/fX4rV7" target="_blank"><img src="images/SUSS-300x72.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+<div class="card border-success bg-success mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Procedimiento tributario</div>
+  <div class="card-body">
+    <h5 class="card-title text-white">Índice de impuestos</h5>
+    <a href="https://goo.gl/KJ4HAi" target="_blank"><img src="images/PT-300x72.png" class="rounded" style="width: 100%"></a>
+  </div>
+    </div>
+            </div>
+            </div>
+
+            </div>
+        <!-- /.row -->
+
+      <hr>
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">          
+<div class="row">
+  <div class="col-lg-3 mb-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-info active text-light" role="tab">Estudio</a>
+      <a class="list-group-item list-group-item-action" href="perfil.html" role="tab">Perfil</a>
+      <a class="list-group-item list-group-item-action" href="organizacion.html" role="tab">Organización</a>
+      <a class="list-group-item list-group-item-action" href="socios.html" role="tab">Socios</a>
+        <a class="list-group-item list-group-item-action" href="publicaciones.html" role="tab">Publicaciones</a>
+    </div>
+  </div>
+  <div class="col-lg-3 mb-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-secondary active text-light" role="tab">Servicios</a>
+      <a class="list-group-item list-group-item-action" href="impositivo.html" role="tab">Impositivos</a>
+      <a class="list-group-item list-group-item-action" href="contable.html" role="tab">Contable</a>
+      <a class="list-group-item list-group-item-action" href="juridico.html" role="tab">Jurídicos</a>
+    </div>
+  </div>
+  <div class="col-lg-3 mb-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-success active text-light" role="tab">Capacitación</a>
+      <a class="list-group-item list-group-item-action" href="eventos.html" role="tab">Eventos</a>
+      <a class="list-group-item list-group-item-action" href="suscriptores.html" role="tab">Suscriptores</a>
+    </div>
+  </div>
+  <div class="col-lg-3 mb-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-warning active text-light" role="tab">Conecta</a>
+      <a class="list-group-item list-group-item-action" href="contact.html" role="tab">Contacto</a>
+      <a class="list-group-item list-group-item-action" href="sitios-de-interes.html" role="tab">Link's de interés</a>
+      <a class="list-group-item list-group-item-action" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
+        <a class="list-group-item list-group-item-action" href="https://www.youtube.com/channel/UCH2s28nRiPPmPsY5UZbKP-Q" target="_blank" role="tab">Youtube</a>
+        <a class="list-group-item list-group-item-action" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
+    </div>
+  </div>  
+</div>          
+          <hr style="background-color: white">
+        <p class="m-0 text-right text-secondary">Copyright &copy; 2018. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>  
+  </body>
+
+</html>

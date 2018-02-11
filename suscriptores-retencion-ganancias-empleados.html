@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Estudio Diez - Retención ganancias empleados suscriptores">
+    <meta name="author" content="Estudio Diez - Consultores Impositivos">
+
+          <link rel="icon" 
+      type="image/png" 
+      href="images/favicon-32x32.png">
+
+    <title>Estudio Diez - Retención ganancias empleados suscriptores</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+  </head>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC-7p91BJOTidD1Ks5tt0xte5CVCO_XJz0",
+    authDomain: "retencion-ganancias.firebaseapp.com",
+    databaseURL: "https://retencion-ganancias.firebaseio.com",
+    projectId: "retencion-ganancias",
+    storageBucket: "retencion-ganancias.appspot.com",
+    messagingSenderId: "976119129848"
+  };  
+</script>
+    
+        <header>
+    <div class="row">
+      <div class="col mb-4 crop">          
+        <img src="images/encabezado-suscriptores.jpg" class="img-fluid centered rounded" style="opacity: 0.5" style="background-size: cover">
+    </div>
+    </div>
+    <!--/divrow -->
+
+  </header
+
+  <body>
+
+<script>
+firebase.initializeApp(config);
+const auth=firebase.auth();
+const db=firebase.database();
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+if (user) {
+//blank if correct login
+} else {
+window.location.href = 'suscriptores.html'; 
+}
+});
+</script>
+
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light fixed-top" style="background-color: #fff;">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+        <img src="images/logo-E10-1.png" class="img-fluid" width="100%" alt="Estudio Diez">
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarEstudio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Estudio
+              </a>
+              <div class="dropdown-menu dropdown-menu-right alert alert-primary" role="alert" aria-labelledby="navbarEstudio">
+                <a class="dropdown-item" href="perfil.html">Perfil</a>
+                <a class="dropdown-item" href="organizacion.html">Organizacion</a>
+                <a class="dropdown-item" href="socios.html">Socios</a>
+              </div>
+            </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarServicios" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Servicios
+              </a>
+              <div class="dropdown-menu dropdown-menu-right alert alert-secondary" role="alert" aria-labelledby="navbarServicios">
+                <a class="dropdown-item" href="impositivo.html">Impositivo</a>
+                <a class="dropdown-item" href="contable.html">Contable</a>
+                <a class="dropdown-item" href="juridico.html">Jurídico</a>
+              </div>
+            </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarCapacitacion" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Capacitación
+              </a>
+              <div class="dropdown-menu dropdown-menu-right alert alert-success" role="alert" aria-labelledby="navbarCapacitacion">
+                <a class="dropdown-item" href="eventos.html">Eventos</a>
+                <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="publicaciones.html">Publicaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sitios-de-interes.html">Sitios de interés</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+              <button type="button" id="signOut" class="btn btn-secondary" style="width: 10%">Salir</button>
+  <script>
+document.getElementById('signOut').addEventListener('click', function(event) {
+firebase.auth().signOut();
+});
+  </script>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3">Reforma tributaria
+        <small>Departamento de Capacitación</small>
+      </h1>
+        
+      <!-- Material -->
+        <div class="row">
+            <div class="alert alert-info col-lg-12" role="alert">
+  <h4 class="alert-heading">Reforma tributaria 2018</h4>
+  <p>Material</p>
+  <hr>
+  <p class="mb-0">Departamento de Capacitación</p>
+            </div>
+            <div class="card-deck">
+    <div class="card border-primary bg-primary text-white mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Ganancias</div>
+  <div class="card-body bg-light">
+    <h3 class="card-title text-primary">Ganancias</h3><h6 class="text-primary">3era. categoría</h6>
+      <hr class="border-primary">
+    <p class="card-text text-primary">Sujetos del impuesto</p>
+    <p class="card-text text-primary">Alícuota del impuesto</p>
+    <p class="card-text text-primary">Retención sobre dividendos</p>
+    <p class="card-text text-primary">Situaciones asimilables a dividendos</p>
+    <p class="card-text text-primary">Disposición bienes o fondos a favor de 3eros.</p>
+    <p class="card-text text-primary">Venta y reemplazo de inmuebles</p>
+    <p class="card-text text-primary">Ajuste por inflación impositivo</p>
+    <p class="card-text text-primary">y más...</p>      
+  </div>
+        <div class="card-footer border-light"><a href="" class="card-link text-white">Ver material</a></div>
+    </div>
+    <div class="card border-success bg-success text-white mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Procedimiento</div>
+  <div class="card-body bg-light">
+    <h3 class="card-title text-success">Procedimiento y penal</h3><h6 class="text-success">tributario</h6>
+      <hr class="border-success">
+    <p class="card-text text-success">Interpretación de las leyes impositivas</p>
+    <p class="card-text text-success">Domicilio fiscal electrónico</p>
+    <p class="card-text text-success">Verificación y fiscalización</p>
+    <p class="card-text text-success">Régimen recursivo</p>
+    <p class="card-text text-success">Tributos provinciales</p>
+    <p class="card-text text-success">Responsabilidad penal de personas jurídicas</p>      
+    <p class="card-text text-success">y más...</p>      
+  </div>
+        <div class="card-footer border-light"><a href="" class="card-link text-white">Ver material</a></div>
+    </div>
+    <div class="card border-primary bg-primary text-white mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Ganancias</div>
+  <div class="card-body bg-light">
+    <h3 class="card-title text-primary">Fuente</h3><h6 class="text-primary">extranjera</h6>
+      <hr class="border-primary">
+    <p class="card-text text-primary">Imputación de ingresos y gastos</p>
+    <p class="card-text text-primary">Quebrantos específicos</p>
+    <p class="card-text text-primary">Rentas de segunda categoría. Actualización</p>      
+  </div>
+        <div class="card-footer border-light"><a href="" class="card-link text-white">Ver material</a></div>
+    </div>
+        </div>
+            <div class="card-deck">
+    <div class="card border-primary bg-primary text-white mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Ganancias</div>
+  <div class="card-body bg-light">
+    <h3 class="card-title text-primary">Personas</h3><h6 class="text-primary">humanas</h6>
+      <hr class="border-primary">
+    <p class="card-text text-primary">Objeto del impuesto. Nuevas rentas gravadas</p>
+    <p class="card-text text-primary">Deducción especial. Incremento</p>
+    <p class="card-text text-primary">Sociedad conyugal. Atribución de rentas</p>
+    <p class="card-text text-primary">Ganancias de los menores de edad</p>
+    <p class="card-text text-primary">1era. categoría. Derecho real de superficie</p>
+    <p class="card-text text-primary">4ta. categoría. Desvinculación cargos directivos</p>
+    <p class="card-text text-primary">Deducciones generales</p>    
+  </div>
+        <div class="card-footer border-light"><a href="" class="card-link text-white">Ver material</a></div>
+    </div>
+    <div class="card border-primary bg-primary text-white mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Ganancias</div>
+  <div class="card-body bg-light">
+    <h3 class="card-title text-primary">Renta</h3><h6 class="text-primary">financiera</h6>
+      <hr class="border-primary">
+    <h3 class="card-title text-primary">Transferencia derechos</h3><h6 class="text-primary">sobre inmuebles</h6>
+      <hr class="border-primary">
+    <p class="card-text text-primary">Carácter cedular del impuesto</p>
+    <p class="card-text text-primary">Personas humanas residentes en el país</p>
+    <p class="card-text text-primary">Personas humanas residentes en el exterior</p>    
+  </div>
+        <div class="card-footer border-light"><a href="" class="card-link text-white">Ver material</a></div>
+    </div>
+    <div class="card border-info bg-info text-white mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Previsional</div>
+  <div class="card-body bg-light">
+    <h3 class="card-title text-info">Seguridad</h3><h6 class="text-primary">social</h6>
+      <hr class="border-info">
+    <p class="card-text text-info">Contribuciones patronales. Alícuota</p>
+    <p class="card-text text-info">Contribuciones patronales. Base imponible</p>
+    <p class="card-text text-info">Contribuciones patronales. Importe deducible</p>
+    <p class="card-text text-info">Régimen de reducción contribuciones</p>
+    <p class="card-text text-info">Reducción convenios de corresponsabilidad gremial</p>
+    <p class="card-text text-info">Contribuciones patronales. Cómputo IVA</p>
+   </div>
+        <div class="card-footer border-light"><a href="" class="card-link text-white">Ver material</a></div>
+    </div>
+        </div>
+            <div class="card-deck">
+    <div class="card border-danger bg-danger text-white mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Monotributo</div>
+  <div class="card-body bg-light">
+    <h3 class="card-title text-danger">Monotributo</h3><h6 class="text-danger">aspectos salientes</h6>
+      <hr class="border-danger">
+    <p class="card-text text-danger">Definición pequeño contribuyente</p>
+    <p class="card-text text-danger">Venta de bienes muebles. Acceso a categorías</p>
+    <p class="card-text text-danger">Recategorización semestral</p>
+    <p class="card-text text-danger">Exclusiones</p>
+    <p class="card-text text-danger">Sanciones. Base de cálculo</p>    
+    <p class="card-text text-danger">Parámetros e impuesto a ingresar. Actualización</p>
+  </div>
+        <div class="card-footer border-light"><a href="" class="card-link text-white">Ver material</a></div>
+    </div>
+    <div class="card text-white mb-3" style="border-color: #9900ff; background-color: #9900ff; max-width: 25rem;">
+  <div class="card-header border-light text-white">IVA</div>
+  <div class="card-body bg-light">
+    <h3 class="card-title" style="color: #9900ff">IVA</h3><h6 style="color: #9900ff">aspectos salientes</h6>
+      <hr style="border-color: #9900ff">
+    <p style="color: #9900ff">Servicios digitales prestados en el exterior</p>
+    <p style="color: #9900ff">Créditos fiscales por bienes de uso. Devolución</p>
+    <p style="color: #9900ff">Venta de animales. Alícuota del 10,50%</p>    
+  </div>
+        <div class="card-footer border-light"><a href="" class="card-link text-white">Ver material</a></div>
+    </div>
+    <div class="card border-primary bg-primary text-white mb-3" style="max-width: 25rem;">
+  <div class="card-header border-light text-white">Ganancias</div>
+  <div class="card-body bg-light">
+    <h3 class="card-title text-primary">Revalúo</h3><h6 class="text-primary">impositivo</h6>
+      <hr class="border-primary">
+    <p class="card-text text-primary">¿Quiénes pueden realizar el revalúo?</p>
+    <p class="card-text text-primary">¿Cuándo debe practicarse?</p>
+    <p class="card-text text-primary">¿Qué bienes se pueden revaluar?</p>
+    <p class="card-text text-primary">Si opto por revaluar, ¿es por todos los bienes?</p>
+    <p class="card-text text-primary">¿Cómo se realiza el revalúo?</p>
+    <p class="card-text text-primary">¿Qué es el importe de revalúo?</p>
+    <p class="card-text text-primary">Costo del revalúo. Impuesto especial</p>
+    <p class="card-text text-primary">y más...</p>
+  </div>
+        <div class="card-footer border-light"><a href="" class="card-link text-white">Ver material</a></div>
+    </div>
+        </div>            
+        </div>        
+        <div style="text-align: center">
+            <hr>
+        <button type="button" id="novedades" class="btn btn-info" style="width: 40%"><a href="novedades.html" class="card-link text-white">Acceder a las Novedades Impositivas</a></button>
+            <hr>
+        </div>        
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">          
+<div class="row">
+  <div class="col-lg-3 mb-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-info active text-light" role="tab">Estudio</a>
+      <a class="list-group-item list-group-item-action" href="perfil.html" role="tab">Perfil</a>
+      <a class="list-group-item list-group-item-action" href="organizacion.html" role="tab">Organización</a>
+      <a class="list-group-item list-group-item-action" href="socios.html" role="tab">Socios</a>
+        <a class="list-group-item list-group-item-action" href="publicaciones.html" role="tab">Publicaciones</a>
+    </div>
+  </div>
+  <div class="col-lg-3 mb-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-secondary active text-light" role="tab">Servicios</a>
+      <a class="list-group-item list-group-item-action" href="impositivo.html" role="tab">Impositivos</a>
+      <a class="list-group-item list-group-item-action" href="contable.html" role="tab">Contable</a>
+      <a class="list-group-item list-group-item-action" href="juridico.html" role="tab">Jurídicos</a>
+    </div>
+  </div>
+  <div class="col-lg-3 mb-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-success active text-light" role="tab">Capacitación</a>
+      <a class="list-group-item list-group-item-action" href="eventos.html" role="tab">Eventos</a>
+      <a class="list-group-item list-group-item-action" href="suscriptores.html" role="tab">Suscriptores</a>
+    </div>
+  </div>
+  <div class="col-lg-3 mb-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-warning active text-light" role="tab">Conecta</a>
+      <a class="list-group-item list-group-item-action" href="contact.html" role="tab">Contacto</a>
+      <a class="list-group-item list-group-item-action" href="sitios-de-interes.html" role="tab">Link's de interés</a>
+      <a class="list-group-item list-group-item-action" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
+        <a class="list-group-item list-group-item-action" href="https://www.youtube.com/channel/UCH2s28nRiPPmPsY5UZbKP-Q" target="_blank" role="tab">Youtube</a>
+        <a class="list-group-item list-group-item-action" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
+    </div>
+  </div>  
+</div>          
+          <hr style="background-color: white">
+        <p class="m-0 text-right text-secondary">Copyright &copy; 2018. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>  
+  </body>
+
+</html>
