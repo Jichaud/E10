@@ -27,30 +27,26 @@
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyDBu61A-iVc72-pIjnmZJxjCjEkM-D_dEA",
+    apiKey: "AIzaSyDBu61A-iVc72-pIjnmZJxjCjEkM-D_dEA",
     authDomain: "estudio-diez-webpage.firebaseapp.com",
     databaseURL: "https://estudio-diez-webpage.firebaseio.com",
     projectId: "estudio-diez-webpage",
     storageBucket: "estudio-diez-webpage.appspot.com",
-    messagingSenderId: "581159183021"
+    messagingSenderId: "581159183021"
   };
-</script>
-  
-  <script>
+    
   // Initialize Firebase
-  var config = {
+  var configstreaming = {
     apiKey: "AIzaSyCQXoksw3C47bOWg7scIbsJWLVTPeT97p0",
     authDomain: "estudio-diez-streaming.firebaseapp.com",
     databaseURL: "https://estudio-diez-streaming.firebaseio.com",
     projectId: "estudio-diez-streaming",
     storageBucket: "estudio-diez-streaming.appspot.com",
     messagingSenderId: "599746842056"
-  };
-</script>
-  
-  <script>
-  // Initialize Firebase
-  var config = {
+  };    
+
+    // Initialize Firebase
+  var configretencionganancias = {
     apiKey: "AIzaSyC-7p91BJOTidD1Ks5tt0xte5CVCO_XJz0",
     authDomain: "retencion-ganancias.firebaseapp.com",
     databaseURL: "https://retencion-ganancias.firebaseio.com",
@@ -58,18 +54,16 @@
     storageBucket: "retencion-ganancias.appspot.com",
     messagingSenderId: "976119129848"
   };
-</script>
-  
-  <script>
+
   // Initialize Firebase
-  var config = {
+  var configreformatributaria = {
     apiKey: "AIzaSyCnzSBNe8lOq7AwWSU8f_-TuUwuOJ83VUs",
     authDomain: "reforma-tributaria.firebaseapp.com",
     databaseURL: "https://reforma-tributaria.firebaseio.com",
     projectId: "reforma-tributaria",
     storageBucket: "reforma-tributaria.appspot.com",
     messagingSenderId: "296085476842"
-  };
+  };      
 </script>
 
     <header>
@@ -83,9 +77,16 @@
 
   <body>
 <script>
-firebase.initializeApp(config);
-const auth=firebase.auth();
-const db=firebase.database();
+//firebase.initializeApp(config);
+//var primera = firebase.initializeApp(configwebpage, "primera");
+//var secondary = firebase.initializeApp(configstreaming);
+//var tercera = firebase.initializeApp(configreformatributaria, "tercera");
+//var cuarta = firebase.initializeApp(configretencionganancias, "cuarta");
+//firebase.initializeApp(configstreaming);
+//firebase.initializeApp(configreformatributaria);
+//firebase.initializeApp(configretencionganancias);
+//const auth=firebase.auth();
+//const db=firebase.database();
 
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -152,7 +153,8 @@ window.location.href = 'suscriptores.html';
               <button type="button" id="signOut" class="btn btn-secondary" style="width: 10%">Salir</button>
   <script>
 document.getElementById('signOut').addEventListener('click', function(event) {
-firebase.auth().signOut();
+//firebase.auth().signOut();
+window.location.href = "suscriptores.html";
 });
   </script>
     </nav>
