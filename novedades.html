@@ -8,8 +8,8 @@
     <meta name="description" content="Estudio Diez - Novedades Impositivas">
     <meta name="author" content="Estudio Diez - Consultores Impositivos">
 
-          <link rel="icon" 
-      type="image/png" 
+          <link rel="icon"
+      type="image/png"
       href="images/favicon-32x32.png">
 
     <title>Estudio Diez - Novedades Impositivas</title>
@@ -34,7 +34,7 @@
     storageBucket: "estudio-diez-webpage.appspot.com",
     messagingSenderId: "581159183021"
   };
-    
+
   // Initialize Firebase
   var configstreaming = {
     apiKey: "AIzaSyCQXoksw3C47bOWg7scIbsJWLVTPeT97p0",
@@ -43,7 +43,7 @@
     projectId: "estudio-diez-streaming",
     storageBucket: "estudio-diez-streaming.appspot.com",
     messagingSenderId: "599746842056"
-  };    
+  };
 
     // Initialize Firebase
   var configretencionganancias = {
@@ -63,12 +63,12 @@
     projectId: "reforma-tributaria",
     storageBucket: "reforma-tributaria.appspot.com",
     messagingSenderId: "296085476842"
-  };      
+  };
 </script>
 
     <header>
     <div class="row">
-      <div class="col mb-4 crop">          
+      <div class="col mb-4 crop">
         <img src="images/encabezado-suscriptores.jpg" class="img-fluid centered rounded" style="opacity: 0.5" style="background-size: cover">
     </div>
     </div>
@@ -77,7 +77,7 @@
 
   <body>
 <script>
-//firebase.initializeApp(config);
+firebase.initializeApp(config);
 //var primera = firebase.initializeApp(configwebpage, "primera");
 //var secondary = firebase.initializeApp(configstreaming);
 //var tercera = firebase.initializeApp(configreformatributaria, "tercera");
@@ -93,7 +93,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 if (user) {
 //blank if correct login
 } else {
-window.location.href = 'suscriptores.html'; 
+window.location.href = 'suscriptores.html';
 }
 });
 </script>
@@ -166,7 +166,7 @@ window.location.href = "suscriptores.html";
       <h1 class="mt-4 mb-3">Novedades impositivas
         <small>Departamento de Capacitación</small>
       </h1>
-        
+
       <!-- 2018 -->
         <div class="row">
             <div class="alert alert-info col-lg-12" role="alert">
@@ -176,7 +176,7 @@ window.location.href = "suscriptores.html";
   <p class="mb-0">Departamento de Capacitacion</p>
             </div>
 <div class="alert alert-primary col-lg-12" role="alert">
-  <h4 class="alert-heading">Novedades impositivas</h4>  
+  <h4 class="alert-heading">Novedades impositivas</h4>
             </div>
             <div class="card-deck">
     <div class="card border-primary bg-primary text-white mb-3" style="max-width: 22rem;">
@@ -194,11 +194,11 @@ window.location.href = "suscriptores.html";
   </div>
     </div>
         </div>
-    
+
     <!-- Índice de impuestos -->
                 <div class="row">
         <div class="alert alert-success col-lg-12" role="alert">
-  <h4 class="alert-heading">Índice de impuestos</h4>  
+  <h4 class="alert-heading">Índice de impuestos</h4>
             </div>
 
             <div class="card-deck">
@@ -280,7 +280,7 @@ window.location.href = "suscriptores.html";
 
 
         <!-- /.row -->
-    
+
       <hr>
 
       <!-- 2017 -->
@@ -292,7 +292,7 @@ window.location.href = "suscriptores.html";
   <p class="mb-0">Departamento de Capacitacion</p>
             </div>
             <div class="alert alert-info col-lg-12" role="alert">
-  <h4 class="alert-heading">Novedes impositivas</h4>  
+  <h4 class="alert-heading">Novedes impositivas</h4>
             </div>
             <div class="card-deck">
 <div class="card border-primary bg-primary mb-3" style="max-width: 18rem;">
@@ -324,7 +324,7 @@ window.location.href = "suscriptores.html";
   </div>
     </div>
             </div>
-            </div>        
+            </div>
         <div class="row">
             <div class="card-deck">
 <div class="card border-info bg-info mb-3" style="max-width: 18rem;">
@@ -393,7 +393,7 @@ window.location.href = "suscriptores.html";
         <!-- Índice de impuestos -->
         <div class="row">
         <div class="alert alert-success col-lg-12" role="alert">
-  <h4 class="alert-heading">Índice de impuestos</h4>  
+  <h4 class="alert-heading">Índice de impuestos</h4>
             </div>
             <div class="card-deck">
 <div class="card border-warning bg-warning mb-3" style="max-width: 25rem;">
@@ -507,7 +507,7 @@ window.location.href = "suscriptores.html";
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
-      <div class="container">          
+      <div class="container">
 <div class="row">
   <div class="col-lg-3 mb-4">
     <div class="list-group" id="list-tab" role="tablist">
@@ -542,8 +542,8 @@ window.location.href = "suscriptores.html";
         <a class="list-group-item list-group-item-action" href="https://www.youtube.com/channel/UCH2s28nRiPPmPsY5UZbKP-Q" target="_blank" role="tab">Youtube</a>
         <a class="list-group-item list-group-item-action" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
     </div>
-  </div>  
-</div>          
+  </div>
+</div>
           <hr style="background-color: white">
         <p class="m-0 text-right text-secondary">Copyright &copy; 2018. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
       </div>
@@ -552,7 +552,7 @@ window.location.href = "suscriptores.html";
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>  
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 
 </html>
