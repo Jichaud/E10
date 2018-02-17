@@ -8,8 +8,8 @@
     <meta name="description" content="Estudio Diez - Retención ganancias empleados suscriptores">
     <meta name="author" content="Estudio Diez - Consultores Impositivos">
 
-          <link rel="icon" 
-      type="image/png" 
+          <link rel="icon"
+      type="image/png"
       href="images/favicon-32x32.png">
 
     <title>Estudio Diez - Retención ganancias empleados suscriptores</title>
@@ -22,8 +22,6 @@
 
   </head>
 
-
-
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -34,12 +32,12 @@
     projectId: "retencion-ganancias",
     storageBucket: "retencion-ganancias.appspot.com",
     messagingSenderId: "976119129848"
-  };  
+  };
 </script>
-    
+
         <header>
     <div class="row">
-      <div class="col mb-4 crop">          
+      <div class="col mb-4 crop">
         <img src="images/encabezado-suscriptores.jpg" class="img-fluid centered rounded" style="opacity: 0.5" style="background-size: cover">
     </div>
     </div>
@@ -59,7 +57,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 if (user) {
 //blank if correct login
 } else {
-window.location.href = 'suscriptores.html'; 
+window.location.href = 'suscriptores.html';
 }
 });
 </script>
@@ -132,7 +130,7 @@ firebase.auth().signOut();
       <h1 class="mt-4 mb-3">Retención ganancias a empleados
         <small>Departamento de Capacitación</small>
       </h1>
-        
+
       <!-- Material -->
         <div class="row">
             <div class="alert alert-info col-lg-12" role="alert">
@@ -146,13 +144,13 @@ firebase.auth().signOut();
             <hr>
         <button type="button" id="novedades" class="btn btn-info" style="width: 40%"><a href="novedades.html" class="card-link text-white">Acceder a las Novedades Impositivas</a></button>
             <hr>
-        </div>        
+        </div>
     </div>
     <!-- /.container -->
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
-      <div class="container">          
+      <div class="container">
 <div class="row">
   <div class="col-lg-3 mb-4">
     <div class="list-group" id="list-tab" role="tablist">
@@ -187,8 +185,8 @@ firebase.auth().signOut();
         <a class="list-group-item list-group-item-action" href="https://www.youtube.com/channel/UCH2s28nRiPPmPsY5UZbKP-Q" target="_blank" role="tab">Youtube</a>
         <a class="list-group-item list-group-item-action" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
     </div>
-  </div>  
-</div>          
+  </div>
+</div>
           <hr style="background-color: white">
         <p class="m-0 text-right text-secondary">Copyright &copy; 2018. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
       </div>
@@ -197,7 +195,7 @@ firebase.auth().signOut();
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>  
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 
 </html>
