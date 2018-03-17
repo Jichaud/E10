@@ -22,8 +22,8 @@ body {
   margin-bottom: 30px;
 }
 
-.navbar-brand {  
-    width: 250px;    
+.navbar-brand {
+    width: 250px;
 }
 
 h3 {
@@ -35,7 +35,6 @@ h3 {
 h4 {
     color: #03224c;
     text-align:left;
-
 }
 
 p {
