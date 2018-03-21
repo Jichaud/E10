@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Estudio Diez - Retención ganancias empleados suscriptores">
+    <meta name="author" content="Estudio Diez - Consultores Impositivos">
+
+          <link rel="icon"
+      type="image/png"
+      href="images/favicon-32x32.png">
+
+    <title>Estudio Diez - Retención ganancias empleados suscriptores</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+  </head>
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyD-vxkFtajqd-qQkgZjXFFjEzodjN0oQw0",
+      authDomain: "streaming-retencion-ganancias.firebaseapp.com",
+      databaseURL: "https://streaming-retencion-ganancias.firebaseio.com",
+      projectId: "streaming-retencion-ganancias",
+      storageBucket: "streaming-retencion-ganancias.appspot.com",
+      messagingSenderId: "605779473797"
+    };
+  </script>
+
+        <header>
+    <div class="row">
+      <div class="col mb-4 crop">
+        <img src="images/encabezado-suscriptores.jpg" class="img-fluid centered rounded" style="opacity: 0.5" style="background-size: cover">
+    </div>
+    </div>
+    <!--/divrow -->
+
+  </header
+
+  <body>
+
+<script>
+firebase.initializeApp(config);
+const auth=firebase.auth();
+const db=firebase.database();
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+if (user) {
+//blank if correct login
+} else {
+window.location.href = 'streaming-suscriptores.html';
+}
+});
+</script>
+
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light fixed-top" style="background-color: #fff;">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+        <img src="images/logo-E10-1.png" class="img-fluid" width="100%" alt="Estudio Diez">
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarEstudio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Estudio
+              </a>
+              <div class="dropdown-menu dropdown-menu-right alert alert-primary" role="alert" aria-labelledby="navbarEstudio">
+                <a class="dropdown-item" href="perfil.html">Perfil</a>
+                <a class="dropdown-item" href="organizacion.html">Organizacion</a>
+                <a class="dropdown-item" href="socios.html">Socios</a>
+              </div>
+            </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarServicios" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Servicios
+              </a>
+              <div class="dropdown-menu dropdown-menu-right alert alert-secondary" role="alert" aria-labelledby="navbarServicios">
+                <a class="dropdown-item" href="impositivo.html">Impositivo</a>
+                <a class="dropdown-item" href="contable.html">Contable</a>
+                <a class="dropdown-item" href="juridico.html">Jurídico</a>
+              </div>
+            </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarCapacitacion" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Capacitación
+              </a>
+              <div class="dropdown-menu dropdown-menu-right alert alert-success" role="alert" aria-labelledby="navbarCapacitacion">
+                <a class="dropdown-item" href="eventos.html">Eventos</a>
+                <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="publicaciones.html">Publicaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sitios-de-interes.html">Sitios de interés</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+              <button type="button" id="signOut" class="btn btn-secondary" style="width: 10%">Salir</button>
+  <script>
+document.getElementById('signOut').addEventListener('click', function(event) {
+firebase.auth().signOut();
+});
+  </script>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3">Retención ganancias a empleados
+        <small>Departamento de Capacitación</small>
+      </h1>
+
+      <!-- Material -->
+      <div class="row justify-content-center">
+        <div id="accordion" class="col-lg-12">
+          <div class="card border-light ">
+            <div class="card-header bg-danger text-white" id="headingOne">
+              <h6 class="mb-0">
+                <a class="card-link text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Material retención ganancias a empleados en relación de dependencia - Ver
+                </a>
+              </h6>
+            </div>
+            <p></p>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="alert alert-danger col-lg-12" role="alert">
+              <h4 class="alert-heading">Retención ganancias a empleados en relación de dependencia</h4>
+              <p class="alert-danger">Material</p>
+              <hr>
+              <p class="mb-0 alert-danger">Departamento de Capacitación</p>
+            </div>
+            <div class="card border-danger bg-danger text-white mb-3" style="max-width: 35rem;">
+              <div class="card-header border-light text-white">Retención ganancias</div>
+                <div class="card-body bg-light">
+                  <h3 class="card-title text-danger">Retención ganancias</h3><h6 class="text-danger"> <small>a empleados en relación de dependencia</small> </h6>
+                  <hr class="border-danger">
+                  <p class="card-text text-danger">Normativa aplicable a partir del período 2017</p>
+                  <p class="card-text text-danger">RETENCIÓN IMPUESTO A LAS GANANCIAS | RG (AFIP) 4003</p>
+                  <p class="card-text text-danger">RENTAS DE CUARTA CATEGORÍA</p>
+                  <p class="card-text text-danger">TÉCNICA DE LIQUIDACIÓN - PERSONA HUMANA</p>
+                  <p class="card-text text-danger">DETERMINACIÓN DEL IMPORTE A RETENER</p>
+                  <p class="card-text text-danger">DEDUCCIONES PERSONALES</p>
+                  <p class="card-text text-danger">PERSONAS HUMANAS. ALÍCUOTA DE IMPOSICIÓN</p>
+                  <p class="card-text text-danger">TABLAS DE DEDUCCIONES E IMPUESTO</p>
+                  <p class="card-text text-danger">ANEXO NORMATIVO - JURISPRUDENCIA</p>
+                  <p class="card-text text-danger">F. 572 WEB</p>
+                </div>
+                <div class="card-footer border-light"><a href="https://goo.gl/9hTf5w" target="blank_" class="card-link text-white">Ver material</a></div>
+            </div>
+
+            </div>
+          </div>
+        </div> <!-- accordion -->
+      </div> <!-- row material retención ganancias -->
+      <hr>
+      <!-- Novedades impositivas -->
+      <div class="row justify-content-center">
+        <div id="accordionTwo" class="col-lg-12">
+          <div class="card border-light ">
+            <div class="card-header bg-info text-white" id="headingTwo">
+              <h6 class="mb-0">
+                <a class="card-link text-white" data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                Video - Ver
+                </a>
+              </h6>
+            </div>
+            <p></p>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionTwo">
+              <div class="row col-lg-12">
+                <div class="card border-info bg-info text-white mb-3" style="max-width: 35rem;">
+                  <div class="card-header border-light text-white">Retención ganancias</div>
+                    <div class="card-body bg-light">
+                      <h3 class="card-title text-info">1era. parte</h3><h6 class="text-danger"> </h6>
+                      <hr class="border-info">
+                      <iframe width="460" height="315" src="https://www.youtube.com/embed/iitdQWZns8Y?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-footer border-light"></div>
+                </div>
+                <hr>
+                <div class="card border-info bg-info text-white mb-3" style="max-width: 35rem;">
+                  <div class="card-header border-light text-white">Retención ganancias</div>
+                    <div class="card-body bg-light">
+                      <h3 class="card-title text-info">2da. parte</h3><h6 class="text-danger"> </h6>
+                      <hr class="border-info">
+                      <iframe width="460" height="315" src="https://www.youtube.com/embed/fxTPaU4qmD0?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-footer border-light"></div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div> <!-- accordion -->
+        </div> <!-- row novedades -->
+      </div> <!-- /.container -->
+    <hr>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 mb-4">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item list-group-item-info active text-light" role="tab">Estudio</a>
+              <a class="list-group-item list-group-item-action" href="perfil.html" role="tab">Perfil</a>
+              <a class="list-group-item list-group-item-action" href="organizacion.html" role="tab">Organización</a>
+              <a class="list-group-item list-group-item-action" href="socios.html" role="tab">Socios</a>
+              <a class="list-group-item list-group-item-action" href="publicaciones.html" role="tab">Publicaciones</a>
+            </div>
+          </div>
+        <div class="col-lg-3 mb-4">
+          <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-secondary active text-light" role="tab">Servicios</a>
+            <a class="list-group-item list-group-item-action" href="impositivo.html" role="tab">Impositivos</a>
+            <a class="list-group-item list-group-item-action" href="contable.html" role="tab">Contable</a>
+            <a class="list-group-item list-group-item-action" href="juridico.html" role="tab">Jurídicos</a>
+          </div>
+        </div>
+        <div class="col-lg-3 mb-4">
+          <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-success active text-light" role="tab">Capacitación</a>
+            <a class="list-group-item list-group-item-action" href="eventos.html" role="tab">Eventos</a>
+            <a class="list-group-item list-group-item-action" href="suscriptores.html" role="tab">Suscriptores</a>
+          </div>
+        </div>
+        <div class="col-lg-3 mb-4">
+          <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-warning active text-light" role="tab">Conecta</a>
+            <a class="list-group-item list-group-item-action" href="contact.html" role="tab">Contacto</a>
+            <a class="list-group-item list-group-item-action" href="sitios-de-interes.html" role="tab">Link's de interés</a>
+            <a class="list-group-item list-group-item-action" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
+            <a class="list-group-item list-group-item-action" href="https://www.youtube.com/channel/UC1Rg9E5c1hEgTlysuGBRy6A" target="_blank" role="tab">Youtube</a>
+            <a class="list-group-item list-group-item-action" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
+          </div>
+        </div>
+        </div>
+          <hr style="background-color: white">
+          <p class="m-0 text-right text-secondary">Copyright &copy; 2018. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+
+</html>
