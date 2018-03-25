@@ -57,3 +57,9 @@ p {
 .alignup {
     vertical-align: bottom;
 }
+
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 20px;
+}
