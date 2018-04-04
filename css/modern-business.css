@@ -74,12 +74,9 @@ p {
 }
 .scroll {
 	position:absolute;
-	right:20px;
-	bottom:20px;
-	background:#17a2b8;
-	background:#17a2b8;
-  border-radius: 10%;
-	padding:20px;
+	right:0.5px;
+	bottom:1px;
+
 	text-align: center;
 	margin: 0 0 0 0;
 	cursor:pointer;
