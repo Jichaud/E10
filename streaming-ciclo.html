@@ -5,13 +5,14 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Estudio Diez - Suscriptores">
+    <meta name="description" content="Estudio Diez - Ciclo de Actualización Tributaria - streaming - suscriptores">
     <meta name="author" content="Estudio Diez - Consultores Impositivos">
 
-<link rel="icon"
+          <link rel="icon"
       type="image/png"
       href="images/favicon-32x32.png">
-    <title>Estudio Diez - suscriptores</title>
+
+    <title>Estudio Diez - Ciclo de Actualización Tributaria streaming</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,82 +22,20 @@
 
   </head>
 
-    <div id="retencionganancias">
 
-      <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-      <script>
-        // Initialize Firebase
-        var config = {
-          apiKey: "AIzaSyD-vxkFtajqd-qQkgZjXFFjEzodjN0oQw0",
-          authDomain: "streaming-retencion-ganancias.firebaseapp.com",
-          databaseURL: "https://streaming-retencion-ganancias.firebaseio.com",
-          projectId: "streaming-retencion-ganancias",
-          storageBucket: "streaming-retencion-ganancias.appspot.com",
-          messagingSenderId: "605779473797"
-        };
-        firebase.initializeApp(config);
-      </script>
-        <script src="js/firebase.js"></script>
-<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
-    <script type="text/javascript">
-      // FirebaseUI config.
-      var uiConfig = {
-        signInSuccessUrl: 'streaming-retencion-ganancias-empleados.html',
-        signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.EmailAuthProvider.PROVIDER_ID,
+  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyC_WA3rRbRYG7GlsLgG3-nStA4I4BhhUMc",
+      authDomain: "streaming-ciclo.firebaseapp.com",
+      databaseURL: "https://streaming-ciclo.firebaseio.com",
+      projectId: "streaming-ciclo",
+      storageBucket: "streaming-ciclo.appspot.com",
+      messagingSenderId: "284757035227"
+    };
 
-        ],
-        credentialHelper: firebaseui.auth.CredentialHelper.NONE
-      };
-
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
-
-    </script>
-
-    </div>
-
-    <div id="streaming">
-
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyC_WA3rRbRYG7GlsLgG3-nStA4I4BhhUMc",
-    authDomain: "streaming-ciclo.firebaseapp.com",
-    databaseURL: "https://streaming-ciclo.firebaseio.com",
-    projectId: "streaming-ciclo",
-    storageBucket: "streaming-ciclo.appspot.com",
-    messagingSenderId: "284757035227"
-  };
-  firebase.initializeApp(config);
-</script>
-
-<script src="js/firebase.js"></script>
-<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
-<script type="text/javascript">
-// FirebaseUI config.
-var uiConfig = {
-signInSuccessUrl: 'streaming-ciclo.html',
-signInOptions: [
-// Leave the lines as is for the providers you want to offer your users.
-firebase.auth.EmailAuthProvider.PROVIDER_ID,
-
-],
-credentialHelper: firebaseui.auth.CredentialHelper.NONE
-};
-
-// Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-// The start method will wait until the DOM is loaded.
-ui.start('#firebaseui2-auth-container', uiConfig);
-
-</script>
-
-    </div>
+  </script>
 
         <header>
     <div class="row">
@@ -105,9 +44,26 @@ ui.start('#firebaseui2-auth-container', uiConfig);
     </div>
     </div>
     <!--/divrow -->
+
   </header
 
-    <body>
+  <body>
+
+    <script>
+    firebase.initializeApp(config);
+    const auth=firebase.auth();
+    const db=firebase.database();
+
+
+    firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+    //blank if correct login
+    } else {
+    window.location.href = 'streaming-suscriptores.html';
+    }
+    });
+    </script>
+
 
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light fixed-top" style="background-color: #fff;">
@@ -161,55 +117,77 @@ ui.start('#firebaseui2-auth-container', uiConfig);
           </ul>
         </div>
       </div>
+              <button type="button" id="signOut" class="btn btn-secondary" style="width: 10%">Salir</button>
+  <script>
+document.getElementById('signOut').addEventListener('click', function(event) {
+firebase.auth().signOut();
+});
+  </script>
     </nav>
 
     <!-- Page Content -->
     <div class="container">
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3">Ciclo de Actualización Tributaria - streaming
+        <small>Departamento de Capacitación</small>
+      </h1>
+
+      <!-- Material -->
       <div class="row justify-content-center">
-        <div id="accordion" class="col-lg-6">
-          <div class="card border-danger bg-light">
-            <div class="card-header bg-danger text-white" id="headingOne">
+        <div id="accordion" class="col-lg-12">
+          <div class="card border-light ">
+            <div class="card-header bg-primary text-white" id="headingOne">
               <h6 class="mb-0">
                 <a class="card-link text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Streaming Retención Ganancias a empleados - Acceso
+                Ciclo de Actualización Tributaria 2018 - streaming - Ver
                 </a>
               </h6>
             </div>
+            <p></p>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body">
-                <div class="card border-danger bg-light mb-3" style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
-                  <div class="card-header bg-danger text-white">Retención Ganancias a empleados</div>
-                  <div class="card-body">
-                    <h1 class="card-title"><small>Streaming</small></h1>
-                    <p class="card-text"><div id="firebaseui-auth-container"></div></p>
+            <div class="alert alert-success col-lg-12" role="alert">
+              <h4 class="alert-heading">Video de la reunión del 23/marzo/2018</h4>
+              <p class="alert-success">Video</p>
+
+              <!-- <h4 class="alert-heading">Consultas de la reunión del 23/marzo/2018</h4> -->
+              <hr>
+              <p class="mb-0 alert-success">Departamento de Capacitación</p>
+            </div>
+            <div class="alert alert-secondary col-lg-12" role="alert">
+              <h4 class="alert-heading">Consideraciones</h4>
+              <p class="alert-secondary">Nuestros videos están grabados en HD. Recuerde que también puede verlos a pantalla completa</p>
+              <hr>
+              <img src="blog\bimages\youtube.png" class="rounded" width="60%" /></b></li>
+            </div>
+            <div class="card border-primary bg-primary text-white">
+              <div class="card-header border-light text-white">Ciclo de Actualización Tributaria 2018</div>
+                <div class="card-body bg-light">
+                  <h3 class="card-title text-primary">1era. reunión | 1era. parte</h3><h6 class="text-danger"> </h6>
+                  <hr class="border-primary">
+                  <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" width="460" height="315" src="https://www.youtube.com/embed/iU9QDJ_k9rc?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                   </div>
                 </div>
-              </div>
-            </div>
+                <div class="card-footer border-light"></div>
           </div>
-          <br>
-          <div class="card border-info bg-light">
-            <div class="card-header bg-info text-white" id="headingTwo">
-              <h6 class="mb-0">
-                <a class="card-link text-white" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Ciclo de Actualización Tributaria streaming - Acceso
-                </a>
-              </h6>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-              <div class="card-body">
-                <div class="card border-info bg-light mb-3" disabled style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
-                  <div class="card-header bg-info text-white">Streaming | Ciclo de Actualización Tributaria</div>
-                  <div class="card-body">
-                    <h1 class="card-title"><small>Streaming</small></h1>
-                    <p class="card-text"><div id="firebaseui2-auth-container"></div></p>
-                  </div>
+          <hr>
+          <div class="card border-primary bg-primary text-white">
+            <div class="card-header border-light text-white">Ciclo de Actualización Tributaria 2018</div>
+              <div class="card-body bg-light">
+                <h3 class="card-title text-primary">1era. reunión | 2da. parte</h3><h6 class="text-danger"> </h6>
+                <hr class="border-primary">
+                <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" width="460" height="315" src="https://www.youtube.com/embed/iyb53XpKigo?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
               </div>
+              <div class="card-footer border-light"></div>
+          </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div> <!-- accordion -->
+      </div> <!-- row videos -->
+
     </div> <!-- /.container -->
     <hr>
 
@@ -261,7 +239,6 @@ ui.start('#firebaseui2-auth-container', uiConfig);
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
   </body>
 
 </html>
