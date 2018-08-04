@@ -65,7 +65,7 @@ p {
 }
 
 .scrolltop {
-	display:none;
+	display:block;
 	width:100%;
 	margin:0 auto;
 	position:fixed;
@@ -79,8 +79,8 @@ p {
 	text-align: center;
 	margin: 0 0 0 0;
 	cursor:pointer;
-	transition: 0.5s;
-	-moz-transition: 0.5s;
-	-webkit-transition: 0.5s;
-	-o-transition: 0.5s;
+	transition: 1s;
+	-moz-transition: 1s;
+	-webkit-transition: 1s;
+	-o-transition: 1s;
 }
