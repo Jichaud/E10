@@ -61,7 +61,62 @@
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-light fixed-top" style="background-color: #fff">
       <div class="container">
-<button type="button" class="btn btn-outline-success" onclick="history.back()">Volver al blog</button>
+        <a href="../blog.html"><button type="button" class="btn btn-outline-success">Volver al blog</button></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <p class="text-white">blank</p>
+            </li>
+            <li class="nav-item">
+              <a href="#autonomos"><button type="button" class="h3-a btn btn-outline-info">Autónomos</button></a>
+            </li>
+            <li class="nav-item">
+              <p class="text-white">blank</p>
+            </li>
+            <li class="nav-item">
+              <a href="#suss"><button type="button" class="h3-a btn btn-outline-warning">SUSS</button></a>
+            </li>
+            <li class="nav-item">
+              <p class="text-white">blank</p>
+            </li>
+            <li class="nav-item">
+              <a href="#sicore"><button type="button" class="h3-a btn btn-outline-secondary">SICORE</button></a>
+            </li>
+            <li class="nav-item">
+              <p class="text-white">blank</p>
+            </li>
+            <li class="nav-item">
+              <a href="#casas"><button type="button" class="h3-a btn btn-outline-success">Casas particulares</button></a>
+            </li>
+            <li class="nav-item">
+              <p class="text-white">blank</p>
+            </li>
+            <li class="nav-item">
+              <a href="#convenio"><button type="button" class="h3-a btn btn-outline-primary">Convenio multilateral</button></a>
+            </li>
+            <li class="nav-item">
+              <p class="text-white">blank</p>
+            </li>
+            <li class="nav-item">
+              <a href="#anticipos"><button type="button" class="h3-a btn btn-outline-warning">Anticipos PH</button></a>
+            </li>
+            <li class="nav-item">
+              <p class="text-white">blank</p>
+            </li>
+            <li class="nav-item">
+              <a href="#iva"><button type="button" class="h3-a btn btn-outline-danger">IVA</button></a>
+            </li>
+            <li class="nav-item">
+              <p class="text-white">blank</p>
+            </li>
+            <li class="nav-item">
+              <a href="#mt"><button type="button" class="h3-a btn btn-outline-success">Monotributo</button></a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -78,10 +133,13 @@
             <div><h3 class="h1-a display-4 text-success">Principales vencimientos
                <small><p class="h1-a text-success">Agenda de Octubre/2018</p></small>
                 </h3>
+                <p id="autonomos" class="text-white">autónomos</p>
             </div>
 
+            <hr>
+
             <div class="h4-a text-info alert alert-info col-lg-8" role="alert">
-              Autónomos - septiembre/2018
+              Autónomos - Régimen general - septiembre/2018
               <button type="button" class="close">
               <a href="https://auth.afip.gob.ar/contribuyente_/login.xhtml" target="_blank" class="h3-a text-info card-link">Generar VEP</a>
               </button>
@@ -113,7 +171,7 @@
               </div>
 
           </div> <!-- card deck -->
-
+          <p id="suss" class="text-white">suss</p>
           <hr>
 
           <div class="h4-a text-warning alert alert-warning col-lg-8" role="alert">
@@ -149,7 +207,7 @@
             </div>
 
         </div> <!-- card deck -->
-
+        <p id="sicore" class="text-white">sicore</p>
         <hr>
 
         <div class="h4-a text-dark alert alert-secondary col-lg-8" role="alert">
@@ -186,6 +244,41 @@
 
       </div> <!-- card deck -->
 
+      <div class="h4-a text-dark alert alert-secondary col-lg-8" role="alert">
+        SICORE - 1º quincena - octubre/2018
+        <button type="button" class="close">
+        <a href="https://auth.afip.gob.ar/contribuyente_/login.xhtml" target="_blank" class="h3-a text-dark card-link">Presentar DDJJ</a>
+        </button>
+      </div>
+      <div class="card-deck">
+
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-header text-dark border-dark"><i class="fas fa-calendar text-dark" aria-hidden="true"></i>&nbsp;&nbsp;CUIT's 0 - 3</div>
+          <div class="card-body">
+            <h5 class="card-title text-dark">lunes/22</h5>
+          </div>
+          <div class="card-footer small text-dark border-dark">1º quincena octubre</div>
+        </div>
+
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-header text-dark border-dark"><i class="fas fa-calendar text-dark" aria-hidden="true"></i>&nbsp;&nbsp;CUIT's 4 - 6</div>
+          <div class="card-body">
+            <h5 class="card-title text-dark">martes/23</h5>
+          </div>
+          <div class="card-footer small text-dark border-dark">1º quincena octubre</div>
+        </div>
+
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-header text-dark border-dark"><i class="fas fa-calendar text-dark" aria-hidden="true"></i>&nbsp;&nbsp;CUIT's 7 - 9</div>
+          <div class="card-body">
+            <h5 class="card-title text-dark">miércoles/24</h5>
+          </div>
+          <div class="card-footer small text-dark border-dark">1º quincena octubre</div>
+        </div>
+
+    </div> <!-- card deck -->
+
+    <p id="casas" class="text-white">casas particulares</p>
       <hr>
 
         <div class="h4-a text-success alert alert-success col-lg-8" role="alert">
@@ -205,7 +298,7 @@
           </div>
 
       </div> <!-- card deck -->
-
+      <p id="convenio" class="text-white">convenio multilateral</p>
       <hr>
 
         <div class="h4-a text-primary alert alert-primary col-lg-8" role="alert">
@@ -249,7 +342,7 @@
           </div>
 
       </div> <!-- card deck -->
-
+      <p id="anticipos" class="text-white">anticipos ph</p>
       <hr>
 
       <div class="h4-a text-warning alert alert-warning col-lg-8" role="alert">
@@ -285,11 +378,11 @@
         </div>
 
     </div> <!-- card deck -->
-
+    <p id="iva" class="text-white">iva</p>
     <hr>
 
       <div class="h4-a text-danger alert alert-danger col-lg-8" role="alert">
-        IVA - septiembre/2018
+        IVA - Impuesto al valor agregado - septiembre/2018
         <button type="button" class="close">
         <a href="https://auth.afip.gob.ar/contribuyente_/login.xhtml" target="_blank" class="h3-a text-danger card-link">Presentar DDJJ</a>
         </button>
@@ -337,11 +430,11 @@
         </div>
 
     </div> <!-- card deck -->
-
+    <p id="mt" class="text-white">mt</p>
     <hr>
 
     <div class="h4-a text-success alert alert-success col-lg-8" role="alert">
-      Monotributo - octubre/2018
+      Monotributo - Régimen simplificado - octubre/2018
       <button type="button" class="close">
       <a href="https://auth.afip.gob.ar/contribuyente_/login.xhtml" target="_blank" class="h3-a text-success card-link">Generar VEP</a>
       </button>
