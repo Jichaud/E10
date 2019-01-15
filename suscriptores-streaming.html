@@ -58,7 +58,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 if (user) {
 //blank if correct login
 } else {
-window.location.href = 'suscriptores.html';
+// window.location.href = 'suscriptores.html';
 }
 });
 </script>
@@ -253,7 +253,7 @@ firebase.auth().signOut();
             </div>
     
             <div class="card-deck">
-              <div class="card bg-primary" style="max-width: 35rem;">
+              <div class="card bg-primary col-lg-6">
                   <div class="card-body">
                     <h4 class="h4-a text-white">Enero 2019</h4>
                     <hr class="bg-light">
@@ -262,7 +262,7 @@ firebase.auth().signOut();
                   </div>
                 </div>
                 <!-- habilitar en febrero 2019
-                <div class="card bg-warning" style="max-width: 35rem;">
+                <div class="card bg-warning col-lg-6">
                     <div class="card-body">
                       <h4 class="h4-a text-white">Febrero 2019</h4>
                       <hr class="bg-light">
@@ -275,7 +275,7 @@ firebase.auth().signOut();
             <hr> -->
             <div class="card-deck">
               <!-- habilitar en marzo 2019
-              <div class="card bg-success" style="max-width: 35rem;">
+              <div class="card bg-success col-lg-6">
                   <div class="card-body">
                     <h4 class="h4-a text-white">Marzo 2019</h4>
                     <hr class="bg-light">
@@ -284,7 +284,7 @@ firebase.auth().signOut();
                   </div>
                 </div> -->
                 <!-- habilitar en abril 2019
-                <div class="card bg-danger" style="max-width: 35rem;">
+                <div class="card bg-danger col-lg-6">
                     <div class="card-body">
                       <h4 class="h4-a text-white">Abril 2019</h4>
                       <hr class="bg-light">
@@ -297,7 +297,7 @@ firebase.auth().signOut();
             <hr> -->
             <div class="card-deck">
               <!-- habilitar en mayo 2019
-              <div class="card bg-secondary" style="max-width: 35rem;">
+              <div class="card bg-secondary col-lg-6">
                   <div class="card-body">
                     <h4 class="h4-a text-white">Mayo 2019</h4>
                     <hr class="bg-light">
@@ -306,7 +306,7 @@ firebase.auth().signOut();
                   </div>
                 </div> -->
                 <!-- habilitar en junio 2019
-                <div class="card bg-primary" style="max-width: 35rem;">
+                <div class="card bg-primary col-lg-6">
                     <div class="card-body">
                       <h4 class="h4-a text-white">Junio 2019</h4>
                       <hr class="bg-light">
@@ -319,7 +319,7 @@ firebase.auth().signOut();
             <hr> -->
             <div class="card-deck">
               <!-- habilitar en julio 2019
-              <div class="card bg-warning" style="max-width: 35rem;">
+              <div class="card bg-warning col-lg-6">
                   <div class="card-body">
                     <h4 class="h4-a text-white">Julio 2019</h4>
                     <hr class="bg-light">
@@ -328,7 +328,7 @@ firebase.auth().signOut();
                   </div>
                 </div> -->
                 <!-- habilitar en agosto 2019
-                <div class="card bg-success" style="max-width: 35rem;">
+                <div class="card bg-success col-lg-6">
                     <div class="card-body">
                       <h4 class="h4-a text-white">Agosto 2019</h4>
                       <hr class="bg-light">
@@ -341,7 +341,7 @@ firebase.auth().signOut();
             <hr> -->
             <div class="card-deck">
               <!-- habilitar en septiembre 2019
-              <div class="card bg-danger" style="max-width: 35rem;">
+              <div class="card bg-danger col-lg-6">
                   <div class="card-body">
                     <h4 class="h4-a text-white">Septiembre 2019</h4>
                     <hr class="bg-light">
@@ -350,7 +350,7 @@ firebase.auth().signOut();
                   </div>
                 </div> -->
                 <!-- habilitar en octubre 2019
-                <div class="card bg-secondary" style="max-width: 35rem;">
+                <div class="card bg-secondary col-lg-6">
                     <div class="card-body">
                       <h4 class="h4-a text-white">Octubre 2019</h4>
                       <hr class="bg-light">
@@ -363,7 +363,7 @@ firebase.auth().signOut();
             <hr> -->
             <div class="card-deck">
               <!-- habilitar en noviembre 2019
-              <div class="card bg-primary" style="max-width: 35rem;">
+              <div class="card bg-primary col-lg-6">
                   <div class="card-body">
                     <h4 class="h4-a text-white">Noviembre 2019</h4>
                     <hr class="bg-light">
@@ -372,7 +372,7 @@ firebase.auth().signOut();
                   </div>
                 </div> -->
                 <!-- habilitar en diciembre 2019
-                <div class="card bg-warning" style="max-width: 35rem;">
+                <div class="card bg-warning col-lg-6">
                     <div class="card-body">
                       <h4 class="h4-a text-white">Diciembre 2019</h4>
                       <hr class="bg-light">
@@ -389,21 +389,25 @@ firebase.auth().signOut();
           </div>
         
           <div class="card-deck">
-            <div class="card border-warning bg-warning mb-3" style="max-width: 25rem;">
-              <div class="card-header border-light text-white">A.G.I.P.</div>
-                <div class="card-body">
-                  <h5 class="card-title text-white">Índice de impuestos</h5>
-                  <a href="https://estudiodiez.page.link/agip2019" target="_blank"><img src="images/AGIP-300x66.png" class="rounded" style="width: 100%"></a>
+              <div class="card bg-warning col-lg-4">
+                  <div class="card-body">
+                    <h4 class="h4-a text-white">A.G.I.P.</h4>
+                    <hr class="bg-light">
+                    <p class="h3-a text-justify text-white">Índice de impuestos</p>
+                    <p class="card-text"><a href="https://estudiodiez.page.link/agip2019" target="_blank"><img src="images/AGIP-300x66.png" class="rounded" style="width: 100%"></a></p>
+                  </div>
                 </div>
-            </div>
-            <div class="card border-success bg-success mb-3" style="max-width: 25rem;">
-              <div class="card-header border-light text-light">A.R.B.A.</div>
-                <div class="card-body">
-                  <h5 class="card-title text-light">Índice de impuestos</h5>
-                  <a href="https://estudiodiez.page.link/arba2019" target="_blank"><img src="images/ARBA-300x65.png" class="rounded" style="width: 100%"></a>
-                </div>
-            </div>
-            <div class="card border-danger bg-danger mb-3" style="max-width: 25rem;">
+
+                <div class="card bg-success col-lg-4">
+                    <div class="card-body">
+                      <h4 class="h4-a text-white">A.R.B.A.</h4>
+                      <hr class="bg-light">
+                      <p class="h3-a text-justify text-white">Índice de impuestos</p>
+                      <p class="card-text"><a href="https://estudiodiez.page.link/arba2019" target="_blank"><img src="images/ARBA-300x65.png" class="rounded" style="width: 100%"></a></p>
+                    </div>
+                  </div>
+  
+            <div class="card border-danger bg-danger col-lg-4">
                 <div class="card-header border-light text-white">De interés</div>
                   <div class="card-body">
                     <h5 class="card-title text-white">Índice de impuestos</h5>
@@ -413,21 +417,21 @@ firebase.auth().signOut();
           </div>
           <hr>
           <div class="card-deck">
-              <div class="card border-primary bg-primary mb-3" style="max-width: 25rem;">
+              <div class="card border-primary bg-primary col-lg-4">
                   <div class="card-header border-light text-white">Ganancias</div>
                     <div class="card-body">
                       <h5 class="card-title text-white">Índice de impuestos</h5>
                       <a href="https://estudiodiez.page.link/ganancias2019" target="_blank"><img src="images/Ganancias-300x66.png" class="rounded" style="width: 100%"></a>
                     </div>
                 </div>
-                <div class="card border-secondary bg-secondary mb-3" style="max-width: 25rem;">
+                <div class="card border-secondary bg-secondary col-lg-4">
                     <div class="card-header border-light text-light">Impuestos varios</div>
                       <div class="card-body">
                         <h5 class="card-title text-light">Índice de impuestos</h5>
                         <a href="https://estudiodiez.page.link/impuestosvarios2019" target="_blank"><img src="images/Impuestos-varios-300x66.png" class="rounded" style="width: 100%"></a>
                       </div>
                   </div>
-                  <div class="card text-white mb-3" style="border-color: #4a86e8; background-color: #4a86e8; max-width: 25rem;">
+                  <div class="card text-white col-lg-4" style="border-color: #4a86e8; background-color: #4a86e8;">
                       <div class="card-header border-light text-light">Previsional</div>
                         <div class="card-body">
                           <h5 class="card-title text-light">Índice de impuestos</h5>
@@ -443,21 +447,21 @@ firebase.auth().signOut();
           </div>
         
           <div class="card-deck">
-            <div class="card border-warning bg-warning mb-3" style="max-width: 25rem;">
+            <div class="card border-warning bg-warning col-lg-4">
               <div class="card-header border-light text-white">A.G.I.P.</div>
                 <div class="card-body">
                   <h5 class="card-title text-white">Índice de impuestos</h5>
                   <a href="https://estudiodiez.page.link/agip2019" target="_blank"><img src="images/AGIP-300x66.png" class="rounded" style="width: 100%"></a>
                 </div>
             </div>
-            <div class="card border-success bg-success mb-3" style="max-width: 25rem;">
+            <div class="card border-success bg-success col-lg-4">
               <div class="card-header border-light text-light">A.R.B.A.</div>
                 <div class="card-body">
                   <h5 class="card-title text-light">Índice de impuestos</h5>
                   <a href="https://estudiodiez.page.link/arba2019" target="_blank"><img src="images/ARBA-300x65.png" class="rounded" style="width: 100%"></a>
                 </div>
             </div>
-            <div class="card border-warning bg-warning mb-3" style="max-width: 25rem;">
+            <div class="card border-warning bg-warning col-lg-4">
               <div class="card-header border-light text-white">Bienes personales</div>
                 <div class="card-body">
                   <h5 class="card-title text-white">Índice de impuestos</h5>
@@ -467,21 +471,21 @@ firebase.auth().signOut();
           </div>
         
           <div class="card-deck">
-            <div class="card text-white mb-3" style="border-color: #795548; background-color: #795548; max-width: 25rem;">
+            <div class="card text-white col-lg-4" style="border-color: #795548; background-color: #795548;">
               <div class="card-header border-light text-white">Convenio multilateral</div>
                 <div class="card-body">
                   <h5 class="card-title text-white">Índice de impuestos</h5>
                   <a href="https://estudiodiez.page.link/cm2019" target="_blank"><img src="images/CM-300x66.png" class="rounded" style="width: 100%"></a>
                 </div>
             </div>
-            <div class="card border-danger bg-danger mb-3" style="max-width: 25rem;">
+            <div class="card border-danger bg-danger col-lg-4">
               <div class="card-header border-light text-white">De interés</div>
                 <div class="card-body">
                   <h5 class="card-title text-white">Índice de impuestos</h5>
                   <a href="https://estudiodiez.page.link/deinteres2019" target="_blank"><img src="images/De-interes-300x66.png" class="rounded" style="width: 100%"></a>
                 </div>
             </div>
-            <div class="card border-primary bg-primary mb-3" style="max-width: 25rem;">
+            <div class="card border-primary bg-primary col-lg-4">
               <div class="card-header border-light text-white">Ganancias</div>
                 <div class="card-body">
                   <h5 class="card-title text-white">Índice de impuestos</h5>
@@ -491,21 +495,21 @@ firebase.auth().signOut();
           </div>
   
           <div class="card-deck">
-            <div class="card border-danger bg-danger mb-3" style="max-width: 25rem;">
+            <div class="card border-danger bg-danger col-lg-4">
               <div class="card-header border-light text-white">Ganancia mínima presunta</div>
                 <div class="card-body">
                   <h5 class="card-title text-white">Índice de impuestos</h5>
                   <a href="https://estudiodiez.page.link/gmp2019" target="_blank"><img src="images/GMP-300x66.png" class="rounded" style="width: 100%"></a>
                 </div>
             </div>
-            <div class="card border-secondary bg-secondary mb-3" style="max-width: 25rem;">
+            <div class="card border-secondary bg-secondary col-lg-4">
               <div class="card-header border-light text-light">Impuestos varios</div>
                 <div class="card-body">
                   <h5 class="card-title text-light">Índice de impuestos</h5>
                   <a href="https://estudiodiez.page.link/impuestosvarios2019" target="_blank"><img src="images/Impuestos-varios-300x66.png" class="rounded" style="width: 100%"></a>
                 </div>
             </div>
-            <div class="card text-white mb-3" style="border-color: #9900ff; background-color: #9900ff; max-width: 25rem;">
+            <div class="card text-white col-lg-4" style="border-color: #9900ff; background-color: #9900ff;">
               <div class="card-header border-light text-white">Impuesto al valor agregado</div>
                 <div class="card-body">
                   <h5 class="card-title text-white">Índice de impuestos</h5>
@@ -515,21 +519,21 @@ firebase.auth().signOut();
           </div>
   
           <div class="card-deck">
-            <div class="card border-danger bg-danger mb-3" style="max-width: 25rem;">
+            <div class="card border-danger bg-danger col-lg-4">
               <div class="card-header border-light text-white">Monotributo</div>
                 <div class="card-body">
                   <h5 class="card-title text-white">Índice de impuestos</h5>
                   <a href="https://estudiodiez.page.link/mt2019" target="_blank"><img src="images/MT-300x66.png" class="rounded" style="width: 100%"></a>
                 </div>
             </div>
-            <div class="card text-white mb-3" style="border-color: #4a86e8; background-color: #4a86e8; max-width: 25rem;">
+            <div class="card text-white col-lg-4" style="border-color: #4a86e8; background-color: #4a86e8;">
               <div class="card-header border-light text-light">Previsional</div>
                 <div class="card-body">
                   <h5 class="card-title text-light">Índice de impuestos</h5>
                   <a href="https://estudiodiez.page.link/previsional2019" target="_blank"><img src="images/Previsional-300x67.png" class="rounded" style="width: 100%"></a>
                 </div>
             </div>
-            <div class="card border-success bg-success mb-3" style="max-width: 25rem;">
+            <div class="card border-success bg-success col-lg-4">
               <div class="card-header border-light text-white">Procedimiento tributario</div>
                 <div class="card-body">
                   <h5 class="card-title text-white">Índice de impuestos</h5>
@@ -546,14 +550,14 @@ firebase.auth().signOut();
               <h4 class="alert-heading">Novedades impositivas 2018</h4>
             </div>
             <div class="card-deck">
-              <div class="card border-primary bg-primary text-white mb-3" style="max-width: 35rem;">
+              <div class="card border-primary bg-primary text-white col-lg-6">
                 <div class="card-header border-light text-white">Enero 2018</div>
                   <div class="card-body">
                     <h5 class="card-title text-white">Novedades Impositivas</h5>
                     <p class="card-text"><a href="https://goo.gl/ypF4Em" target="_blank"><img src="images/enero-2018.png" class="rounded" style="width: 100%"></a></p>
                   </div>
               </div>
-              <div class="card border-warning bg-warning text-white mb-3" style="max-width: 35rem;">
+              <div class="card border-warning bg-warning text-white col-lg-6">
                 <div class="card-header border-light text-white">Febrero 2018</div>
                   <div class="card-body">
                     <h5 class="card-title text-white">Novedades Impositivas</h5>
@@ -562,14 +566,14 @@ firebase.auth().signOut();
               </div>
             </div>
             <div class="card-deck">
-              <div class="card border-success bg-success text-white mb-3" style="max-width: 35rem;">
+              <div class="card border-success bg-success text-white col-lg-6">
                 <div class="card-header border-light text-white">Marzo 2018</div>
                   <div class="card-body">
                     <h5 class="card-title text-white">Novedades Impositivas</h5>
                     <p class="card-text"><a href="https://goo.gl/EMcqLW" target="_blank"><img src="images/marzo-2018.png" class="rounded" style="width: 100%"></a></p>
                   </div>
               </div>
-              <div class="card border-danger bg-danger text-white mb-3" style="max-width: 35rem;">
+              <div class="card border-danger bg-danger text-white col-lg-6">
                 <div class="card-header border-light text-white">Abril 2018</div>
                   <div class="card-body">
                     <h5 class="card-title text-white">Novedades Impositivas</h5>
@@ -578,14 +582,14 @@ firebase.auth().signOut();
               </div>
             </div>
             <div class="card-deck">
-              <div class="card border-secondary bg-secondary text-white mb-3" style="max-width: 33rem;">
+              <div class="card border-secondary bg-secondary text-white col-lg-6">
                 <div class="card-header border-light text-white">Mayo 2018</div>
                   <div class="card-body">
                     <h5 class="card-title text-white">Novedades Impositivas</h5>
                     <p class="card-text"><a href="https://goo.gl/nV1xwE" target="_blank"><img src="images/mayo-2018.png" class="rounded" style="width: 100%"></a></p>
                   </div>
               </div>
-              <div class="card border-primary bg-primary text-white mb-3" style="max-width: 33rem;">
+              <div class="card border-primary bg-primary text-white col-lg-6">
                 <div class="card-header border-light text-white">Junio 2018</div>
                   <div class="card-body">
                     <h5 class="card-title text-white">Novedades Impositivas</h5>
@@ -595,7 +599,7 @@ firebase.auth().signOut();
             </div>
       
             <div class="card-deck">
-              <div class="card border-warning bg-warning text-white mb-3" style="max-width: 33rem;">
+              <div class="card border-warning bg-warning text-white col-lg-6">
                 <div class="card-header border-light text-white">Julio 2018</div>
                   <div class="card-body">
                     <h5 class="card-title text-white">Novedades Impositivas</h5>
@@ -603,7 +607,7 @@ firebase.auth().signOut();
                   </div>
               </div>
       
-              <div class="card border-success bg-success text-white mb-3" style="max-width: 33rem;">
+              <div class="card border-success bg-success text-white col-lg-6">
                 <div class="card-header border-light text-white">Agosto 2018</div>
                   <div class="card-body">
                     <h5 class="card-title text-white">Novedades Impositivas</h5>
@@ -614,7 +618,7 @@ firebase.auth().signOut();
       
             <div class="card-deck">
       
-              <div class="card border-danger bg-danger text-white mb-3" style="max-width: 33rem;">
+              <div class="card border-danger bg-danger text-white col-lg-6">
                 <div class="card-header border-light text-white">Septiembre 2018</div>
                   <div class="card-body">
                     <h5 class="card-title text-white">Novedades Impositivas</h5>
@@ -622,7 +626,7 @@ firebase.auth().signOut();
                   </div>
               </div>
       
-              <div class="card border-secondary bg-secondary text-white mb-3" style="max-width: 33rem;">
+              <div class="card border-secondary bg-secondary text-white col-lg-6">
                 <div class="card-header border-light text-white">Octubre 2018</div>
                   <div class="card-body">
                     <h5 class="card-title text-white">Novedades Impositivas</h5>
@@ -633,7 +637,7 @@ firebase.auth().signOut();
       
             <div class="card-deck">
       
-              <div class="card border-primary bg-primary text-white mb-3" style="max-width: 33rem;">
+              <div class="card border-primary bg-primary text-white col-lg-6">
                 <div class="card-header border-light text-white">Noviembre 2018</div>
                   <div class="card-body">
                     <h5 class="card-title text-white">Novedades Impositivas</h5>
@@ -641,7 +645,7 @@ firebase.auth().signOut();
                   </div>
               </div>
               <!-- habilitar en diciembre -->
-              <div class="card border-warning bg-warning text-white mb-3" style="max-width: 33rem;">
+              <div class="card border-warning bg-warning text-white col-lg-6">
                 <div class="card-header border-light text-white">Diciembre 2018</div>
                   <div class="card-body">
                     <h5 class="card-title text-white">Novedades Impositivas</h5>
