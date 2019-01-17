@@ -1,17 +1,16 @@
 body {
-    padding-top: 54px;
+    padding-top: 4px;
     font-family: Roboto;
   }
   
   @media (min-width: 992px) {
     body {
-      padding-top: 56px;
+      padding-top: 6px;
     }
   }
 
 .carousel-item {
-  height: 45vh;
-  min-height: 300px;
+  min-height: auto;
   background: no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
