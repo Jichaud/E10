@@ -1,13 +1,13 @@
 body {
-  padding-top: 54px;
-  font-family: Roboto;
-}
-
-@media (min-width: 992px) {
-  body {
-    padding-top: 56px;
+    padding-top: 54px;
+    font-family: Roboto;
   }
-}
+  
+  @media (min-width: 992px) {
+    body {
+      padding-top: 56px;
+    }
+  }
 
 .carousel-item {
   height: 45vh;
