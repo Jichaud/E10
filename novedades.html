@@ -71,64 +71,66 @@
     </script>
 
     <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light fixed-top h3-a" style="background-color: #fff;">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-        <img src="images/logo-E10-1.png" class="img-fluid" width="100%" alt="Estudio Diez">
-        </a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
+    <div class="container pb-4">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light h3-a">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo-E10-1.png" class="img-fluid" width="80%" alt="Estudio Diez">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
               <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarEstudio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Estudio
-              </a>
-              <div class="dropdown-menu dropdown-menu-right alert alert-primary" role="alert" aria-labelledby="navbarEstudio">
-                <a class="dropdown-item" href="perfil.html">Perfil</a>
-                <a class="dropdown-item" href="organizacion.html">Organizacion</a>
-                <a class="dropdown-item" href="socios.html">Socios</a>
-              </div>
-            </li>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Estudio
+                </a>
+                <div class="dropdown-menu alert alert-info" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="perfil.html">Perfil</a>
+                  <a class="dropdown-item" href="organizacion.html">Organización</a>                
+                  <a class="dropdown-item" href="socios.html">Socios</a>
+                </div>
+              </li>
               <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarServicios" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Servicios
-              </a>
-              <div class="dropdown-menu dropdown-menu-right alert alert-secondary" role="alert" aria-labelledby="navbarServicios">
-                <a class="dropdown-item" href="impositivo.html">Impositivo</a>
-                <a class="dropdown-item" href="contable.html">Contable</a>
-                <a class="dropdown-item" href="juridico.html">Jurídico</a>
-              </div>
-            </li>
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarCapacitacion" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Capacitación
-              </a>
-              <div class="dropdown-menu dropdown-menu-right alert alert-success" role="alert" aria-labelledby="navbarCapacitacion">
-                <a class="dropdown-item" href="eventos.html">Eventos</a>
-                <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="publicaciones.html">Publicaciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sitios-de-interes.html">Sitios de interés</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contacto</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-              <button type="button" id="signOut" class="btn btn-secondary" style="width: 10%">Salir</button>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Servicios
+                  </a>
+                  <div class="dropdown-menu alert alert-secondary" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="impositivo.html">Impositivo</a>
+                    <a class="dropdown-item" href="contable.html">Contable</a>                
+                    <a class="dropdown-item" href="juridico.html">Jurídico</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Capacitación
+                    </a>
+                    <div class="dropdown-menu alert alert-success" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="eventos.html">Eventos</a>
+                      <hr class="bg-success">
+                      <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="publicaciones.html">Publicaciones</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="sitios-de-interes.html">Sitios de interés</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="contact.html">Contacto</a>
+                  </li>
+                </ul>
+          </div>
+                <button type="button" id="signOut" class="btn btn-secondary" style="width: 10%">Salir</button>
   <script>
 document.getElementById('signOut').addEventListener('click', function(event) {
 firebase.auth().signOut();
 });
   </script>
     </nav>
+    </div>
 
     <!-- Page Content -->
     <div class="container h3-a">
@@ -671,7 +673,7 @@ firebase.auth().signOut();
                   <p class="card-text text-primary">Ajuste por inflación impositivo</p>
                   <p class="card-text text-primary">y más...</p>
                 </div>
-                <div class="card-footer border-light"><a href="https://goo.gl/1BsA8V" target="blank_" class="card-link btn btn-light text-dark">Ver material</a></div>
+                <div class="card-footer border-light"><a href="https://goo.gl/1BsA8V" target="blank_" class="card-link btn btn-light text-dark">Ver material</a> <small>actualizado #18-ene-2019</small></div>
             </div>
             <div class="card border-success bg-success text-white mb-3" style="max-width: 25rem;">
               <div class="card-header border-light text-white">Procedimiento</div>

@@ -14,11 +14,23 @@
 
     <title>Estudio Diez - Retención ganancias empleados suscriptores</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="../css/modern-business.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <style>
+      .h3-a {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1rem;
+        color: dimgrey;
+      }
+
+    </style>
 
   </head>
 
@@ -64,67 +76,69 @@ if (user) {
 
 
     <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light fixed-top" style="background-color: #fff;">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-        <img src="images/logo-E10-1.png" class="img-fluid" width="100%" alt="Estudio Diez">
-        </a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
+    <div class="container pb-4">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light h3-a">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo-E10-1.png" class="img-fluid" width="80%" alt="Estudio Diez">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
               <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarEstudio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Estudio
-              </a>
-              <div class="dropdown-menu dropdown-menu-right alert alert-primary" role="alert" aria-labelledby="navbarEstudio">
-                <a class="dropdown-item" href="perfil.html">Perfil</a>
-                <a class="dropdown-item" href="organizacion.html">Organizacion</a>
-                <a class="dropdown-item" href="socios.html">Socios</a>
-              </div>
-            </li>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Estudio
+                </a>
+                <div class="dropdown-menu alert alert-info" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="perfil.html">Perfil</a>
+                  <a class="dropdown-item" href="organizacion.html">Organización</a>                
+                  <a class="dropdown-item" href="socios.html">Socios</a>
+                </div>
+              </li>
               <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarServicios" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Servicios
-              </a>
-              <div class="dropdown-menu dropdown-menu-right alert alert-secondary" role="alert" aria-labelledby="navbarServicios">
-                <a class="dropdown-item" href="impositivo.html">Impositivo</a>
-                <a class="dropdown-item" href="contable.html">Contable</a>
-                <a class="dropdown-item" href="juridico.html">Jurídico</a>
-              </div>
-            </li>
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarCapacitacion" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Capacitación
-              </a>
-              <div class="dropdown-menu dropdown-menu-right alert alert-success" role="alert" aria-labelledby="navbarCapacitacion">
-                <a class="dropdown-item" href="eventos.html">Eventos</a>
-                <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="publicaciones.html">Publicaciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sitios-de-interes.html">Sitios de interés</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contacto</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-              <button type="button" id="signOut" class="btn btn-secondary" style="width: 10%">Salir</button>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Servicios
+                  </a>
+                  <div class="dropdown-menu alert alert-secondary" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="impositivo.html">Impositivo</a>
+                    <a class="dropdown-item" href="contable.html">Contable</a>                
+                    <a class="dropdown-item" href="juridico.html">Jurídico</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Capacitación
+                    </a>
+                    <div class="dropdown-menu alert alert-success" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="eventos.html">Eventos</a>
+                      <hr class="bg-success">
+                      <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="publicaciones.html">Publicaciones</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="sitios-de-interes.html">Sitios de interés</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="contact.html">Contacto</a>
+                  </li>
+                </ul>
+          </div>
+                <button type="button" id="signOut" class="btn btn-secondary" style="width: 10%">Salir</button>
   <script>
 document.getElementById('signOut').addEventListener('click', function(event) {
 firebase.auth().signOut();
 });
   </script>
     </nav>
+    </div>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container h3-a">
 
       <!-- Page Heading/Breadcrumbs -->
       <h1 class="mt-4 mb-3">Retención ganancias a empleados
@@ -740,7 +754,7 @@ firebase.auth().signOut();
                     <p class="card-text text-primary">Ajuste por inflación impositivo</p>
                     <p class="card-text text-primary">y más...</p>
                   </div>
-                  <div class="card-footer border-light"><a href="https://goo.gl/1BsA8V" target="blank_" class="card-link btn btn-light text-dark">Ver material</a></div>
+                  <div class="card-footer border-light"><a href="https://goo.gl/1BsA8V" target="blank_" class="card-link btn btn-light text-dark">Ver material</a> <small>actualizado #18-ene-2019</small></div>
               </div>
               <div class="card border-success bg-success text-white mb-3" style="max-width: 25rem;">
                 <div class="card-header border-light text-white">Procedimiento</div>
@@ -1069,12 +1083,12 @@ firebase.auth().signOut();
     <hr>
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5 bg-dark h3-a">
       <div class="container">
         <div class="row">
           <div class="col-lg-3 mb-4">
             <div class="list-group" id="list-tab" role="tablist">
-              <a class="list-group-item list-group-item-info active text-light" role="tab">Estudio</a>
+              <a class="list-group-item bg-info lead text-light" role="tab">Estudio</a>
               <a class="list-group-item list-group-item-action" href="perfil.html" role="tab">Perfil</a>
               <a class="list-group-item list-group-item-action" href="organizacion.html" role="tab">Organización</a>
               <a class="list-group-item list-group-item-action" href="socios.html" role="tab">Socios</a>
@@ -1083,7 +1097,7 @@ firebase.auth().signOut();
           </div>
         <div class="col-lg-3 mb-4">
           <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-secondary active text-light" role="tab">Servicios</a>
+            <a class="list-group-item bg-secondary lead text-light" role="tab">Servicios</a>
             <a class="list-group-item list-group-item-action" href="impositivo.html" role="tab">Impositivos</a>
             <a class="list-group-item list-group-item-action" href="contable.html" role="tab">Contable</a>
             <a class="list-group-item list-group-item-action" href="juridico.html" role="tab">Jurídicos</a>
@@ -1091,14 +1105,14 @@ firebase.auth().signOut();
         </div>
         <div class="col-lg-3 mb-4">
           <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-success active text-light" role="tab">Capacitación</a>
+            <a class="list-group-item bg-success lead text-light" role="tab">Capacitación</a>
             <a class="list-group-item list-group-item-action" href="eventos.html" role="tab">Eventos</a>
             <a class="list-group-item list-group-item-action" href="suscriptores.html" role="tab">Suscriptores</a>
           </div>
         </div>
         <div class="col-lg-3 mb-4">
           <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-warning active text-light" role="tab">Conecta</a>
+            <a class="list-group-item bg-warning lead text-light" role="tab">Conecta</a>
             <a class="list-group-item list-group-item-action" href="contact.html" role="tab">Contacto</a>
             <a class="list-group-item list-group-item-action" href="sitios-de-interes.html" role="tab">Link's de interés</a>
             <a class="list-group-item list-group-item-action" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
@@ -1113,9 +1127,10 @@ firebase.auth().signOut();
       <!-- /.container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
   </body>
 
 </html>

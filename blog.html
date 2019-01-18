@@ -14,138 +14,141 @@
 
       <title>Estudio Diez - Consultores Impositivos - blog</title>
 
-
-      <!-- Bootstrap core CSS -->
-      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" media="screen">
 
       <!-- Custom styles for this template -->
-      <link href="css/modern-business.css" rel="stylesheet">
+      <link href="../css/modern-business.css" rel="stylesheet">
 
-      <script defer src="js/scroll.js"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
       <!-- Chrome, Firefox OS and Opera -->
       <meta name="theme-color" content="#141754">
 
-      <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" media="screen">
+
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" media="screen">
+
+      <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet" media="screen">
 
       <style>
       .h1-a {
         font-family: 'Roboto Slab', serif;
         font-size: 40px;
       }
-    </style>
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
-
-<style>
-    .h2-a {
+      .h2-a {
       font-family: 'Open Sans Condensed', sans-serif;
       font-size: 30px;
-    }
-</style>
+      }
 
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+      .h3-a {
+      font-family: 'Roboto', sans-serif;
+      font-size: 15px;
+      }
+      .h4-a {
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+      }
 
-<style>
-  .h3-a {
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;
-  }
-  .h4-a {
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-  }
-</style>
+      .img-a {
+      font-family: 'Kalam', sans-serif;
+      color: rgb(69,129,142);
+      font-size: 25px;
+      }
 
-<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-<style>
-.img-a {
-  font-family: 'Kalam', sans-serif;
-  color: rgb(69,129,142);
-  font-size: 25px;
-}
-</style>
+      html {
+      scroll-behavior: smooth;
+      }
+
+      #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;  
+      border: none;
+      outline: none;  
+      }
+
+      </style>
 
 </head>
 
   <body>
-
-<div class="thetop"></div>
+      
     <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark fixed-top h3-a" style="background-color: #1c2452ff">
-      <div class="container">
+    <div class="container pb-4">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark h3-a" style="background-color: #1c2452ff">
         <a class="navbar-brand" href="index.html">
-        <img src="images/logo-ed-azul.png" class="img-fluid" width="100%" alt="Estudio Diez">
+        <img src="images/logo-ed-azul.png" class="img-fluid" width="70%" alt="Estudio Diez">
         </a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">              
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarEstudio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon text-white"></span>
+        </button>      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-secondary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Estudio
               </a>
-              <div class="dropdown-menu dropdown-menu-right alert alert-primary" role="alert" aria-labelledby="navbarEstudio">
+              <div class="dropdown-menu alert alert-info" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="perfil.html">Perfil</a>
-                <a class="dropdown-item" href="organizacion.html">Organizacion</a>
+                <a class="dropdown-item" href="organizacion.html">Organización</a>                
                 <a class="dropdown-item" href="socios.html">Socios</a>
               </div>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-secondary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Servicios
+                </a>
+                <div class="dropdown-menu alert alert-secondary" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="impositivo.html">Impositivo</a>
+                  <a class="dropdown-item" href="contable.html">Contable</a>                
+                  <a class="dropdown-item" href="juridico.html">Jurídico</a>
+                </div>
+              </li>
               <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarServicios" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Servicios
-              </a>
-              <div class="dropdown-menu dropdown-menu-right alert alert-secondary" role="alert" aria-labelledby="navbarServicios">
-                <a class="dropdown-item" href="impositivo.html">Impositivo</a>
-                <a class="dropdown-item" href="contable.html">Contable</a>
-                <a class="dropdown-item" href="juridico.html">Jurídico</a>
-              </div>
-            </li>
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarCapacitacion" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Capacitación
-              </a>
-              <div class="dropdown-menu dropdown-menu-right alert alert-success" role="alert" aria-labelledby="navbarCapacitacion">
-                <a class="dropdown-item" href="eventos.html">Eventos</a>
-                <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="publicaciones.html">Publicaciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sitios-de-interes.html">Sitios de interés</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contacto</a>
-            </li>            
-            <li>              
-              <script>
-                (function() {
-                  var cx = '010906953135283223569:ot-yyxr5rxi';
-                  var gcse = document.createElement('script');
-                  gcse.type = 'text/javascript';
-                  gcse.async = true;
-                  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-                  var s = document.getElementsByTagName('script')[0];
-                  s.parentNode.insertBefore(gcse, s);
-                })();
-              </script>
-              <gcse:search></gcse:search>        
-            </li>
-
-          </ul>
+                  <a class="nav-link dropdown-toggle text-secondary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Capacitación
+                  </a>
+                  <div class="dropdown-menu alert alert-success" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="eventos.html">Eventos</a>
+                    <hr class="bg-success">
+                    <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="publicaciones.html">Publicaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="sitios-de-interes.html">Sitios de interés</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="contact.html">Contacto</a>
+                </li>
+                <li>              
+                  <script>
+                    (function() {
+                      var cx = '010906953135283223569:ot-yyxr5rxi';
+                      var gcse = document.createElement('script');
+                      gcse.type = 'text/javascript';
+                      gcse.async = true;
+                      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                      var s = document.getElementsByTagName('script')[0];
+                      s.parentNode.insertBefore(gcse, s);
+                    })();
+                  </script>
+                  <gcse:search></gcse:search>        
+                </li>
+              </ul>        
+            </div>
+          </nav>
         </div>
-      </div>
-    </nav>
 
     <!-- Page Content -->
-    <div class="container h3-a">
+    <div class="container pt-5 h3-a">
       <br><br>
             <div id="blog" class="row col-12">
               <div class="col-lg-8">
@@ -5341,7 +5344,7 @@
           <br>
         </div>
       </div> <!-- /.row -->
-    </div> <!-- /.container -->
+    </div> <!-- /.container -->    
       <hr>
     <!-- Footer -->
     <footer class="py-5 bg-dark h3-a">
@@ -5388,11 +5391,11 @@
       <!-- /.container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
+    <script type="text/javascript" defer>
       $(function () {
           $("[data-toggle='tooltip']").tooltip();
       });
@@ -5401,10 +5404,24 @@
       })
   </script>
 
-    <!-- Scroll icon -->
-    <div class='scrolltop'>
-      <div class='scroll'><button type="button" class="btn btn-success"><i class="fas fa-angle-up"></i></button></a></div>
-    </div>
+<button type="button" onclick="topFunction()" id="myBtn" class="btn btn-success"><i class="fas fa-angle-up"></i></button>
+
+<script defer>
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+      } else {
+        document.getElementById("myBtn").style.display = "none";
+      }
+    }
+    
+    function topFunction() {            
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;                      
+    }
+    </script>
 
   </body>
 
