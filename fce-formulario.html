@@ -77,22 +77,26 @@
 
     <div class="row">
       <div class="col-lg-6">
-        <form id="formFce">
+        <form class="was-validated" id="formFce">
           <div class="form">
 
             <div class="alert h3-a alert-success text-success" role="alert">
               Datos de la materia
             </div>
 
-            <select class="custom-select mr-sm-2" id="materia">
-              <option selected>Seleccionar materia...</option>
-              <option value="356 - TEORÍA Y TÉCNICA IMPOSITIVA I">356 - TEORÍA Y TÉCNICA IMPOSITIVA I</option>
-              <option value="357 - TEORÍA Y TÉCNICA IMPOSITIVA I">357 - TEORÍA Y TÉCNICA IMPOSITIVA II</option>
-              <option value="455 - RÉGIMEN TRIBUTARIO">455 - RÉGIMEN TRIBUTARIO</option>
-              <option value="711 - TRIBUTACIÓN EN EL SECTOR AGROPECUARIO">711 - TRIBUTACIÓN EN EL SECTOR AGROPECUARIO</option>
-              <option value="768 - FINANZAS PÚBLICAS">768 - FINANZAS PÚBLICAS</option>
-              <option value="769 - PROCED. ADMIN. CONTENC. Y FISCAL">769 - PROCED. ADMIN. CONTENC. Y FISCAL</option>
-            </select>
+            <div class="form-group">
+              <select required class="custom-select mr-sm-2" id="materia" id="tyti">
+                <option value="">Seleccionar materia...</option>
+                <option value="tyticatedra1">356 - TEORÍA Y TÉCNICA IMPOSITIVA I</option>
+                <option value="357 - TEORÍA Y TÉCNICA IMPOSITIVA I">357 - TEORÍA Y TÉCNICA IMPOSITIVA II</option>
+                <option value="455 - RÉGIMEN TRIBUTARIO">455 - RÉGIMEN TRIBUTARIO</option>
+                <option value="711 - TRIBUTACIÓN EN EL SECTOR AGROPECUARIO">711 - TRIBUTACIÓN EN EL SECTOR AGROPECUARIO
+                </option>
+                <option value="768 - FINANZAS PÚBLICAS">768 - FINANZAS PÚBLICAS</option>
+                <option value="769 - PROCED. ADMIN. CONTENC. Y FISCAL">769 - PROCED. ADMIN. CONTENC. Y FISCAL</option>
+              </select>
+              <div class="invalid-feedback">Campo obligatorio</div>
+            </div>
 
             <hr>
 
@@ -100,12 +104,29 @@
               Datos de la cátedra
             </div>
 
-            <select class="custom-select mr-sm-2" id="catedra">
-              <option selected>Seleccionar cátedra...</option>
-              <option value="Gustavo E. Diez">Gustavo E.Diez</option>
-              <option value="Sericano">Sericano</option>
-              <option value="Inza">Inza</option>
-            </select>
+            
+            <div class="form-group">
+              <select required class="custom-select mr-sm-2" id="tyticatedra" style="display:none;">
+                <option value="">Seleccionar cátedra...</option>
+                <option value="DIEZ GUSTAVO EDUARDO">DIEZ GUSTAVO EDUARDO</option>
+                <option value="IÑIGUEZ LILIANA">IÑIGUEZ LILIANA</option>
+                <option value="LITVIN CESAR ROBERTO">LITVIN CESAR ROBERTO</option>
+              </select>
+              <div class="invalid-feedback">Campo obligatorio</div>
+            </div>
+          
+
+            <div class="form-group">
+              <select required class="custom-select mr-sm-2" id="tytiicatedra" style="display:none;">
+                <option value="">Seleccionar cátedra...</option>
+                <option value="DIEZ GUSTAVO EDUARDO">DIEZ GUSTAVO EDUddddARDO</option>
+                <option value="IÑIGUEZ LILIANA">IÑIGUEZ LILIANA</option>
+                <option value="LITVIN CESAR ROBERTO">LITVIN CESAR ROBERTO</option>
+              </select>
+              <div class="invalid-feedback">Campo obligatorio</div>
+            </div>
+
+          
 
             <hr>
             <button type="submit" class="btn btn-primary">Enviar formulario</button>

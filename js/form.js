@@ -7,7 +7,7 @@ var config = {
     storageBucket: "form-fce.appspot.com",
     messagingSenderId: "258213920771"
   };
-  firebase.initializeApp(config);
+  firebase.initializeApp(config);  
 
   // referencia mensajes
 
@@ -21,10 +21,10 @@ function submitForm(e){
 
     // obtener valores
     var materia = getInputVal('materia');
-    var catedra = getInputVal('catedra');
+    var catedra = getInputVal('tyticatedra');
 
     // graba datos
-    saveMessage(materia, catedra);    
+    saveMessage(materia, tyticatedra);    
 }
 
 // obtener valores
@@ -34,10 +34,21 @@ function getInputVal(id){
 }
 
 // enviar mensajes a firebase
-function saveMessage(materia, catedra){
+function saveMessage(materia, tyticatedra){
     var newMessageRef = messagesRef.push();
     newMessageRef.set({
         materia:materia,
-        catedra:catedra,
+        tyticatedra:tyticatedra,
     });
 }
+
+// Switch formulario
+
+$('#tyti').on('change',function(){
+    if( $(this).val()==="tyticatedra1"){
+    $("#tyticatedra").show()
+    }
+    else{
+    $("#tytiicatedra").show()
+    }
+});
