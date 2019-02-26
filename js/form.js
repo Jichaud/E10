@@ -21,9 +21,10 @@ function submitForm(e){
 
     // obtener valores
     var materia = getInputVal('materia');
+    var catedra = getInputVal('catedra');
 
     // graba datos
-    saveMessage(materia);
+    saveMessage(materia, catedra);    
 }
 
 // obtener valores
@@ -33,9 +34,10 @@ function getInputVal(id){
 }
 
 // enviar mensajes a firebase
-function saveMessage(materia){
+function saveMessage(materia, catedra){
     var newMessageRef = messagesRef.push();
     newMessageRef.set({
         materia:materia,
+        catedra:catedra,
     });
 }
