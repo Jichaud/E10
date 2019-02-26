@@ -14,38 +14,28 @@ var config = {
   var messagesRef = firebase.database().ref('messages');
 
 // escucha formulario
-document.getElementById('form-fce').addEventListener('submit', submitForm);
+document.getElementById('formFce').addEventListener('submit', submitForm);
 
 function submitForm(e){
     e.preventDefault();
 
     // obtener valores
-    var TYTI = getImputVal('TYTI');
-    var TYTII = getImputVal('TYTII');
-    var RT = getImputVal('RT');
-    var TSA = getImputVal('TSA');
-    var FP = getImputVal('FP');
-    var PACF = getImputVal('PACF');
+    var materia = getInputVal('materia');
 
     // graba datos
-    saveMessage(TYTI, TYTII, RT, TSA, FP, PACF);
+    saveMessage(materia);
 }
 
 // obtener valores
 
-function getImputVal(id){
+function getInputVal(id){
     return document.getElementById(id).value;
 }
 
 // enviar mensajes a firebase
-function saveMessage(TYTI, TYTII, RT, TSA, FP, PACF){
+function saveMessage(materia){
     var newMessageRef = messagesRef.push();
     newMessageRef.set({
-        TYTI:TYTI,
-        TYTII:TYTII,
-        RT:RT,
-        TSA:TSA,
-        FP:FP,
-        PACF:PACF,
+        materia:materia,
     });
 }
