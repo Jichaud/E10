@@ -45,7 +45,7 @@ function saveMessage(materia, tyticatedra){
 // Switch formulario
 
 $('#tyti').on('change',function(){
-    if( $(this).val()==="tyticatedra1"){
+    if( $(this).val()==="tyticatedrai"){
     $("#tyticatedra").show()
     }
     else{
