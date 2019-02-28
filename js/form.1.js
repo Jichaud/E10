@@ -21,7 +21,7 @@ function submitForm(e){
 
     // obtener valores
     var materia = getInputVal('materia');
-    var tyticatedra = getInputVal('tyticatedra');
+    var catedra = getInputVal('tyticatedra');
 
     // graba datos
     saveMessage(materia, tyticatedra);    
