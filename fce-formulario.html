@@ -84,7 +84,7 @@
               Datos de la materia
             </div>
 
-            <div class="form-group" id="tyti">
+            <div class="form-group">
               <select required class="custom-select mr-sm-2" id="materia">
                 <option value="">Seleccionar materia...</option>
                 <option value="356 - TEORÍA Y TÉCNICA IMPOSITIVA I">356 - TEORÍA Y TÉCNICA IMPOSITIVA I</option>
@@ -107,27 +107,36 @@
             
             <div class="form-group">
               <select required class="custom-select mr-sm-2" id="tyticatedra">
+                                              
                 <option value="">Seleccionar cátedra...</option>
+                <option disabled>356 - TEORÍA Y TÉCNICA IMPOSITIVA I</option>
                 <option value="DIEZ GUSTAVO EDUARDO">DIEZ GUSTAVO EDUARDO</option>
                 <option value="IÑIGUEZ LILIANA">IÑIGUEZ LILIANA</option>
                 <option value="LITVIN CESAR ROBERTO">LITVIN CESAR ROBERTO</option>
-              </select>
-              <div class="invalid-feedback">Campo obligatorio</div>
-            </div>
-          
-<!--
-            <div class="form-group">
-              <select required class="custom-select mr-sm-2" id="tytiicatedra">
-                <option value="">Seleccionar cátedra...</option>
+                <option disabled></option>
+                <option disabled>357 - TEORÍA Y TÉCNICA IMPOSITIVA II</option>
                 <option value="DIEZ GUSTAVO EDUARDO">DIEZ GUSTAVO EDUddddARDO</option>
-                <option value="IÑIGUEZ LILIANA">IÑIGUEZ LILIANA</option>
-                <option value="LITVIN CESAR ROBERTO">LITVIN CESAR ROBERTO</option>
+                <option value="IÑIGUEZ LILIANA">IÑIGUEZ LIIIIILIANA</option>
+                <option value="LITVIN CESAR ROBERTO">LITVIN CEEEEESAR ROBERTO</option>  
+                <option disabled></option>
+                <option disabled>455 - RÉGIMEN TRIBUTARIO</option>
+                <option value="DIEZ GUSTAVO EDUARDO">DIEZ GUSTAVO EDUddddARDO</option>
+                <option value="IÑIGUEZ LILIANA">IÑIGUEZ LIIIIILIANA</option>
+                <option value="LITVIN CESAR ROBERTO">LITVIN CEEEEESAR ROBERTO</option>  
+                <option disabled></option>
+                <option disabled>711 - TRIBUTACIÓN EN EL SECTOR AGROPECUARIO</option>
+                <option value="DIEZ GUSTAVO EDUARDO">DIEZ GUSTAVO EDUddddARDO</option>
+                <option value="IÑIGUEZ LILIANA">IÑIGUEZ LIIIIILIANA</option>
+                <option value="LITVIN CESAR ROBERTO">LITVIN CEEEEESAR ROBERTO</option>  
+                <option disabled></option>
+                <option disabled>768 - FINANZAS PÚBLICAS</option>
+                <option value="DIEZ GUSTAVO EDdddddUARDO">DIEZ GUSTAVO EDUddddARDO</option>
+                <option value="IÑIGUEZ LIiiiiiiiLIANA">IÑIGUEZ LIIIIILIANA</option>
+                <option value="LITVIN CEeeeeeeSAR ROBERTO">LITVIN CEEEEESAR ROBERTO</option>  
+              
               </select>
               <div class="invalid-feedback">Campo obligatorio</div>
             </div>
-
-    -->      
-
           
 
             <hr>
@@ -135,6 +144,25 @@
 
           </div>
         </form>
+
+        <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  
+                  <h4>¡Envío con éxito!</h4>
+                </div>
+                <div class="modal-body">
+                  <p>La información fue enviada. Presione "Cerrar" para seguir cargando más datos o salir de la página. Gracias.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>                  
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+
+
       </div>
     </div>
 

@@ -17,12 +17,13 @@ var config = {
 document.getElementById('formFce').addEventListener('submit', submitForm);
 
 function submitForm(e){
+    $('#myModal').modal('show');
     e.preventDefault();
 
     // obtener valores
     var materia = getInputVal('materia');
     var tyticatedra = getInputVal('tyticatedra');
-
+    
     // graba datos
     saveMessage(materia, tyticatedra);    
 }
@@ -39,16 +40,24 @@ function saveMessage(materia, tyticatedra){
     newMessageRef.set({
         materia:materia,
         tyticatedra:tyticatedra,
+        
     });
 }
 
 // Switch formulario
-
-$('#tyti').on('change',function(){
-    if( $(this).val()==="tyticatedrai"){
-    $("#tyticatedra").show()
+    $('#tresCincoSeis').hide();
+    $('#tresCincoSiete').hide();
+$('#materia').on('change',function(){    
+    if( $(this).val()==="356 - TEORÍA Y TÉCNICA IMPOSITIVA I"){
+    $('#tresCincoSeis').show()
+    $('#tresCincoSiete').hide();
     }
-    else{
-    $("#tytiicatedra").show()
+    else if( $(this).val()==="357 - TEORÍA Y TÉCNICA IMPOSITIVA II"){
+    $('#tresCincoSeis').hide();
+    $('#tresCincoSiete').show()
+    }
+    else {
+        $('#tresCincoSeis').hide();
+        $('#tresCincoSiete').hide();
     }
 });
