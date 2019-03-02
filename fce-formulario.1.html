@@ -20,6 +20,19 @@
     messagingSenderId: "258213920771"
   };
   firebase.initializeApp(config);
+  firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            var ref = new Firebase("https://form-fce.firebaseio.com/messages");
+            ref.on("value", function (snapshot) {
+                var name = snapshot.child("title").val();
+                console.log(snapshot.val());
+            }, function (errorObject) {
+                console.log("The read failed: " + errorObject.code);
+            });
+        } else {
+            firebase.auth().signInAnonymously();
+        }
+    });
 </script>
 
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
