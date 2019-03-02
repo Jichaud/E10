@@ -98,6 +98,11 @@
             <tr id="tr">
               <th>Materia:</th>
               <th>Cátedra:</th> 
+              <th>Docente a cargo:</th> 
+              <th>Apellido y nombre:</th> 
+              <th>Mail:</th> 
+              <th>Cargo:</th> 
+              <th>Otos:</th> 
            </table> 
           
           <script>
@@ -109,7 +114,12 @@
                           var val = data.val();
                           content +='<tr>';
                           content += '<td>' + val.materia + '</td>';
-                          content += '<td>' + val.tyticatedra + '</td>';
+                          content += '<td>' + val.catedra + '</td>';
+                          content += '<td>' + val.docenteCargo + '</td>';
+                          content += '<td>' + val.nombreAyudante + '</td>';
+                          content += '<td>' + val.mailAyudante + '</td>';
+                          content += '<td>' + val.designacionAyudante + '</td>';
+                          content += '<td>' + val.otrosDesignacion + '</td>';
                           content += '</tr>';
                       });
                       $('#ex-table').append(content);

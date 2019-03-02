@@ -22,10 +22,15 @@ function submitForm(e){
 
     // obtener valores
     var materia = getInputVal('materia');
-    var tyticatedra = getInputVal('tyticatedra');
+    var catedra = getInputVal('catedra');
+    var docenteCargo = getInputVal('docenteCargo');    
+    var nombreAyudante = getInputVal('nombreAyudante');
+    var mailAyudante = getInputVal('mailAyudante');
+    var designacionAyudante = getInputVal('designacionAyudante');
+    var otrosDesignacion = getInputVal('otrosDesignacion');
     
     // graba datos
-    saveMessage(materia, tyticatedra);    
+    saveMessage(materia, catedra, docenteCargo, nombreAyudante, mailAyudante, designacionAyudante, otrosDesignacion);
 }
 
 // obtener valores
@@ -35,29 +40,32 @@ function getInputVal(id){
 }
 
 // enviar mensajes a firebase
-function saveMessage(materia, tyticatedra){
+function saveMessage(materia, catedra, docenteCargo, nombreAyudante, mailAyudante, designacionAyudante, otrosDesignacion){
     var newMessageRef = messagesRef.push();
     newMessageRef.set({
         materia:materia,
-        tyticatedra:tyticatedra,
-        
+        catedra:catedra,
+        docenteCargo:docenteCargo,        
+        nombreAyudante:nombreAyudante,
+        mailAyudante:mailAyudante,
+        designacionAyudante:designacionAyudante,
+        otrosDesignacion:otrosDesignacion,        
     });
 }
 
-// Switch formulario
-    $('#tresCincoSeis').hide();
-    $('#tresCincoSiete').hide();
-$('#materia').on('change',function(){    
-    if( $(this).val()==="356 - TEORÍA Y TÉCNICA IMPOSITIVA I"){
-    $('#tresCincoSeis').show()
-    $('#tresCincoSiete').hide();
-    }
-    else if( $(this).val()==="357 - TEORÍA Y TÉCNICA IMPOSITIVA II"){
-    $('#tresCincoSeis').hide();
-    $('#tresCincoSiete').show()
-    }
-    else {
-        $('#tresCincoSeis').hide();
-        $('#tresCincoSiete').hide();
-    }
+// otros designación ayudante
+
+$('#designacionAyudante').on('change',function(){
+    var selection = $(this).val();
+   switch(selection){
+   case "Otros":
+   $("#otrosDesignacion").show()
+   $("#otrosDesignacion").attr('required',"");
+   $("#otrosDesignacion").val("Detallar");
+  break;
+   default:
+   $("#otrosDesignacion").hide()
+   $("#otrosDesignacion").removeAttr('required');
+   $("#otrosDesignacion").val("sin información");
+   }
 });
