@@ -28,9 +28,12 @@ function submitForm(e){
     var mailAyudante = getInputVal('mailAyudante');
     var designacionAyudante = getInputVal('designacionAyudante');
     var otrosDesignacion = getInputVal('otrosDesignacion');
+    var fechaEnvio = getInputVal('fechaEnvio');
     
     // graba datos
-    saveMessage(materia, catedra, docenteCargo, nombreAyudante, mailAyudante, designacionAyudante, otrosDesignacion);
+    saveMessage(materia, catedra, docenteCargo, nombreAyudante, mailAyudante, designacionAyudante, otrosDesignacion, fechaEnvio);
+
+
 }
 
 // obtener valores
@@ -40,7 +43,7 @@ function getInputVal(id){
 }
 
 // enviar mensajes a firebase
-function saveMessage(materia, catedra, docenteCargo, nombreAyudante, mailAyudante, designacionAyudante, otrosDesignacion){
+function saveMessage(materia, catedra, docenteCargo, nombreAyudante, mailAyudante, designacionAyudante, otrosDesignacion, fechaEnvio){
     var newMessageRef = messagesRef.push();
     newMessageRef.set({
         materia:materia,
@@ -49,9 +52,14 @@ function saveMessage(materia, catedra, docenteCargo, nombreAyudante, mailAyudant
         nombreAyudante:nombreAyudante,
         mailAyudante:mailAyudante,
         designacionAyudante:designacionAyudante,
-        otrosDesignacion:otrosDesignacion,        
+        otrosDesignacion:otrosDesignacion,
+        fechaEnvio:timestamp,
     });
 }
+
+// obtener fecha
+
+var timestamp = Date();
 
 // otros designación ayudante
 

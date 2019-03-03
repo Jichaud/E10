@@ -109,6 +109,7 @@
 
         <table class="table h3-a table-hover"style="width:100%" id="ex-table">
             <tr id="tr">
+              <th>Fecha:</th> 
               <th>Materia:</th>
               <th>Cátedra:</th> 
               <th>Docente a cargo:</th> 
@@ -126,6 +127,7 @@
                       snapshot.forEach(function(data){
                           var val = data.val();
                           content +='<tr>';
+                          content += '<td>' + val.fechaEnvio + '</td>';
                           content += '<td>' + val.materia + '</td>';
                           content += '<td>' + val.catedra + '</td>';
                           content += '<td>' + val.docenteCargo + '</td>';

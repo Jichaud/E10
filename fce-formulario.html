@@ -270,6 +270,7 @@
               <label class="text-danger">Dirección de mail</label>
               <input required type="email" class="form-control" id="mailAyudante" placeholder="name@example.com">            
               <hr class="bg-danger col-lg-3">
+              <label class="text-danger">Cargo</label>
               <div class="form-group">
                 <select required class="custom-select mr-sm-2" id="designacionAyudante">
                   <option value="">Seleccionar estado de designación...</option>
@@ -287,6 +288,8 @@
               <div class="invalid-feedback">Campo obligatorio</div>
             </div>
 
+            <input hidden type="date" class="form-control" id="fechaEnvio">        
+            
             <button type="submit" id="submit" class="btn btn-outline-dark">Enviar información</button>
 
           </div>
