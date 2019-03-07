@@ -18,21 +18,7 @@
     projectId: "form-fce",
     storageBucket: "form-fce.appspot.com",
     messagingSenderId: "258213920771"
-  };
-  firebase.initializeApp(config);
-  firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            var ref = new Firebase("https://form-fce.firebaseio.com/messages");
-            ref.on("value", function (snapshot) {
-                var name = snapshot.child("title").val();
-                console.log(snapshot.val());
-            }, function (errorObject) {
-                console.log("The read failed: " + errorObject.code);
-            });
-        } else {
-            firebase.auth().signInAnonymously();
-        }
-    });
+  };  
 </script>
 
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
@@ -75,11 +61,36 @@
 
 <body>
 
+    <script>
+        firebase.initializeApp(config);
+        const auth=firebase.auth();
+        const db=firebase.database();
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+            //blank if correct login
+            } else {
+            window.location.href = 'login.html';
+            }
+          });
+      </script>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-info">
+  <button type="button" id="signOut" class="btn btn-dark" style="width: 10%">Salir</button>
+  <script>
+  document.getElementById('signOut').addEventListener('click', function(event) {
+  firebase.auth().signOut();
+  });
+  </script>
+</nav>
+
+
+
   <!-- Page Content -->
   <div class="container h3-a">
     <br><br>
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">Formulario de conformación de cursos
+    <h1 class="mt-4 mb-3">Respuestas al formulario de conformación de cursos
       <small>Actualización 2019</small>
     </h1>
 
@@ -89,8 +100,7 @@
         <div class="card border-white text-center">
           <img src="images/sellodepartamento.png" class="card-img" style="width:80%;"
             alt="Sello Departamento Pedagógico de Tributación">
-        </div>
-        <br><br>
+        </div>        
       </div>
 
     </div>
@@ -105,7 +115,7 @@
       </div>
     </div>
 
-    <div class="row col-lg-12">
+    <div class="row col-md-12">
 
         <table class="table h3-a table-hover"style="width:100%" id="ex-table">
             <tr id="tr">

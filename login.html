@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Estudio Diez - Suscriptores">
+  <meta name="author" content="Estudio Diez - Consultores Impositivos">
+
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <title>Estudio Diez - suscriptores</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../css/modern-business.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  <style>
+    .h3-a {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      color: dimgrey;
+    }
+  </style>
+
+</head>
+
+<div id="form-fce">
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCBdHdh0hH5NXTgJpLDZDA-KQ9nJHGzXCU",
+      authDomain: "form-fce.firebaseapp.com",
+      databaseURL: "https://form-fce.firebaseio.com",
+      projectId: "form-fce",
+      storageBucket: "form-fce.appspot.com",
+      messagingSenderId: "258213920771"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <script src="js/firebase.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
+  <script type="text/javascript">
+    // FirebaseUI config.
+    var uiConfig = {
+      signInSuccessUrl: 'fce-formulario.1.html',
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+
+      ],
+      credentialHelper: firebaseui.auth.CredentialHelper.NONE
+    };
+
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    // The start method will wait until the DOM is loaded.
+    ui.start('#firebaseui2-auth-container', uiConfig);
+
+  </script>
+
+</div>
+
+
+<body>
+
+  <!-- Navigation -->
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-info">
+  
+</nav>
+  <!-- Page Content -->
+  <div class="container h3-a">
+
+<div class="row justify-content-center">
+  <div class="col-6">
+    <div class="card text-white bg-info mt-5">
+        <div class="card-header">Login</div>
+        <div class="card-body">
+          <h5 class="card-title">Formulario FCE</h5>
+          <p class="card-text"><div id="firebaseui2-auth-container"></div></p>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </div> <!-- /.container -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
