@@ -32,7 +32,10 @@ function submitForm(e){
     
     // graba datos
     saveMessage(materia, catedra, docenteCargo, nombreAyudante, mailAyudante, designacionAyudante, otrosDesignacion, fechaEnvio);
-
+    
+    $('#nombreAyudante').val('');
+    $('#mailAyudante').val('');
+    $('#designacionAyudante').val('');
 
 }
 
