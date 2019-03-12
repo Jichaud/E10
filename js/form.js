@@ -36,6 +36,9 @@ function submitForm(e){
     $('#nombreAyudante').val('');
     $('#mailAyudante').val('');
     $('#designacionAyudante').val('');
+    $('#otrosDesignacion').val('');
+    $('#otrosDesignacion').hide();
+
 
 }
 
