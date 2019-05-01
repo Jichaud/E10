@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/modern-business.css" rel="stylesheet">
+    <link href="css/modern-business.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
@@ -60,21 +60,31 @@
 
   <body>
 
-<script>
-firebase.initializeApp(config);
-const auth=firebase.auth();
-const db=firebase.database();
-
-
-firebase.auth().onAuthStateChanged(function(user) {
-if (user) {
-//blank if correct login
-} else {
- window.location.href = 'suscriptores.html';
-}
-});
-</script>
-
+      <script>
+          var email;
+          firebase.initializeApp(config);
+          const auth = firebase.auth();
+          const db = firebase.database();
+          firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+              //blank if correct login
+              email = user.email;
+              console.log("  Email: " + email);
+              var myDate = new Date();
+              var hrs = myDate.getHours();
+              var greet;
+              if (hrs < 12)
+                greet = 'Buenos días';
+              else if (hrs >= 12 && hrs <= 17)
+                greet = 'Buenas tardes';
+              else if (hrs >= 17 && hrs <= 24)
+                greet = 'Buenas noches';
+              document.getElementById('loged').innerHTML = greet + " " + email;
+            } else {
+              window.location.href = 'suscriptores.html';
+            }
+          });
+        </script>
 
     <!-- Navigation -->
     <div class="container pb-4">
@@ -140,6 +150,7 @@ firebase.auth().signOut();
 
     <!-- Page Content -->
     <div class="container h3-a">
+<h4 id="hola" class="text-primary"> <span id="loged"></span> </h4>
 
       <!-- Page Heading/Breadcrumbs -->
       <h1 class="mt-4 mb-3">Ciclo de Actualización Tributaria - streaming
