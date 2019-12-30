@@ -65,6 +65,45 @@
 
   <body>
 
+    <script>
+    firebase.initializeApp(config);
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .then(function() {
+        // Existing and future Auth states are now persisted in the current
+        // session only. Closing the window would clear any existing state even
+        // if a user forgets to sign out.
+        // ...
+        // New sign-in will be persisted with session persistence.
+        firebase.auth().onAuthStateChanged(function (user) {
+          if (user) {
+            //blank if correct login
+            email = user.email;
+            console.log("  Email: " + email);
+            var myDate = new Date();
+            var hrs = myDate.getHours();
+            var greet;
+            if (hrs < 12)
+              greet = 'Buenos días';
+            else if (hrs >= 12 && hrs <= 17)
+              greet = 'Buenas tardes';
+            else if (hrs >= 17 && hrs <= 24)
+              greet = 'Buenas noches';
+            document.getElementById('loged').innerHTML = greet + " " + email;
+          } else {
+            window.location.href = 'suscriptores.html';
+          }
+        });
+
+        return firebase.auth().signInWithEmailAndPassword(email, password);
+      })
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+      });
+      </script>
+
+<!--
       <script>
           var email;
           firebase.initializeApp(config);
@@ -89,7 +128,7 @@
               window.location.href = 'suscriptores.html';
             }
           });
-        </script>
+        </script> -->
 
     <!-- Navigation -->
     <div class="container pb-4">
