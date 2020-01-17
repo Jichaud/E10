@@ -103,33 +103,6 @@
       });
       </script>
 
-<!--
-      <script>
-          var email;
-          firebase.initializeApp(config);
-          const auth = firebase.auth();
-          const db = firebase.database();
-          firebase.auth().onAuthStateChanged(function (user) {
-            if (user) {
-              //blank if correct login
-              email = user.email;
-              console.log("  Email: " + email);
-              var myDate = new Date();
-              var hrs = myDate.getHours();
-              var greet;
-              if (hrs < 12)
-                greet = 'Buenos días';
-              else if (hrs >= 12 && hrs <= 17)
-                greet = 'Buenas tardes';
-              else if (hrs >= 17 && hrs <= 24)
-                greet = 'Buenas noches';
-              document.getElementById('loged').innerHTML = greet + " " + email;
-            } else {
-              window.location.href = 'suscriptores.html';
-            }
-          });
-        </script> -->
-
     <!-- Navigation -->
     <div class="container pb-4">
       <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light h3-a">
@@ -461,7 +434,7 @@ firebase.auth().signOut();
                     <p class="card-text text-white lead">Índice de impuestos</p>
                   </div>
                   <div class="card-footer bg-white">
-                    <a href="https://estudiodiez.page.link/agip2020" target="blank_" class="btn btn-outline-success btn-sm disabled float-right" role="button" aria-disabled="true">sin novedades</a>
+                    <a href="https://estudiodiez.page.link/agip2020" target="blank_" class="btn btn-outline-success btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
                   </div>
                 </div>
 
@@ -504,7 +477,7 @@ firebase.auth().signOut();
                 <p class="card-text text-white lead">Índice de impuestos</p>
               </div>
               <div class="card-footer bg-white">
-                <a href="https://estudiodiez.page.link/di2020" target="blank_" class="btn btn-outline-primary btn-sm disabled float-right" role="button" aria-disabled="true">sin novedades</a>
+                <a href="https://estudiodiez.page.link/di2020" target="blank_" class="btn btn-outline-primary btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
               </div>
             </div>
 
@@ -537,7 +510,7 @@ firebase.auth().signOut();
                 <p class="card-text text-white lead">Índice de impuestos</p>
               </div>
               <div class="card-footer bg-white">
-                <a href="https://estudiodiez.page.link/iv2020" target="blank_" class="btn btn-outline-success btn-sm disabled float-right" role="button" aria-disabled="true">sin novedades</a>
+                <a href="https://estudiodiez.page.link/iv2020" target="blank_" class="btn btn-outline-success btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
               </div>
             </div>
 
@@ -570,7 +543,7 @@ firebase.auth().signOut();
                   <p class="card-text text-white lead">Índice de impuestos</p>
                 </div>
                 <div class="card-footer bg-white">
-                  <a href="https://estudiodiez.page.link/suss2020" target="blank_" class="btn btn-outline-danger btn-sm disabled float-right" role="button" aria-disabled="true">sin novedades</a>
+                  <a href="https://estudiodiez.page.link/suss2020" target="blank_" class="btn btn-outline-danger btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
                 </div>
               </div>
 
