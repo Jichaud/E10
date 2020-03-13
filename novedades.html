@@ -36,7 +36,7 @@
       }
 
       .fade {
-  transition-duration: 2s;
+  transition-duration: 0.5s;
       }
 
     </style>
@@ -44,6 +44,7 @@
   </head>
 
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+
   <script>
   // Initialize Firebase
   var config = {
@@ -67,6 +68,49 @@
 
   <body>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Ciclo de Actualización Tributaria 2020 | SUSPENSIÓN 1era. reunión</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+    <p class="h4-a pre text-justify">
+Estimado/a Colega:
+
+Buenas tardes.
+
+Como es de público conocimiento, nuestro país continúa en la fase de contención ante la pandemia declarada por la Organización Mundial de la Salud del coronavirus COVID-19. Ante esa declaración, diversas instituciones que reúnen, ya sea en lugares cerrados o abiertos, a mucha gente están iniciando un proceso de cierre programado con la mira puesta en evitar la propagación del coronavirus.
+
+Entre dichas instituciones se encuentra la Universidad del CEMA que ha publicado en su sitio web una resolución del Rectorado dando aviso mencionando que se suspenden todo tipo de actividades hasta el 30/marzo/2020 (<a href="https://ucema.edu.ar/la-ucema/coronavirus" target="_blank">https://ucema.edu.ar/la-ucema/coronavirus</a>).
+
+Teniendo en cuenta que nuestra 1era. reunión del Ciclo de Actualización Tributaria 2020 se iba a desarrollar el viernes 27/marzo/2020, queremos comunicarles que suspenderemos la reunión presencial entendiendo que esta medida es también beneficiosa para todos.
+
+Es importante que sepas que teníamos previsto ante una situación como la que se nos presenta, la utilización de la tecnología del streaming para solventar este percance. De esta manera vamos a habilitar desde el lunes 30/marzo/2020 al domingo 05/abril/2020 en forma ininterrumpida las 24 hs., la transmisión de la 1era. reunión. Durante dicho período, quedará habilitado un formulario de consultas para atender las dudas que te surjan.
+
+Esperamos sepas comprender que una situación excepcional requiere una respuesta excepcional y el streaming es la única y mejor vía que hemos encontrado. En un momento nos planteamos re-programar la reunión, pero tal como se menciona en el aviso publicado por UCEMA, si la situación lo amerita suspenderán por tiempo indeterminado toda actividad.
+
+Por último y no por ello menos importante, es responsabilidad de todos la de tomar las medidas necesarias con el fin de evitar que la salud se vea comprometida, y esto es la primera prioridad.
+
+Saludos cordiales,
+
+
+Por Estudio Diez
+Departamento de Capacitación
+"1952-2020. 68 años brindando servicios profesionales"
+    </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div role="alert" aria-atomic="true" aria-live="assertive" class="toast ml-1" data-autohide="true" data-animation="true" data-delay="3000" style="position: absolute; top: auto; right: auto;">
       <div class="toast-header">
         <img src="images/favicon-32x32.png" class="mr-2" width="10%" alt="">
@@ -74,7 +118,7 @@
         <small>#13/mar/20</small>
       </div>
       <div class="toast-body h3-a">
-        Ya disponible envío 16/mar/20.
+        Ya disponible envío 09/mar/20.
       </div>
     </div>
 
@@ -172,52 +216,9 @@ firebase.auth().signOut();
       <h4 id="hola" class="text-primary"> <span id="loged"></span> </h4>
 
       <!-- Button trigger modal -->
-<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#exampleModalCenter">
+<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#myModal">
   IMPORTANTE AVISO SUSPENSIÓN 1ERA. REUNIÓN DEL CICLO
 </button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Ciclo de Actualización Tributaria 2020 | SUSPENSIÓN 1era. reunión</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-<p class="h4-a pre text-justify">
-Estimado/a Colega:
-
-Buenas tardes.
-
-Como es de público conocimiento, nuestro país continúa en la fase de contención ante la pandemia declarada por la Organización Mundial de la Salud del coronavirus COVID-19. Ante esa declaración, diversas instituciones que reúnen, ya sea en lugares cerrados o abiertos, a mucha gente están iniciando un proceso de cierre programado con la mira puesta en evitar la propagación del coronavirus.
-
-Entre dichas instituciones se encuentra la Universidad del CEMA que ha publicado en su sitio web una resolución del Rectorado dando aviso mencionando que se suspenden todo tipo de actividades hasta el 30/marzo/2020 (<a href="https://ucema.edu.ar/la-ucema/pandemia" target="_blank">https://ucema.edu.ar/la-ucema/pandemia</a>).
-
-Teniendo en cuenta que nuestra 1era. reunión del Ciclo de Actualización Tributaria 2020 se iba a desarrollar el viernes 27/marzo/2020, queremos comunicarles que suspenderemos la reunión presencial entendiendo que esta medida es también beneficiosa para todos.
-
-Es importante que sepas que teníamos previsto ante una situación como la que se nos presenta, la utilización de la tecnología del streaming para solventar este percance. De esta manera vamos a habilitar desde el lunes 30/marzo/2020 al domingo 05/abril/2020 en forma ininterrumpida las 24 hs., la transmisión de la 1era. reunión. Durante dicho período, quedará habilitado un formulario de consultas para atender las dudas que te surjan.
-
-Esperamos sepas comprender que una situación excepcional requiere una respuesta excepcional y el streaming es la única y mejor vía que hemos encontrado. En un momento nos planteamos re-programar la reunión, pero tal como se menciona en el aviso publicado por UCEMA, si la situación lo amerita suspenderán por tiempo indeterminado toda actividad.
-
-Por último y no por ello menos importante, es responsabilidad de todos la de tomar las medidas necesarias con el fin de evitar que la salud se vea comprometida, y esto es la primera prioridad.
-
-Saludos cordiales,
-
-
-Por Estudio Diez
-Departamento de Capacitación
-"1952-2020. 68 años brindando servicios profesionales"
-</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
       <!-- Page Heading/Breadcrumbs -->
       <h1 class="mt-4 mb-3">Novedades impositivas
@@ -1466,9 +1467,7 @@ Departamento de Capacitación
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
-    $(document).ready(function(){
     $(".toast").toast("show");
-    });
     </script>
 
   </body>
