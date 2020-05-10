@@ -2,7 +2,7 @@ body {
     padding-top: 4px;
     font-family: Roboto;
   }
-  
+
   @media (min-width: 992px) {
     body {
       padding-top: 6px;
@@ -77,5 +77,5 @@ p {
 }
 
 .pre {
-    white-space: pre-wrap;    
+    white-space: pre-wrap;
 }
