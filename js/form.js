@@ -1,14 +1,54 @@
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyCBdHdh0hH5NXTgJpLDZDA-KQ9nJHGzXCU",
-    authDomain: "form-fce.firebaseapp.com",
-    databaseURL: "https://form-fce.firebaseio.com",
-    projectId: "form-fce",
-    storageBucket: "form-fce.appspot.com",
-    messagingSenderId: "258213920771"
-  };
-  firebase.initializeApp(config);  
+// Initialize Cloud Firestore through Firebase
+firebase.initializeApp({
+  apiKey: "AIzaSyCBdHdh0hH5NXTgJpLDZDA-KQ9nJHGzXCU",
+  authDomain: "form-fce.firebaseapp.com",
+  projectId: "form-fce"
+});
 
+var db = firebase.firestore();
+
+function guardar(){
+
+  var dApellido = document.getElementById('dApellido').value;
+  var dNombre = document.getElementById('dNombre').value;
+  var dEmail = document.getElementById('dEmail').value;
+  var inscriptos = document.getElementById('inscriptos').value;
+  var materia = document.getElementById('materia').value;
+  var pAusentes = document.getElementById('pAusentes').value;
+  var pConvalidados = document.getElementById('pConvalidados').value;
+  var pPendientes = document.getElementById('pPendientes').value;
+  var tAusentes = document.getElementById('tAusentes').value;
+  var tConvalidados = document.getElementById('tConvalidados').value;
+  var tPendientes = document.getElementById('tPendientes').value;
+  var catedra = document.getElementById('catedra').value;
+
+  db.collection("202001alumnosasistencia").add({
+      dApellido: dApellido,
+      dNombre: dNombre,
+      dEmail: dEmail,
+      inscriptos: inscriptos,
+      materia: materia,
+      pAusentes: pAusentes,
+      pConvalidados: pConvalidados,
+      pPendientes: pPendientes,
+      tAusentes: tAusentes,
+      tConvalidados: tConvalidados,
+      tPendientes: tPendientes,
+      catedra: catedra,
+  })
+  .then(function(docRef) {
+      console.log("Document written with ID: ", docRef.id);
+      $('#myModal').modal('show');
+
+  })
+  .catch(function(error) {
+      console.error("Error adding document: ", error);
+  });
+
+}
+
+
+/*
   // referencia mensajes
 
   var messagesRef = firebase.database().ref('messages');
@@ -23,16 +63,16 @@ function submitForm(e){
     // obtener valores
     var materia = getInputVal('materia');
     var catedra = getInputVal('catedra');
-    var docenteCargo = getInputVal('docenteCargo');    
+    var docenteCargo = getInputVal('docenteCargo');
     var nombreAyudante = getInputVal('nombreAyudante');
     var mailAyudante = getInputVal('mailAyudante');
     var designacionAyudante = getInputVal('designacionAyudante');
     var otrosDesignacion = getInputVal('otrosDesignacion');
     var fechaEnvio = getInputVal('fechaEnvio');
-    
+
     // graba datos
     saveMessage(materia, catedra, docenteCargo, nombreAyudante, mailAyudante, designacionAyudante, otrosDesignacion, fechaEnvio);
-    
+
     $('#nombreAyudante').val('');
     $('#mailAyudante').val('');
     $('#designacionAyudante').val('');
@@ -54,7 +94,7 @@ function saveMessage(materia, catedra, docenteCargo, nombreAyudante, mailAyudant
     newMessageRef.set({
         materia:materia,
         catedra:catedra,
-        docenteCargo:docenteCargo,        
+        docenteCargo:docenteCargo,
         nombreAyudante:nombreAyudante,
         mailAyudante:mailAyudante,
         designacionAyudante:designacionAyudante,
@@ -83,3 +123,4 @@ $('#designacionAyudante').on('change',function(){
    $("#otrosDesignacion").val("sin información");
    }
 });
+*/
