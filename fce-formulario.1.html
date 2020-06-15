@@ -8,19 +8,6 @@
   <meta name="description" content="Estudio Diez - Ciclo">
   <meta name="author" content="Estudio Diez - Consultores Impositivos">
 
-  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCBdHdh0hH5NXTgJpLDZDA-KQ9nJHGzXCU",
-    authDomain: "form-fce.firebaseapp.com",
-    databaseURL: "https://form-fce.firebaseio.com",
-    projectId: "form-fce",
-    storageBucket: "form-fce.appspot.com",
-    messagingSenderId: "258213920771"
-  };  
-</script>
-
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
 
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
@@ -34,8 +21,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Firestore entorno -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
 
   <style>
     .h3-a {
@@ -61,27 +49,8 @@
 
 <body>
 
-    <script>
-        firebase.initializeApp(config);
-        const auth=firebase.auth();
-        const db=firebase.database();
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-            //blank if correct login
-            } else {
-            window.location.href = 'login.html';
-            }
-          });
-      </script>
-
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-info">
-  <button type="button" id="signOut" class="btn btn-dark" style="width: 10%">Salir</button>
-  <script>
-  document.getElementById('signOut').addEventListener('click', function(event) {
-  firebase.auth().signOut();
-  });
-  </script>
 </nav>
 
 
@@ -90,17 +59,17 @@
   <div class="container h3-a">
     <br><br>
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">Respuestas al formulario de conformación de cursos
-      <small>Actualización 2019</small>
+    <h1 class="mt-4 mb-3">Respuestas al formulario de rendimiento de alumnos <hr class="bg-secondary">
+      <small>1º cuatrimestre 2020</small>
     </h1>
 
-    <!-- Ciclo -->
+    <!-- UBA FCE -->
     <div class="row">
       <div class="col-lg-12">
         <div class="card border-white text-center">
           <img src="images/sellodepartamento.png" class="card-img" style="width:80%;"
             alt="Sello Departamento Pedagógico de Tributación">
-        </div>        
+        </div>
       </div>
 
     </div>
@@ -117,40 +86,39 @@
 
     <div class="row col-md-12">
 
-        <table class="table h3-a table-hover"style="width:100%" id="ex-table">
+        <table class="table h3-a table-hover"style="width:100%">
+          <thead>
             <tr id="tr">
-              <th>Fecha:</th> 
               <th>Materia:</th>
-              <th>Cátedra:</th> 
-              <th>Docente a cargo:</th> 
-              <th>Apellido y nombre:</th> 
-              <th>Mail:</th> 
-              <th>Cargo:</th> 
-              <th>Otos:</th> 
-           </table> 
-          
-          <script>
-              var database = firebase.database();
-              database.ref('messages').once('value', function(snapshot){
-                  if(snapshot.exists()){
-                      var content = '';
-                      snapshot.forEach(function(data){
-                          var val = data.val();
-                          content +='<tr>';
-                          content += '<td>' + val.fechaEnvio + '</td>';
-                          content += '<td>' + val.materia + '</td>';
-                          content += '<td>' + val.catedra + '</td>';
-                          content += '<td>' + val.docenteCargo + '</td>';
-                          content += '<td>' + val.nombreAyudante + '</td>';
-                          content += '<td>' + val.mailAyudante + '</td>';
-                          content += '<td>' + val.designacionAyudante + '</td>';
-                          content += '<td>' + val.otrosDesignacion + '</td>';
-                          content += '</tr>';
-                      });
-                      $('#ex-table').append(content);
-                  }
-              });
-          </script>
+              <th>Cátedra:</th>
+              <th>Nombre docente:</th>
+              <th>Apellido docente:</th>
+              <th>Inscriptos:</th>
+              <th>Teoría convalidados:</th>
+              <th>Teoría pendientes:</th>
+              <th>Teoría ausentes:</th>
+              <th>Práctica convalidados:</th>
+              <th>Práctica pendientes:</th>
+              <th>Práctica ausentes:</th>
+            </tr>
+          </thead>
+          <tbody id="ex-table">
+            <tr>
+              <td>materia</td>
+              <td>catedra</td>
+              <td>nombre docente</td>
+              <td>apellido docente</td>
+              <td>inscriptos</td>
+              <td>tConvalidados</td>
+              <td>tPendientes</td>
+              <td>tAusentes</td>
+              <td>pConvalidados</td>
+              <td>pPendientes</td>
+              <td>pAusentes</td>
+            </tr>
+          </tbody>
+           </table>
+
 
     </div>
 
@@ -226,6 +194,34 @@
     $(function () {
       $('[data-toggle="popover"]').popover()
     })
+  </script>
+
+<script type="text/javascript">
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+</script>
+
+  <script src="js/form.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCBdHdh0hH5NXTgJpLDZDA-KQ9nJHGzXCU",
+      authDomain: "form-fce.firebaseapp.com",
+      databaseURL: "https://form-fce.firebaseio.com",
+      projectId: "form-fce",
+      storageBucket: "form-fce.appspot.com",
+      messagingSenderId: "258213920771",
+      appId: "1:258213920771:web:797dbf5b28968875b28e36"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
   </script>
 
 </body>

@@ -47,80 +47,26 @@ function guardar(){
 
 }
 
-
-/*
-  // referencia mensajes
-
-  var messagesRef = firebase.database().ref('messages');
-
-// escucha formulario
-document.getElementById('formFce').addEventListener('submit', submitForm);
-
-function submitForm(e){
-    $('#myModal').modal('show');
-    e.preventDefault();
-
-    // obtener valores
-    var materia = getInputVal('materia');
-    var catedra = getInputVal('catedra');
-    var docenteCargo = getInputVal('docenteCargo');
-    var nombreAyudante = getInputVal('nombreAyudante');
-    var mailAyudante = getInputVal('mailAyudante');
-    var designacionAyudante = getInputVal('designacionAyudante');
-    var otrosDesignacion = getInputVal('otrosDesignacion');
-    var fechaEnvio = getInputVal('fechaEnvio');
-
-    // graba datos
-    saveMessage(materia, catedra, docenteCargo, nombreAyudante, mailAyudante, designacionAyudante, otrosDesignacion, fechaEnvio);
-
-    $('#nombreAyudante').val('');
-    $('#mailAyudante').val('');
-    $('#designacionAyudante').val('');
-    $('#otrosDesignacion').val('');
-    $('#otrosDesignacion').hide();
-
-
-}
-
-// obtener valores
-
-function getInputVal(id){
-    return document.getElementById(id).value;
-}
-
-// enviar mensajes a firebase
-function saveMessage(materia, catedra, docenteCargo, nombreAyudante, mailAyudante, designacionAyudante, otrosDesignacion, fechaEnvio){
-    var newMessageRef = messagesRef.push();
-    newMessageRef.set({
-        materia:materia,
-        catedra:catedra,
-        docenteCargo:docenteCargo,
-        nombreAyudante:nombreAyudante,
-        mailAyudante:mailAyudante,
-        designacionAyudante:designacionAyudante,
-        otrosDesignacion:otrosDesignacion,
-        fechaEnvio:timestamp,
+// Leer datos
+var tabla = document.getElementById('ex-table');
+db.collection("202001alumnosasistencia").get().then((querySnapshot) => {
+    tabla.innerHTML = "";
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data().materia}`);
+        tabla.innerHTML += `
+        <tr>
+          <td>${doc.data().materia}</td>
+          <td>${doc.data().catedra}</td>
+          <td>${doc.data().dNombre}</td>
+          <td>${doc.data().dApellido}</td>
+          <td>${doc.data().inscriptos}</td>
+          <td>${doc.data().tConvalidados}</td>
+          <td>${doc.data().tPendientes}</td>
+          <td>${doc.data().tAusentes}</td>
+          <td>${doc.data().pConvalidados}</td>
+          <td>${doc.data().pPendientes}</td>
+          <td>${doc.data().pAusentes}</td>
+        </tr>
+        `
     });
-}
-
-// obtener fecha
-
-var timestamp = Date();
-
-// otros designación ayudante
-
-$('#designacionAyudante').on('change',function(){
-    var selection = $(this).val();
-   switch(selection){
-   case "Otros":
-   $("#otrosDesignacion").show()
-   $("#otrosDesignacion").attr('required',"");
-   $("#otrosDesignacion").val("Detallar");
-  break;
-   default:
-   $("#otrosDesignacion").hide()
-   $("#otrosDesignacion").removeAttr('required');
-   $("#otrosDesignacion").val("sin información");
-   }
 });
-*/
