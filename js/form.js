@@ -34,10 +34,22 @@ function guardar(){
       tAusentes: tAusentes,
       tConvalidados: tConvalidados,
       tPendientes: tPendientes,
-      catedra: catedra,
+      catedra: catedra
   })
   .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
+      document.getElementById('dApellido').value = '';
+      document.getElementById('dNombre').value = '';
+      document.getElementById('dEmail').value = '';
+      document.getElementById('inscriptos').value = '';
+      document.getElementById('materia').value = '';
+      document.getElementById('pAusentes').value = '';
+      document.getElementById('pConvalidados').value = '';
+      document.getElementById('pPendientes').value = '';
+      document.getElementById('tAusentes').value = '';
+      document.getElementById('tConvalidados').value = '';
+      document.getElementById('tPendientes').value = '';
+      document.getElementById('catedra').value = '';
       $('#myModal').modal('show');
 
   })

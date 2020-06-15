@@ -44,10 +44,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
 </head>
-
 
 <body>
 
@@ -170,7 +167,6 @@
               </div>
 
               <div class="invalid-feedback">Campo obligatorio</div>
-            </div>
 
             <hr class="bg-info">
 
@@ -196,6 +192,10 @@
 
             <div class="alert alert-primary" role="alert">
             <b>TEORÍA</b>
+            </div>
+
+            <div class="alert alert-danger" role="alert">
+            ¡ATENCIÓN! LA SUMA DE CONVALIDADOS, PENDIENTES Y AUSENTES DEBER SER IGUAL A INSCRIPTOS
             </div>
 
             <div class="card mb-3 border-success" style="max-width: 540px;">
@@ -246,6 +246,10 @@
             <b>PRÁCTICA</b>
             </div>
 
+            <div class="alert alert-danger" role="alert">
+            ¡ATENCIÓN! LA SUMA DE CONVALIDADOS, PENDIENTES Y AUSENTES DEBER SER IGUAL A INSCRIPTOS
+            </div>
+
             <div class="card mb-3 border-success" style="max-width: 540px;">
               <div class="row no-gutters align-items-center">
                 <div class="col-md-4 text-center text-success">
@@ -287,9 +291,9 @@
                 </div>
               </div>
             </div>
+            <input type="date" required hidden class="form-control" id="fechaEnvio">
 
             <button onclick="guardar()" id="enviar" class="btn btn-outline-dark">Enviar información</button>
-
           </div>
         </form>
 
@@ -348,6 +352,67 @@
   </script>
 
   <script src="js/form.js"></script>
+
+    <!-- habilitar botón enviar -->
+  <script>
+  $(document).ready(function() {
+  validate();
+  $('input').on('keyup', validate);
+  });
+
+  function validate() {
+  var inputsWithValues = 0;
+
+  // get all input fields except for type='submit'
+  var myInputs = $("input:not([id='fechaEnvio'])");
+
+  myInputs.each(function(e) {
+  // if it has a value, increment the counter
+  if ($(this).val()) {
+  inputsWithValues += 1;
+  }
+  });
+
+  if (inputsWithValues == myInputs.length) {
+  $("button[id=enviar]").prop("disabled", false);
+  } else {
+  $("button[id=enviar]").prop("disabled", true);
+  }
+  }
+  </script>
+
+  <script>
+  $("#tAusentes").on('focusout', function() {
+  var value2 = parseInt($("#tConvalidados").val()) > 0 ? parseInt($("#tConvalidados").val()) : 0;
+  var value1 = parseInt($("#tPendientes").val()) > 0 ? parseInt($("#tPendientes").val()) : 0
+  var value3 = parseInt($("#tAusentes").val()) > 0 ? parseInt($("#tAusentes").val()) : 0
+  var inscr = parseInt($("#inscriptos").val()) > 0 ? parseInt($("#inscriptos").val()) : 0
+  var sumOfValues = value1 + value2 + value3 - inscr;
+  if (sumOfValues != 0) {
+    alert('El total de TEORÍA no coincide con el total de INSCRIPTOS');
+    document.getElementById("pConvalidados").value ="";
+    $("input[id=pConvalidados]").prop("disabled", true);
+  } else {
+    $("input[id=pConvalidados]").prop("disabled", false);
+  }
+  });
+
+  $("#pAusentes").on('focusout', function() {
+  var value2 = parseInt($("#pConvalidados").val()) > 0 ? parseInt($("#pConvalidados").val()) : 0;
+  var value1 = parseInt($("#pPendientes").val()) > 0 ? parseInt($("#pPendientes").val()) : 0
+  var value3 = parseInt($("#pAusentes").val()) > 0 ? parseInt($("#pAusentes").val()) : 0
+  var inscr = parseInt($("#inscriptos").val()) > 0 ? parseInt($("#inscriptos").val()) : 0
+  var sumOfValues = value1 + value2 + value3 - inscr;
+  if (sumOfValues != 0) {
+    alert('El total de PRÁCTICA no coincide con el total de INSCRIPTOS');
+    document.getElementById("tConvalidados").value ="";
+    $("input[id=tConvalidados]").prop("disabled", true);
+  } else {
+    $("input[id=tConvalidados]").prop("disabled", false);
+  }
+  });
+
+  </script>
 
 </body>
 
