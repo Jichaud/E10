@@ -191,7 +191,7 @@
             <hr class="bg-primary">
 
             <div class="alert alert-primary" role="alert">
-            <b>1º EVALUACIÓN AL 30/JUNIO/2020</b>
+            <b>1º EVALUACIÓN AL 01/JUNIO/2020</b>
             </div>
 
             <div class="alert alert-danger" role="alert">
@@ -243,7 +243,7 @@
             <hr class="success">
 
             <div class="alert alert-dark" role="alert">
-            <b>2º EVALUACIÓN AL 30/JUNIO/2020</b>
+            <b>2º EVALUACIÓN AL 01/JUNIO/2020</b>
             </div>
 
             <div class="alert alert-danger" role="alert">
@@ -393,7 +393,7 @@
   $("#tConvalidados").on('focusout', function() {
   var value2 = parseInt($("#tConvalidados").val()) > 0 ? parseInt($("#tConvalidados").val()) : 0;
   var valueConvalidados = value2;
-  if (valueConvalidados > 0) {
+  if (valueConvalidados => 0) {
     $("input[id=tPendientes]").prop("disabled", false);
   } else {
     $("input[id=tPendientes]").prop("disabled", true);
@@ -403,7 +403,7 @@
   $("#tPendientes").on('focusout', function() {
   var value2 = parseInt($("#tPendientes").val()) > 0 ? parseInt($("#tPendientes").val()) : 0;
   var valuePendientes = value2;
-  if (valuePendientes > 0) {
+  if (valuePendientes => 0) {
     $("input[id=tAusentes]").prop("disabled", false);
   } else {
     $("input[id=tAusentes]").prop("disabled", true);
@@ -413,7 +413,7 @@
   $("#tAusentes").on('focusout', function() {
   var value2 = parseInt($("#tAusentes").val()) > 0 ? parseInt($("#tAusentes").val()) : 0;
   var valueAusentes = value2;
-  if (valueAusentes > 0) {
+  if (valueAusentes => 0) {
     $("input[id=pConvalidados]").prop("disabled", false);
   } else {
     $("input[id=pConvalidados]").prop("disabled", true);
@@ -423,7 +423,7 @@
   $("#pConvalidados").on('focusout', function() {
   var value2 = parseInt($("#pConvalidados").val()) > 0 ? parseInt($("#pConvalidados").val()) : 0;
   var valuePConvalidados = value2;
-  if (valuePConvalidados > 0) {
+  if (valuePConvalidados => 0) {
     $("input[id=pPendientes]").prop("disabled", false);
   } else {
     $("input[id=pPendientes]").prop("disabled", true);
@@ -433,7 +433,7 @@
   $("#pPendientes").on('focusout', function() {
   var value2 = parseInt($("#pPendientes").val()) > 0 ? parseInt($("#pPendientes").val()) : 0;
   var valuePPendientes = value2;
-  if (valuePPendientes > 0) {
+  if (valuePPendientes => 0) {
     $("input[id=pAusentes]").prop("disabled", false);
   } else {
     $("input[id=pAusentes]").prop("disabled", true);
