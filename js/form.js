@@ -61,10 +61,10 @@ function guardar(){
 
 // Leer datos
 var tabla = document.getElementById('ex-table');
-db.collection("202001alumnosasistencia").get().then((querySnapshot) => {
+db.collection("202001alumnosasistencia").onSnapshot((querySnapshot) => {
     tabla.innerHTML = "";
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data().materia}`);
+        console.log(`${doc.id} => ${doc.data()}`);
         tabla.innerHTML += `
         <tr>
           <td>${doc.data().materia}</td>
