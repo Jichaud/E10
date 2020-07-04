@@ -112,6 +112,38 @@ Departamento de Capacitación
       </div>
     </div> -->
 
+    <!-- Zoom -->
+    <div class="modal fade" id="mZoom" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-primary" id="exampleModalLabel">Repaso de Ganancias y Bienes Personales</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="images/logo-E10-1.png" class="rounded" alt="Estudio Diez - Consultores impositivos" width="50%">
+            <p class="h4-a pre text-justify">
+    Estimado/a Colega,
+
+    Dada la cercanía de los vencimientos del Impuesto a las Ganancias y sobre los Bienes Personales, hemos decidido organizar una charla adicional para responder dudas puntuales vinculadas a la liquidación de ambos tributos.
+
+    La cita es el próximo viernes 10/julio, de 10 a 12 horas. Dos días antes recibirán la invitación para acceder a la charla vía Zoom.
+
+    Saludos cordiales,
+
+    Por Estudio Diez
+    Departamento de Capacitación
+    "1952-2020. 68 años brindando servicios profesionales"
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <div role="alert" aria-atomic="true" aria-live="assertive" class="toast ml-1 position-relative" data-autohide="true" data-animation="true" data-delay="3000">
     <div class="toast-header">
       <img src="images/favicon-32x32.png" class="mr-2" width="10%" alt="">
@@ -1597,6 +1629,12 @@ firebase.auth().signOut();
     $(document).ready(function(){
     $(".toast").toast("show");
     });
+    </script>
+
+    <script>
+    $(document).ready(function(){
+      $('#mZoom').modal('show');
+    })
     </script>
 
   </body>
