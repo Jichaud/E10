@@ -22,7 +22,7 @@ function guardar(){
   var tPendientes = document.getElementById('tPendientes').value;
   var catedra = document.getElementById('catedra').value;
 
-  db.collection("202001alumnosasistencia").add({
+  db.collection("202002alumnosasistencia").add({
       dApellido: dApellido,
       dNombre: dNombre,
       dEmail: dEmail,
@@ -61,7 +61,7 @@ function guardar(){
 
 // Leer datos
 var tabla = document.getElementById('ex-table');
-db.collection("202001alumnosasistencia").onSnapshot((querySnapshot) => {
+db.collection("202002alumnosasistencia").onSnapshot((querySnapshot) => {
     tabla.innerHTML = "";
     querySnapshot.forEach((doc) => {
         console.log(`${doc.id} => ${doc.data()}`);
