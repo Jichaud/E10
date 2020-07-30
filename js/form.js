@@ -9,6 +9,7 @@ var db = firebase.firestore();
 
 function guardar(){
 
+  var fechaEnvio = timestamp;
   var dApellido = document.getElementById('dApellido').value;
   var dNombre = document.getElementById('dNombre').value;
   var dEmail = document.getElementById('dEmail').value;
@@ -23,6 +24,7 @@ function guardar(){
   var catedra = document.getElementById('catedra').value;
 
   db.collection("202002alumnosasistencia").add({
+      fechaEnvio: fechaEnvio,
       dApellido: dApellido,
       dNombre: dNombre,
       dEmail: dEmail,
@@ -50,6 +52,7 @@ function guardar(){
       document.getElementById('tConvalidados').value = '';
       document.getElementById('tPendientes').value = '';
       document.getElementById('catedra').value = '';
+      document.getElementById('fechaEnvio').value='';
       $('#myModal').modal('show');
 
   })
@@ -59,6 +62,10 @@ function guardar(){
 
 }
 
+// obtener fecha
+
+var timestamp = Date();
+
 // Leer datos
 var tabla = document.getElementById('ex-table');
 db.collection("202002alumnosasistencia").onSnapshot((querySnapshot) => {
@@ -67,6 +74,7 @@ db.collection("202002alumnosasistencia").onSnapshot((querySnapshot) => {
         console.log(`${doc.id} => ${doc.data()}`);
         tabla.innerHTML += `
         <tr>
+          <td>${doc.data().fechaEnvio}</td>
           <td>${doc.data().materia}</td>
           <td>${doc.data().catedra}</td>
           <td>${doc.data().dNombre}</td>
