@@ -185,218 +185,50 @@
 </div>
 
 <header>
-  <div class="row">
-    <div class="col mb-4 crop">
-      <img src="images/encabezado-suscriptores.jpg" class="img-fluid centered rounded" style="opacity: 0.5"
-        style="background-size: cover">
-    </div>
-  </div>
-  <!--/divrow -->
+
 </header>
 
 <body>
 
-<!-- Navigation -->
-<div class="container pb-4">
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light h3-a">
-    <a class="navbar-brand" href="index.html">
-      <img src="images/logo-E10-1.png" class="img-fluid" width="80%" alt="Estudio Diez">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Estudio
-          </a>
-          <div class="dropdown-menu alert alert-info" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="perfil.html">Perfil</a>
-            <a class="dropdown-item" href="organizacion.html">Organización</a>
-            <a class="dropdown-item" href="socios.html">Socios</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Servicios
-          </a>
-          <div class="dropdown-menu alert alert-secondary" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="impositivo.html">Impositivo</a>
-            <a class="dropdown-item" href="contable.html">Contable</a>
-            <a class="dropdown-item" href="juridico.html">Jurídico</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Capacitación
-          </a>
-          <div class="dropdown-menu alert alert-success" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="eventos.html">Eventos</a>
-            <hr class="bg-success">
-            <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="publicaciones.html">Publicaciones</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="sitios-de-interes.html">Sitios de interés</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contacto</a>
-        </li>
-        <li>
-          <a href="blog.html"><button type="button" class="btn btn-info">Blog</button></a>
-        </li>
-        <li>
-          &nbsp;
-        </li>
-        <li>
-          <a href="suscriptores.html"><button type="button" class="btn btn-success">Suscriptores</button></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</div>
 
 <!-- Page Content -->
-<div class="container h3-a">
-  <div class="row">
+<div class="container-fluid bg-light pt-4">
+  <div class="text-center">
+    <a href="index.html" class="card-link">
+      <img src="images/logo-ed-siglas.png" data-toggle="tooltip" data-placement="top" title="Volver a inicio" class="img-fluid" style="max-width:8rem" alt="logo Estudio Diez">
+    </a>
+  </div>
+    <div class="row pt-4">
+      <div class="card-body">
+        <div class="card border-success bg-light mb-3"
+          style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
+          <div class="card-header bg-success text-white"><span class="badge badge-light h3-a">Presencial</span> | Ciclo de Actualización Tributaria</div>
           <div class="card-body">
-            <div class="card border-success bg-light mb-3"
-              style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
-              <div class="card-header bg-success text-white"><span class="badge badge-light h3-a">Presencial</span> | Ciclo de Actualización Tributaria</div>
-              <div class="card-body">
-                <h1 class="card-title"><small>Ciclo presencial</small></h1>
-                <p class="card-text">
-                  <div id="firebaseui1-auth-container"></div>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="card border-info bg-light mb-3" disabled
-              style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
-              <div class="card-header bg-info text-white"><span class="badge badge-light h3-a">Streaming</span> | Ciclo de Actualización Tributaria</div>
-              <div class="card-body">
-                <h1 class="card-title"><small>Streaming</small></h1>
-                <p class="card-text">
-                  <div id="firebaseui2-auth-container"></div>
-                </p>
-              </div>
-            </div>
-          </div>
-
-      <!--
-      <br>
-      <div class="card border-warning bg-light">
-        <div class="card-header bg-warning text-white" id="headingThree">
-          <h6 class="mb-0">
-            <a class="card-link text-white" data-toggle="collapse" href="#collapseThree" aria-expanded="true"
-              aria-controls="collapseThree">
-              Reforma Tributaria - Acceso
-            </a>
-          </h6>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-          <div class="card-body">
-            <div class="card border-warning bg-light mb-3"
-              style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
-              <div class="card-header bg-warning text-white">Reforma tributaria</div>
-              <div class="card-body">
-                <h1 class="card-title"><small>Reforma tributaria</small></h1>
-                <p class="card-text">
-                  <div id="firebaseui3-auth-container"></div>
-                </p>
-              </div>
-            </div>
+            <h1 class="card-title"><small>Ciclo presencial</small></h1>
+            <p class="card-text">
+              <div id="firebaseui1-auth-container"></div>
+            </p>
           </div>
         </div>
       </div>
-      <br>
-      <div class="card border-danger bg-light">
-        <div class="card-header bg-danger text-white" id="headingFour">
-          <h6 class="mb-0">
-            <a class="card-link text-white" data-toggle="collapse" href="#collapseFour" aria-expanded="true"
-              aria-controls="collapseFour">
-              Retención ganancias empleados - Acceso
-            </a>
-          </h6>
-        </div>
-        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+        <div class="card border-info bg-light mb-3" disabled
+        style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
+        <div class="card-header bg-info text-white"><span class="badge badge-light h3-a">Streaming</span> | Ciclo de Actualización Tributaria</div>
           <div class="card-body">
-            <div class="card border-danger bg-light mb-3"
-              style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
-              <div class="card-header bg-danger text-white">Retención ganancias empleados</div>
-              <div class="card-body">
-                <h1 class="card-title"><small>Retención ganancias</small></h1>
-                <p class="card-text">
-                  <div id="firebaseui4-auth-container"></div>
-                </p>
-              </div>
-            </div>
+            <h1 class="card-title"><small>Streaming</small></h1>
+            <p class="card-text">
+              <div id="firebaseui2-auth-container"></div>
+            </p>
           </div>
-        </div>
-      </div> -->
-</div>
-</div> <!-- /.container -->
-<hr class="mb-5">
-
-<!-- Footer -->
-<footer class="py-5 bg-dark h3-a">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3 mb-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item bg-info lead text-light" role="tab">Estudio</a>
-          <a class="list-group-item list-group-item-action" href="perfil.html" role="tab">Perfil</a>
-          <a class="list-group-item list-group-item-action" href="organizacion.html" role="tab">Organización</a>
-          <a class="list-group-item list-group-item-action" href="socios.html" role="tab">Socios</a>
-          <a class="list-group-item list-group-item-action" href="publicaciones.html" role="tab">Publicaciones</a>
-        </div>
-      </div>
-      <div class="col-lg-3 mb-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item bg-secondary lead text-light" role="tab">Servicios</a>
-          <a class="list-group-item list-group-item-action" href="impositivo.html" role="tab">Impositivos</a>
-          <a class="list-group-item list-group-item-action" href="contable.html" role="tab">Contable</a>
-          <a class="list-group-item list-group-item-action" href="juridico.html" role="tab">Jurídicos</a>
-        </div>
-      </div>
-      <div class="col-lg-3 mb-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item bg-success lead text-light" role="tab">Capacitación</a>
-          <a class="list-group-item list-group-item-action" href="eventos.html" role="tab">Eventos</a>
-          <a class="list-group-item list-group-item-action" href="suscriptores.html" role="tab">Suscriptores</a>
-        </div>
-      </div>
-      <div class="col-lg-3 mb-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item bg-warning lead text-light" role="tab">Conecta</a>
-          <a class="list-group-item list-group-item-action" href="contact.html" role="tab">Contacto</a>
-          <a class="list-group-item list-group-item-action" href="sitios-de-interes.html" role="tab">Link's de
-            interés</a>
-          <a class="list-group-item list-group-item-action" href="https://www.facebook.com/diezestudio" target="_blank"
-            role="tab">Facebook</a>
-          <a class="list-group-item list-group-item-action"
-            href="https://www.youtube.com/channel/UC1Rg9E5c1hEgTlysuGBRy6A" target="_blank" role="tab">Youtube</a>
-          <a class="list-group-item list-group-item-action" href="https://twitter.com/diez_estudio" target="_blank"
-            role="tab">Twitter</a>
         </div>
       </div>
     </div>
-    <hr style="background-color: white">
-    <p class="m-0 text-right text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos
+    <p class="m-0 text-center text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos
       Aires. Argentina</p>
-  </div>
-  <!-- /.container -->
-</footer>
+</div>
+
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -404,6 +236,15 @@
   integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
   integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" defer>
+    $(function () {
+      $("[data-toggle='tooltip']").tooltip();
+    });
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+  </script>
 
 </body>
 
