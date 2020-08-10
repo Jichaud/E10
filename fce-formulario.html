@@ -94,7 +94,6 @@
       <div class="col-lg-6">
         <form class="was-validated" id="formFce">
           <div class="form">
-
             <div class="alert h3-a alert-success text-success" role="alert">
               Datos de la materia <span class="badge badge-success text-white">1/4</span>
             </div>
@@ -291,9 +290,10 @@
                 </div>
               </div>
             </div>
+
             <input type="date" required hidden class="form-control" id="fechaEnvio">
 
-            <button onclick="guardar()" id="enviar" class="btn btn-outline-dark">Enviar información</button>
+
           </div>
         </form>
 
@@ -313,9 +313,100 @@
               </div>
             </div>
           </div>
+      </div>
 
+      <div class="col-lg-6 align-self-end">
+        <div class="alert alert-success" role="alert">
+        <b>PRIMER CUATRIMESTRE 2020</b>
+        </div>
+
+      <div class="card mb-3 border-success" style="max-width: 540px;">
+        <div class="row no-gutters align-items-center">
+          <div class="col-md-4 text-center text-success">
+            <h1> <i class="fas fa-users"></i></h1>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title text-success">Insciptos</h5>
+              <input required type="number" class="form-control" min="0" id="primerInscriptos" placeholder="número positivo">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3 border-danger" style="max-width: 540px;">
+        <div class="row no-gutters align-items-center">
+          <div class="col-md-4 text-center text-danger">
+            <h1> <i class="fas fa-users"></i></h1>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title text-danger">Ausentes</h5>
+              <input required type="number" class="form-control" min="0" id="primerAusentes" placeholder="número positivo">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3 border-secondary" style="max-width: 540px;">
+        <div class="row no-gutters align-items-center">
+          <div class="col-md-4 text-center text-secondary">
+            <h1> <i class="fas fa-users"></i></h1>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title text-secondary">Condicionados</h5>
+              <input required type="number" class="form-control" min="0" id="primerCondicionados" placeholder="número positivo" disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-danger" role="alert">
+      <b>EVALUACIÓN INTEGRADORA 2020</b>
+      </div>
+
+      <div class="alert alert-danger" role="alert">
+      <form class="form-inline">
+        <label for="showNew">DE LOS</label> &nbsp;
+        <input id="showNew" class="form-control text-center" style="max-width:50px" disabled> &nbsp;
+        <label for="showNew"> CONDICIONADOS, INDIQUE...</label>
+      </form>
+      </div>
+
+
+    <div class="card mb-3 border-success" style="max-width: 540px;">
+      <div class="row no-gutters align-items-center">
+        <div class="col-md-4 text-center text-success">
+          <h1> <i class="fas fa-users"></i></h1>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title text-success">Aprobados</h5>
+            <input required type="number" class="form-control" min="0" id="evaAprobados" placeholder="número positivo">
+          </div>
+        </div>
       </div>
     </div>
+
+    <div class="card mb-3 border-danger" style="max-width: 540px;">
+      <div class="row no-gutters align-items-center">
+        <div class="col-md-4 text-center text-danger">
+          <h1> <i class="fas fa-users"></i></h1>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title text-danger">Insuficientes</h5>
+            <input required type="number" class="form-control" min="0" id="evaInsuficientes" placeholder="número positivo">
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+
+
+    </div>
+    <button onclick="guardar()" id="enviar" class="btn btn-outline-dark">Enviar información</button>
     <hr>
 
 
@@ -388,6 +479,17 @@
   $("input[id=pConvalidados]").prop("disabled", true);
   $("input[id=pAusentes]").prop("disabled", true);
   $("input[id=pPendientes]").prop("disabled", true);
+  $("input[id=evaInsuficientes]").prop("disabled", true);
+
+  $("#evaAprobados").on('focusout', function() {
+  var value2 = parseInt($("#evaAprobados").val()) > 0 ? parseInt($("#evaAprobados").val()) : 0;
+  var valuePAprobados = value2;
+  if (valuePAprobados => 0) {
+    $("input[id=evaInsuficientes]").prop("disabled", false);
+  } else {
+    $("input[id=evaInsuficientes]").prop("disabled", true);
+  }
+  });
 
   $("#tConvalidados").on('focusout', function() {
   var value2 = parseInt($("#tConvalidados").val()) > 0 ? parseInt($("#tConvalidados").val()) : 0;
@@ -461,6 +563,25 @@
     alert('El total de PRÁCTICA no coincide con el total de INSCRIPTOS');
     document.getElementById("pAusentes").value ="";
   }
+  });
+
+  $("#evaInsuficientes").on('focusout', function() {
+  var value2 = parseInt($("#evaAprobados").val()) > 0 ? parseInt($("#evaAprobados").val()) : 0;
+  var value1 = parseInt($("#evaInsuficientes").val()) > 0 ? parseInt($("#evaInsuficientes").val()) : 0
+  var pConv = parseInt($("#primerCondicionados").val()) > 0 ? parseInt($("#primerCondicionados").val()) : 0
+  var sumOfValues = value1 + value2 - pConv;
+  if (sumOfValues != 0) {
+    alert('El total no coincide con el total de CONDICIONADOS');
+    document.getElementById("evaInsuficientes").value ="";
+  }
+  });
+
+  $("#primerAusentes").on('focusout', function() {
+  var value2 = parseInt($("#primerInscriptos").val()) > 0 ? parseInt($("#primerInscriptos").val()) : 0;
+  var value1 = parseInt($("#primerAusentes").val()) > 0 ? parseInt($("#primerAusentes").val()) : 0
+  var sumOfValuesP = value2 - value1;
+  document.getElementById('primerCondicionados').value = sumOfValuesP;
+  document.getElementById('showNew').value = sumOfValuesP;
   });
 
   </script>

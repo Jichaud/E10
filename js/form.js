@@ -22,6 +22,11 @@ function guardar(){
   var tConvalidados = document.getElementById('tConvalidados').value;
   var tPendientes = document.getElementById('tPendientes').value;
   var catedra = document.getElementById('catedra').value;
+  var primerInscriptos = document.getElementById('primerInscriptos').value;
+  var primerAusentes = document.getElementById('primerAusentes').value;
+  var primerCondicionados = document.getElementById('primerCondicionados').value;
+  var evaInsuficientes = document.getElementById('evaInsuficientes').value;
+  var evaAprobados = document.getElementById('evaAprobados').value;
 
   db.collection("202002alumnosasistencia").add({
       fechaEnvio: fechaEnvio,
@@ -36,7 +41,12 @@ function guardar(){
       tAusentes: tAusentes,
       tConvalidados: tConvalidados,
       tPendientes: tPendientes,
-      catedra: catedra
+      catedra: catedra,
+      primerInscriptos: primerInscriptos,
+      primerAusentes: primerAusentes,
+      primerCondicionados: primerCondicionados,
+      evaInsuficientes: evaInsuficientes,
+      evaAprobados: evaAprobados
   })
   .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
@@ -53,6 +63,11 @@ function guardar(){
       document.getElementById('tPendientes').value = '';
       document.getElementById('catedra').value = '';
       document.getElementById('fechaEnvio').value='';
+      document.getElementById('primerInscriptos').value='';
+      document.getElementById('primerAusentes').value='';
+      document.getElementById('primerCondicionados').value='';
+      document.getElementById('evaInsuficientes').value='';
+      document.getElementById('evaAprobados').value='';
       $('#myModal').modal('show');
 
   })
@@ -86,6 +101,11 @@ db.collection("202002alumnosasistencia").onSnapshot((querySnapshot) => {
           <td>${doc.data().pConvalidados}</td>
           <td>${doc.data().pPendientes}</td>
           <td>${doc.data().pAusentes}</td>
+          <td>${doc.data().primerInscriptos}</td>
+          <td>${doc.data().primerCondicionados}</td>
+          <td>${doc.data().primerInsuficientes}</td>
+          <td>${doc.data().evaInsuficientes}</td>
+          <td>${doc.data().evaAprobados}</td>
         </tr>
         `
     });
