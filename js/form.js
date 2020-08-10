@@ -68,6 +68,7 @@ function guardar(){
       document.getElementById('primerCondicionados').value='';
       document.getElementById('evaInsuficientes').value='';
       document.getElementById('evaAprobados').value='';
+      document.getElementById('showNew').value='';
       $('#myModal').modal('show');
 
   })
