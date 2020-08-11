@@ -27,6 +27,7 @@ function guardar(){
   var primerCondicionados = document.getElementById('primerCondicionados').value;
   var evaInsuficientes = document.getElementById('evaInsuficientes').value;
   var evaAprobados = document.getElementById('evaAprobados').value;
+  var evaAusentes = document.getElementById('evaAusentes').value;
 
   db.collection("202002alumnosasistencia").add({
       fechaEnvio: fechaEnvio,
@@ -46,7 +47,8 @@ function guardar(){
       primerAusentes: primerAusentes,
       primerCondicionados: primerCondicionados,
       evaInsuficientes: evaInsuficientes,
-      evaAprobados: evaAprobados
+      evaAprobados: evaAprobados,
+      evaAusentes: evaAusentes
   })
   .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
@@ -68,7 +70,9 @@ function guardar(){
       document.getElementById('primerCondicionados').value='';
       document.getElementById('evaInsuficientes').value='';
       document.getElementById('evaAprobados').value='';
+      document.getElementById('evaAusentes').value='';
       document.getElementById('showNew').value='';
+      document.getElementById('enviar').setAttribute('disabled','disabled');
       $('#myModal').modal('show');
 
   })
@@ -107,6 +111,7 @@ db.collection("202002alumnosasistencia").onSnapshot((querySnapshot) => {
           <td>${doc.data().primerInsuficientes}</td>
           <td>${doc.data().evaInsuficientes}</td>
           <td>${doc.data().evaAprobados}</td>
+          <td>${doc.data().evaAusentes}</td>
         </tr>
         `
     });

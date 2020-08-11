@@ -193,10 +193,6 @@
             <b>3º EVALUACIÓN AL 30/JULIO/2020</b>
             </div>
 
-            <div class="alert alert-danger" role="alert">
-            ¡ATENCIÓN! LA SUMA DE CONVALIDADOS, PENDIENTES Y AUSENTES DEBER SER IGUAL A INSCRIPTOS
-            </div>
-
             <div class="card mb-3 border-success" style="max-width: 540px;">
               <div class="row no-gutters align-items-center">
                 <div class="col-md-4 text-center text-success">
@@ -233,7 +229,7 @@
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title text-secondary">3º EVALUACIÓN - Ausentes</h5>
-                    <input required type="number" class="form-control" min="0" id="tAusentes" placeholder="número positivo">
+                    <input required type="number" class="form-control" min="0" id="tAusentes" disabled>
                   </div>
                 </div>
               </div>
@@ -243,10 +239,6 @@
 
             <div class="alert alert-dark" role="alert">
             <b>4º EVALUACIÓN AL 30/JULIO/2020</b>
-            </div>
-
-            <div class="alert alert-danger" role="alert">
-            ¡ATENCIÓN! LA SUMA DE CONVALIDADOS, PENDIENTES Y AUSENTES DEBER SER IGUAL A INSCRIPTOS
             </div>
 
             <div class="card mb-3 border-success" style="max-width: 540px;">
@@ -285,7 +277,7 @@
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title text-secondary">4º EVALUACIÓN - Ausentes</h5>
-                    <input required type="number" class="form-control" min="0" id="pAusentes" placeholder="número positivo">
+                    <input required type="number" class="form-control" min="0" id="pAusentes" disabled>
                   </div>
                 </div>
               </div>
@@ -402,8 +394,22 @@
         </div>
       </div>
     </div>
-      </div>
 
+    <div class="card mb-3 border-secondary" style="max-width: 540px;">
+      <div class="row no-gutters align-items-center">
+        <div class="col-md-4 text-center text-secondary">
+          <h1> <i class="fas fa-users"></i></h1>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title text-secondary">Ausentes</h5>
+            <input required type="number" class="form-control" min="0" id="evaAusentes" disabled>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
     </div>
     <button onclick="guardar()" id="enviar" class="btn btn-outline-dark">Enviar información</button>
@@ -445,6 +451,7 @@
 
     <!-- habilitar botón enviar -->
   <script>
+
   $(document).ready(function() {
   validate();
   $('input').on('keyup', validate);
@@ -469,119 +476,108 @@
   $("button[id=enviar]").prop("disabled", true);
   }
   }
+
   </script>
 
   <!-- habilitar campos teoría y práctica -->
   <script>
 
-  $("input[id=tPendientes]").prop("disabled", true);
-  $("input[id=tAusentes]").prop("disabled", true);
-  $("input[id=pConvalidados]").prop("disabled", true);
-  $("input[id=pAusentes]").prop("disabled", true);
-  $("input[id=pPendientes]").prop("disabled", true);
-  $("input[id=evaInsuficientes]").prop("disabled", true);
-
-  $("#evaAprobados").on('focusout', function() {
-  var value2 = parseInt($("#evaAprobados").val()) > 0 ? parseInt($("#evaAprobados").val()) : 0;
-  var valuePAprobados = value2;
-  if (valuePAprobados => 0) {
-    $("input[id=evaInsuficientes]").prop("disabled", false);
+  $("#pPendientes").on('focusout', function() {
+  var value1 = parseInt($("#pConvalidados").val()) > 0 ? parseInt($("#pConvalidados").val()) : 0;
+  var value2 = parseInt($("#pPendientes").val()) > 0 ? parseInt($("#pPendientes").val()) : 0
+  var value3 = parseInt($("#inscriptos").val()) > 0 ? parseInt($("#inscriptos").val()) : 0
+  var sumOfValuesA = value3 - value2 - value1;
+  if (sumOfValuesA >= 0) {
+  document.getElementById('pAusentes').value = sumOfValuesA;
   } else {
-    $("input[id=evaInsuficientes]").prop("disabled", true);
-  }
-  });
-
-  $("#tConvalidados").on('focusout', function() {
-  var value2 = parseInt($("#tConvalidados").val()) > 0 ? parseInt($("#tConvalidados").val()) : 0;
-  var valueConvalidados = value2;
-  if (valueConvalidados => 0) {
-    $("input[id=tPendientes]").prop("disabled", false);
-  } else {
-    $("input[id=tPendientes]").prop("disabled", true);
-  }
-  });
-
-  $("#tPendientes").on('focusout', function() {
-  var value2 = parseInt($("#tPendientes").val()) > 0 ? parseInt($("#tPendientes").val()) : 0;
-  var valuePendientes = value2;
-  if (valuePendientes => 0) {
-    $("input[id=tAusentes]").prop("disabled", false);
-  } else {
-    $("input[id=tAusentes]").prop("disabled", true);
-  }
-  });
-
-  $("#tAusentes").on('focusout', function() {
-  var value2 = parseInt($("#tAusentes").val()) > 0 ? parseInt($("#tAusentes").val()) : 0;
-  var valueAusentes = value2;
-  if (valueAusentes => 0) {
-    $("input[id=pConvalidados]").prop("disabled", false);
-  } else {
-    $("input[id=pConvalidados]").prop("disabled", true);
+  document.getElementById('pAusentes').value = "";
   }
   });
 
   $("#pConvalidados").on('focusout', function() {
-  var value2 = parseInt($("#pConvalidados").val()) > 0 ? parseInt($("#pConvalidados").val()) : 0;
-  var valuePConvalidados = value2;
-  if (valuePConvalidados => 0) {
-    $("input[id=pPendientes]").prop("disabled", false);
+  var value1 = parseInt($("#pConvalidados").val()) > 0 ? parseInt($("#pConvalidados").val()) : 0;
+  var value2 = parseInt($("#pPendientes").val()) > 0 ? parseInt($("#pPendientes").val()) : 0
+  var value3 = parseInt($("#inscriptos").val()) > 0 ? parseInt($("#inscriptos").val()) : 0
+  var sumOfValuesB = value3 - value2 - value1;
+  if (sumOfValuesB >= 0) {
+  document.getElementById('pAusentes').value = sumOfValuesB;
   } else {
-    $("input[id=pPendientes]").prop("disabled", true);
+  document.getElementById('pAusentes').value = "";
   }
   });
 
-  $("#pPendientes").on('focusout', function() {
-  var value2 = parseInt($("#pPendientes").val()) > 0 ? parseInt($("#pPendientes").val()) : 0;
-  var valuePPendientes = value2;
-  if (valuePPendientes => 0) {
-    $("input[id=pAusentes]").prop("disabled", false);
+  $("#tPendientes").on('focusout', function() {
+  var value1 = parseInt($("#tConvalidados").val()) > 0 ? parseInt($("#tConvalidados").val()) : 0;
+  var value2 = parseInt($("#tPendientes").val()) > 0 ? parseInt($("#tPendientes").val()) : 0
+  var value3 = parseInt($("#inscriptos").val()) > 0 ? parseInt($("#inscriptos").val()) : 0
+  var sumOfValuesC = value3 - value2 - value1;
+  if (sumOfValuesC >= 0) {
+  document.getElementById('tAusentes').value = sumOfValuesC;
   } else {
-    $("input[id=pAusentes]").prop("disabled", true);
+  document.getElementById('tAusentes').value = "";
   }
   });
 
-  $("#tAusentes").on('focusout', function() {
-  var value2 = parseInt($("#tConvalidados").val()) > 0 ? parseInt($("#tConvalidados").val()) : 0;
-  var value1 = parseInt($("#tPendientes").val()) > 0 ? parseInt($("#tPendientes").val()) : 0
-  var value3 = parseInt($("#tAusentes").val()) > 0 ? parseInt($("#tAusentes").val()) : 0
-  var inscr = parseInt($("#inscriptos").val()) > 0 ? parseInt($("#inscriptos").val()) : 0
-  var sumOfValues = value1 + value2 + value3 - inscr;
-  if (sumOfValues != 0) {
-    alert('El total de TEORÍA no coincide con el total de INSCRIPTOS');
-    document.getElementById("tAusentes").value ="";
+  $("#tConvalidados").on('focusout', function() {
+  var value1 = parseInt($("#tConvalidados").val()) > 0 ? parseInt($("#tConvalidados").val()) : 0;
+  var value2 = parseInt($("#tPendientes").val()) > 0 ? parseInt($("#tPendientes").val()) : 0
+  var value3 = parseInt($("#inscriptos").val()) > 0 ? parseInt($("#inscriptos").val()) : 0
+  var sumOfValuesD = value3 - value2 - value1;
+  if (sumOfValuesD >= 0) {
+  document.getElementById('tAusentes').value = sumOfValuesD;
+  } else {
+  document.getElementById('tAusentes').value = "";
   }
   });
 
-  $("#pAusentes").on('focusout', function() {
-  var value2 = parseInt($("#pConvalidados").val()) > 0 ? parseInt($("#pConvalidados").val()) : 0;
-  var value1 = parseInt($("#pPendientes").val()) > 0 ? parseInt($("#pPendientes").val()) : 0
-  var value3 = parseInt($("#pAusentes").val()) > 0 ? parseInt($("#pAusentes").val()) : 0
-  var inscr = parseInt($("#inscriptos").val()) > 0 ? parseInt($("#inscriptos").val()) : 0
-  var sumOfValues = value1 + value2 + value3 - inscr;
-  if (sumOfValues != 0) {
-    alert('El total de PRÁCTICA no coincide con el total de INSCRIPTOS');
-    document.getElementById("pAusentes").value ="";
-  }
-  });
-
-  $("#evaInsuficientes").on('focusout', function() {
-  var value2 = parseInt($("#evaAprobados").val()) > 0 ? parseInt($("#evaAprobados").val()) : 0;
-  var value1 = parseInt($("#evaInsuficientes").val()) > 0 ? parseInt($("#evaInsuficientes").val()) : 0
-  var pConv = parseInt($("#primerCondicionados").val()) > 0 ? parseInt($("#primerCondicionados").val()) : 0
-  var sumOfValues = value1 + value2 - pConv;
-  if (sumOfValues != 0) {
-    alert('El total no coincide con el total de CONDICIONADOS');
-    document.getElementById("evaInsuficientes").value ="";
+  $("#primerInscriptos").on('focusout', function() {
+  var value2 = parseInt($("#primerInscriptos").val()) > 0 ? parseInt($("#primerInscriptos").val()) : 0;
+  var value1 = parseInt($("#primerAusentes").val()) > 0 ? parseInt($("#primerAusentes").val()) : 0
+  var sumOfValuesE = value2 - value1;
+  if (sumOfValuesE >= 0) {
+  document.getElementById('primerCondicionados').value = sumOfValuesE;
+  document.getElementById('showNew').value = sumOfValuesE;
+  } else {
+  document.getElementById('primerCondicionados').value = "";
+  document.getElementById('showNew').value = "";
   }
   });
 
   $("#primerAusentes").on('focusout', function() {
   var value2 = parseInt($("#primerInscriptos").val()) > 0 ? parseInt($("#primerInscriptos").val()) : 0;
   var value1 = parseInt($("#primerAusentes").val()) > 0 ? parseInt($("#primerAusentes").val()) : 0
-  var sumOfValuesP = value2 - value1;
-  document.getElementById('primerCondicionados').value = sumOfValuesP;
-  document.getElementById('showNew').value = sumOfValuesP;
+  var sumOfValuesF = value2 - value1;
+  if (sumOfValuesF >= 0) {
+  document.getElementById('primerCondicionados').value = sumOfValuesF;
+  document.getElementById('showNew').value = sumOfValuesF;
+  } else {
+  document.getElementById('primerCondicionados').value = "";
+  document.getElementById('showNew').value = "";
+  }
+  });
+
+  $("#evaAprobados").on('focusout', function() {
+  var value1 = parseInt($("#evaAprobados").val()) > 0 ? parseInt($("#evaAprobados").val()) : 0;
+  var value2 = parseInt($("#evaInsuficientes").val()) > 0 ? parseInt($("#evaInsuficientes").val()) : 0
+  var value3 = parseInt($("#primerCondicionados").val()) > 0 ? parseInt($("#primerCondicionados").val()) : 0
+  var sumOfValuesG = value3 - value2 - value1;
+  if (sumOfValuesG >= 0) {
+  document.getElementById('evaAusentes').value = sumOfValuesG;
+  } else {
+  document.getElementById('evaAusentes').value = "";
+  }
+  });
+
+  $("#evaInsuficientes").on('focusout', function() {
+  var value1 = parseInt($("#evaAprobados").val()) > 0 ? parseInt($("#evaAprobados").val()) : 0;
+  var value2 = parseInt($("#evaInsuficientes").val()) > 0 ? parseInt($("#evaInsuficientes").val()) : 0
+  var value3 = parseInt($("#primerCondicionados").val()) > 0 ? parseInt($("#primerCondicionados").val()) : 0
+  var sumOfValuesH = value3 - value2 - value1;
+  if (sumOfValuesH >= 0) {
+  document.getElementById('evaAusentes').value = sumOfValuesH;
+  } else {
+  document.getElementById('evaAusentes').value = "";
+  }
   });
 
   </script>
