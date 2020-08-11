@@ -30,25 +30,25 @@ function guardar(){
   var evaAusentes = document.getElementById('evaAusentes').value;
 
   db.collection("202002alumnosasistencia").add({
-      fechaEnvio: fechaEnvio,
-      dApellido: dApellido,
-      dNombre: dNombre,
-      dEmail: dEmail,
-      inscriptos: inscriptos,
-      materia: materia,
-      pAusentes: pAusentes,
-      pConvalidados: pConvalidados,
-      pPendientes: pPendientes,
-      tAusentes: tAusentes,
-      tConvalidados: tConvalidados,
-      tPendientes: tPendientes,
-      catedra: catedra,
-      primerInscriptos: primerInscriptos,
-      primerAusentes: primerAusentes,
-      primerCondicionados: primerCondicionados,
-      evaInsuficientes: evaInsuficientes,
-      evaAprobados: evaAprobados,
-      evaAusentes: evaAusentes
+      "Fecha de Envio": fechaEnvio,
+      Apellido: dApellido,
+      Nombre: dNombre,
+      email: dEmail,
+      Inscriptos: inscriptos,
+      Materia: materia,
+      "4º Ausentes": pAusentes,
+      "4º Convalidados": pConvalidados,
+      "4º Pendientes": pPendientes,
+      "3º Ausentes": tAusentes,
+      "3º Convalidados": tConvalidados,
+      "3º Pendientes": tPendientes,
+      Cátedra: catedra,
+      "1er. Cuatrimestre Inscriptos": primerInscriptos,
+      "1er. Cuatrimestre Ausentes": primerAusentes,
+      "1er. Cuatrimestre Condicionados": primerCondicionados,
+      "Evaluación integradora Insuficientes": evaInsuficientes,
+      "Evaluación integradora Aprobados": evaAprobados,
+      "Evaluación integradora Ausentes": evaAusentes
   })
   .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
