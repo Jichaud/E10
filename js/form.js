@@ -30,25 +30,25 @@ function guardar(){
   var evaAusentes = document.getElementById('evaAusentes').value;
 
   db.collection("202002alumnosasistencia").add({
-      "Fecha de Envio": fechaEnvio,
+      FechadeEnvio: fechaEnvio,
       Apellido: dApellido,
       Nombre: dNombre,
       email: dEmail,
       Inscriptos: inscriptos,
       Materia: materia,
-      "4º Ausentes": pAusentes,
-      "4º Convalidados": pConvalidados,
-      "4º Pendientes": pPendientes,
-      "3º Ausentes": tAusentes,
-      "3º Convalidados": tConvalidados,
-      "3º Pendientes": tPendientes,
-      Cátedra: catedra,
-      "1er. Cuatrimestre Inscriptos": primerInscriptos,
-      "1er. Cuatrimestre Ausentes": primerAusentes,
-      "1er. Cuatrimestre Condicionados": primerCondicionados,
-      "Evaluación integradora Insuficientes": evaInsuficientes,
-      "Evaluación integradora Aprobados": evaAprobados,
-      "Evaluación integradora Ausentes": evaAusentes
+      pAusentes: pAusentes,
+      pConvalidados: pConvalidados,
+      pPendientes: pPendientes,
+      tAusentes: tAusentes,
+      tConvalidados: tConvalidados,
+      tPendientes: tPendientes,
+      catedra: catedra,
+      unoCuatrimestreInscriptos: primerInscriptos,
+      unoCuatrimestreAusentes: primerAusentes,
+      unoCuatrimestreCondicionados: primerCondicionados,
+      EvaluaciónintegradoraInsuficientes: evaInsuficientes,
+      EvaluaciónintegradoraAprobados: evaAprobados,
+      EvaluaciónintegradoraAusentes: evaAusentes
   })
   .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
@@ -91,27 +91,28 @@ var tabla = document.getElementById('ex-table');
 db.collection("202002alumnosasistencia").onSnapshot((querySnapshot) => {
     tabla.innerHTML = "";
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
+      console.log(`${doc.id} => ${doc.data().Materia}`);
         tabla.innerHTML += `
         <tr>
-          <td>${doc.data().fechaEnvio}</td>
-          <td>${doc.data().materia}</td>
+          <td>${doc.data().FechadeEnvio}</td>
+          <td>${doc.data().Materia}</td>
           <td>${doc.data().catedra}</td>
-          <td>${doc.data().dNombre}</td>
-          <td>${doc.data().dApellido}</td>
-          <td>${doc.data().inscriptos}</td>
+          <td>${doc.data().Nombre}</td>
+          <td>${doc.data().Apellido}</td>
+          <td>${doc.data().email}</td>
+          <td>${doc.data().Inscriptos}</td>
           <td>${doc.data().tConvalidados}</td>
           <td>${doc.data().tPendientes}</td>
           <td>${doc.data().tAusentes}</td>
           <td>${doc.data().pConvalidados}</td>
           <td>${doc.data().pPendientes}</td>
           <td>${doc.data().pAusentes}</td>
-          <td>${doc.data().primerInscriptos}</td>
-          <td>${doc.data().primerCondicionados}</td>
-          <td>${doc.data().primerInsuficientes}</td>
-          <td>${doc.data().evaInsuficientes}</td>
-          <td>${doc.data().evaAprobados}</td>
-          <td>${doc.data().evaAusentes}</td>
+          <td>${doc.data().unoCuatrimestreInscriptos}</td>
+          <td>${doc.data().unoCuatrimestreCondicionados}</td>
+          <td>${doc.data().unoCuatrimestreAusentes}</td>
+          <td>${doc.data().EvaluaciónintegradoraAprobados}</td>
+          <td>${doc.data().EvaluaciónintegradoraInsuficientes}</td>
+          <td>${doc.data().EvaluaciónintegradoraAusentes}</td>
         </tr>
         `
     });
