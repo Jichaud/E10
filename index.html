@@ -36,6 +36,16 @@
         color: dimgrey;
       }
 
+      .h4-a {
+        font-family: 'Helvetica', sans-serif;
+        font-size: 4rem;
+      }
+
+      .h5-a {
+        font-family: 'Helvetica', sans-serif;
+        font-size: 2rem;
+      }
+
     </style>
 
     <!-- Chrome, Firefox OS and Opera -->
@@ -60,12 +70,11 @@
 </head>
 
 <body>
-
   <!-- Navigation -->
-  <div class="container pb-4">
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light h3-a">
+  <div class="container pb-3">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark h3-a" style="background-color: #1c2452ff">
       <a class="navbar-brand" href="index.html">
-        <img src="images/logo-E10-1.png" class="img-fluid" width="80%" alt="Estudio Diez">
+        <img src="images/logo-ed-azul.png" class="img-fluid" width="70%" alt="Estudio Diez">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -103,164 +112,93 @@
                   <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
                 </div>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="publicaciones.html">Publicaciones</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="sitios-de-interes.html">Sitios de interés</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contacto</a>
-              </li>
-              <li>
-                  <a href="blog.html"><button type="button" class="btn btn-info">Blog</button></a>
-              </li>
-              <li>
-                &nbsp;
-              </li>
-              <li>
-                  <a href="suscriptores.html"><button type="button" class="btn btn-success">Suscriptores</button></a>
-              </li>
             </ul>
+            <a href="blog.html"><button type="button" class="btn btn-info">Blog</button></a>
+            &nbsp;
+            <a href="suscriptores.html"><button type="button" class="btn btn-success">Suscriptores</button></a>
       </div>
     </nav>
   </div>
 
   <!-- Page Content -->
-  <div class="container col-lg-12 pt-5">
-      <div id="carouselExampleControls" class="carousel slide h3-a" data-ride="carousel">
-          <div class="carousel-inner rounded">
-            <div class="carousel-item active">
-                <a href="perfil.html"><img class="img-fluid d-block" src="images/banner-01-110.jpg" alt="First slide"></a>
+    <div class="container-fluid bg-light">
+        <div class="container pt-5">
+          <div class="row">
+            <div class="col-lg-8 pt-5">
+              <h1 class="h4-a"><b>Estudio Diez</b></h1>
+              <h4 class="h5-a"><b>Consultores Impositivos</b></h4>
             </div>
-            <div class="carousel-item">
-                <a href="eventos.html"><img class="img-fluid d-block" src="images/banner-04-02-1.jpg" alt="Second slide"></a>
+            <div class="col-lg-4 pt-5">
+                <img src="images/logo-ed-siglas.png" class="img-fluid" style="max-width:14rem" alt="logo Estudio Diez">
             </div>
-            <div class="carousel-item">
-              <a href="impositivo.html"><img class="img-fluid d-block" src="images/banner-04-01-3-1.jpg" alt="Third slide"></a>
-              </div>
           </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-  </div>
+          <div class="row pt-4">
+            <div class="col-lg-2 mt-2">
+              <button class="btn btn-primary">
+                <i class="fas fa-user-friends fa-2x text-white"></i>
+              </button>
+              <h1 class="h5-a"><b>Estudio</b></h1>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-light">Perfil</li>
+                <li class="list-group-item bg-light">Organización</li>
+                <li class="list-group-item bg-light">Socios</li>
+                <li class="list-group-item bg-light">Publicaciones</li>
+              </ul>
+            </div>
+            <div class="col-lg-2 mt-2">
+              <button class="btn btn-secondary">
+                <i class="fas fa-suitcase fa-2x text-white"></i>
+              </button>
+              <h1 class="h5-a"><b>Servicios</b></h1>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-light">Impositivo</li>
+                <li class="list-group-item bg-light">Contable</li>
+                <li class="list-group-item bg-light">Jurídico</li>
+              </ul>
+            </div>
+            <div class="col-lg-2 mt-2">
+              <button class="btn btn-warning">
+                <i class="fas fa-id-badge fa-2x text-dark"></i>
+              </button>
+              <h1 class="h5-a"><b>Conecta</b></h1>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-light">Contacto</li>
+                <li class="list-group-item bg-light">Links de interés</li>
+                <li class="list-group-item bg-light">Facebook</li>
+                <li class="list-group-item bg-light">Twitter</li>
+                <li class="list-group-item bg-light">Youtube</li>
+              </ul>
+            </div>
+            <br>
+            <div class="col-lg-2 mt-2">
+              <button class="btn btn-success">
+                <i class="fas fa-graduation-cap fa-2x text-white"></i>
+              </button>
+              <h1 class="h5-a"><b>Capacitación</b></h1>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-light">Eventos</li>
+                <li class="list-group-item bg-light">Suscriptores</li>
+              </ul>
+            </div>
+          </div>
+          <hr class="bg-primary">
+          <div class="row h3-a">
+            <div class="col-lg-4 mb-4">
+              <img src="images/logo-E10-1.png" class="img-fluid"><br><br>
+              <p class="card-text">Servicios profesionales a través de los Departamentos Contable e Impositivo, y Departamento Jurídico en sus más vastas especialidades.</p>
+            </div>
+            <div class="col-lg-4 mb-4">
+              <h5>Ubicación</h5>
+              <p class="card-text">Talcahuano 833 7°Piso Oficina "D" (C1013AAQ) Ciudad Autonoma de Buenos Aires <br> Tel/Fax: 11 4816 7610 Líneas rotativas.<br> Email: <a href="mailto:capacitacion@estudiodiez.com">capacitacion@estudiodiez.com</a><br> Web: <a href="www.estudiodiez.com">www.estudiodiez.com</a></p>
+            </div>
+          </div> <!-- /.row -->
 
-        <div class="container pt-4">
-    <div class="row h3-a">
-      <div class="col-lg-3 mb-4">
-        <div class="card h-100 border-secondary">
-          <h4 class="card-header text-secondary border-secondary"><i class="fas fa-users"></i>&nbsp;Estudio</h4>
-          <div class="card-body">
-            <p class="card-text">Desde 1952 brinda servicios profesionales, comprometiendo a dichos fines el desarrollo de diversas áreas de especialización que abordan los requerimientos de nuestros clientes.</p>
-          </div>
-          <div class="card-footer border-secondary">
-            <a href="perfil.html" class="btn btn-secondary">Estudio</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 mb-4">
-        <div class="card h-100 border-info">
-          <h4 class="card-header text-info border-info" style="background-color: #cfe2f3"><i class="fas fa-briefcase"></i>&nbsp;Servicios</h4>
-          <div class="card-body">
-            <p class="card-text">Impositivo, Contable y Jurídico<br><br>
-Contamos con un equipo de profesionales experimentados y capacitados para desarrollar estrategias efectivas en el ámbito impositivo, contable y jurídico.</p>
-          </div>
-          <div class="card-footer border-info" style="background-color: #cfe2f3">
-            <a href="impositivo.html" class="btn btn-info">Servicios</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 mb-4">
-        <div class="card h-100 border-success">
-          <h4 class="card-header border-success text-success" style="background-color: #d9ead3;"><i class="fas fa-graduation-cap"></i>&nbsp;Capacitación</h4>
-          <div class="card-body">
-            <p class="card-text">Ofrecemos una oferta de cursos y ciclos de formación y actualización profesional, con un enfoque eminentemente práctico, que incluye la presentación de casos de estudio y la ejercitación para facilitar la interiorización de los temas tratados.</p>
-          </div>
-          <div class="card-footer border-success" style="background-color: #d9ead3;">
-            <a href="eventos.html" class="btn btn-success">Capacitación</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 mb-4">
-        <div class="card h-100 border-warning">
-          <h4 class="card-header border-warning text-warning" style="background-color: #fff2cc;"><i class="fas fa-book"></i>&nbsp;Publicaciones</h4>
-          <div class="card-body">
-            <p class="card-text text-warning">Podrá conocer las distintas obras y publicaciones escritas por los integrantes del Estudio.</p>
-          </div>
-          <div class="card-footer border-warning" style="background-color: #fff2cc;">
-            <a href="publicaciones.html" class="btn btn-warning">Publicaciones</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- /.row -->
-    <br><br>
-    <div class="row h3-a">
-      <div class="col-lg-4 mb-4">
-        <img src="images/logo-E10-1.png" class="img-fluid"><br><br>
-        <p class="card-text">Servicios profesionales a través de los Departamentos Contable e Impositivo, y Departamento Jurídico en sus más vastas especialidades.</p>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <h5>Ubicación</h5>
-        <p class="card-text">Talcahuano 833 7°Piso Oficina "D" (C1013AAQ) Ciudad Autonoma de Buenos Aires <br> Tel/Fax: 11 4816 7610 Líneas rotativas.<br> Email: <a href="mailto:capacitacion@estudiodiez.com">capacitacion@estudiodiez.com</a><br> Web: <a href="www.estudiodiez.com">www.estudiodiez.com</a></p>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <h5>Seguinos</h5>
-        <a href="https://www.facebook.com/diezestudio" target="blank_"><i class="fab fa-facebook fa-2x text-primary"></i></a>
-        <br>
-        <a href="https://www.youtube.com/channel/UC1Rg9E5c1hEgTlysuGBRy6A" target="blank_"><i class="fab fa-youtube-square fa-2x text-danger" aria-hidden="true"></i></a>
-        <br>
-        <a href="https://twitter.com/diez_estudio" target="blank_"><i class="fab fa-twitter fa-2x text-info" aria-hidden="true"></i></a>
-        <br>
-      </div>
-    </div> <!-- /.row -->
   </div> <!-- /.container -->
-  <hr>
+</div>
+
     <!-- Footer -->
     <footer class="py-5 bg-dark h3-a">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-3 mb-4">
-            <div class="list-group" id="list-tab" role="tablist">
-              <a class="list-group-item bg-info lead text-light" role="tab">Estudio</a>
-              <a class="list-group-item list-group-item-action" href="perfil.html" role="tab">Perfil</a>
-              <a class="list-group-item list-group-item-action" href="organizacion.html" role="tab">Organización</a>
-              <a class="list-group-item list-group-item-action" href="socios.html" role="tab">Socios</a>
-              <a class="list-group-item list-group-item-action" href="publicaciones.html" role="tab">Publicaciones</a>
-            </div>
-          </div>
-        <div class="col-lg-3 mb-4">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item bg-secondary lead text-light" role="tab">Servicios</a>
-            <a class="list-group-item list-group-item-action" href="impositivo.html" role="tab">Impositivos</a>
-            <a class="list-group-item list-group-item-action" href="contable.html" role="tab">Contable</a>
-            <a class="list-group-item list-group-item-action" href="juridico.html" role="tab">Jurídicos</a>
-          </div>
-        </div>
-        <div class="col-lg-3 mb-4">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item bg-success lead text-light" role="tab">Capacitación</a>
-            <a class="list-group-item list-group-item-action" href="eventos.html" role="tab">Eventos</a>
-            <a class="list-group-item list-group-item-action" href="suscriptores.html" role="tab">Suscriptores</a>
-          </div>
-        </div>
-        <div class="col-lg-3 mb-4">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item bg-warning lead text-light" role="tab">Conecta</a>
-            <a class="list-group-item list-group-item-action" href="contact.html" role="tab">Contacto</a>
-            <a class="list-group-item list-group-item-action" href="sitios-de-interes.html" role="tab">Link's de interés</a>
-            <a class="list-group-item list-group-item-action" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
-            <a class="list-group-item list-group-item-action" href="https://www.youtube.com/channel/UC1Rg9E5c1hEgTlysuGBRy6A" target="_blank" role="tab">Youtube</a>
-            <a class="list-group-item list-group-item-action" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
-          </div>
-        </div>
-        </div>
           <hr style="background-color: white">
           <p class="m-0 text-right text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
       </div>
