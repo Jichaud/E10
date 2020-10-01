@@ -133,6 +133,20 @@ Departamento de Capacitación
         Ya disponible 5ta. reunión Ciclo 2020.
       </div>
     </div>
+    <!-- toast novedades -->
+    <div class="toast ml-1 position-relative" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+      <div class="toast-header">
+        <i class="fas fa-lightbulb text-primary"></i>
+        <strong class="mr-auto text-primary">&nbsp Novedades</strong>
+        <small>#01/oct/20</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body h3-a">
+        Buscá en los meses de las Novedades el botón de <a href="#" class="text-dark btn-sm btn btn-outline-light ml-auto border border-dark" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a> para acceder a los materiales utilizados en las reuniones <a href="#nov-2020" class="btn btn-sm btn-outline-primary align-baseline" role="button">ir</a>
+      </div>
+    </div>
 
     <script>
       var email;
@@ -338,7 +352,7 @@ firebase.auth().signOut();
       <div class="tab-content id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-2020novedades" role="tabpanel" aria-labelledby="pills-2020novedades-tab">
           <!-- INICIO NOVEDADES 2020 -->
-          <div class="alert alert-primary col-lg-12" role="alert">
+          <div class="alert alert-primary col-lg-12" id="nov-2020" role="alert">
             <h4 class="alert-heading h5-a">Novedades impositivas 2020</h4>
           </div>
 
