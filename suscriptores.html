@@ -17,94 +17,74 @@
   <link href="../css/modern-business.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
   <style>
-    .h3-a {
-      font-family: 'Roboto', sans-serif;
-      font-size: 1rem;
-      color: dimgrey;
-    }
-  </style>
+  .h3-a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: dimgrey;
+  }
+
+  .h4-a {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 3rem;
+    color: white;
+  }
+
+</style>
 
 </head>
 
 <div id="streaming">
   <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
   <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyCQXoksw3C47bOWg7scIbsJWLVTPeT97p0",
-      authDomain: "estudio-diez-streaming.firebaseapp.com",
-      databaseURL: "https://estudio-diez-streaming.firebaseio.com",
-      projectId: "estudio-diez-streaming",
-      storageBucket: "estudio-diez-streaming.appspot.com",
-      messagingSenderId: "599746842056"
-    };
-    firebase.initializeApp(config);
-  </script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCQXoksw3C47bOWg7scIbsJWLVTPeT97p0",
+    authDomain: "estudio-diez-streaming.firebaseapp.com",
+    databaseURL: "https://estudio-diez-streaming.firebaseio.com",
+    projectId: "estudio-diez-streaming",
+    storageBucket: "estudio-diez-streaming.appspot.com",
+    messagingSenderId: "599746842056"
+  };
+  firebase.initializeApp(config);
+</script>
 
-  <script src="js/firebase.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
-  <script type="text/javascript">
-    // FirebaseUI config.
-    var uiConfig = {
-      signInSuccessUrl: 'suscriptores-streaming.html',
-      signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+<script src="js/firebase.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
+<script type="text/javascript">
+// FirebaseUI config.
+var uiConfig = {
+  signInSuccessUrl: 'suscriptores-streaming.html',
+  signInOptions: [
+    // Leave the lines as is for the providers you want to offer your users.
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
 
-      ],
-      credentialHelper: firebaseui.auth.CredentialHelper.NONE
-    };
+  ],
+  credentialHelper: firebaseui.auth.CredentialHelper.NONE
+};
 
-    // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
-    // The start method will wait until the DOM is loaded.
-    ui.start('#firebaseui2-auth-container', uiConfig);
+// Initialize the FirebaseUI Widget using Firebase.
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+// The start method will wait until the DOM is loaded.
+ui.start('#firebaseui2-auth-container', uiConfig);
 
-  </script>
+</script>
 
-</div>
+<style>
+body {
+  background-color: #ffffff;
+  background-image: url("images/suscriptores.svg");
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+</style>
 
-<div id="novedades">
-  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyDBu61A-iVc72-pIjnmZJxjCjEkM-D_dEA",
-      authDomain: "estudio-diez-webpage.firebaseapp.com",
-      databaseURL: "https://estudio-diez-webpage.firebaseio.com",
-      projectId: "estudio-diez-webpage",
-      storageBucket: "estudio-diez-webpage.appspot.com",
-      messagingSenderId: "581159183021"
-    };
-    firebase.initializeApp(config);
-  </script>
-
-  <script src="js/firebase.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
-  <script type="text/javascript">
-    // FirebaseUI config.
-    var uiConfig = {
-      signInSuccessUrl: 'novedades.html',
-      signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-
-      ],
-      credentialHelper: firebaseui.auth.CredentialHelper.NONE
-    };
-
-    // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
-    // The start method will wait until the DOM is loaded.
-    ui.start('#firebaseui1-auth-container', uiConfig);
-
-  </script>
 </div>
 
 <header>
@@ -114,60 +94,52 @@
 <body>
 
 
-<!-- Page Content -->
-<div class="container-fluid pt-4">
-  <div class="text-center">
-    <a href="index.html" class="card-link">
-      <img src="images/logo-ed-siglas.png" data-toggle="tooltip" data-placement="top" title="Volver a inicio" class="img-fluid" style="max-width:8rem" alt="logo Estudio Diez">
-    </a>
-  </div>
-    <div class="row pt-4">
-      <div class="card-body">
-        <div class="card border-success bg-light mb-3"
+  <!-- Page Content -->
+  <div class="container-fluid pt-4">
+    <div class="text-center">
+      <a href="index.html" class="card-link">
+        <img src="images/logo-ed-siglas.png" data-toggle="tooltip" data-placement="top" title="Volver a inicio" class="img-fluid" style="max-width:8rem" alt="logo Estudio Diez">
+      </a>
+    </div>
+    <div class="row pt-4 mx-4 float-left">
+      <div class="col-lg-12">
+        <div class="card-body">
+          <div class="card border-primary bg-light mb-3" disabled
           style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
-          <div class="card-header bg-success text-white"><span class="badge badge-light h3-a">Presencial</span> | Ciclo de Actualización Tributaria</div>
-          <div class="card-body">
-            <h1 class="card-title"><small>Ciclo presencial</small></h1>
-            <p class="card-text">
-              <div id="firebaseui1-auth-container"></div>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card border-info bg-light mb-3" disabled
-        style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
-        <div class="card-header bg-info text-white"><span class="badge badge-light h3-a">Streaming</span> | Ciclo de Actualización Tributaria</div>
-          <div class="card-body">
-            <h1 class="card-title"><small>Streaming</small></h1>
-            <p class="card-text">
-              <div id="firebaseui2-auth-container"></div>
-            </p>
+          <div class="card-header bg-primary text-white">
+            <span class="badge badge-light h3-a">Acceso</span> | Ciclo de Actualización Tributaria</div>
+            <div class="card-body">
+              <h1 class="card-title"><small>Suscriptores</small></h1>
+              <p class="card-text">
+                <div id="firebaseui2-auth-container"></div>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <p class="m-0 text-center text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos
-      Aires. Argentina</p>
-</div>
+    <div class="mx-4 my-4 fixed-bottom">
+      <p class="m-0 text-center text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
+    </div>
+  </div>
 
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
   integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
   integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
   <script type="text/javascript" defer>
-    $(function () {
-      $("[data-toggle='tooltip']").tooltip();
-    });
-    $(function () {
-      $('[data-toggle="popover"]').popover()
-    })
-  </script>
+  $(function () {
+    $("[data-toggle='tooltip']").tooltip();
+  });
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>
 
 </body>
 
