@@ -75,17 +75,15 @@ ui.start('#firebaseui2-auth-container', uiConfig);
 
 </script>
 
-<!--
 <style>
 body {
-background-color: #ffffff;
-background-image: url("images/suscriptores.svg");
+  background-color: #77aa77;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%2377aa77'/%3E%3Cstop offset='1' stop-color='%23b7ff87'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23cf8' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23cf8' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2'%3E%3Cstop offset='0' stop-color='%23cf8' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23cf8' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
 background-attachment: fixed;
-background-size: 100% 100%;
-background-repeat: no-repeat;
+background-size: cover;
 }
 </style>
--->
+
 
 </div>
 
@@ -97,16 +95,11 @@ background-repeat: no-repeat;
 
 
   <!-- Page Content -->
-  <div class="container-fluid pt-3">
-    <div class="text-center">
-      <a href="index.html" class="card-link">
-        <img src="images/logo-ed-siglas.png" data-toggle="tooltip" data-placement="top" title="Volver a inicio" class="img-fluid" style="max-width:8rem" alt="logo Estudio Diez">
-      </a>
-    </div>
-    <div class="row pt-3 mx-4 justify-content-center">
-      <div class="card mb-3 border-primary shadow p-3 mb-5 bg-white rounded" style="max-width: 100rem;">
+  <div class="container-fluid pt-4">
+    <div class="row pt-4 mx-4 justify-content-center">
+      <div class="card mb-3 border-light shadow p-3 mb-5 bg-white rounded" style="max-width: 100rem;">
         <div class="row no-gutters">
-          <div class="col-lg-6">
+          <div class="col-lg-5">
             <div class="card-body">
               <div class="card border-primary bg-light mb-3" disabled
               style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
@@ -121,8 +114,15 @@ background-repeat: no-repeat;
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
-            <img src="images/suscriptores.svg" class="img-fluid" alt="">
+          <div class="col-lg-5">
+            <img src="images/computer.svg" class="img-fluid mt-4" alt="">
+            <a href="https://undraw.co/illustrations" class="card-link" target="_blank"><p class="text-secondary text-right"><small>by unDraw</small></p></a>
+          </div>
+          <div class="col-lg text-center">
+            <img src="images/logo-ed-siglas.png" class="img-fluid mb-3" style="max-width:8rem" alt="logo Estudio Diez">
+            <a href="index.html" class="card-link"><button type="button" class="btn btn-block btn-primary mt-1">Inicio</button></a> <br>
+            <a href="eventos.html" class="card-link"><button type="button" class="btn btn-block btn-success mt-1">Eventos</button></a> <br>
+            <a href="blog.html" class="card-link"><button type="button" class="btn btn-block btn-dark mt-1">Blog</button></a>
           </div>
         </div>
         <p class="m-0 text-center text-wrap text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
