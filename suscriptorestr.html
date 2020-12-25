@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="../css/modern-business.css" rel="stylesheet">
+  <link href="css/modern-business.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
   integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -43,15 +43,16 @@
   <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
   <script>
   // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCQXoksw3C47bOWg7scIbsJWLVTPeT97p0",
-    authDomain: "estudio-diez-streaming.firebaseapp.com",
-    databaseURL: "https://estudio-diez-streaming.firebaseio.com",
-    projectId: "estudio-diez-streaming",
-    storageBucket: "estudio-diez-streaming.appspot.com",
-    messagingSenderId: "599746842056"
+  var firebaseConfig = {
+    apiKey: "AIzaSyCnzSBNe8lOq7AwWSU8f_-TuUwuOJ83VUs",
+    authDomain: "reforma-tributaria.firebaseapp.com",
+    databaseURL: "https://reforma-tributaria.firebaseio.com",
+    projectId: "reforma-tributaria",
+    storageBucket: "reforma-tributaria.appspot.com",
+    messagingSenderId: "296085476842",
+    appId: "1:296085476842:web:f4c91bc5a4063281288e93"
   };
-  firebase.initializeApp(config);
+  firebase.initializeApp(firebaseConfig);
 </script>
 
 <script src="js/firebase.js"></script>
@@ -59,7 +60,7 @@
 <script type="text/javascript">
 // FirebaseUI config.
 var uiConfig = {
-  signInSuccessUrl: 'suscriptores-streaming.html',
+  signInSuccessUrl: 'suscriptores-streamingtr.html',
   signInOptions: [
     // Leave the lines as is for the providers you want to offer your users.
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
@@ -115,18 +116,16 @@ body {
               </div>
             </div>
           </div>
-          <div class="col-lg-5 text-left">
+          <div class="col-lg-5 text-center">
             <img src="images/logo-ed-siglas.png" class="img-fluid mb-3" style="max-width:5rem" alt="logo Estudio Diez">
-            <img src="images/logotrll.png" class="img-fluid mb-3" style="max-width:15rem" alt="logo Estudio Diez">
+            <img src="images/logotrll.png" class="img-fluid mb-3" style="max-width:15rem" alt="logo Thomson Reuters">
             <img src="images/computertr.svg" class="img-fluid mt-4" alt="">
             <a href="https://undraw.co/illustrations" class="card-link" target="_blank"><p class="text-secondary text-right"><small>by unDraw</small></p></a>
           </div>
-          <div class="col-lg mt-4 text-center">
-            <a href="index.html" class="card-link" data-toggle="tooltip" data-placement="top" title="Inicio"><i class="fas fa-dot-circle fa-2x text-primary"></i></a>
+          <div class="col-lg mt-4 text-left">
+            <a href="index.html" class="card-link" data-toggle="tooltip" data-placement="top" title="Inicio"><i class="fas fa-dot-circle fa-2x text-primary align-middle"></i> <span class="badge badge-primary text-white align-middle">Inicio</span></a>
             <br><br>
-            <a href="eventos.html" class="card-link" data-toggle="tooltip" data-placement="top" title="Eventos"><i class="fas fa-dot-circle fa-2x text-danger"></i></a>
-            <br><br>
-            <a href="blog.html" class="card-link" data-toggle="tooltip" data-placement="top" title="Blog"><i class="fas fa-dot-circle fa-2x text-dark"></i></a>
+            <a href="blog.html" class="card-link" data-toggle="tooltip" data-placement="top" title="Blog"><i class="fas fa-dot-circle fa-2x text-dark align-middle"></i> <span class="badge badge-dark text-white align-middle">Blog</span></a>
           </div>
         </div>
       </div>
