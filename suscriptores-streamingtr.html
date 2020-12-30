@@ -62,7 +62,7 @@ var firebaseConfig = {
 <header>
   <div class="container-fluid">
     <div class="row">
-      <div class="col mb-4 crop">
+      <div class="col mt-4 mb-4 crop">
         <img src="images/encabezado-suscriptores.jpg" class="img-fluid centered rounded" style="opacity: 0.5" style="background-size: cover">
       </div>
     </div>
@@ -191,56 +191,14 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 
 <!-- Navigation -->
 <div class="container pb-4">
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light h3-a">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white h3-a">
     <a class="navbar-brand" href="index.html">
       <img src="images/logo-E10-1.png" class="img-fluid" width="80%" alt="Estudio Diez">
+      <img src="images/logotrll.png" class="img-fluid" style="max-width:15rem" alt="logo Thomson Reuters">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Estudio
-          </a>
-          <div class="dropdown-menu alert alert-info" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="perfil.html">Perfil</a>
-            <a class="dropdown-item" href="organizacion.html">Organización</a>
-            <a class="dropdown-item" href="socios.html">Socios</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Servicios
-          </a>
-          <div class="dropdown-menu alert alert-secondary" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="impositivo.html">Impositivo</a>
-            <a class="dropdown-item" href="contable.html">Contable</a>
-            <a class="dropdown-item" href="juridico.html">Jurídico</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Capacitación
-          </a>
-          <div class="dropdown-menu alert alert-success" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="eventos.html">Eventos</a>
-            <hr class="bg-success">
-            <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="publicaciones.html">Publicaciones</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="sitios-de-interes.html">Sitios de interés</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contacto</a>
-        </li>
-      </ul>
     </div>
     <button type="button" id="signOut" class="col-2 btn btn-outline-danger">Salir</button>
     <script>
