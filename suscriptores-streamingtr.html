@@ -104,14 +104,13 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white h3-a border-bottom">
     <div class="col">
       <a class="navbar-brand" href="index.html">
-        <img src="images/logo-E10-1.png" class="img-fluid" width="80%" alt="Estudio Diez">
-        <img src="https://ventas.thomsonreuters.com/Content/imagenes/logo.jpg" class="img-fluid mb-3" style="max-width:25rem" alt="logo Thomson Reuters">
+        <img src="images/logo-ed-siglas.png" class="img-fluid" width="30%" alt="Estudio Diez">
+        <img src="images/logotr-simple.webp" class="img-fluid" style="max-width:3rem" alt="logo Thomson Reuters">
       </a>
     </div>
     <div class="col-lg-2">
       <button type="button" id="signOut" class="btn btn-block btn-outline-danger ml-auto">Salir</button>
     </div>
-
     <script>
     document.getElementById('signOut').addEventListener('click', function(event) {
       firebase.auth().signOut();
@@ -121,6 +120,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 </div>
 
 <div class="container-fluid pt-4 mt-4">
+  <div class="col pt-3">
   <!-- toast novedades -->
   <div role="alert" aria-atomic="true" aria-live="assertive" class="pt-1 mt-4 toast ml-1 position-relative" data-autohide="true" data-animation="true" data-delay="3000">
     <div class="toast-header">
@@ -131,12 +131,12 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
       Ya disponible envío 04/ene/21.
     </div>
   </div>
-
+  </div>
 </div>
 
 <!-- Page Content -->
-<div class="container h3-a">
-  <h4 id="hola" class="text-primary mt-4"> <span id="loged"></span> </h4>
+<div class="container h3-a mt-3 pt-3">
+  <h4 id="hola" class="text-primary"> <span id="loged"></span> </h4>
 
 <!-- Page Heading/Breadcrumbs -->
 <hr class="bg-primary">

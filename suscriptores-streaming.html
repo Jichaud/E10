@@ -43,6 +43,7 @@
 
   </head>
 
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 
 <script>
   // Initialize Firebase
@@ -59,7 +60,7 @@
 <header>
   <div class="container-fluid">
     <div class="row">
-      <div class="col mb-4 crop">
+      <div class="col mb-2 crop">
         <img src="images/encabezado-suscriptores.jpg" class="img-fluid centered rounded" style="opacity: 0.5" style="background-size: cover">
       </div>
     </div>
@@ -110,9 +111,8 @@ Departamento de Capacitación
     </div> -->
 
   <!-- toast novedades -->
-  <div role="alert" aria-atomic="true" aria-live="assertive" class="toast ml-1 position-relative" data-autohide="true" data-animation="true" data-delay="3000">
+  <div role="alert" aria-atomic="true" aria-live="assertive" class="toast pt-2 ml-1 position-relative" data-autohide="true" data-animation="true" data-delay="3000">
     <div class="toast-header">
-      <img src="images/favicon-32x32.png" class="mr-2" width="10%" alt="">
       <strong class="mr-auto text-info">Novedades Impositivas</strong>
       <small>#25/dic/20</small>
     </div>
@@ -188,7 +188,7 @@ Departamento de Capacitación
 
     <!-- Navigation -->
     <div class="container pb-4">
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light h3-a">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light h3-a border border-bottom">
           <a class="navbar-brand" href="index.html">
             <img src="images/logo-E10-1.png" class="img-fluid" width="80%" alt="Estudio Diez">
           </a>
@@ -239,7 +239,9 @@ Departamento de Capacitación
                   </li>
                 </ul>
           </div>
-                <button type="button" id="signOut" class="col-2 btn btn-outline-danger">Salir</button>
+          <div class="col-lg-2">
+            <button type="button" id="signOut" class="btn btn-block btn-outline-danger ml-auto">Salir</button>
+          </div>
   <script>
 document.getElementById('signOut').addEventListener('click', function(event) {
 firebase.auth().signOut();
@@ -1598,7 +1600,6 @@ firebase.auth().signOut();
   </script>
 
   <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-messaging.js"></script>
 
   </body>
