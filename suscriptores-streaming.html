@@ -186,6 +186,18 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 });
 </script>
 
+<script>
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
+.then(function() {
+  return firebase.auth().signInWithEmailAndPassword(email, password);
+})
+.catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+});
+</script>
+
 <!-- Navigation -->
 <div class="container pb-4">
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light h3-a border border-bottom">
