@@ -114,10 +114,10 @@ Departamento de Capacitación
 <div role="alert" aria-atomic="true" aria-live="assertive" class="toast pt-2 ml-1 position-relative" data-autohide="true" data-animation="true" data-delay="3000">
   <div class="toast-header">
     <strong class="mr-auto text-info">Novedades Impositivas</strong>
-    <small>#08/ene/21</small>
+    <small>#15/ene/21</small>
   </div>
   <div class="toast-body h3-a">
-    Ya disponible envío 11/ene/21.
+    Ya disponible envío 18/ene/21.
   </div>
 </div>
 
@@ -177,18 +177,6 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     }
   });
 
-  return firebase.auth().signInWithEmailAndPassword(email, password);
-})
-.catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-});
-</script>
-
-<script>
-firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
-.then(function() {
   return firebase.auth().signInWithEmailAndPassword(email, password);
 })
 .catch(function(error) {
