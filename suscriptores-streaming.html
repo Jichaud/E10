@@ -160,8 +160,6 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       //blank if correct login
-      uidUser = user.uid;
-      console.log("  UID: " + uidUser);
       email = user.email;
       console.log("  Email: " + email);
       var myDate = new Date();
