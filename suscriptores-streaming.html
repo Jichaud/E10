@@ -150,16 +150,17 @@ Ya disponible en Noviembre/2020 el material de la 6ta. reunión <a href="#nov-20
 
 <script>
 firebase.initializeApp(config);
-firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
-.then(function() {
-  // Existing and future Auth states are now persisted in the current
-  // session only. Closing the window would clear any existing state even
-  // if a user forgets to sign out.
-  // ...
-  // New sign-in will be persisted with session persistence.
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
+    .then(() => {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      // In memory persistence will be applied to the signed in Google user
+         // even though the persistence was set to 'none' and a page redirect
+         // occurred.
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       //blank if correct login
+      uidUser = user.uid;
+      console.log("  UID: " + uidUser);
       email = user.email;
       console.log("  Email: " + email);
       var myDate = new Date();
@@ -177,7 +178,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     }
   });
 
-  return firebase.auth().signInWithEmailAndPassword(email, password);
+  return firebase.auth().signInWithRedirect(provider);
 })
 .catch(function(error) {
   // Handle Errors here.
@@ -1757,9 +1758,6 @@ FIN CONSULTAS -->
     $('#mZoom').modal('show');
   })
 </script>
-
-<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-messaging.js"></script>
 
 </body>
 
