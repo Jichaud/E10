@@ -50,172 +50,124 @@
 
 
     firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-    //blank if correct login
-    } else {
-    window.location.href = 'streaming-suscriptores.html';
-    }
+      if (user) {
+        //blank if correct login
+      } else {
+        window.location.href = 'streaming-suscriptores.html';
+      }
     });
-    </script>
-
-
-    <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light fixed-top" style="background-color: #fff;">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-        <img src="images/logo-E10-1.png" class="img-fluid" width="100%" alt="Estudio Diez">
-        </a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarEstudio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Estudio
-              </a>
-              <div class="dropdown-menu dropdown-menu-right alert alert-primary" role="alert" aria-labelledby="navbarEstudio">
-                <a class="dropdown-item" href="perfil.html">Perfil</a>
-                <a class="dropdown-item" href="organizacion.html">Organizacion</a>
-                <a class="dropdown-item" href="socios.html">Socios</a>
-              </div>
-            </li>
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarServicios" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Servicios
-              </a>
-              <div class="dropdown-menu dropdown-menu-right alert alert-secondary" role="alert" aria-labelledby="navbarServicios">
-                <a class="dropdown-item" href="impositivo.html">Impositivo</a>
-                <a class="dropdown-item" href="contable.html">Contable</a>
-                <a class="dropdown-item" href="juridico.html">Jurídico</a>
-              </div>
-            </li>
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarCapacitacion" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Capacitación
-              </a>
-              <div class="dropdown-menu dropdown-menu-right alert alert-success" role="alert" aria-labelledby="navbarCapacitacion">
-                <a class="dropdown-item" href="eventos.html">Eventos</a>
-                <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="publicaciones.html">Publicaciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sitios-de-interes.html">Sitios de interés</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contacto</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-              <button type="button" id="signOut" class="btn btn-outline-danger" style="width: 10%">Salir</button>
-  <script>
-document.getElementById('signOut').addEventListener('click', function(event) {
-firebase.auth().signOut();
-});
   </script>
-    </nav>
 
-    <!-- Page Content -->
-    <div class="container mt-4 pt-4">
 
-      <!-- REUNIONES -->
-      <p class="pre">
-      </p>
-      <div class="alert alert-success mt-4 col-lg-12" role="alert">
-        <h4 class="alert-heading"><b>Transmisión</b> Ciclo de Actualización Tributaria 2020</h4>
-        <p class="alert-success"></p>
-        <hr>
-        <p class="mb-0 alert-success">Departamento de Capacitación</p>
-      </div>
-       <div class="alert alert-secondary col-lg-12" role="alert">
-        <h4 class="alert-heading">Consideraciones</h4>
-        <p class="alert-secondary">Nuestros videos están grabados en HD. Recuerde que también puede verlos a pantalla completa</p>
-        <hr>
-        <img src="blog\bimages\youtube.png" class="rounded" width="60%" /></b></li>
-      </div>
-      <div class="card border-primary bg-primary text-white">
-        <div class="card-header border-light text-white">Ciclo de Actualización Tributaria 2020</div>
-          <div class="card-body bg-light">
-            <h3 class="card-title text-primary"></h3><h6 class="text-danger"> </h6>
-            <hr class="border-primary">
-            <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item rounded" width="460" height="315" src="https://www.youtube.com/embed/AGZQ2N9KGY4?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="card-footer border-light"></div>
-      </div>
+  <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light fixed-top" style="background-color: #fff;">
+    <div class="col-lg-2 ml-auto">
+      <button type="button" id="signOut" class="btn btn-block btn-outline-danger ml-auto">Salir</button>
+    </div>
+    <script>
+    document.getElementById('signOut').addEventListener('click', function(event) {
+      firebase.auth().signOut();
+    });
+  </script>
+</nav>
 
-      <hr>
+<!-- Page Content -->
+<div class="container mt-4 pt-4">
 
-      <div class="card border-primary bg-primary text-white">
-        <div class="card-header border-light text-white">Ciclo de Actualización Tributaria 2020</div>
-          <div class="card-body bg-light">
-            <h3 class="card-title text-primary"></h3><h6 class="text-danger"> </h6>
-            <hr class="border-primary">
-            <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item rounded" width="460" height="315" src="https://www.youtube.com/embed/X9PPMMEWeME?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="card-footer border-light"></div>
-      </div>
-
-      </div> <!-- row videos -->
-
-    </div> <!-- /.container -->
+  <!-- REUNIONES -->
+  <p class="pre">
+  </p>
+  <div class="alert alert-success mt-4 col-lg-12" role="alert">
+    <h4 class="alert-heading"><b>Transmisión</b> Ciclo de Actualización Tributaria 2021</h4>
+    <p class="alert-success"></p>
     <hr>
-
-    <!-- Footer -->
-    <footer class="py-5 bg-dark h3-a">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 mb-4">
-            <div class="list-group" id="list-tab" role="tablist">
-              <a class="list-group-item bg-info lead text-light" role="tab">Estudio</a>
-              <a class="list-group-item list-group-item-action" href="perfil.html" role="tab">Perfil</a>
-              <a class="list-group-item list-group-item-action" href="organizacion.html" role="tab">Organización</a>
-              <a class="list-group-item list-group-item-action" href="socios.html" role="tab">Socios</a>
-              <a class="list-group-item list-group-item-action" href="publicaciones.html" role="tab">Publicaciones</a>
-            </div>
-          </div>
-        <div class="col-lg-3 mb-4">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item bg-secondary lead text-light" role="tab">Servicios</a>
-            <a class="list-group-item list-group-item-action" href="impositivo.html" role="tab">Impositivos</a>
-            <a class="list-group-item list-group-item-action" href="contable.html" role="tab">Contable</a>
-            <a class="list-group-item list-group-item-action" href="juridico.html" role="tab">Jurídicos</a>
-          </div>
-        </div>
-        <div class="col-lg-3 mb-4">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item bg-success lead text-light" role="tab">Capacitación</a>
-            <a class="list-group-item list-group-item-action" href="eventos.html" role="tab">Eventos</a>
-            <a class="list-group-item list-group-item-action" href="suscriptores.html" role="tab">Suscriptores</a>
-          </div>
-        </div>
-        <div class="col-lg-3 mb-4">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item bg-warning lead text-light" role="tab">Conecta</a>
-            <a class="list-group-item list-group-item-action" href="contact.html" role="tab">Contacto</a>
-            <a class="list-group-item list-group-item-action" href="sitios-de-interes.html" role="tab">Link's de interés</a>
-            <a class="list-group-item list-group-item-action" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
-            <a class="list-group-item list-group-item-action" href="https://www.youtube.com/channel/UC1Rg9E5c1hEgTlysuGBRy6A" target="_blank" role="tab">Youtube</a>
-            <a class="list-group-item list-group-item-action" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
-          </div>
-        </div>
-        </div>
-          <hr style="background-color: white">
-          <p class="m-0 text-right text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
+    <p class="mb-0 alert-success">Departamento de Capacitación</p>
+  </div>
+  <div class="alert alert-secondary col-lg-12" role="alert">
+    <h4 class="alert-heading">Consideraciones</h4>
+    <p class="alert-secondary">Nuestros videos están grabados en HD. Recuerde que también puede verlos a pantalla completa</p>
+    <hr>
+    <img src="blog\bimages\youtube.png" class="rounded" width="60%" /></b></li>
+  </div>
+  <div class="card border-primary bg-primary text-white">
+    <div class="card-header border-light text-white">Ciclo de Actualización Tributaria 2020</div>
+    <div class="card-body bg-light">
+      <h3 class="card-title text-primary"></h3><h6 class="text-danger"> </h6>
+      <hr class="border-primary">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item rounded" width="460" height="315" src="https://www.youtube.com/embed/MCgz-FrN3pM?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
-      <!-- /.container -->
-    </footer>
+    </div>
+    <div class="card-footer border-light"></div>
+  </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  </body>
+  <hr>
+
+  <div class="card border-primary bg-primary text-white">
+    <div class="card-header border-light text-white">Ciclo de Actualización Tributaria 2021</div>
+    <div class="card-body bg-light">
+      <h3 class="card-title text-primary"></h3><h6 class="text-danger"> </h6>
+      <hr class="border-primary">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item rounded" width="460" height="315" src="https://www.youtube.com/embed/rJMCpAOh5fo?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="card-footer border-light"></div>
+  </div>
+
+</div> <!-- row videos -->
+
+</div> <!-- /.container -->
+<hr>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark h3-a">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 mb-4">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item bg-info lead text-light" role="tab">Estudio</a>
+          <a class="list-group-item list-group-item-action" href="perfil.html" role="tab">Perfil</a>
+          <a class="list-group-item list-group-item-action" href="organizacion.html" role="tab">Organización</a>
+          <a class="list-group-item list-group-item-action" href="socios.html" role="tab">Socios</a>
+          <a class="list-group-item list-group-item-action" href="publicaciones.html" role="tab">Publicaciones</a>
+        </div>
+      </div>
+      <div class="col-lg-3 mb-4">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item bg-secondary lead text-light" role="tab">Servicios</a>
+          <a class="list-group-item list-group-item-action" href="impositivo.html" role="tab">Impositivos</a>
+          <a class="list-group-item list-group-item-action" href="contable.html" role="tab">Contable</a>
+          <a class="list-group-item list-group-item-action" href="juridico.html" role="tab">Jurídicos</a>
+        </div>
+      </div>
+      <div class="col-lg-3 mb-4">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item bg-success lead text-light" role="tab">Capacitación</a>
+          <a class="list-group-item list-group-item-action" href="eventos.html" role="tab">Eventos</a>
+          <a class="list-group-item list-group-item-action" href="suscriptores.html" role="tab">Suscriptores</a>
+        </div>
+      </div>
+      <div class="col-lg-3 mb-4">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item bg-warning lead text-light" role="tab">Conecta</a>
+          <a class="list-group-item list-group-item-action" href="contact.html" role="tab">Contacto</a>
+          <a class="list-group-item list-group-item-action" href="sitios-de-interes.html" role="tab">Link's de interés</a>
+          <a class="list-group-item list-group-item-action" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
+          <a class="list-group-item list-group-item-action" href="https://www.youtube.com/channel/UC1Rg9E5c1hEgTlysuGBRy6A" target="_blank" role="tab">Youtube</a>
+          <a class="list-group-item list-group-item-action" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
+        </div>
+      </div>
+    </div>
+    <hr style="background-color: white">
+    <p class="m-0 text-right text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
 
 </html>
