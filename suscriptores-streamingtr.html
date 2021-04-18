@@ -143,11 +143,46 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
               <small>RELI - Registración de locación de inmuebles | Prórroga</small>
             </div>
             <div class="col-lg-4 mt-auto">
-              <a href="blog.html" target="_blank"><button type="button" class="btn btn-outline-danger btn-sm">ver</button></a>
+              <!-- <a href="blog.html" target="_blank"><button type="button" class="btn btn-outline-danger btn-sm">ver</button></a> -->
+              <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#RELI">ver</button>
             </div>
           </div> <!-- fin row -->
         </div>
       </div> <!-- fin temas varios -->
+
+      <!-- Modal RELI -->
+      <div class="modal fade" id="RELI" tabindex="-1" aria-labelledby="RELILabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="RELILabel"><i class="fas fa-exclamation-circle text-danger"></i> RELI - Registración de locación de inmuebles</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h4>Más tiempo para informar los contratos de alquiler</h4>
+              <br>
+              <h5>El plazo se extiende hasta el 31 de mayo.</h5>
+              <p class="h4-a pre text-justify">
+La Administración Federal de Ingresos Públicos (AFIP) prorroga hasta el 31 de mayo, inclusive, el plazo para registrar los contratos de alquiler de inmuebles celebrados entre el 1° de julio de 2020 y el 15 de mayo de 2021, que continúen vigentes. Las fechas son para a los contratos de locación urbanos, rurales, temporales así como también las sublocaciones y los subarriendos.
+
+Los contratos que sean celebrados después del 15 de mayo de 2021 deberán registrarse en el sitio web de la AFIP dentro de los 15 días corridos posterior al acto. El plazo para informar estas operaciones rige tanto para cuando se suscriba un nuevo contrato de locación o arrendamiento como para cuando se modifique uno ya existente.
+
+La decisión de la AFIP también extiende el plazo para registrar los contratos de locaciones de espacios o superficies fijas o móviles -exclusivas o no- delimitados dentro de bienes inmuebles como locales comerciales y/o “stands” en supermercados, hipermercados, shoppings, centros, paseos o galerías de compras.
+
+Dichos contratos celebrados entre el 1° de julio de 2020 y el 30 de junio de 2021, que continúen vigentes, podrán informarse hasta el 15 de julio.
+
+La AFIP reglamentó a comienzos del año el régimen de registración de contratos de locación de Inmuebles previsto en la Ley 27.551. La herramienta permite obtener información relevante para verificar el cumplimiento de las obligaciones de quienes intervienen en distintas operaciones. La normativa prevé que los contribuyentes que asuman el carácter de locadores o arrendadores en los contratos quedan obligados a la registración de la operación.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <a href="https://www.afip.gob.ar/noticias/20210415-mas-tiempo-para-informar-los-contratos-de-alquiler.asp" target="_blank"><button type="button" class="btn btn-outline-danger">ver Comunicado AFIP</button></a>
+              <button type="button" class="btn btn-outline-info" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- toast novedades -->
       <div role="alert" aria-atomic="true" aria-live="assertive" class="toast pt-2 ml-1 position-relative" data-autohide="false" data-animation="true">
@@ -175,20 +210,6 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
       </div>
       </div> -->
 
-      <!-- toast material
-      <div class="toast ml-1 position-relative" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
-      <div class="toast-header">
-      <i class="fas fa-lightbulb text-primary"></i>
-      <strong class="mr-auto text-primary">&nbsp Novedades</strong>
-      <small>#30/nov/20</small>
-      <button type="button" class="ml-2 mb-1 close text-danger" data-dismiss="toast" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-      </button>
-      </div>
-      <div class="toast-body h3-a">
-      Ya disponible en Noviembre/2020 el material de la 6ta. reunión <a href="#nov-2020" class="text-dark btn-sm btn btn-outline-light ml-auto border border-dark" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-      </div>
-      </div> -->
     </div>
     <div class="col-lg-7 mt-4">
   <h4 id="hola" class="text-primary"> <span id="loged"></span> </h4>
@@ -216,7 +237,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 <hr>
 <a href="http://livedirecto.events/capacitacionlaley/" target="_blank" class="card-link"><button type="button" class="btn btn-success btn-lg btn-block">2da. reunión Ciclo 2021 hasta el viernes/23</button></a>
 </div>
-<!-- FIN TRANSMISIÓN -->
+FIN TRANSMISIÓN -->
 
 <!-- Novedades impositivas -->
 <h1 class="mt-4 mb-3">Novedades impositivas
