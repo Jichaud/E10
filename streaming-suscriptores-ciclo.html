@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Estudio Diez - Suscriptores">
+    <meta name="author" content="Estudio Diez - Consultores Impositivos">
+
+<link rel="icon"
+      type="image/png"
+      href="images/favicon-32x32.png">
+    <title>Estudio Diez - suscriptores</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+  </head>
+
+    <div id="retencionganancias">
+
+      <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyD-vxkFtajqd-qQkgZjXFFjEzodjN0oQw0",
+          authDomain: "streaming-retencion-ganancias.firebaseapp.com",
+          databaseURL: "https://streaming-retencion-ganancias.firebaseio.com",
+          projectId: "streaming-retencion-ganancias",
+          storageBucket: "streaming-retencion-ganancias.appspot.com",
+          messagingSenderId: "605779473797"
+        };
+        firebase.initializeApp(config);
+      </script>
+        <script src="js/firebase.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: 'streaming-suscriptores-ciclo-acceso.html',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.EmailAuthProvider.PROVIDER_ID,
+
+        ],
+        credentialHelper: firebaseui.auth.CredentialHelper.NONE
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+
+    </script>
+
+    </div>
+
+    <div id="streaming">
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC_WA3rRbRYG7GlsLgG3-nStA4I4BhhUMc",
+    authDomain: "streaming-ciclo.firebaseapp.com",
+    databaseURL: "https://streaming-ciclo.firebaseio.com",
+    projectId: "streaming-ciclo",
+    storageBucket: "streaming-ciclo.appspot.com",
+    messagingSenderId: "284757035227"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="js/firebase.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
+<script type="text/javascript">
+// FirebaseUI config.
+var uiConfig = {
+signInSuccessUrl: 'streaming-ciclo.html',
+signInOptions: [
+// Leave the lines as is for the providers you want to offer your users.
+firebase.auth.EmailAuthProvider.PROVIDER_ID,
+
+],
+credentialHelper: firebaseui.auth.CredentialHelper.NONE
+};
+
+// Initialize the FirebaseUI Widget using Firebase.
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+// The start method will wait until the DOM is loaded.
+ui.start('#firebaseui2-auth-container', uiConfig);
+
+</script>
+
+    </div>
+
+        <header>
+
+        </header>
+
+    <body>
+
+      <!-- Page Content -->
+      <div class="container-fluid pt-4">
+        <div class="text-center">
+          <a href="index.html" class="card-link">
+            <img src="images/logo-ed-siglas.png" data-toggle="tooltip" data-placement="top" title="Volver a inicio" class="img-fluid" style="max-width:8rem" alt="logo Estudio Diez">
+          </a>
+        </div>
+          <div class="row pt-4">
+            <div class="card-body">
+              <div class="card border-primary bg-light mb-3"
+                style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
+                <div class="card-header bg-primary text-white"><span class="badge badge-light h3-a">Ciclo</span> de Actualización Tributaria</div>
+                <div class="card-body">
+                  <h1 class="card-title"><small>Ciclo</small></h1>
+                  <p class="card-text">
+                    <div id="firebaseui-auth-container"></div>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="m-0 text-center text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos
+            Aires. Argentina</p>
+      </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
