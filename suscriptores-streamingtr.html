@@ -14,9 +14,6 @@
 
   <title>Estudio Diez - Ciclo de Actualización Tributaria streaming</title>
 
-  <!-- Bootstrap icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
-
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 
   <!-- Custom styles for this template -->
@@ -25,6 +22,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  <!-- Bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 
   <style>
   .h3-a {
@@ -120,15 +120,10 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 </nav>
 </div>
 
-<div class="container-fluid pt-4 mt-4">
-  <div class="col pt-3">
-
-  </div>
-</div>
 
 <!-- Page Content -->
-<div class="container-fluid h3-a">
-  <div class="row">
+<div class="container-fluid mt-4 pt-4 h3-a">
+  <div class="row pt-4">
     <div class="col-lg-3 mt-4">
       <!-- toast temas varios -->
       <div role="alert" aria-atomic="true" aria-live="assertive" class="toast pt-2 ml-1 position-relative" data-autohide="false" data-animation="true">
@@ -212,6 +207,8 @@ FIN TRANSMISIÓN -->
   <small>Departamento de Capacitación</small>
 </h1>
 
+<hr class="bg-primary">
+
 <div class="row">
   <div class="col-lg-12">
     <div class="alert alert-info" role="alert">
@@ -280,9 +277,15 @@ FIN TRANSMISIÓN -->
               <a href="https://estudiodiez.page.link/mayo2021" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
             </div>
           </div>
-
-          <div class="col-lg-4"></div>
+          <div class="card border-secondary bg-secondary text-white col-lg-4">
+            <div class="card-body">
+              <h5 class="card-title display-4 h5-a">Jun|2021</h5>
+              <p class="card-text text-white lead">Novedades Impositivas</p>
+              <a href="https://estudiodiez.page.link/junio2021" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+            </div>
+          </div>
         </div>
+
         <hr>
 
         <!-- Índice de impuestos 2021 -->
@@ -764,10 +767,6 @@ FIN TRANSMISIÓN -->
     $('#mZoom').modal('show');
   })
 </script>
-
-<script src="js/apptr.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-messaging.js"></script>
 
 </body>
 
