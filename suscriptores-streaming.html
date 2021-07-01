@@ -73,46 +73,6 @@ var config = {
 
 <body>
 
-  <!-- Modal REUNIONES
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
-  <div class="modal-content">
-  <div class="modal-header">
-  <h5 class="modal-title" id="exampleModalCenterTitle">Ciclo de Actualización Tributaria 2020 | Jornada adicional</h5>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-  <span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-<p class="h4-a pre text-justify">
-Estimado/a Colega,
-
-Buenos días.
-
-Llegamos a la 6ta. y última reunión del Ciclo de Actualización Tributaria 2020.
-
-La reunión se dictará por la modalidad streaming y ya se encuentra publicado el temario a tratar <a href="blog/ciclo-6.html" target="_blank"><span class="badge badge-primary">ver temario</span></a>.
-
-Al ingresar al área de Suscriptores, tendrás la posibilidad de ver desde el lunes 23/noviembre al miércoles 25/noviembre la reunión. El jueves 26/noviembre tendrás habilitado el formulario de consultas para enviar las que te surjan respecto de los temas tratados.
-
-El video va a estar disponible las 24 hs. del día y podrás verlo la cantidad de veces que quieras sin límite de tiempo ni límite de acceso.
-
-Cualquier consulta o inquietud, te pedimos nos la hagas saber y trataremos de orientarte lo mejor posible.
-
-Saludos cordiales,
-
-Por Estudio Diez
-Departamento de Capacitación
-"1952-2020. 68 años brindando servicios profesionales"
-</p>
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-</div>
-</div>
-</div>
-</div> -->
-
 <script>
 firebase.initializeApp(config);
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
@@ -278,31 +238,57 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
       </div>
       </div> -->
 
-      <!-- Modal Ciclo 2021 junio -->
-      <div class="modal fade" id="ciclo2021jun" tabindex="-1" aria-labelledby="ciclo2021junLabel" aria-hidden="true">
+      <!-- toast reuniones adicionales -->
+      <div role="alert" aria-atomic="true" aria-live="assertive" class="bg-danger toast pt-2 ml-1 position-relative" data-animation="false" data-autohide="false">
+      <div class="toast-header bg-danger">
+      <svg class="bd-placeholder-img rounded me-2 mb-1" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#FFFFFF"></rect></svg>
+      <strong class="mr-auto text-white">&nbsp; Ciclo 2021</strong>
+      <small class="text-white font-weight-bold">#08/jul/21</small>
+      </div>
+      <div class="toast-body text-white h3-a">
+        <div class="row">
+          <div class="col-lg-8 border-right border-light">
+            Reunión adicional
+          </div>
+          <div class="col-lg-4 mt-auto">
+            <button data-toggle="modal" data-target="#reunionAdicional" type="button" class="btn btn-outline-light btn-sm">ver</button></a>
+          </div>
+        </div> <!-- fin row -->
+
+      </div>
+        </div> <!-- fin row -->
+
+      <!-- Modal Ciclo reunión adicional -->
+      <div class="modal fade" id="reunionAdicional" tabindex="-1" aria-labelledby="reunionAdicionalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="ciclo2021junLabel"><i class="fas fa-exclamation-circle text-danger"></i> Ciclo de actualización Tributaria 2021 | CAMBIO DE FECHA | Temas a desarrollar | Jornada 3 | Viernes 18 de Junio 2021</h5>
+              <h5 class="modal-title" id="reunionAdicionalLabel"><i class="fas fa-exclamation-circle text-danger"></i> Ciclo de actualización Tributaria 2021 | Reunión adicional</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <h4>Monotributo 2021. El impacto de la Ley 27.618</h4>
+              <h4>Análisis integral RG AFIP 5008</h4>
               <p class="h4-a pre text-justify">
 Estimado/a Colega,
 
-Te informamos que, teniendo en cuenta los importantes cambios que se han producido en el régimen de monotributo, consideramos apropiado efectuar un cambio de fecha del cronograma, adelantando de esta manera la reunión nº 3 al próximo viernes 18 de Junio.
+El Departamento de Capacitación de Estudio Diez, ha decidido realizar una reunión adicional teniendo en cuenta las novedades impositivas surgidas y que nuestra próxima reunión será el 27/agosto/2021.
 
-Al ingresar al área de Suscriptores, tendrás la posibilidad de ver desde el viernes 18/junio al sábado 19/junio inclusive la reunión. Durante la transmisión tendrás habilitado el formulario de consultas para enviar las que te surjan respecto de los temas tratados.
+<b>Dado que los cupos son limitados, por favor confirmar reserva de cupo enviando un mail a <a href="mailto:capacitacion@estudiodiez.com?subject=Ciclo de actualización Tributaria 2021 | Reunión adicional | Análisis RG AFIP 5008 | Jueves 08 de Julio 2021" class="text-primary">capacitacion@estudiodiez.com</a>.</b>
 
-El video va a estar disponible las 24 hs. del día y podrás verlo la cantidad de veces que quieras sin límite de tiempo ni límite de acceso.
+Los detalles son:
+1) Jueves 08/julio/2021 desde las 17 horas.
+2) Plataforma Zoom.
+3) Cupo limitado de 100 personas.
+4) En el caso de Estudios Contables, solo se admite la inscripción de un asistente.
+5) La reunión será grabada y retransmitida desde el viernes 09/julio al sábado 10/julio.
+6) La fecha límite para la reserva del cupo, es el martes 06/julio hasta las 14 horas.
+<b>7) El día miércoles recibirás la confirmación de tú cupo para participar.</b>
 
-Cualquier consulta o inquietud, te pedimos nos la hagas saber y trataremos de orientarte lo mejor posible.
+Por favor, si luego de solicitar tú cupo considerás que no podrás asistir, te pedimos comunicarnos la situación para darle la oportunidad a otro profesional.
 
 Saludos cordiales,
-
 
 Por Estudio Diez
 Departamento de Capacitación
@@ -310,7 +296,6 @@ Departamento de Capacitación
               </p>
             </div>
             <div class="modal-footer">
-              <a href="blog/ciclo-3.html"><button type="button" class="btn btn-outline-danger">ver Temario y consideraciones a tener en cuenta</button></a>
               <button type="button" class="btn btn-outline-info" data-dismiss="modal">Cerrar</button>
             </div>
           </div>
@@ -351,8 +336,9 @@ Departamento de Capacitación
 <div class="alert alert-danger col-lg-12" role="alert">
   <h4 class="alert-heading"><b>Próxima transmisión</b> Ciclo de Actualización Tributaria 2021</h4>
   <hr>
-  <p class="alert-danger"><b>Próxima transmisión</b> - 4ta. reunión - Ciclo de Actualización Tributaria 2021</p>
-  <p class="alert-danger">viernes 27/agosto a sábado 28/agosto durante las 24 hs.</p>
+  <p class="alert-danger"><b>Próxima transmisión</b> - Reunión adicional análisis RG AFIP 5008 - Ciclo de Actualización Tributaria 2021</p>
+  <p class="alert-danger">En vivo y en directo por zoom jueves 08/julio a las 17 hs. <button data-toggle="modal" data-target="#reunionAdicional" type="button" class="btn btn-danger btn-sm">más información <i class="bi bi-arrow-right-circle"></i></button></a></p>
+  <p class="alert-danger">Retransmisión viernes 09/julio a sábado 10/julio durante las 24 hs.</p>
   <hr>
   <p class="mb-0 alert-danger">Departamento de Capacitación</p>
 </div>
