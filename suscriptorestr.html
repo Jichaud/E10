@@ -16,14 +16,11 @@
   <!-- Custom styles for this template -->
   <link href="css/modern-business.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-  integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
   <!-- Bootstrap icons -->
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
   <style>
   .h3-a {
@@ -111,7 +108,7 @@ body {
               <div class="card bg-light mb-3" disabled
               style="opacity: 1; max-width: 30rem;display: block;margin-left: auto;margin-right: auto; border-color:#F68A1A">
               <div class="card-header text-white" style="background-color:#F68A1A">
-                <span class="badge badge-light h3-a"><b>Acceso</span> | Ciclo de Actualización Tributaria</b></div>
+                <span class="badge bg-light h3-a"><b>Acceso</span> | Ciclo de Actualización Tributaria</b></div>
                 <div class="card-body">
                   <p class="card-text">
                     <div id="firebaseui2-auth-container"></div>
@@ -124,7 +121,7 @@ body {
                 <div class="card-header border-light"><i class="fas fa-calendar text-white mr-2"></i> 6º reunión | 26/octubre/2021
               </div>
                 <div class="card-body">
-                  <h5 class="card-title"><a href="http://livedirecto.events/capacitacionlaley/" class="card-link text-white" target="_blank">Accedé a la reunión <i class="bi bi-arrow-right-square-fill"></i></a></h5>
+                  <h5 class="card-title"><a href="http://livedirecto.events/capacitacionlaley/" class="text-decoration-none text-white" target="_blank">Accedé a la reunión <i class="bi bi-arrow-right-square-fill"></i></a></h5>
                   <h5 class="card-title">Estamos transmitiendo... <i class="bi bi-broadcast"></i></h5>
                   <p class="card-text text-light">desde el martes <b class="lead">17:30 hs.</b> al viernes</p>
                 </div>
@@ -148,13 +145,13 @@ body {
             <img src="images/logo-ed-siglas.png" class="img-fluid mb-3" style="max-width:5rem" alt="logo Estudio Diez">
             <img src="images/logotr.svg" class="img-fluid mb-3" style="max-width:18rem" alt="logo Thomson Reuters">
             <img src="images/computertr.svg" class="img-fluid mt-4" alt="">
-            <a href="https://undraw.co/illustrations" class="card-link" target="_blank"><p class="text-secondary text-right"><small>by unDraw</small></p></a>
+            <a href="https://undraw.co/illustrations" class="text-decoration-none" target="_blank"><p class="text-secondary text-end"><small>by unDraw</small></p></a>
           </div>
           <div class="col-lg-4 mt-6 mx-auto">
             <!-- <a href="http://livedirecto.events/capacitacionlaley/" target="_blank" class="card-link" data-toggle="tooltip" data-placement="top" title="Accedé a la reunión"><i class="fas fa-dot-circle fa-2x text-primary align-middle"></i> <span class="badge badge-primary h2-a text-white align-middle">¡ES HOY 17:30 HS.!</span></a>
             <br><br> -->
-            <div class="table-responsive table-sm text-dark">
-              <table class="table table-bordered table-hover">
+            <div class="table-responsive table-sm text-dark" style="border-color:#F68A1A">
+              <table class="table table-bordered table-hover" style="border-color:#F68A1A">
                 <thead>
                   <tr class="text-dark">
                     <th scope="col" class="text-white text-center align-middle" style="background-color:#F68A1A; border-color:#F68A1A">Reunión
@@ -214,21 +211,16 @@ body {
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-  integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-  integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
 
-  <script type="text/javascript" defer>
-  $(function () {
-    $("[data-toggle='tooltip']").tooltip();
+  <script type="text/javascript">
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
   });
-  $(function () {
-    $('[data-toggle="popover"]').popover()
-  })
-</script>
+  </script>
 
 </body>
 
