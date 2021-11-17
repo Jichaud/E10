@@ -19,14 +19,18 @@
   <!-- Custom styles for this template -->
   <link href="css/modern-business.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <!-- Bootstrap icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
   <style>
+  .h2-a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+  }
+
   .h3-a {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
@@ -105,12 +109,14 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 <!-- Navigation -->
 <div class="container pb-4">
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white h3-a border-bottom">
-    <div class="col mb-2">
+    <div class="col ms-2 mb-2">
         <a href="https://www.estudiodiez.com/" target="_blank"><img src="images/logo-ed-siglas.png" style="max-width:4rem" alt="Estudio Diez"></a>
         <a href="https://tienda.thomsonreuters.com.ar/" target="_blank"><img src="images/logotr-simple.webp" class="img-fluid" style="max-width:3rem" alt="logo Thomson Reuters"></a>
     </div>
-    <div class="col-lg-2">
-      <button type="button" id="signOut" class="btn btn-block btn-outline-danger ml-auto">Salir</button>
+    <div class="col">
+      <div class="d-grid gap-2 col-4 pe-4 mx-auto">
+        <button class="btn btn-danger float-end" id="signOut" type="button">Salir</button>
+      </div>
     </div>
     <script>
     document.getElementById('signOut').addEventListener('click', function(event) {
@@ -125,19 +131,18 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 <div class="container-fluid mt-4 pt-4 h3-a">
   <div class="row pt-4">
     <div class="col-lg-3 mt-4">
+      <div class="toast-container">
       <!-- toast temas varios -->
-      <div role="alert" aria-atomic="true" aria-live="assertive" class="toast pt-2 ml-1 position-relative" data-autohide="false" data-animation="true">
+      <div role="alert" aria-atomic="true" aria-live="assertive" class="toast pt-2 ml-1 position-relative" data-bs-autohide="false" data-animation="true">
         <div class="toast-header">
           <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#ffc107"></rect></svg>
-          <strong class="mr-auto">&nbsp; Novedades del día</strong>
+          <strong class="me-auto">&nbsp; Novedades del día</strong>
           <small>#11/nov/21</small>
-          <button type="button" class="ml-2 mb-1 close text-danger" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body h3-a">
           <div class="row">
-            <div class="col-lg-8 border-right border-danger">
+            <div class="col-lg-8 border-end border-danger">
               <small>Ley 27.653 | Condonación de deudas | Nueva moratoria</small>
             </div>
             <div class="col-lg-4 mt-auto">
@@ -146,7 +151,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
           </div> <!-- fin row -->
           <hr class="bg-primary">
           <div class="row">
-            <div class="col-lg-8 border-right border-primary">
+            <div class="col-lg-8 border-end border-primary">
               <small>Resolución MJyDH 1655 | Tasa anual IGJ | Vencimiento período 2021</small>
             </div>
             <div class="col-lg-4 mt-auto">
@@ -157,14 +162,12 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
       </div> <!-- fin temas varios -->
 
       <!-- toast novedades -->
-      <div role="alert" aria-atomic="true" aria-live="assertive" class="toast pt-2 ml-1 position-relative" data-autohide="false" data-animation="true">
+      <div role="alert" aria-atomic="true" aria-live="assertive" class="toast pt-2 ml-1 position-relative" data-bs-autohide="false" data-animation="true">
         <div class="toast-header">
           <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
-          <strong class="mr-auto">&nbsp; Novedades Impositivas</strong>
+          <strong class="me-auto">&nbsp; Novedades Impositivas</strong>
           <small>#12/nov/21</small>
-          <button type="button" class="ml-2 mb-1 close text-danger" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body h3-a">
           Ya disponible envío 15/nov/21.
@@ -174,14 +177,14 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
       <div role="alert" aria-atomic="true" aria-live="assertive" class="toast pt-2 ml-1 position-relative" data-animation="false" data-autohide="false">
       <div class="toast-header">
       <svg class="bd-placeholder-img rounded me-2 mb-1" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#28a745"></rect></svg>
-      <strong class="mr-auto text-success">&nbsp; Ciclo 2021</strong>
+      <strong class="me-auto text-success">&nbsp; Ciclo 2021</strong>
       <small>#30/nov/21</small>
       </div>
       <div class="toast-body h3-a">
       <b>7º reunión - Ciclo 2021 desde el martes 17:30 hs. hasta el viernes/03.</b>
       </div>
     </div> -->
-
+  </div> <!-- toast container -->
     </div>
     <div class="col-lg-7 mt-4">
   <h4 id="hola" class="text-primary"> <span id="loged"></span> </h4>
@@ -206,7 +209,9 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 <h4 class="alert-heading"><b>Transmisión</b> - 7º reunión Ciclo de Actualización Tributaria 2021</h4>
 <p class="alert-success">Transmisión del martes/30/noviembre</p>
 <hr>
-<a href="http://livedirecto.events/capacitacionlaley/" target="_blank" class="card-link"><button type="button" class="btn btn-success btn-lg btn-block">7º reunión Ciclo 2021 desde el martes 17:30 hs. hasta el viernes/03</button></a>
+<div class="d-grid">
+<button class="btn btn-success" type="button"><a href="http://livedirecto.events/capacitacionlaley/" target="_blank" class="text-decoration-none text-light h2-a">7º reunión Ciclo 2021 desde el martes 17:30 hs. hasta el viernes/03</a></button>
+</div>
 </div>
 FIN TRANSMISIÓN -->
 
@@ -230,10 +235,10 @@ FIN TRANSMISIÓN -->
   <div class="col-lg-12" id="TAB">
     <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="pills-2021novedades-tab" data-toggle="pill" href="#pills-2021novedades" role="tab" aria-controls="pills-2021novedades" aria-selected="true">Novedades Impositivas 2021</a>
+        <a class="nav-link active" id="pills-2021novedades-tab" data-bs-toggle="pill" href="#pills-2021novedades" role="tab" aria-controls="pills-2021novedades" aria-selected="true">Novedades Impositivas 2021</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="pills-2020novedades-tab" data-toggle="pill" href="#pills-2020novedades" role="tab" aria-controls="pills-2020novedades" aria-selected="true">Novedades Impositivas 2020</a>
+        <a class="nav-link" id="pills-2020novedades-tab" data-bs-toggle="pill" href="#pills-2020novedades" role="tab" aria-controls="pills-2020novedades" aria-selected="true">Novedades Impositivas 2020</a>
       </li>
     </ul>
     <div class="tab-content id="pills-tabContent">
@@ -243,99 +248,121 @@ FIN TRANSMISIÓN -->
           <h4 class="alert-heading h5-a">Novedades impositivas 2021</h4>
         </div>
 
-        <div class="card-deck">
-          <div class="card border-success bg-success text-white col-lg-4">
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
+          <div class="card border-success bg-success text-white">
             <div class="card-body">
               <h5 class="card-title display-4 h5-a">Ene|2021</h5>
               <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://estudiodiez.page.link/enero2021" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+              <a href="https://estudiodiez.page.link/enero2021" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
             </div>
           </div>
-          <div class="card border-info bg-info text-white col-lg-4">
+        </div>
+        <div class="col-lg-4 mt-2 col-sm-12">
+          <div class="card border-info bg-info text-white">
             <div class="card-body">
               <h5 class="card-title display-4 h5-a">Feb|2021</h5>
               <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://estudiodiez.page.link/febrero2021" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+              <a href="https://estudiodiez.page.link/febrero2021" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
             </div>
           </div>
-          <div class="card border-warning bg-warning text-dark col-lg-4">
+        </div>
+        <div class="col-lg-4 mt-2 col-sm-12">
+          <div class="card border-warning bg-warning text-dark">
             <div class="card-body">
               <h5 class="card-title display-4 h5-a">Mar|2021</h5>
               <p class="card-text text-dark lead">Novedades Impositivas</p>
               <a href="https://www.dropbox.com/sh/dcpoeazje19hgl1/AAD0GXrwzAsmKfApYNdg70jWa?dl=0" target="blank_" class="btn btn-outline-light border-dark text-dark ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-              <a href="https://estudiodiez.page.link/marzo2021" target="blank_" class="btn btn-outline-light text-dark float-right" role="button">ver archivo</a>
+              <a href="https://estudiodiez.page.link/marzo2021" target="blank_" class="btn btn-outline-light text-dark float-end" role="button">ver archivo</a>
             </div>
           </div>
         </div>
+      </div>
         <hr class="bg-primary">
-        <div class="card-deck">
-          <div class="card border-danger bg-danger text-white col-lg-4">
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
+          <div class="card border-danger bg-danger text-white">
             <div class="card-body">
               <h5 class="card-title display-4 h5-a">Abr|2021</h5>
               <p class="card-text text-white lead">Novedades Impositivas</p>
               <a href="https://www.dropbox.com/sh/ujf945xmv5zcxb8/AADMu8WVhOU59-cGWy78snC3a?dl=0" target="blank_" class="btn btn-outline-light border-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-              <a href="https://estudiodiez.page.link/abril2021" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+              <a href="https://estudiodiez.page.link/abril2021" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
             </div>
           </div>
-          <div class="card border-primary bg-primary text-white col-lg-4">
+        </div>
+        <div class="col-lg-4 mt-2 col-sm-12">
+          <div class="card border-primary bg-primary text-white">
             <div class="card-body">
               <h5 class="card-title display-4 h5-a">May|2021</h5>
               <p class="card-text text-white lead">Novedades Impositivas</p>
               <a href="https://drive.google.com/drive/folders/1SyS6na09VaO3l-og60uWnAJHx-9tAIXi" target="blank_" class="btn btn-outline-light border-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-              <a href="https://estudiodiez.page.link/mayo2021" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+              <a href="https://estudiodiez.page.link/mayo2021" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
             </div>
           </div>
-          <div class="card border-secondary bg-secondary text-white col-lg-4">
+        </div>
+        <div class="col-lg-4 mt-2 col-sm-12">
+          <div class="card border-secondary bg-secondary text-white">
             <div class="card-body">
               <h5 class="card-title display-4 h5-a">Jun|2021</h5>
               <p class="card-text text-white lead">Novedades Impositivas</p>
               <a href="https://drive.google.com/drive/folders/1MmaJ7RSpEkU88xKb6nsbSsNsYNKr9bi2" target="blank_" class="btn btn-outline-light border-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-              <a href="https://estudiodiez.page.link/junio2021" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+              <a href="https://estudiodiez.page.link/junio2021" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
             </div>
           </div>
         </div>
+      </div>
         <hr class="bg-primary">
-        <div class="card-deck">
-          <div class="card border-dark bg-dark text-white col-lg-4">
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
+          <div class="card border-dark bg-dark text-white">
             <div class="card-body">
               <h5 class="card-title display-4 h5-a">Jul|2021</h5>
               <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://estudiodiez.page.link/julio2021" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+              <a href="https://estudiodiez.page.link/julio2021" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
             </div>
           </div>
-          <div class="card border-success bg-success text-white col-lg-4">
+        </div>
+        <div class="col-lg-4 mt-2 col-sm-12">
+          <div class="card border-success bg-success text-white">
             <div class="card-body">
               <h5 class="card-title display-4 h5-a">Ago|2021</h5>
               <p class="card-text text-white lead">Novedades Impositivas</p>
               <a href="https://drive.google.com/drive/folders/1-6rOS5HhvFrYlkWhblvO0GOi5I0FpuBO" target="blank_" class="btn btn-outline-light border-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-              <a href="https://estudiodiez.page.link/agosto2021" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
-            </div>
-          </div>
-          <div class="card border-success bg-info text-white col-lg-4">
-            <div class="card-body">
-              <h5 class="card-title display-4 h5-a">Sep|2021</h5>
-              <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://estudiodiez.page.link/septiembre2021" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+              <a href="https://estudiodiez.page.link/agosto2021" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
             </div>
           </div>
         </div>
+        <div class="col-lg-4 mt-2 col-sm-12">
+          <div class="card border-info bg-info text-white">
+            <div class="card-body">
+              <h5 class="card-title display-4 h5-a">Sep|2021</h5>
+              <p class="card-text text-white lead">Novedades Impositivas</p>
+              <a href="https://estudiodiez.page.link/septiembre2021" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
+            </div>
+          </div>
+        </div>
+      </div>
         <hr class="bg-primary">
-        <div class="card-deck">
-          <div class="card border-warning bg-warning text-dark col-lg-4">
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
+          <div class="card border-warning bg-warning text-dark">
             <div class="card-body">
               <h5 class="card-title display-4 h5-a">Oct|2021</h5>
               <p class="card-text text-dark lead">Novedades Impositivas</p>
               <a href="https://drive.google.com/drive/folders/1Rlv0uKYGNTIbIC6r8HAgLm4MFvFuh5KW" target="blank_" class="btn btn-outline-light border-light text-dark ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-              <a href="https://estudiodiez.page.link/octubre2021" target="blank_" class="btn btn-outline-light text-dark float-right" role="button">ver archivo</a>
+              <a href="https://estudiodiez.page.link/octubre2021" target="blank_" class="btn btn-outline-light text-dark float-end" role="button">ver archivo</a>
             </div>
           </div>
-          <div class="card border-danger bg-danger text-white col-lg-4">
+        </div>
+        <div class="col-lg-4 mt-2 col-sm-12">
+          <div class="card border-danger bg-danger text-white">
             <div class="card-body">
               <h5 class="card-title display-4 h5-a">Nov|2021</h5>
               <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://estudiodiez.page.link/noviembre2021" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+              <a href="https://estudiodiez.page.link/noviembre2021" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
             </div>
           </div>
+        </div>
 
           <div class="col-lg-4"></div>
         </div>
@@ -348,136 +375,160 @@ FIN TRANSMISIÓN -->
           <h4 class="alert-heading h5-a">Índice de impuestos 2021</h4>
         </div>
 
-        <div class="card-deck">
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
           <div class="card bg-success text-white border-success">
             <div class="card-body">
               <h5 class="card-title h5-a">AGIP</h5>
               <p class="card-text text-white lead">Índice de impuestos</p>
             </div>
             <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/agip2021" target="blank_" class="btn btn-outline-success btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+              <a href="https://estudiodiez.page.link/agip2021" target="blank_" class="btn btn-outline-success btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
             </div>
           </div>
+        </div>
 
+        <div class="col-lg-4 mt-2 col-sm-12">
           <div class="card bg-info text-white border-info">
             <div class="card-body">
               <h5 class="card-title h5-a">ARBA</h5>
               <p class="card-text text-white lead">Índice de impuestos</p>
             </div>
             <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/arba2021" target="blank_" class="btn btn-outline-info btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+              <a href="https://estudiodiez.page.link/arba2021" target="blank_" class="btn btn-outline-info btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
             </div>
           </div>
+        </div>
 
+        <div class="col-lg-4 mt-2 col-sm-12">
           <div class="card bg-warning text-white border-warning">
             <div class="card-body">
               <h5 class="card-title h5-a">Bienes personales</h5>
               <p class="card-text text-white lead">Índice de impuestos</p>
             </div>
             <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/bienespersonales2021" target="blank_" class="btn btn-outline-warning btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+              <a href="https://estudiodiez.page.link/bienespersonales2021" target="blank_" class="btn btn-outline-warning btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
             </div>
           </div>
         </div>
+      </div>
         <hr>
 
-        <div class="card-deck">
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
           <div class="card bg-danger text-white border-danger">
             <div class="card-body">
               <h5 class="card-title h5-a">Convenio multilateral</h5>
               <p class="card-text text-white lead">Índice de impuestos</p>
             </div>
             <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/cm2021" target="blank_" class="btn btn-outline-danger btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+              <a href="https://estudiodiez.page.link/cm2021" target="blank_" class="btn btn-outline-danger btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
             </div>
           </div>
+        </div>
 
+        <div class="col-lg-4 mt-2 col-sm-12">
           <div class="card bg-primary text-white border-primary">
             <div class="card-body">
               <h5 class="card-title h5-a">De interés</h5>
               <p class="card-text text-white lead">Índice de impuestos</p>
             </div>
             <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/deinteres2021" target="blank_" class="btn btn-outline-primary btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+              <a href="https://estudiodiez.page.link/deinteres2021" target="blank_" class="btn btn-outline-primary btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
             </div>
           </div>
+        </div>
 
+        <div class="col-lg-4 mt-2 col-sm-12">
           <div class="card bg-secondary text-white border-secondary">
             <div class="card-body">
               <h5 class="card-title h5-a">Ganancias</h5>
               <p class="card-text text-white lead">Índice de impuestos</p>
             </div>
             <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/ganancias2021" target="blank_" class="btn btn-outline-secondary btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+              <a href="https://estudiodiez.page.link/ganancias2021" target="blank_" class="btn btn-outline-secondary btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
             </div>
           </div>
         </div>
+      </div>
         <hr>
 
-        <div class="card-deck">
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
           <div class="card bg-dark text-white border-dark">
             <div class="card-body">
               <h5 class="card-title h5-a">GMP</h5>
               <p class="card-text text-white lead">Índice de impuestos</p>
             </div>
             <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/gmp2021" target="blank_" class="btn btn-outline-dark btn-sm disabled float-right" role="button" aria-disabled="true">sin novedades</a>
+              <a href="https://estudiodiez.page.link/gmp2021" target="blank_" class="btn btn-outline-dark btn-sm disabled float-end" role="button" aria-disabled="true">sin novedades</a>
             </div>
           </div>
+        </div>
 
+        <div class="col-lg-4 mt-2 col-sm-12">
           <div class="card bg-success text-white border-success">
             <div class="card-body">
               <h5 class="card-title h5-a">Impuestos varios</h5>
               <p class="card-text text-white lead">Índice de impuestos</p>
             </div>
             <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/ivarios2021" target="blank_" class="btn btn-outline-success btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+              <a href="https://estudiodiez.page.link/ivarios2021" target="blank_" class="btn btn-outline-success btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
             </div>
           </div>
+        </div>
 
+        <div class="col-lg-4 mt-2 col-sm-12">
           <div class="card bg-info text-white border-info">
             <div class="card-body">
               <h5 class="card-title h5-a">IVA</h5>
               <p class="card-text text-white lead">Índice de impuestos</p>
             </div>
             <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/iva2021" target="blank_" class="btn btn-outline-info btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+              <a href="https://estudiodiez.page.link/iva2021" target="blank_" class="btn btn-outline-info btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
             </div>
           </div>
         </div>
+      </div>
         <hr>
 
-        <div class="card-deck">
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
           <div class="card bg-warning text-white border-warning">
             <div class="card-body">
               <h5 class="card-title h5-a">Monotributo</h5>
               <p class="card-text text-white lead">Índice de impuestos</p>
             </div>
             <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/mt2021" target="blank_" class="btn btn-outline-warning btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+              <a href="https://estudiodiez.page.link/mt2021" target="blank_" class="btn btn-outline-warning btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
             </div>
           </div>
+        </div>
 
+        <div class="col-lg-4 mt-2 col-sm-12">
           <div class="card bg-danger text-white border-danger">
             <div class="card-body">
               <h5 class="card-title h5-a">Previsional</h5>
               <p class="card-text text-white lead">Índice de impuestos</p>
             </div>
             <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/previsional2021" target="blank_" class="btn btn-outline-danger btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+              <a href="https://estudiodiez.page.link/previsional2021" target="blank_" class="btn btn-outline-danger btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
             </div>
           </div>
+        </div>
 
+        <div class="col-lg-4 mt-2 col-sm-12">
           <div class="card bg-primary text-white border-primary">
             <div class="card-body">
               <h5 class="card-title h5-a">Procedimiento</h5>
               <p class="card-text text-white lead">Índice de impuestos</p>
             </div>
             <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/procedimiento2021" target="blank_" class="btn btn-outline-primary btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+              <a href="https://estudiodiez.page.link/procedimiento2021" target="blank_" class="btn btn-outline-primary btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
             </div>
           </div>
         </div>
+      </div>
 
       </div> <!-- FIN NOVEDADES 2021 -->
 
@@ -488,130 +539,147 @@ FIN TRANSMISIÓN -->
           <h4 class="alert-heading h5-a">Novedades impositivas 2020</h4>
         </div>
 
-        <div class="card-deck">
-          <div class="card border-success bg-success text-white col-lg-4">
-            <div class="card-body">
-              <h5 class="card-title display-4 h5-a">Ene|2020</h5>
-              <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://estudiodiez.page.link/novedades-impositivas-enero-2020" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card border-success bg-success text-white">
+              <div class="card-body">
+                <h5 class="card-title display-4 h5-a">Ene|2020</h5>
+                <p class="card-text text-white lead">Novedades Impositivas</p>
+                <a href="https://estudiodiez.page.link/novedades-impositivas-enero-2020" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
+              </div>
             </div>
           </div>
 
-          <div class="card border-info bg-info text-white col-lg-4">
-            <div class="card-body">
-              <h5 class="card-title display-4 h5-a">Feb|2020</h5>
-              <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://estudiodiez.page.link/novedades-impositivas-febrero-2020" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card border-info bg-info text-white">
+              <div class="card-body">
+                <h5 class="card-title display-4 h5-a">Feb|2020</h5>
+                <p class="card-text text-white lead">Novedades Impositivas</p>
+                <a href="https://estudiodiez.page.link/novedades-impositivas-febrero-2020" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
+              </div>
             </div>
           </div>
 
-          <div class="card border-warning bg-warning text-white col-lg-4">
-            <div class="card-body">
-              <h5 class="card-title display-4 h5-a">Mar|2020</h5>
-              <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://www.dropbox.com/sh/6izeiemc7mey158/AAB_fHGXL4TS4FIm5b7hbuqga?dl=0" target="blank_" class="text-dark btn btn-outline-light ml-auto border border-dark" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-              <a href="https://estudiodiez.page.link/novedades-impositivas-marzo-2020" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card border-warning bg-warning text-white">
+              <div class="card-body">
+                <h5 class="card-title display-4 h5-a">Mar|2020</h5>
+                <p class="card-text text-white lead">Novedades Impositivas</p>
+                <a href="https://www.dropbox.com/sh/6izeiemc7mey158/AAB_fHGXL4TS4FIm5b7hbuqga?dl=0" target="blank_" class="text-dark btn btn-outline-light ml-auto border border-dark" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
+                <a href="https://estudiodiez.page.link/novedades-impositivas-marzo-2020" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
+              </div>
             </div>
           </div>
-        </div>
+        </div> <!-- enero - marzo -->
+
         <hr>
 
-
-        <div class="card-deck">
-          <!-- habilitar en abril 2020 -->
-          <div class="card border-danger bg-danger text-white col-lg-4">
-            <div class="card-body">
-              <h5 class="card-title display-4 h5-a">Abr|2020</h5>
-              <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://www.dropbox.com/sh/ojjmzlgbt3v1s9m/AAD1sqyNoy-RpVFMqpIvdJ_Wa?dl=0" target="blank_" class="btn btn-outline-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-              <a href="https://estudiodiez.page.link/novedades-impositvas-abril-2020" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card border-danger bg-danger text-white">
+              <div class="card-body">
+                <h5 class="card-title display-4 h5-a">Abr|2020</h5>
+                <p class="card-text text-white lead">Novedades Impositivas</p>
+                <a href="https://www.dropbox.com/sh/ojjmzlgbt3v1s9m/AAD1sqyNoy-RpVFMqpIvdJ_Wa?dl=0" target="blank_" class="btn btn-outline-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
+                <a href="https://estudiodiez.page.link/novedades-impositvas-abril-2020" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
+              </div>
             </div>
           </div>
 
-          <!-- habilitar en mayo 2020 -->
-          <div class="card border-primary bg-primary text-white col-lg-4">
-            <div class="card-body">
-              <h5 class="card-title display-4 h5-a">May|2020</h5>
-              <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://www.dropbox.com/sh/dlgwy6whs7v6zye/AABomnnJOO5ryamieYLNeLD4a?dl=0" target="blank_" class="btn btn-outline-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-              <a href="https://estudiodiez.page.link/novedades-impositvas-mayo-2020" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card border-primary bg-primary text-white">
+              <div class="card-body">
+                <h5 class="card-title display-4 h5-a">May|2020</h5>
+                <p class="card-text text-white lead">Novedades Impositivas</p>
+                <a href="https://www.dropbox.com/sh/dlgwy6whs7v6zye/AABomnnJOO5ryamieYLNeLD4a?dl=0" target="blank_" class="btn btn-outline-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
+                <a href="https://estudiodiez.page.link/novedades-impositvas-mayo-2020" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
+              </div>
             </div>
           </div>
 
-          <!-- habilitar en junio 2020 -->
-          <div class="card border-secondary bg-secondary text-white col-lg-4">
-            <div class="card-body">
-              <h5 class="card-title display-4 h5-a">Jun|2020</h5>
-              <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://estudiodiez.page.link/novedades-impositvas-junio-2020" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card border-secondary bg-secondary text-white">
+              <div class="card-body">
+                <h5 class="card-title display-4 h5-a">Jun|2020</h5>
+                <p class="card-text text-white lead">Novedades Impositivas</p>
+                <a href="https://estudiodiez.page.link/novedades-impositvas-junio-2020" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
+              </div>
             </div>
           </div>
-        </div>
+        </div> <!-- abril - junio -->
+
         <hr>
 
-        <div class="card-deck">
-          <!-- habilitar en julio 2020 -->
-          <div class="card border-dark bg-dark text-white col-lg-4">
-            <div class="card-body">
-              <h5 class="card-title display-4 h5-a">Jul|2020</h5>
-              <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://www.dropbox.com/sh/r9lgwbpviykot9x/AABwFzOzH8y13-XTM635qpZYa?dl=0" target="blank_" class="btn btn-outline-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-              <a href="https://estudiodiez.page.link/novedades-impositvas-julio-2020" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
-            </div>
-
-          </div>
-
-          <!-- habilitar en agosto 2020 -->
-          <div class="card border-success bg-success text-white col-lg-4">
-            <div class="card-body">
-              <h5 class="card-title display-4 h5-a">Ago|2020</h5>
-              <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://www.dropbox.com/sh/750r8n776guavur/AACC74ycxRKpY3O2h5tUV65xa?dl=0" target="blank_" class="btn btn-outline-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-              <a href="https://estudiodiez.page.link/novedades-impositvas-agosto-2020" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card border-dark bg-dark text-white">
+              <div class="card-body">
+                <h5 class="card-title display-4 h5-a">Jul|2020</h5>
+                <p class="card-text text-white lead">Novedades Impositivas</p>
+                <a href="https://www.dropbox.com/sh/r9lgwbpviykot9x/AABwFzOzH8y13-XTM635qpZYa?dl=0" target="blank_" class="btn btn-outline-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
+                <a href="https://estudiodiez.page.link/novedades-impositvas-julio-2020" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
+              </div>
             </div>
           </div>
 
-          <!-- habilitar en septiembre 2020 -->
-          <div class="card border-info bg-info text-white col-lg-4">
-            <div class="card-body">
-              <h5 class="card-title display-4 h5-a">Sep|2020</h5>
-              <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://estudiodiez.page.link/novedades-impositvas-septiembre-2020" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card border-success bg-success text-white">
+              <div class="card-body">
+                <h5 class="card-title display-4 h5-a">Ago|2020</h5>
+                <p class="card-text text-white lead">Novedades Impositivas</p>
+                <a href="https://www.dropbox.com/sh/750r8n776guavur/AACC74ycxRKpY3O2h5tUV65xa?dl=0" target="blank_" class="btn btn-outline-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
+                <a href="https://estudiodiez.page.link/novedades-impositvas-agosto-2020" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card border-info bg-info text-white">
+              <div class="card-body">
+                <h5 class="card-title display-4 h5-a">Sep|2020</h5>
+                <p class="card-text text-white lead">Novedades Impositivas</p>
+                <a href="https://estudiodiez.page.link/novedades-impositvas-septiembre-2020" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
+              </div>
+            </div>
+          </div>
+        </div> <!-- julio - septiembre -->
+
         <hr>
 
-        <div class="card-deck">
-          <!-- habilitar en octubre 2020 -->
-          <div class="card border-warning bg-warning text-white col-lg-4">
-            <div class="card-body">
-              <h5 class="card-title display-4 h5-a">Oct|2020</h5>
-              <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://www.dropbox.com/s/tjdolckx1r5kcjj/Moratoria%20Agosto%202020.pdf?dl=0" target="blank_" class="text-dark btn btn-outline-light ml-auto border border-dark" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-              <a href="https://estudiodiez.page.link/novedades-impositvas-octubre-2020" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card border-warning bg-warning text-white">
+              <div class="card-body">
+                <h5 class="card-title display-4 h5-a">Oct|2020</h5>
+                <p class="card-text text-white lead">Novedades Impositivas</p>
+                <a href="https://www.dropbox.com/s/tjdolckx1r5kcjj/Moratoria%20Agosto%202020.pdf?dl=0" target="blank_" class="text-dark btn btn-outline-light ml-auto border border-dark" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
+                <a href="https://estudiodiez.page.link/novedades-impositvas-octubre-2020" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
+              </div>
             </div>
           </div>
 
-          <!-- habilitar en noviembre 2020 -->
-          <div class="card border-danger bg-danger text-white col-lg-4">
-            <div class="card-body">
-              <h5 class="card-title display-4 h5-a">Nov|2020</h5>
-              <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://www.dropbox.com/sh/23v9z81rae87r9j/AAA6eJgQddrFrQjo4dbtCA94a?dl=0" target="blank_" class="btn btn-outline-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-              <a href="https://estudiodiez.page.link/novedades-impositvas-noviembre-2020" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card border-danger bg-danger text-white">
+              <div class="card-body">
+                <h5 class="card-title display-4 h5-a">Nov|2020</h5>
+                <p class="card-text text-white lead">Novedades Impositivas</p>
+                <a href="https://www.dropbox.com/sh/23v9z81rae87r9j/AAA6eJgQddrFrQjo4dbtCA94a?dl=0" target="blank_" class="btn btn-outline-light ml-auto" role="button">Material <i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
+                <a href="https://estudiodiez.page.link/novedades-impositvas-noviembre-2020" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
+              </div>
             </div>
           </div>
 
-          <!-- habilitar en diciembre 2020 -->
-          <div class="card border-primary bg-primary text-white col-lg-4">
-            <div class="card-body">
-              <h5 class="card-title display-4 h5-a">Dic|2020</h5>
-              <p class="card-text text-white lead">Novedades Impositivas</p>
-              <a href="https://estudiodiez.page.link/novedades-impositvas-diciembre-2020" target="blank_" class="btn btn-outline-light float-right" role="button">ver archivo</a>
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card border-primary bg-primary text-white">
+              <div class="card-body">
+                <h5 class="card-title display-4 h5-a">Dic|2020</h5>
+                <p class="card-text text-white lead">Novedades Impositivas</p>
+                <a href="https://estudiodiez.page.link/novedades-impositvas-diciembre-2020" target="blank_" class="btn btn-outline-light float-end" role="button">ver archivo</a>
+              </div>
             </div>
           </div>
-        </div>
+        </div> <!-- octubre - diciembre -->
+
         <hr>
 
         <!-- Índice de impuestos 2020 -->
@@ -620,136 +688,163 @@ FIN TRANSMISIÓN -->
           <h4 class="alert-heading h5-a">Índice de impuestos 2020</h4>
         </div>
 
-        <div class="card-deck">
-          <div class="card bg-success text-white border-success">
-            <div class="card-body">
-              <h5 class="card-title h5-a">AGIP</h5>
-              <p class="card-text text-white lead">Índice de impuestos</p>
-            </div>
-            <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/agip2020" target="blank_" class="btn btn-outline-success btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
-            </div>
-          </div>
-
-          <div class="card bg-info text-white border-info">
-            <div class="card-body">
-              <h5 class="card-title h5-a">ARBA</h5>
-              <p class="card-text text-white lead">Índice de impuestos</p>
-            </div>
-            <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/arba2020" target="blank_" class="btn btn-outline-info btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card bg-success text-white border-success">
+              <div class="card-body">
+                <h5 class="card-title h5-a">AGIP</h5>
+                <p class="card-text text-white lead">Índice de impuestos</p>
+              </div>
+              <div class="card-footer bg-white">
+                <a href="https://estudiodiez.page.link/agip2020" target="blank_" class="btn btn-outline-success btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
+              </div>
             </div>
           </div>
 
-          <div class="card bg-warning text-white border-warning">
-            <div class="card-body">
-              <h5 class="card-title h5-a">Bienes personales</h5>
-              <p class="card-text text-white lead">Índice de impuestos</p>
-            </div>
-            <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/bp2020" target="blank_" class="btn btn-outline-warning btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card bg-info text-white border-info">
+              <div class="card-body">
+                <h5 class="card-title h5-a">ARBA</h5>
+                <p class="card-text text-white lead">Índice de impuestos</p>
+              </div>
+              <div class="card-footer bg-white">
+                <a href="https://estudiodiez.page.link/arba2020" target="blank_" class="btn btn-outline-info btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card bg-warning text-white border-warning">
+              <div class="card-body">
+                <h5 class="card-title h5-a">Bienes personales</h5>
+                <p class="card-text text-white lead">Índice de impuestos</p>
+              </div>
+              <div class="card-footer bg-white">
+                <a href="https://estudiodiez.page.link/bp2020" target="blank_" class="btn btn-outline-warning btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
+              </div>
+            </div>
+          </div>
+        </div> <!-- row -->
+
         <hr>
 
-        <div class="card-deck">
-          <div class="card bg-danger text-white border-danger">
-            <div class="card-body">
-              <h5 class="card-title h5-a">Convenio multilateral</h5>
-              <p class="card-text text-white lead">Índice de impuestos</p>
-            </div>
-            <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/cm2020" target="blank_" class="btn btn-outline-danger btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
-            </div>
-          </div>
-
-          <div class="card bg-primary text-white border-primary">
-            <div class="card-body">
-              <h5 class="card-title h5-a">De interés</h5>
-              <p class="card-text text-white lead">Índice de impuestos</p>
-            </div>
-            <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/di2020" target="blank_" class="btn btn-outline-primary btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card bg-danger text-white border-danger">
+              <div class="card-body">
+                <h5 class="card-title h5-a">Convenio multilateral</h5>
+                <p class="card-text text-white lead">Índice de impuestos</p>
+              </div>
+              <div class="card-footer bg-white">
+                <a href="https://estudiodiez.page.link/cm2020" target="blank_" class="btn btn-outline-danger btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
+              </div>
             </div>
           </div>
 
-          <div class="card bg-secondary text-white border-secondary">
-            <div class="card-body">
-              <h5 class="card-title h5-a">Ganancias</h5>
-              <p class="card-text text-white lead">Índice de impuestos</p>
-            </div>
-            <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/ganancias2020" target="blank_" class="btn btn-outline-secondary btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card bg-primary text-white border-primary">
+              <div class="card-body">
+                <h5 class="card-title h5-a">De interés</h5>
+                <p class="card-text text-white lead">Índice de impuestos</p>
+              </div>
+              <div class="card-footer bg-white">
+                <a href="https://estudiodiez.page.link/di2020" target="blank_" class="btn btn-outline-primary btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card bg-secondary text-white border-secondary">
+              <div class="card-body">
+                <h5 class="card-title h5-a">Ganancias</h5>
+                <p class="card-text text-white lead">Índice de impuestos</p>
+              </div>
+              <div class="card-footer bg-white">
+                <a href="https://estudiodiez.page.link/ganancias2020" target="blank_" class="btn btn-outline-secondary btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
+              </div>
+            </div>
+          </div>
+        </div> <!-- row -->
+
         <hr>
 
-        <div class="card-deck">
-          <div class="card bg-dark text-white border-dark">
-            <div class="card-body">
-              <h5 class="card-title h5-a">GMP</h5>
-              <p class="card-text text-white lead">Índice de impuestos</p>
-            </div>
-            <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/gmp2020" target="blank_" class="btn btn-outline-dark btn-sm disabled float-right" role="button" aria-disabled="true">sin novedades</a>
-            </div>
-          </div>
-
-          <div class="card bg-success text-white border-success">
-            <div class="card-body">
-              <h5 class="card-title h5-a">Impuestos varios</h5>
-              <p class="card-text text-white lead">Índice de impuestos</p>
-            </div>
-            <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/iv2020" target="blank_" class="btn btn-outline-success btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card bg-dark text-white border-dark">
+              <div class="card-body">
+                <h5 class="card-title h5-a">GMP</h5>
+                <p class="card-text text-white lead">Índice de impuestos</p>
+              </div>
+              <div class="card-footer bg-white">
+                <a href="https://estudiodiez.page.link/gmp2020" target="blank_" class="btn btn-outline-dark btn-sm disabled float-end" role="button" aria-disabled="true">sin novedades</a>
+              </div>
             </div>
           </div>
 
-          <div class="card bg-info text-white border-info">
-            <div class="card-body">
-              <h5 class="card-title h5-a">IVA</h5>
-              <p class="card-text text-white lead">Índice de impuestos</p>
-            </div>
-            <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/iva2020" target="blank_" class="btn btn-outline-info btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card bg-success text-white border-success">
+              <div class="card-body">
+                <h5 class="card-title h5-a">Impuestos varios</h5>
+                <p class="card-text text-white lead">Índice de impuestos</p>
+              </div>
+              <div class="card-footer bg-white">
+                <a href="https://estudiodiez.page.link/iv2020" target="blank_" class="btn btn-outline-success btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card bg-info text-white border-info">
+              <div class="card-body">
+                <h5 class="card-title h5-a">IVA</h5>
+                <p class="card-text text-white lead">Índice de impuestos</p>
+              </div>
+              <div class="card-footer bg-white">
+                <a href="https://estudiodiez.page.link/iva2020" target="blank_" class="btn btn-outline-info btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
+              </div>
+            </div>
+          </div>
+        </div> <!-- row -->
+
         <hr>
 
-        <div class="card-deck">
-          <div class="card bg-warning text-white border-warning">
-            <div class="card-body">
-              <h5 class="card-title h5-a">Monotributo</h5>
-              <p class="card-text text-white lead">Índice de impuestos</p>
-            </div>
-            <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/mt2020" target="blank_" class="btn btn-outline-warning btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
-            </div>
-          </div>
-
-          <div class="card bg-danger text-white border-danger">
-            <div class="card-body">
-              <h5 class="card-title h5-a">Previsional</h5>
-              <p class="card-text text-white lead">Índice de impuestos</p>
-            </div>
-            <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/suss2020" target="blank_" class="btn btn-outline-danger btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+        <div class="row">
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card bg-warning text-white border-warning">
+              <div class="card-body">
+                <h5 class="card-title h5-a">Monotributo</h5>
+                <p class="card-text text-white lead">Índice de impuestos</p>
+              </div>
+              <div class="card-footer bg-white">
+                <a href="https://estudiodiez.page.link/mt2020" target="blank_" class="btn btn-outline-warning btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
+              </div>
             </div>
           </div>
 
-          <div class="card bg-primary text-white border-primary">
-            <div class="card-body">
-              <h5 class="card-title h5-a">Procedimiento</h5>
-              <p class="card-text text-white lead">Índice de impuestos</p>
-            </div>
-            <div class="card-footer bg-white">
-              <a href="https://estudiodiez.page.link/pt2020" target="blank_" class="btn btn-outline-primary btn-sm float-right" role="button" aria-disabled="true">ver archivo</a>
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card bg-danger text-white border-danger">
+              <div class="card-body">
+                <h5 class="card-title h5-a">Previsional</h5>
+                <p class="card-text text-white lead">Índice de impuestos</p>
+              </div>
+              <div class="card-footer bg-white">
+                <a href="https://estudiodiez.page.link/suss2020" target="blank_" class="btn btn-outline-danger btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div class="col-lg-4 mt-2 col-sm-12">
+            <div class="card bg-primary text-white border-primary">
+              <div class="card-body">
+                <h5 class="card-title h5-a">Procedimiento</h5>
+                <p class="card-text text-white lead">Índice de impuestos</p>
+              </div>
+              <div class="card-footer bg-white">
+                <a href="https://estudiodiez.page.link/pt2020" target="blank_" class="btn btn-outline-primary btn-sm float-end" role="button" aria-disabled="true">ver archivo</a>
+              </div>
+            </div>
+          </div>
+        </div> <!-- row -->
 
       </div> <!-- FIN NOVEDADES 2020 -->
 
@@ -766,60 +861,64 @@ FIN TRANSMISIÓN -->
   <div class="container">
     <div class="row">
       <div class="col-lg-3 mb-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item bg-info lead text-light" role="tab">Estudio</a>
-          <a class="list-group-item list-group-item-action" href="perfil.html" role="tab">Perfil</a>
-          <a class="list-group-item list-group-item-action" href="organizacion.html" role="tab">Organización</a>
-          <a class="list-group-item list-group-item-action" href="socios.html" role="tab">Socios</a>
-          <a class="list-group-item list-group-item-action" href="publicaciones.html" role="tab">Publicaciones</a>
+        <div class="list-group">
+          <a class="list-group-item bg-primary card-link lead text-light px-3 py-3" role="tab">Estudio</a>
+          <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/perfil.html" role="tab">Perfil</a>
+          <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/organizacion.html" role="tab">Organización</a>
+          <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/socios.html" role="tab">Socios</a>
+          <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/publicaciones.html" role="tab">Publicaciones</a>
         </div>
       </div>
-      <div class="col-lg-3 mb-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item bg-secondary lead text-light" role="tab">Servicios</a>
-          <a class="list-group-item list-group-item-action" href="impositivo.html" role="tab">Impositivos</a>
-          <a class="list-group-item list-group-item-action" href="contable.html" role="tab">Contable</a>
-          <a class="list-group-item list-group-item-action" href="juridico.html" role="tab">Jurídicos</a>
-        </div>
-      </div>
-      <div class="col-lg-3 mb-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item bg-success lead text-light" role="tab">Capacitación</a>
-          <a class="list-group-item list-group-item-action" href="eventos.html" role="tab">Eventos</a>
-          <a class="list-group-item list-group-item-action" href="suscriptores.html" role="tab">Suscriptores</a>
-        </div>
-      </div>
-      <div class="col-lg-3 mb-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item bg-warning lead text-light" role="tab">Conecta</a>
-          <a class="list-group-item list-group-item-action" href="contact.html" role="tab">Contacto</a>
-          <a class="list-group-item list-group-item-action" href="sitios-de-interes.html" role="tab">Link's de interés</a>
-          <a class="list-group-item list-group-item-action" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
-          <a class="list-group-item list-group-item-action" href="https://www.youtube.com/channel/UC1Rg9E5c1hEgTlysuGBRy6A" target="_blank" role="tab">Youtube</a>
-          <a class="list-group-item list-group-item-action" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
-        </div>
+    <div class="col-lg-3 mb-4">
+      <div class="list-group" id="list-tab" role="tablist">
+        <a class="list-group-item bg-secondary card-link lead text-light px-3 py-3" role="tab">Servicios</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/impositivo.html" role="tab">Impositivos</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/contable.html" role="tab">Contable</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/juridico.html" role="tab">Jurídicos</a>
       </div>
     </div>
-    <hr style="background-color: white">
-    <p class="m-0 text-right text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
+    <div class="col-lg-3 mb-4">
+      <div class="list-group" id="list-tab" role="tablist">
+        <a class="list-group-item bg-success card-link lead text-light px-3 py-3" role="tab">Capacitación</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/eventos.html" role="tab">Eventos</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/suscriptores.html" role="tab">Suscriptores</a>
+      </div>
+    </div>
+    <div class="col-lg-3 mb-4">
+      <div class="list-group" id="list-tab" role="tablist">
+        <a class="list-group-item bg-warning card-link lead text-dark px-3 py-3" role="tab">Conecta</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/contact.html" role="tab">Contacto</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/sitios-de-interes.html" role="tab">Link's de interés</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.youtube.com/channel/UC1Rg9E5c1hEgTlysuGBRy6A" target="_blank" role="tab">Youtube</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
+      </div>
+    </div>
+    </div>
+      <hr style="background-color: white">
+      <p class="m-0 text-end text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
   </div>
   <!-- /.container -->
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+return new bootstrap.Tooltip(tooltipTriggerEl)
+});
+</script>
 
 <script type="text/javascript">
   $(document).ready(function(){
     $(".toast").toast("show");
   });
-</script>
-
-<script>
-  $(document).ready(function(){
-    $('#mZoom').modal('show');
-  })
 </script>
 
 </body>
