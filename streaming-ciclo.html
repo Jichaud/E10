@@ -14,14 +14,14 @@
 
     <title>Estudio Diez - Ciclo de Actualización Tributaria</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
     <!-- Bootstrap icons -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
   </head>
 
@@ -63,35 +63,93 @@
 
 
   <!-- Navigation -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light fixed-top" style="background-color: #fff;">
-    <div class="col-lg-2 ml-auto">
-      <button type="button" id="signOut" class="btn btn-block btn-outline-danger ml-auto">Salir</button>
-    </div>
-    <script>
-    document.getElementById('signOut').addEventListener('click', function(event) {
-      firebase.auth().signOut();
-    });
-  </script>
-</nav>
+  <div class="container pb-4">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark h3-a" style="background-color: #1c2452ff">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo-ed-azul.png" class="ms-3 img-fluid" width="200rem" alt="Estudio Diez">
+      </a>
+      <button class="navbar-toggler ms-2 me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown pt-2">
+            <a class="nav-link dropdown-toggle text-white ms-2" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Estudio
+            </a>
+            <div class="dropdown-menu alert alert-info me-2 ms-2" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="perfil.html">Perfil</a>
+              <a class="dropdown-item" href="organizacion.html">Organización</a>
+              <a class="dropdown-item" href="socios.html">Socios</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown pt-2">
+            <a class="nav-link dropdown-toggle text-white ms-2" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Servicios
+            </a>
+            <div class="dropdown-menu alert alert-secondary me-2 ms-2" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="impositivo.html">Impositivo</a>
+              <a class="dropdown-item" href="contable.html">Contable</a>
+              <a class="dropdown-item" href="juridico.html">Jurídico</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown pt-2">
+            <a class="nav-link dropdown-toggle text-white ms-2" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Capacitación
+            </a>
+            <div class="dropdown-menu alert alert-success me-2 ms-2" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="eventos.html">Eventos</a>
+              <hr class="bg-success">
+              <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
+            </div>
+          </li>
+          <li class="nav-item pt-2">
+            <a class="nav-link text-white ms-2" href="publicaciones.html">Publicaciones</a>
+          </li>
+          <li class="nav-item pt-2">
+            <a class="nav-link text-white ms-2" href="sitios-de-interes.html">Sitios de interés</a>
+          </li>
+          <li class="nav-item pt-2">
+            <a class="nav-link text-white ms-2" href="contact.html">Contacto</a>
+          </li>
+          <li class="nav-item pt-3">
+            <a href="blog.html"><span class="badge bg-light text-dark h2-a ms-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ingresá al blog del Estudio">Blog</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="d-grid gap-2 col-8 pe-4 mx-auto">
+          <button class="btn btn-danger float-end" id="signOut" type="button">Salir</button>
+        </div>
+      </div>
+      <script>
+      document.getElementById('signOut').addEventListener('click', function(event) {
+        firebase.auth().signOut();
+      });
+    </script>
+    </nav>
+  </div>
 
 <!-- Page Content -->
-<div class="container mt-4 pt-4">
+<div class="container col-lg-6 mt-5 pt-5">
 
   <!-- REUNIONES -->
-  <p class="pre">
-  </p>
   <div class="alert alert-success mt-4 col-lg-12" role="alert">
     <h4 class="alert-heading">Ciclo de Actualización Tributaria 2022</h4>
     <p class="alert-success"></p>
     <hr>
-    <p class="mb-0 alert-success">Departamento de Capacitación</p>
+    <p class="mb-0 alert-heading">Departamento de Capacitación</p>
   </div>
   <div class="card border-primary bg-primary text-white">
     <div class="card-header border-light text-white lead"><b>Ciclo de Actualización Tributaria 2022</b></div>
     <div class="card-body bg-light">
-      <div class="alert alert-danger col-lg-12 lead" role="alert"><b>Material</b> | <span class="badge badge-danger"><a href="https://www.dropbox.com/sh/oqgt1zv5f54diee/AABsnrLBSf2-2csiEEM1YlNza?dl=0" target="_blank" class="card-link text-white lead"><b>Descargar</b> <i class="bi bi-arrow-right-square-fill"></i></a></span></div>
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item rounded" width="460" height="315" src="https://www.youtube.com/embed/u4oo2jD-Ea0?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <!-- <div class="alert alert-danger col-lg-12 lead" role="alert"><b>Material</b> | <span class="badge badge-danger"><a href="#" target="_blank" class="card-link text-white lead"><b>Descargar</b> <i class="bi bi-arrow-right-square-fill"></i></a></span></div> -->
+      <div class="ratio ratio-16x9">
+        <iframe class="embed-responsive-item rounded" width="460" height="315" src="https://www.youtube.com/embed/_NbnShuSfik?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
       <!-- <hr class="border-primary">
       <div class="alert alert-danger mt-4 col-lg-12 lead" role="alert"><b>Material</b> | <span class="badge badge-danger"><a href="https://www.dropbox.com/sh/sfzhuzkh2pqlk58/AAC4vKwyHXkE-7bINZ1zK7A-a?dl=0" target="_blank" class="card-link text-white lead"><b>Material</b> <i class="bi bi-arrow-right-square-fill"></i></span></div>
@@ -112,49 +170,57 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3 mb-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item bg-info lead text-light" role="tab">Estudio</a>
-          <a class="list-group-item list-group-item-action" href="perfil.html" role="tab">Perfil</a>
-          <a class="list-group-item list-group-item-action" href="organizacion.html" role="tab">Organización</a>
-          <a class="list-group-item list-group-item-action" href="socios.html" role="tab">Socios</a>
-          <a class="list-group-item list-group-item-action" href="publicaciones.html" role="tab">Publicaciones</a>
+        <div class="list-group">
+          <a class="list-group-item bg-primary card-link lead text-light px-3 py-3" role="tab">Estudio</a>
+          <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/perfil.html" role="tab">Perfil</a>
+          <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/organizacion.html" role="tab">Organización</a>
+          <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/socios.html" role="tab">Socios</a>
+          <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/publicaciones.html" role="tab">Publicaciones</a>
         </div>
       </div>
-      <div class="col-lg-3 mb-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item bg-secondary lead text-light" role="tab">Servicios</a>
-          <a class="list-group-item list-group-item-action" href="impositivo.html" role="tab">Impositivos</a>
-          <a class="list-group-item list-group-item-action" href="contable.html" role="tab">Contable</a>
-          <a class="list-group-item list-group-item-action" href="juridico.html" role="tab">Jurídicos</a>
-        </div>
-      </div>
-      <div class="col-lg-3 mb-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item bg-success lead text-light" role="tab">Capacitación</a>
-          <a class="list-group-item list-group-item-action" href="eventos.html" role="tab">Eventos</a>
-          <a class="list-group-item list-group-item-action" href="suscriptores.html" role="tab">Suscriptores</a>
-        </div>
-      </div>
-      <div class="col-lg-3 mb-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item bg-warning lead text-light" role="tab">Conecta</a>
-          <a class="list-group-item list-group-item-action" href="contact.html" role="tab">Contacto</a>
-          <a class="list-group-item list-group-item-action" href="sitios-de-interes.html" role="tab">Link's de interés</a>
-          <a class="list-group-item list-group-item-action" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
-          <a class="list-group-item list-group-item-action" href="https://www.youtube.com/channel/UC1Rg9E5c1hEgTlysuGBRy6A" target="_blank" role="tab">Youtube</a>
-          <a class="list-group-item list-group-item-action" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
-        </div>
+    <div class="col-lg-3 mb-4">
+      <div class="list-group" id="list-tab" role="tablist">
+        <a class="list-group-item bg-secondary card-link lead text-light px-3 py-3" role="tab">Servicios</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/impositivo.html" role="tab">Impositivos</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/contable.html" role="tab">Contable</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/juridico.html" role="tab">Jurídicos</a>
       </div>
     </div>
-    <hr style="background-color: white">
-    <p class="m-0 text-right text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
+    <div class="col-lg-3 mb-4">
+      <div class="list-group" id="list-tab" role="tablist">
+        <a class="list-group-item bg-success card-link lead text-light px-3 py-3" role="tab">Capacitación</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/eventos.html" role="tab">Eventos</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/suscriptores.html" role="tab">Suscriptores</a>
+      </div>
+    </div>
+    <div class="col-lg-3 mb-4">
+      <div class="list-group" id="list-tab" role="tablist">
+        <a class="list-group-item bg-warning card-link lead text-dark px-3 py-3" role="tab">Conecta</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/contact.html" role="tab">Contacto</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/sitios-de-interes.html" role="tab">Link's de interés</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.youtube.com/channel/UC1Rg9E5c1hEgTlysuGBRy6A" target="_blank" role="tab">Youtube</a>
+        <a class="list-group-item list-group-item-action px-3 py-3" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
+      </div>
+    </div>
+    </div>
+      <hr class="text-white">
+      <p class="m-0 text-end text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
   </div>
   <!-- /.container -->
 </footer>
 
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript">
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+return new bootstrap.Tooltip(tooltipTriggerEl)
+});
+</script>
+
 </body>
 
 </html>
