@@ -48,60 +48,51 @@
 
 </style>
 
-<script>
-  // Initialize Firebase
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js"
+  
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
   const firebaseConfig = {
-      apiKey: "AIzaSyCQXoksw3C47bOWg7scIbsJWLVTPeT97p0",
-      authDomain: "estudio-diez-streaming.firebaseapp.com",
-      databaseURL: "https://estudio-diez-streaming.firebaseio.com",
-      projectId: "estudio-diez-streaming",
-      storageBucket: "estudio-diez-streaming.appspot.com",
-      messagingSenderId: "599746842056",
-      appId: "1:599746842056:web:c3f8b8c2726b336b55c4fd"
-    };
+    apiKey: "AIzaSyCQXoksw3C47bOWg7scIbsJWLVTPeT97p0",
+    authDomain: "estudio-diez-streaming.firebaseapp.com",
+    databaseURL: "https://estudio-diez-streaming.firebaseio.com",
+    projectId: "estudio-diez-streaming",
+    storageBucket: "estudio-diez-streaming.appspot.com",
+    messagingSenderId: "599746842056",
+    appId: "1:599746842056:web:c3f8b8c2726b336b55c4fd"
+  };
+
+  // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const onAuthStateChanged = onAuthStateChanged(app);
+</script>
+
+<script>  
+    onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      // ...
+    } else {
+      window.location.href = "suscriptores.html";
+      // User is signed out
+      // ...
+    }
+  });
   </script>
+ 
   
 </head>
 
 <body>
 
-<script>
-firebase.initializeApp(config);
-firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
-  .then(() => {
-    // Existing and future Auth states are now persisted in the current
-    // session only. Closing the window would clear any existing state even
-    // if a user forgets to sign out.
-    // ...
-    // New sign-in will be persisted with session persistence.
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      //blank if correct login
-      email = user.email;
-      console.log("  Email: " + email);
-      var myDate = new Date();
-      var hrs = myDate.getHours();
-      var greet;
-      if (hrs < 12)
-      greet = 'Buenos días';
-      else if (hrs >= 12 && hrs <= 17)
-      greet = 'Buenas tardes';
-      else if (hrs >= 17 && hrs <= 24)
-      greet = 'Buenas noches';
-      document.getElementById('loged').innerHTML = greet + " " + email;
-    } else {
-      window.location.href = 'suscriptores.html';
-    }
-  });
-
-  return firebase.auth().signInWithEmailAndPassword(email, password);
-})
-.catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-});
-</script>
 
 <!-- Navigation -->
 <div class="container pb-4">
@@ -2487,9 +2478,6 @@ return new bootstrap.Tooltip(tooltipTriggerEl)
         $('#').modal('show');
     });
 </script>
-
-<!-- Fb Login-->
-<script src="./js/fblogin.js" type="module"></script>
 
 </body>
 
