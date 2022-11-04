@@ -48,21 +48,20 @@
 
 </style>
 
-</head>
-
-<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-
 <script>
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyCQXoksw3C47bOWg7scIbsJWLVTPeT97p0",
-  authDomain: "estudio-diez-streaming.firebaseapp.com",
-  databaseURL: "https://estudio-diez-streaming.firebaseio.com",
-  projectId: "estudio-diez-streaming",
-  storageBucket: "estudio-diez-streaming.appspot.com",
-  messagingSenderId: "599746842056"
-};
-</script>
+  // Initialize Firebase
+  const firebaseConfig = {
+      apiKey: "AIzaSyCQXoksw3C47bOWg7scIbsJWLVTPeT97p0",
+      authDomain: "estudio-diez-streaming.firebaseapp.com",
+      databaseURL: "https://estudio-diez-streaming.firebaseio.com",
+      projectId: "estudio-diez-streaming",
+      storageBucket: "estudio-diez-streaming.appspot.com",
+      messagingSenderId: "599746842056",
+      appId: "1:599746842056:web:c3f8b8c2726b336b55c4fd"
+    };
+  </script>
+  
+</head>
 
 <body>
 
@@ -2488,6 +2487,9 @@ return new bootstrap.Tooltip(tooltipTriggerEl)
         $('#').modal('show');
     });
 </script>
+
+<!-- Fb Login-->
+<script src="./js/fblogin.js" type="module"></script>
 
 </body>
 
