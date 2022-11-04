@@ -27,7 +27,40 @@ signInForm.addEventListener("submit", async (e) => {
   const email = signInForm["email"].value;
   const password = signInForm["password"].value;
 
+  try {
+
   const userCredentials = await signInWithEmailAndPassword(auth, email, password)
-  
+  // user correct login
   window.location.href = 'suscriptores-streaming.html';
+
+} catch (error) {
+  const errorMessage = error.message;
+  console.log(errorMessage);
+  if (error.code === 'auth/wrong-password') {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Contraseña incorrecta";
+  } else if (error.code === 'auth/internal-error') {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Por favor ingrese su contraseña. En caso de no estar registrado, envíe un mail a capacitacion@estudiodiez.com";
+  } else if (error.code === 'auth/invalid-email') {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Mail mal escrito";
+  } else if (error.code === 'auth/too-many-requests') {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Ha ingresado varias veces su contraseña de forma incorrecta. La cuenta fue suspendida por 10 minutos.";
+  } else {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Algo salió mal... envíe un mail a capacitacion@estudiodiez.com";
+  }
+}
 });

@@ -46,41 +46,6 @@
 </head>
 
 <div id="streaming">
-  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-  <script>
-  // Initialize Firebase
-  var firebaseConfig = {
-    apiKey: "AIzaSyCnzSBNe8lOq7AwWSU8f_-TuUwuOJ83VUs",
-    authDomain: "reforma-tributaria.firebaseapp.com",
-    databaseURL: "https://reforma-tributaria.firebaseio.com",
-    projectId: "reforma-tributaria",
-    storageBucket: "reforma-tributaria.appspot.com",
-    messagingSenderId: "296085476842",
-    appId: "1:296085476842:web:f4c91bc5a4063281288e93"
-  };
-  firebase.initializeApp(firebaseConfig);
-</script>
-
-<script src="js/firebase.js"></script>
-<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
-<script type="text/javascript">
-// FirebaseUI config.
-var uiConfig = {
-  signInSuccessUrl: 'suscriptores-streamingtr.html',
-  signInOptions: [
-    // Leave the lines as is for the providers you want to offer your users.
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-
-  ],
-  credentialHelper: firebaseui.auth.CredentialHelper.NONE
-};
-
-// Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-// The start method will wait until the DOM is loaded.
-ui.start('#firebaseui2-auth-container', uiConfig);
-
-</script>
 
 <style>
 body {
@@ -94,6 +59,25 @@ body {
 
 
 </div>
+
+<header>
+          <!-- toast error message -->
+          <div class="row justify-content-center">
+            <div class="col-lg-3">
+            <div role="alert" aria-atomic="true" aria-live="assertive" class="toast text-bg-white ms-2 mt-2" data-bs-autohide="false" data-bs-animation="true">
+              <div class="toast-header text-bg-warning">
+                <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#ff0000"></rect></svg>
+                <strong class="me-auto">&nbsp; Algo salió mal...</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div id="toast-msg-error" class="toast-body h3-a text-dark">
+                <!-- texto id from fblogin.js -->
+              </div>
+            </div>
+          </div>
+        </div>
+    
+</header>
 
 <body>
 
@@ -110,9 +94,20 @@ body {
               <div class="card-header text-white" style="background-color:#F68A1A">
                 <span class="badge bg-light h3-a"><b>Acceso</span> | Ciclo de Actualización Tributaria</b></div>
                 <div class="card-body">
-                  <p class="card-text">
-                    <div id="firebaseui2-auth-container"></div>
-                  </p>
+                    <!-- LogIn Form-->
+                    <form id="loginFB">
+                      <div class="form-floating mb-3">
+                        <input type="email" class="form-control rounded-3" id="email" placeholder="name@ejemplo.com">
+                        <label for="email">Correo electrónico</label>
+                      </div>
+                      <div class="form-floating rounded-3 mb-3">
+                        <input type="password" class="form-control" id="password" placeholder="contraseña">
+                        <label for="password">Contraseña</label>
+                      </div>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-outline-success mb-3 rounded-5" id="ingresar" type="submit">Ingresar</button>
+                      </div>
+                    </form> <!-- LogIn Form -->
                   <p class="m-0 text-center text-wrap text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
                 </div>
               </div>
@@ -214,6 +209,16 @@ body {
   return new bootstrap.Tooltip(tooltipTriggerEl)
   });
   </script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".toast").toast("hide");
+  });
+</script>
+
+
+  <!-- Fb Login-->
+  <script src="./js/fblogin.js" type="module"></script>
 
 </body>
 
