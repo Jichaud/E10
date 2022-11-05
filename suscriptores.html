@@ -46,40 +46,7 @@
 </head>
 
 <div id="streaming">
-  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-  <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCQXoksw3C47bOWg7scIbsJWLVTPeT97p0",
-    authDomain: "estudio-diez-streaming.firebaseapp.com",
-    databaseURL: "https://estudio-diez-streaming.firebaseio.com",
-    projectId: "estudio-diez-streaming",
-    storageBucket: "estudio-diez-streaming.appspot.com",
-    messagingSenderId: "599746842056"
-  };
-  firebase.initializeApp(config);
-</script>
 
-<script src="js/firebase.js"></script>
-<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
-<script type="text/javascript">
-// FirebaseUI config.
-var uiConfig = {
-  signInSuccessUrl: 'suscriptores-streaming.html',
-  signInOptions: [
-    // Leave the lines as is for the providers you want to offer your users.
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-
-  ],
-  credentialHelper: firebaseui.auth.CredentialHelper.NONE
-};
-
-// Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-// The start method will wait until the DOM is loaded.
-ui.start('#firebaseui2-auth-container', uiConfig);
-
-</script>
 
 <style>
 body {
@@ -95,6 +62,21 @@ background-size: cover;
 </div>
 
 <header>
+        <!-- toast error message -->
+        <div class="row justify-content-center">
+        <div class="col-lg-3">
+        <div role="alert" aria-atomic="true" aria-live="assertive" class="toast text-bg-white ms-2 mt-2" data-bs-autohide="false" data-bs-animation="true">
+          <div class="toast-header text-bg-warning">
+            <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#ff0000"></rect></svg>
+            <strong class="me-auto">&nbsp; Algo salió mal...</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div id="toast-msg-error" class="toast-body h3-a text-dark">
+            <!-- texto id from fblogin.js -->
+          </div>
+        </div>
+      </div>
+    </div>
 
 </header>
 
@@ -113,9 +95,20 @@ background-size: cover;
               <div class="card-header bg-success text-white">
                 <span class="badge bg-light h3-a"><b>Acceso</span> | Ciclo de Actualización Tributaria</b></div>
                 <div class="card-body">
-                  <p class="card-text">
-                    <div id="firebaseui2-auth-container"></div>
-                  </p>
+                    <!-- LogIn Form-->
+                    <form id="loginFB">
+                      <div class="form-floating mb-3">
+                        <input type="email" class="form-control rounded-3" id="email" placeholder="name@ejemplo.com">
+                        <label for="email">Correo electrónico</label>
+                      </div>
+                      <div class="form-floating rounded-3 mb-3">
+                        <input type="password" class="form-control" id="password" placeholder="contraseña">
+                        <label for="password">Contraseña</label>
+                      </div>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-outline-success mb-3 rounded-5" id="ingresar" type="submit">Ingresar</button>
+                      </div>
+                    </form> <!-- LogIn Form -->
                   <p class="m-0 text-center text-wrap text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
                 </div>
               </div>
@@ -148,21 +141,74 @@ background-size: cover;
           <div class="col-lg-2 text-center">
             <img src="images/logo-ed-siglas.png" class="img-fluid mb-3" style="max-width:5rem" alt="logo Estudio Diez">
             <br>
-            <a href="index.html" class="text-decoration-none h2-a" data-bs-toggle="tooltip" data-placement="top" title="Inicio"><i class="bi bi-app-indicator"></i> <span class="badge bg-primary align-middle">Inicio &nbsp;&nbsp;&nbsp;</span></a>
+            <a href="index.html" class="text-decoration-none h2-a" data-bs-toggle="tooltip" data-bs-placement="right" title="Inicio"><i class="bi bi-app-indicator"></i> <span class="badge bg-primary align-middle">Inicio &nbsp;&nbsp;&nbsp;</span></a>
             <br><br>
-            <a href="eventos.html" class="text-decoration-none h2-a" data-bs-toggle="tooltip" data-placement="top" title="Eventos"><i class="bi bi-app-indicator text-danger"></i> <span class="badge bg-danger align-middle">Eventos</span></a>
+            <a href="eventos.html" class="text-decoration-none h2-a" data-bs-toggle="tooltip" data-bs-placement="right" title="Eventos"><i class="bi bi-app-indicator text-danger"></i> <span class="badge bg-danger align-middle">Eventos</span></a>
             <br><br>
-            <a href="blog.html" class="text-decoration-none h2-a" data-bs-toggle="tooltip" data-placement="top" title="Blog"><i class="bi bi-app-indicator text-dark"></i> <span class="badge bg-dark align-middle">Blog &nbsp;&nbsp;&nbsp;&nbsp;</span></a>
+            <a href="blog.html" class="text-decoration-none h2-a" data-bs-toggle="tooltip" data-bs-placement="right" title="Blog"><i class="bi bi-app-indicator text-dark"></i> <span class="badge bg-dark align-middle">Blog &nbsp;&nbsp;&nbsp;&nbsp;</span></a>
           </div>
-          <div class="col-lg">
+          <div class="col-lg mt-3 me-4">
+            <div class="table-responsive rounded-4 table-sm text-dark">
+              <table class="table table-bordered table-hover bg-light bg-opacity-50 border border-primary">
+                <thead>
+                  <tr class="text-dark">
+                    <th scope="col" class="text-white text-center align-middle bg-primary">Reunión</th>
+                    <th scope="col" class="text-white text-center align-middle bg-primary">Fecha</th>
+                    <th scope="col" class="text-white text-center align-middle bg-primary">#</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="w-50 text-center align-middle">1</td>
+                    <td class="text-center align-middle">Viernes 25/marzo/2022</td>
+                    <td class="text-center align-middle"><i class="bi bi-check-circle-fill text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center align-middle">2</td>
+                    <td class="text-center align-middle">Viernes 02/mayo/2022</td>
+                    <td class="text-center align-middle"><i class="bi bi-check-circle-fill text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center align-middle">Reunión PH</td>
+                    <td class="text-center align-middle">Viernes 27/mayo/2022</td>
+                    <td class="text-center align-middle"><i class="bi bi-check-circle-fill text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center align-middle">3</td>
+                    <td class="text-center align-middle">Viernes 08/julio/2022</td>
+                    <td class="text-center align-middle"><i class="bi bi-check-circle-fill text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center align-middle">4</td>
+                    <td class="text-center align-middle">Viernes 26/agosto/2022</td>
+                    <td class="text-center align-middle"><i class="bi bi-check-circle-fill text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center align-middle">5</td>
+                    <td class="text-center align-middle">Viernes 28/octubre/2022</td>
+                    <td class="text-center align-middle"><i class="bi bi-check-circle-fill text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center align-middle">6</td>
+                    <td class="text-center align-middle">Viernes 25/noviembre/2022</td>
+                    <td class="text-center align-middle"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <img src="images/computer.svg" class="img-fluid mt-4" alt="">
             <a href="https://undraw.co/illustrations" class="text-decoration-none" target="_blank"><p class="text-secondary text-end"><small>by unDraw</small></p></a>
+            <img src="images/logo70.png" class="img-fluid float-end" style="max-width:5rem" alt="logo Estudio Diez">
           </div>
       
       </div>
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
 
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
@@ -174,6 +220,16 @@ background-size: cover;
   });
   </script>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".toast").toast("hide");
+  });
+</script>
+
+
+  <!-- Fb Login-->
+  <script src="./js/fblogin.js" type="module"></script>
+  
 </body>
 
 </html>
