@@ -43,6 +43,75 @@
 
 </style>
 
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js"
+  
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyCnzSBNe8lOq7AwWSU8f_-TuUwuOJ83VUs",
+    authDomain: "reforma-tributaria.firebaseapp.com",
+    databaseURL: "https://reforma-tributaria.firebaseio.com",
+    projectId: "reforma-tributaria",
+    storageBucket: "reforma-tributaria.appspot.com",
+    messagingSenderId: "296085476842",
+    appId: "1:296085476842:web:f4c91bc5a4063281288e93"
+  };
+
+  // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const signInForm = document.querySelector("#loginFB");
+
+signInForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = signInForm["email"].value;
+  const password = signInForm["password"].value;
+
+  try {
+
+  const userCredentials = await signInWithEmailAndPassword(auth, email, password)
+  // user correct login
+  window.location.href = 'suscriptores-streamingtr.html';
+
+} catch (error) {
+  const errorMessage = error.message;
+  console.log(errorMessage);
+  if (error.code === 'auth/wrong-password') {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Contraseña incorrecta";
+  } else if (error.code === 'auth/internal-error') {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Por favor ingrese su contraseña. En caso de no estar registrado, envíe un mail a capacitacion@estudiodiez.com";
+  } else if (error.code === 'auth/invalid-email') {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Mail mal escrito";
+  } else if (error.code === 'auth/too-many-requests') {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Ha ingresado varias veces su contraseña de forma incorrecta. La cuenta fue suspendida por 10 minutos.";
+  } else {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Algo salió mal... envíe un mail a capacitacion@estudiodiez.com";
+  }
+}
+});
+
+</script>
+
 </head>
 
 <div id="streaming">
@@ -200,6 +269,10 @@ body {
     </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
@@ -215,10 +288,6 @@ body {
     $(".toast").toast("hide");
   });
 </script>
-
-
-  <!-- Fb Login-->
-  <script src="./js/fblogin.js" type="module"></script>
 
 </body>
 

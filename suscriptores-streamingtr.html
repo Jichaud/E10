@@ -48,13 +48,16 @@
 
 </style>
 
-</head>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js"
+  
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
-<script>
-// Initialize Firebase
-var firebaseConfig = {
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
   apiKey: "AIzaSyCnzSBNe8lOq7AwWSU8f_-TuUwuOJ83VUs",
   authDomain: "reforma-tributaria.firebaseapp.com",
   databaseURL: "https://reforma-tributaria.firebaseio.com",
@@ -64,27 +67,21 @@ var firebaseConfig = {
   appId: "1:296085476842:web:f4c91bc5a4063281288e93"
 };
 
-</script>
+  // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-<body>
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    const email = user.email;
 
-<script>
-firebase.initializeApp(firebaseConfig);
-firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
-.then(function() {
-  // Existing and future Auth states are now persisted in the current
-  // session only. Closing the window would clear any existing state even
-  // if a user forgets to sign out.
-  // ...
-  // New sign-in will be persisted with session persistence.
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      //blank if correct login
-      email = user.email;
-      console.log("  Email: " + email);
-      var myDate = new Date();
-      var hrs = myDate.getHours();
-      var greet;
+    // Greet process
+    var myDate = new Date();
+    var hrs = myDate.getHours();
+    var greet;
       if (hrs < 12)
       greet = 'Buenos días';
       else if (hrs >= 12 && hrs <= 17)
@@ -92,19 +89,26 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
       else if (hrs >= 17 && hrs <= 24)
       greet = 'Buenas noches';
       document.getElementById('loged').innerHTML = greet + " " + email;
-    } else {
-      window.location.href = 'suscriptorestr.html';
-    }
-  });
 
-  return firebase.auth().signInWithEmailAndPassword(email, password);
-})
-.catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
+      // signout process
+      document.getElementById('signOut').addEventListener('click', function(event) {
+      const auth = getAuth();
+      signOut(auth).then(() => {
+      // Sign-out successful.
+      }).catch((error) => {
+      // An error happened.
+      });
+    });
+  } else {
+    window.location.href = "suscriptorestr.html";    
+    // User is signed out    
+  }
 });
 </script>
+
+</head>
+
+<body>
 
 <!-- Navigation -->
 <div class="container pb-4">
@@ -118,11 +122,6 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
         <button class="btn btn-danger float-end" id="signOut" type="button">Salir</button>
       </div>
     </div>
-    <script>
-    document.getElementById('signOut').addEventListener('click', function(event) {
-      firebase.auth().signOut();
-    });
-  </script>
 </nav>
 </div>
 
