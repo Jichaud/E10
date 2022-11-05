@@ -45,84 +45,101 @@
     
     </style>
 
-  </head>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js"
+  
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-    <div id="retencionganancias">
-
-      <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-      <script>
-        // Initialize Firebase
-        var config = {
-          apiKey: "AIzaSyD-vxkFtajqd-qQkgZjXFFjEzodjN0oQw0",
-          authDomain: "streaming-retencion-ganancias.firebaseapp.com",
-          databaseURL: "https://streaming-retencion-ganancias.firebaseio.com",
-          projectId: "streaming-retencion-ganancias",
-          storageBucket: "streaming-retencion-ganancias.appspot.com",
-          messagingSenderId: "605779473797"
-        };
-        firebase.initializeApp(config);
-      </script>
-        <script src="js/firebase.js"></script>
-<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
-    <script type="text/javascript">
-      // FirebaseUI config.
-      var uiConfig = {
-        signInSuccessUrl: 'streaming-retencion-ganancias-empleados.html',
-        signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.EmailAuthProvider.PROVIDER_ID,
-
-        ],
-        credentialHelper: firebaseui.auth.CredentialHelper.NONE
-      };
-
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
-
-    </script>
-
-    </div>
-
-    <div id="streaming">
-
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyC_WA3rRbRYG7GlsLgG3-nStA4I4BhhUMc",
-    authDomain: "streaming-ciclo.firebaseapp.com",
-    databaseURL: "https://streaming-ciclo.firebaseio.com",
-    projectId: "streaming-ciclo",
-    storageBucket: "streaming-ciclo.appspot.com",
-    messagingSenderId: "284757035227"
-  };
-  firebase.initializeApp(config);
-</script>
-
-<script src="js/firebase.js"></script>
-<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
-<script type="text/javascript">
-// FirebaseUI config.
-var uiConfig = {
-signInSuccessUrl: 'streaming-ciclo.html',
-signInOptions: [
-// Leave the lines as is for the providers you want to offer your users.
-firebase.auth.EmailAuthProvider.PROVIDER_ID,
-
-],
-credentialHelper: firebaseui.auth.CredentialHelper.NONE
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+  apiKey: "AIzaSyC_WA3rRbRYG7GlsLgG3-nStA4I4BhhUMc",
+  authDomain: "streaming-ciclo.firebaseapp.com",
+  databaseURL: "https://streaming-ciclo.firebaseio.com",
+  projectId: "streaming-ciclo",
+  storageBucket: "streaming-ciclo.appspot.com",
+  messagingSenderId: "284757035227",
+  appId: "1:284757035227:web:989bf2a8419c2c23d9a4fe"
 };
 
-// Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-// The start method will wait until the DOM is loaded.
-ui.start('#firebaseui2-auth-container', uiConfig);
+  // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const signInForm = document.querySelector("#loginFB");
+
+signInForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = signInForm["email"].value;
+  const password = signInForm["password"].value;
+
+  try {
+
+  const userCredentials = await signInWithEmailAndPassword(auth, email, password)
+  // user correct login
+  window.location.href = 'streaming-ciclo.html';
+
+} catch (error) {
+  const errorMessage = error.message;
+  console.log(errorMessage);
+  if (error.code === 'auth/wrong-password') {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Contraseña incorrecta";
+  } else if (error.code === 'auth/internal-error') {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Por favor ingrese su contraseña.";
+  } else if (error.code === 'auth/invalid-email') {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "El correo electrónico no es correcto";
+  } else if (error.code === 'auth/too-many-requests') {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Ha ingresado varias veces su contraseña de forma incorrecta. La cuenta fue suspendida por 10 minutos.";
+  } else {
+    $(document).ready(function(){
+      $(".toast").toast("show");
+    });
+    document.getElementById('toast-msg-error').innerHTML = "Algo salió mal...";
+  }
+}
+});
 
 </script>
 
-    </div>
+
+  </head>
+
+      <style>
+        body {
+          background-color: #ff7700;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23cc0000' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23aa0000' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23d6002b' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23b10022' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d9004b' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23b2003d' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23d3006c' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23ac0057' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23c4008c' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%239e0071' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aa00aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23880088' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+      }
+      </style>
+
+    <header>
+      <!-- toast error message -->
+      <div aria-atomic="true" aria-live="polite" class="position-relative toast text-bg-white top-0 start-50 translate-middle-x" data-bs-autohide="false" data-bs-animation="true">
+        <div class="toast-header text-bg-warning">
+          <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#ff0000"></rect></svg>
+          <strong class="me-auto">&nbsp; Algo salió mal...</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div id="toast-msg-error" class="toast-body h3-a text-dark">
+
+        </div>
+      </div>
+  
+</header>
 
     <body>
 
@@ -130,26 +147,40 @@ ui.start('#firebaseui2-auth-container', uiConfig);
       <div class="container-fluid px-4 pt-4">
         <div class="text-center">
           <a href="index.html" class="card-link">
-            <img src="images/logo-ed-siglas.png" data-bs-toggle="tooltip" data-bs-placement="top" title="Volver a inicio" class="img-fluid" style="max-width:8rem" alt="logo Estudio Diez">
+            <img src="images/logo-ed-siglas.png" data-bs-toggle="tooltip" data-bs-placement="top" title="Volver a inicio" class="bg-white bg-opacity-50 rounded-4 px-4 py-4 img-fluid" style="max-width:8rem" alt="logo Estudio Diez">
           </a>
         </div>
           <div class="row pt-4">
             <div class="card-body">
-              <div class="card border-primary bg-primary bg-opacity-25 mb-3 rounded-4"
+              <div class="card bg-lightbg-opacity-50 mb-3 rounded-4"
                 style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
                 <div class="card-header h2-a"><span class="badge bg-primary text-white">Ciclo</span> de Actualización Tributaria</div>
                 <div class="card-body">
-                  <h1 class="card-title text-dark h4-a"><small>Ciclo</small></h1>
-                  <p class="card-text">
-                    <div id="firebaseui2-auth-container"></div>
-                  </p>
+                    <!-- LogIn Form-->
+                    <form id="loginFB">
+                      <div class="form-floating mb-3">
+                        <input type="email" class="form-control rounded-3" id="email" placeholder="name@ejemplo.com">
+                        <label for="email">Correo electrónico</label>
+                      </div>
+                      <div class="form-floating rounded-3 mb-3">
+                        <input type="password" class="form-control" id="password" placeholder="contraseña">
+                        <label for="password">Contraseña</label>
+                      </div>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-outline-primary mb-3 rounded-5" id="ingresar" type="submit">Ingresar</button>
+                      </div>
+                    </form> <!-- LogIn Form -->
                 </div>
               </div>
             </div>
           </div>
-          <p class="m-0 text-center text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos
+          <p class="m-0 text-center text-white">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos
             Aires. Argentina</p>
       </div>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
@@ -160,6 +191,12 @@ ui.start('#firebaseui2-auth-container', uiConfig);
     return new bootstrap.Tooltip(tooltipTriggerEl)
     });
     </script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".toast").toast("hide");
+  });
+</script>
 
   </body>
 

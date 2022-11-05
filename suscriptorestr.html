@@ -95,7 +95,7 @@ signInForm.addEventListener("submit", async (e) => {
     $(document).ready(function(){
       $(".toast").toast("show");
     });
-    document.getElementById('toast-msg-error').innerHTML = "Mail mal escrito";
+    document.getElementById('toast-msg-error').innerHTML = "El correo electrónico no es correcto.";
   } else if (error.code === 'auth/too-many-requests') {
     $(document).ready(function(){
       $(".toast").toast("show");
