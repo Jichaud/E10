@@ -1,7 +1,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
   import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js"
-  import { getFirestore, collection, addDoc, getDocs, getDoc, doc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
+  import { getFirestore, collection, addDoc, getDocs, getDoc, doc, setDoc, onSnapshot, deleteDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -31,15 +31,74 @@
       console.log(user.uid);
       console.log(user.email);
 
-      // leer datos
-      const docRef = doc(db, "clientes", uid);
-      const docSnap = await getDoc(docRef);
+      // listar datos
+      const listarInueblesDetalle = document.getElementById('listarInmuebles')
 
-      document.getElementById('apellido').innerHTML = docSnap.data().apellido;
-      document.getElementById('nombre').innerHTML = docSnap.data().nombre;
-      document.getElementById('fechaDeNacimiento').innerHTML = docSnap.data().fechaDeNacimiento;
-      document.getElementById('apellidoMaterno').innerHTML = docSnap.data().apellidoMaterno;
-      document.getElementById('cuit').innerHTML = docSnap.data().cuit;
+      onSnapshot(collection(db, "clientes", uid, "inmuebles"), (listarInmuebles) => {
+
+        let html = ''
+        listarInmuebles.forEach(doc => {
+          html += `
+          <div class="card border border-2 border-success mt-3">
+          <div class="card-body">
+            <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().domicilioCalle}</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">${doc.data().fechaAlta}</li>
+              <li class="list-group-item">${doc.data().destinoInmueble}</li>
+              <li class="list-group-item text-center h2-a text-light bg-success rounded-2 fw-bolder" style="Number.prototype.toLocaleString()">${doc.data().valorCompra}</li>
+            </ul>
+            <div class="d-grid gap-2 d-md-block mt-3 float-end">
+              <button class="btn btn-warning" type="button">Editar <i class="bi bi-pencil-fill"></i></button>
+              <button class="btn btn-danger btn-borrar" type="button" data-id="${doc.id}">Borrar <i class="bi bi-trash3-fill"></i></button>
+            </div>
+          </div>
+        </div>
+          `
+        })
+  
+        listarInueblesDetalle.innerHTML = html;
+        const btnBorrar = listarInueblesDetalle.querySelectorAll('.btn-borrar')
+        btnBorrar.forEach(btn => {
+          btn.addEventListener('click', ({target: {dataset}}) => {
+            const deleteInmueble = id => deleteDoc(doc(db, "clientes", uid, "inmuebles", id));
+            deleteInmueble(dataset.id)
+          })
+        })
+  
+      })
+
+    // agregar datos
+    const inmueblesFB = document.querySelector("#inmueblesFB");
+    inmueblesFB.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const fechaAlta = inmueblesFB["fechaAlta"].value;
+      const tipoInmueble = inmueblesFB["tipoInmueble"].value;
+      const destinoInmueble = inmueblesFB["destinoInmueble"].value;
+      const domicilioCalle = inmueblesFB["domicilioCalle"].value;
+      const domicilioLocalidad = inmueblesFB["domicilioLocalidad"].value;
+      const domicilioCodigoPostal = inmueblesFB["domicilioCodigoPostal"].value;
+      const domicilioProvincia = inmueblesFB["domicilioProvincia"].value;
+      const montoHipoteca = inmueblesFB["montoHipoteca"].value;
+      const partidaInmobiliaria = inmueblesFB["partidaInmobiliaria"].value;
+      const valuacionFiscal = inmueblesFB["valuacionFiscal"].value;
+      const valorCompra = inmueblesFB["valorCompra"].value;
+
+      await addDoc(collection(db, "clientes", uid, "inmuebles"), {
+        fechaAlta: fechaAlta,
+        tipoInmueble: tipoInmueble,
+        destinoInmueble: destinoInmueble,
+        domicilioCalle: domicilioCalle,
+        domicilioLocalidad: domicilioLocalidad,
+        domicilioCodigoPostal: domicilioCodigoPostal,
+        domicilioProvincia: domicilioProvincia,
+        montoHipoteca: montoHipoteca,
+        partidaInmobiliaria: partidaInmobiliaria,
+        valuacionFiscal: valuacionFiscal,
+        valorCompra: valorCompra
+      })
+      inmueblesFB.reset();
+    });
 
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {

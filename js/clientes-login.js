@@ -32,14 +32,14 @@
       console.log(user.email);
 
       // leer datos
-      const docRef = doc(db, "clientes", uid);
-      const docSnap = await getDoc(docRef);
+      const datosPersonales = doc(db, "clientes", uid, "datosPersonales", "datosPersonalesDetalle");
+      const datosPersonalesDetalle = await getDoc(datosPersonales);
 
-      document.getElementById('apellido').innerHTML = docSnap.data().apellido;
-      document.getElementById('nombre').innerHTML = docSnap.data().nombre;
-      document.getElementById('fechaDeNacimiento').innerHTML = docSnap.data().fechaDeNacimiento;
-      document.getElementById('apellidoMaterno').innerHTML = docSnap.data().apellidoMaterno;
-      document.getElementById('cuit').innerHTML = docSnap.data().cuit;
+      document.getElementById('apellido').innerHTML = datosPersonalesDetalle.data().apellido;
+      document.getElementById('nombre').innerHTML = datosPersonalesDetalle.data().nombre;
+      document.getElementById('fechaDeNacimiento').innerHTML = datosPersonalesDetalle.data().fechaDeNacimiento;
+      document.getElementById('apellidoMaterno').innerHTML = datosPersonalesDetalle.data().apellidoMaterno;
+      document.getElementById('cuit').innerHTML = datosPersonalesDetalle.data().cuit;
 
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {
