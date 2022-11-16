@@ -32,7 +32,7 @@
       console.log(user.email);
 
       // listar datos
-      const listarInueblesDetalle = document.getElementById('listarInmuebles')
+      const listarInmueblesDetalle = document.getElementById('listarInmuebles')
 
       onSnapshot(collection(db, "clientes", uid, "inmuebles"), (listarInmuebles) => {
 
@@ -45,10 +45,10 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item">${doc.data().fechaAlta}</li>
               <li class="list-group-item">${doc.data().destinoInmueble}</li>
-              <li class="list-group-item text-center h2-a text-light bg-success rounded-2 fw-bolder" style="Number.prototype.toLocaleString()">${doc.data().valorCompra}</li>
+              <li class="list-group-item text-center h2-a text-light bg-success rounded-2 fw-bolder">${doc.data().valorCompra}</li>
             </ul>
             <div class="d-grid gap-2 d-md-block mt-3 float-end">
-              <button class="btn btn-warning" type="button">Editar <i class="bi bi-pencil-fill"></i></button>
+              <button class="btn btn-warning btn-edit" type="button" data-id="${doc.id}">Editar <i class="bi bi-pencil-fill"></i></button>
               <button class="btn btn-danger btn-borrar" type="button" data-id="${doc.id}">Borrar <i class="bi bi-trash3-fill"></i></button>
             </div>
           </div>
@@ -56,14 +56,29 @@
           `
         })
   
-        listarInueblesDetalle.innerHTML = html;
-        const btnBorrar = listarInueblesDetalle.querySelectorAll('.btn-borrar')
+        listarInmueblesDetalle.innerHTML = html;
+        
+        const btnBorrar = listarInmueblesDetalle.querySelectorAll('.btn-borrar')
         btnBorrar.forEach(btn => {
           btn.addEventListener('click', ({target: {dataset}}) => {
             const deleteInmueble = id => deleteDoc(doc(db, "clientes", uid, "inmuebles", id));
             deleteInmueble(dataset.id)
           })
         })
+
+        const editarInmueble = id => getDoc(doc(db, "clientes", uid, "inmuebles", id));
+
+        const btnEditar = listarInmueblesDetalle.querySelectorAll('.btn-edit')
+          btnEditar.forEach((btn) => {
+            btn.addEventListener('click', async (e) => {
+              const doc = await editarInmueble(e.target.dataset.id)
+              console.log(doc.data());
+              const editar = doc.data()
+              inmueblesFB["fechaAlta"].value = editar.fechaAlta
+              inmueblesFB["tipoInmueble"].value = editar.tipoInmueble
+              document.getElementById('agregarInmueble').innerHTML = "Editar";
+            })
+          })
   
       })
 
