@@ -1,7 +1,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
   import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js"
-  import { getFirestore, collection, addDoc, getDocs, getDoc, doc, setDoc, onSnapshot, deleteDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
+  import { getFirestore, collection, addDoc, getDocs, getDoc, doc, setDoc, onSnapshot, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,6 +22,10 @@
   export const auth = getAuth(app);
   export const db = getFirestore(app);
 
+  let editStatus = false;
+  let id = "";
+  fechaAlta.focus();
+
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
@@ -30,6 +34,8 @@
       const email = user.email;
       console.log(user.uid);
       console.log(user.email);
+
+      const updateInmueble = (id, newFields) => updateDoc(doc(db, "clientes", uid, "inmuebles", id), newFields);
 
       // listar datos
       const listarInmueblesDetalle = document.getElementById('listarInmuebles')
@@ -58,6 +64,7 @@
   
         listarInmueblesDetalle.innerHTML = html;
         
+        // Borrar datos
         const btnBorrar = listarInmueblesDetalle.querySelectorAll('.btn-borrar')
         btnBorrar.forEach(btn => {
           btn.addEventListener('click', ({target: {dataset}}) => {
@@ -66,8 +73,8 @@
           })
         })
 
+        // Editar datos
         const editarInmueble = id => getDoc(doc(db, "clientes", uid, "inmuebles", id));
-
         const btnEditar = listarInmueblesDetalle.querySelectorAll('.btn-edit')
           btnEditar.forEach((btn) => {
             btn.addEventListener('click', async (e) => {
@@ -76,45 +83,79 @@
               const editar = doc.data()
               inmueblesFB["fechaAlta"].value = editar.fechaAlta
               inmueblesFB["tipoInmueble"].value = editar.tipoInmueble
+              inmueblesFB["destinoInmueble"].value = editar.destinoInmueble
+              inmueblesFB["domicilioCalle"].value = editar.domicilioCalle
+              inmueblesFB["domicilioLocalidad"].value = editar.domicilioLocalidad
+              inmueblesFB["domicilioCodigoPostal"].value = editar.domicilioCodigoPostal
+              inmueblesFB["domicilioProvincia"].value = editar.domicilioProvincia
+              inmueblesFB["montoHipoteca"].value = editar.montoHipoteca
+              inmueblesFB["partidaInmobiliaria"].value = editar.partidaInmobiliaria
+              inmueblesFB["valuacionFiscal"].value = editar.valuacionFiscal
+              inmueblesFB["valorCompra"].value = editar.valorCompra
+              editStatus = true;
+              id = doc.id;
               document.getElementById('agregarInmueble').innerHTML = "Editar";
             })
           })
+          
   
       })
 
-    // agregar datos
+    // agregar / editar datos
+    
     const inmueblesFB = document.querySelector("#inmueblesFB");
     inmueblesFB.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const fechaAlta = inmueblesFB["fechaAlta"].value;
-      const tipoInmueble = inmueblesFB["tipoInmueble"].value;
-      const destinoInmueble = inmueblesFB["destinoInmueble"].value;
-      const domicilioCalle = inmueblesFB["domicilioCalle"].value;
-      const domicilioLocalidad = inmueblesFB["domicilioLocalidad"].value;
-      const domicilioCodigoPostal = inmueblesFB["domicilioCodigoPostal"].value;
-      const domicilioProvincia = inmueblesFB["domicilioProvincia"].value;
-      const montoHipoteca = inmueblesFB["montoHipoteca"].value;
-      const partidaInmobiliaria = inmueblesFB["partidaInmobiliaria"].value;
-      const valuacionFiscal = inmueblesFB["valuacionFiscal"].value;
-      const valorCompra = inmueblesFB["valorCompra"].value;
+      const fechaAlta = inmueblesFB["fechaAlta"];
+      const tipoInmueble = inmueblesFB["tipoInmueble"];
+      const destinoInmueble = inmueblesFB["destinoInmueble"];
+      const domicilioCalle = inmueblesFB["domicilioCalle"];
+      const domicilioLocalidad = inmueblesFB["domicilioLocalidad"];
+      const domicilioCodigoPostal = inmueblesFB["domicilioCodigoPostal"];
+      const domicilioProvincia = inmueblesFB["domicilioProvincia"];
+      const montoHipoteca = inmueblesFB["montoHipoteca"];
+      const partidaInmobiliaria = inmueblesFB["partidaInmobiliaria"];
+      const valuacionFiscal = inmueblesFB["valuacionFiscal"];
+      const valorCompra = inmueblesFB["valorCompra"];
 
+      if (!editStatus) {
       await addDoc(collection(db, "clientes", uid, "inmuebles"), {
-        fechaAlta: fechaAlta,
-        tipoInmueble: tipoInmueble,
-        destinoInmueble: destinoInmueble,
-        domicilioCalle: domicilioCalle,
-        domicilioLocalidad: domicilioLocalidad,
-        domicilioCodigoPostal: domicilioCodigoPostal,
-        domicilioProvincia: domicilioProvincia,
-        montoHipoteca: montoHipoteca,
-        partidaInmobiliaria: partidaInmobiliaria,
-        valuacionFiscal: valuacionFiscal,
-        valorCompra: valorCompra
+        fechaAlta: fechaAlta.value,
+        tipoInmueble: tipoInmueble.value,
+        destinoInmueble: destinoInmueble.value,
+        domicilioCalle: domicilioCalle.value,
+        domicilioLocalidad: domicilioLocalidad.value,
+        domicilioCodigoPostal: domicilioCodigoPostal.value,
+        domicilioProvincia: domicilioProvincia.value,
+        montoHipoteca: montoHipoteca.value,
+        partidaInmobiliaria: partidaInmobiliaria.value,
+        valuacionFiscal: valuacionFiscal.value,
+        valorCompra: valorCompra.value
       })
+    } else {
+      await updateInmueble(id, {
+        fechaAlta: fechaAlta.value,
+        tipoInmueble: tipoInmueble.value,
+        destinoInmueble: destinoInmueble.value,
+        domicilioCalle: domicilioCalle.value,
+        domicilioLocalidad: domicilioLocalidad.value,
+        domicilioCodigoPostal: domicilioCodigoPostal.value,
+        domicilioProvincia: domicilioProvincia.value,
+        montoHipoteca: montoHipoteca.value,
+        partidaInmobiliaria: partidaInmobiliaria.value,
+        valuacionFiscal: valuacionFiscal.value,
+        valorCompra: valorCompra.value
+      })
+    }
+    
       inmueblesFB.reset();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      fechaAlta.focus();
     });
 
+    
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {
         const auth = getAuth();
