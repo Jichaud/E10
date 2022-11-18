@@ -155,6 +155,20 @@
       fechaAlta.focus();
     });
 
+          // auditor
+          const puedeEditar = doc(db, "clientes", uid, "auditor", uid);
+          const auditor = await getDoc(puedeEditar);
+          const prueba = await auditor.data().auditorInmuebles;
+          if (prueba === "true") {
+            console.log("verdadero");
+          } else {
+            console.log("falso");
+            $('.btn-borrar').prop('disabled', true);
+            $('.btn-edit').prop('disabled', true);
+            const btnAgregar = document.querySelector('.agregarInmueble');
+            btnAgregar.disabled = true;
+            
+          }
     
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {
@@ -169,4 +183,11 @@
       window.location.href = "clientes.html";
       // User is signed out    
     }
+  });
+
+  $(function(){
+    $('#fechaAlta').mask('00/00/0000');
+    $('#valorCompra').mask('000.000.000.000.000,00', {reverse: true});
+    $('#valuacionFiscal').mask('000.000.000.000.000,00', {reverse: true});
+    $('#montoHipoteca').mask('000.000.000.000.000,00', {reverse: true});
   });
