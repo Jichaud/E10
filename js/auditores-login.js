@@ -1,7 +1,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
   import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js"
-  import { getFirestore, collection, addDoc, getDocs, getDoc, doc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
+  import { getFirestore, collection, addDoc, getDocs, getDoc, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -31,8 +31,72 @@
       console.log(user.uid);
       console.log(user.email);
 
-      // cambia texto switch
-
+            // lee db
+            const querySnapshont = await getDocs(collection(db, "clientes"));
+            querySnapshont.forEach((doc) => {
+              console.log(doc.id);
+            });
+      
+            // listar clientes
+            const listarClientesDetalle = document.getElementById('listarClientes')
+      
+            onSnapshot(collection(db, "clientes"), (listarClientes) => {
+              
+            let html = ''
+            listarClientes.forEach(doc => {
+              html += `
+              <tr class="align-middle">
+              <th scope="row">${doc.data().uid}</th>
+              <td>Hola</td>
+              <td>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" checked>
+                  <label class="form-check-label text-success fw-bold">Puede editar</label>
+                </div>
+            </td>
+            <td>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" checked>
+                <label class="form-check-label text-success fw-bold">Puede editar</label>
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" checked>
+                <label class="form-check-label text-success fw-bold">Puede editar</label>
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" checked>
+                <label class="form-check-label text-success fw-bold">Puede editar</label>
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" checked>
+                <label class="form-check-label text-success fw-bold">Puede editar</label>
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" checked>
+                <label class="form-check-label text-success fw-bold">Puede editar</label>
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" checked>
+                <label class="form-check-label text-success fw-bold">Puede editar</label>
+              </div>
+            </td>
+            </tr>
+              `
+            })
+      
+            listarClientes.innerHTML = html;
+      
+          })
       
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {

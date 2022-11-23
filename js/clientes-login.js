@@ -1,7 +1,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
   import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js"
-  import { getFirestore, collection, addDoc, getDocs, getDoc, doc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
+  import { getFirestore, collection, addDoc, getDocs, getDoc, doc, setDoc, onSnapshot, query, updateDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -30,6 +30,25 @@
       const email = user.email;
       console.log(user.uid);
       console.log(user.email);
+
+      // agrega y chequeo auditor
+      const agregaAuditor = await setDoc(doc(db, "clientes", uid), {
+        auditorInmuebles: true,
+        uid: uid,
+      });
+      /* const checkAuditor = query(collection(db, "clientes", uid, "auditor"));
+      const querySnapshot = await getDocs(checkAuditor);
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data().auditorInmuebles);
+        const dataAuditor = doc.data().auditorInmuebles;
+
+        if (dataAuditor == true) {
+          console.log(true);
+        } else {
+          console.log(false);
+        };
+    
+    }); */
 
       // leer datos
       const datosPersonales = doc(db, "clientes", uid, "datosPersonales", "datosPersonalesDetalle");

@@ -25,7 +25,7 @@
   let editStatus = false;
   let id = "";
   fechaAlta.focus();
-
+  
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
@@ -120,7 +120,9 @@
       const valorCompra = inmueblesFB["valorCompra"];
 
       if (!editStatus) {
-      await addDoc(collection(db, "clientes", uid, "inmuebles"), {
+      const docRef = doc(db, "clientes", uid);
+      const dataInmueble = {
+        agregaCollection: addDoc(collection(docRef, "inmuebles"), {
         fechaAlta: fechaAlta.value,
         tipoInmueble: tipoInmueble.value,
         destinoInmueble: destinoInmueble.value,
@@ -132,7 +134,7 @@
         partidaInmobiliaria: partidaInmobiliaria.value,
         valuacionFiscal: valuacionFiscal.value,
         valorCompra: valorCompra.value
-      })
+      })};
     } else {
       await updateInmueble(id, {
         fechaAlta: fechaAlta.value,
@@ -147,6 +149,8 @@
         valuacionFiscal: valuacionFiscal.value,
         valorCompra: valorCompra.value
       })
+      editStatus = false;
+      document.getElementById('agregarInmueble').innerHTML = "Agregar";
     }
     
       inmueblesFB.reset();
@@ -155,21 +159,6 @@
       fechaAlta.focus();
     });
 
-          // auditor
-          const puedeEditar = doc(db, "clientes", uid, "auditor", uid);
-          const auditor = await getDoc(puedeEditar);
-          const prueba = await auditor.data().auditorInmuebles;
-          if (prueba === "true") {
-            console.log("verdadero");
-          } else {
-            console.log("falso");
-            $('.btn-borrar').prop('disabled', true);
-            $('.btn-edit').prop('disabled', true);
-            const btnAgregar = document.querySelector('.agregarInmueble');
-            btnAgregar.disabled = true;
-            
-          }
-    
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {
         const auth = getAuth();
