@@ -1,30 +1,26 @@
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js"
-<<<<<<< HEAD
-  import { getFirestore, collection, addDoc, getDocs, getDoc, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
-=======
-  import { getFirestore, collection, addDoc, getDocs, getDoc, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
->>>>>>> origin/sextaReunion
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js"
+import { getFirestore, collection, addDoc, getDocs, getDoc, doc, setDoc, onSnapshot, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyCBdHdh0hH5NXTgJpLDZDA-KQ9nJHGzXCU",
-    authDomain: "form-fce.firebaseapp.com",
-    databaseURL: "https://form-fce.firebaseio.com",
-    projectId: "form-fce",
-    storageBucket: "form-fce.appspot.com",
-    messagingSenderId: "258213920771",
-    appId: "1:258213920771:web:797dbf5b28968875b28e36"
-  };
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCBdHdh0hH5NXTgJpLDZDA-KQ9nJHGzXCU",
+  authDomain: "form-fce.firebaseapp.com",
+  databaseURL: "https://form-fce.firebaseio.com",
+  projectId: "form-fce",
+  storageBucket: "form-fce.appspot.com",
+  messagingSenderId: "258213920771",
+  appId: "1:258213920771:web:797dbf5b28968875b28e36"
+};
 
-  // Initialize Firebase
-  export const app = initializeApp(firebaseConfig);
-  export const auth = getAuth(app);
-  export const db = getFirestore(app);
+// Initialize Firebase
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
 
   onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -34,12 +30,6 @@
       const email = user.email;
       console.log(user.uid);
       console.log(user.email);
-
-            // lee db
-            const querySnapshont = await getDocs(collection(db, "clientes"));
-            querySnapshont.forEach((doc) => {
-              console.log(doc.id);
-            });
       
             // listar clientes
             const listarClientesDetalle = document.getElementById('listarClientes')
@@ -98,10 +88,17 @@
               `
             })
       
-            listarClientes.innerHTML = html;
+            listarClientesDetalle.innerHTML = html;
       
           })
-      
+
+      // lee db
+      const querySnapshont = await getDocs(collection(db, "clientes"));
+      querySnapshont.forEach((doc) => {
+        console.log(doc.id);
+      });
+
+                      
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {
         const auth = getAuth();
