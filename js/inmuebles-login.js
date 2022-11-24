@@ -45,20 +45,24 @@
         let html = ''
         listarInmuebles.forEach(doc => {
           html += `
-          <div class="card border border-2 border-success mt-3">
-          <div class="card-body">
-            <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().domicilioCalle}</h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">${doc.data().fechaAlta}</li>
-              <li class="list-group-item">${doc.data().destinoInmueble}</li>
-              <li class="list-group-item text-center h2-a text-light bg-success rounded-2 fw-bolder">${doc.data().valorCompra}</li>
-            </ul>
-            <div class="d-grid gap-2 d-md-block mt-3 float-end">
-              <button class="btn btn-warning btn-edit" type="button" data-id="${doc.id}">Editar <i class="bi bi-pencil-fill"></i></button>
-              <button class="btn btn-danger btn-borrar" type="button" data-id="${doc.id}">Borrar <i class="bi bi-trash3-fill"></i></button>
+          <div class="card border border border-success mt-3 align-center">
+            <div class="card-header">
+              <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().domicilioCalle}</h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Fecha de alta: ${doc.data().fechaAlta}</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Destino: ${doc.data().destinoInmueble}</li>
+                <li class="list-group-item fw-bolder"><i class="bi bi-check-circle-fill text-primary"></i> Valor de compra: $ ${doc.data().valorCompra}</li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <div class="d-grid-2 gap-2 d-md-block float-end">
+                <button class="btn btn-warning btn-edit" type="button" data-id="${doc.id}">Editar <i class="bi bi-pencil-fill"></i></button>
+                <button class="btn btn-danger btn-borrar" type="button" data-id="${doc.id}">Borrar <i class="bi bi-trash3-fill"></i></button>
+              </div>
             </div>
           </div>
-        </div>
           `
         })
   
