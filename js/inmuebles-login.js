@@ -159,6 +159,23 @@
       fechaAlta.focus();
     });
 
+         // auditor
+         const puedeEditar = doc(db, "clientes", uid);
+         const auditor = await getDoc(puedeEditar);
+         const auditorBoolean = await auditor.data().auditorInmuebles;
+         // const valueAuditor = puedeEditar.uid;
+         console.log(auditor.data().auditorInmuebles);
+         if (auditorBoolean === true) {
+           console.log("verdadero");
+         } else {
+           console.log("falso");
+           $('.btn-borrar').prop('disabled', true);
+           $('.btn-edit').prop('disabled', true);
+           const btnAgregar = document.querySelector('.agregarInmueble');
+           btnAgregar.disabled = true;
+           
+         }
+
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {
         const auth = getAuth();
