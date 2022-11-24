@@ -32,8 +32,13 @@ export const db = getFirestore(app);
       console.log(user.email);
       
             // listar clientes
+            const querySnapshontDatos = await getDocs(collection(db, "clientes", uid, "datosPersonales"));
+            querySnapshontDatos.forEach((doc) => {
+              console.log(doc.data());
+            });
+
             const listarClientesDetalle = document.getElementById('listarClientes')
-      
+
             onSnapshot(collection(db, "clientes"), (listarClientes) => {
               
             let html = ''
@@ -41,7 +46,7 @@ export const db = getFirestore(app);
               html += `
               <tr class="align-middle">
               <th scope="row">${doc.data().uid}</th>
-              <td>Hola</td>
+              <td>${querySnapshontDatos}</td>
               <td>
                 <div class="form-check form-switch">
                   <input class="form-check-input" type="checkbox" role="switch" checked>
@@ -97,6 +102,8 @@ export const db = getFirestore(app);
       querySnapshont.forEach((doc) => {
         console.log(doc.id);
       });
+
+     
 
                       
       // signout process
