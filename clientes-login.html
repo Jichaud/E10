@@ -112,6 +112,26 @@
       <div class="alert alert-success text-center fw-bold" role="alert">
         Datos personales
       </div>
+
+      <!-- Datos personales Form-->
+      <form id="datosFB">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="fechaDeNacimiento">
+          <label for="fechaDeNacimiento">Fecha de nacimiento</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" id="apellidoMaterno">
+          <label for="apellidoMaterno">Apellido materno</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" id="cuit">
+          <label for="cuit">C.U.I.T.</label>
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-outline-success mb-3 agregarInmueble" style="mask: 00-00000000-0" id="agregarInmueble" type="submit">Agregar <i class="bi bi-plus-circle-fill"></i></button>
+        </div>
+      </form> <!-- Empresas Form -->
+      
       <ol class="list-group list-group-numbered datosPersonales">
         <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
           <div class="ms-2 me-auto">
@@ -138,43 +158,24 @@
       <div class="alert alert-success text-center fw-bold" role="alert">
         Datos societarios
       </div>
-      <ol class="list-group list-group-numbered">
-        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">PRESTIGIO S.A.</div>
-            30-57742861-8
-          </div>
-        </li>
-        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">ARLO S.A.</div>
-            30-62014153-0
-          </div>
-        </li>
-        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">LONG ISLAND INVESTORS S.A.</div>
-            30-70760755-2
-          </div>
-        </li>
-        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">URID S.A.</div>
-            30708086904
-          </div>
-        </li>
-        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">IGUALAR S.A.</div>
-            30-71040533-2
-          </div>
-        </li>
-        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">CERVIÑO S.A.</div>
-            30-71510536-1
-          </div>
-        </li>
+
+      <!-- Empresas Form-->
+      <form id="empresasFB">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="empresaRazonSocial">
+          <label for="empresaRazonSocial">Empresa | Razón social</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" id="empresaCuit">
+          <label for="empresaCuit">Empresa | C.U.I.T.</label>
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-outline-success mb-3 agregarEmpresa" id="agregarEmpresa" type="submit">Agregar <i class="bi bi-plus-circle-fill"></i></button>
+        </div>
+      </form> <!-- Empresas Form -->
+      
+      <ol class="list-group list-group-numbered" id="listarEmpresas">
+
       </ol>
     </div>
   
@@ -228,6 +229,14 @@
         </div>
         <!-- /.container -->
       </footer>
+
+    <!-- Jquery and mask form-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+      integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
