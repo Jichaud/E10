@@ -91,7 +91,25 @@
           })}
           empresasFB.reset();
         });
+
+      // agregar datos personales
+      const datosFB = document.querySelector("#datosFB");
+      datosFB.addEventListener("submit", async (e) => {
+        e.preventDefault();
   
+        const fechaDeNacimiento = datosFB["fechaDeNacimiento"];
+        const apellidoMaterno = datosFB["apellidoMaterno"];
+        const cuit = datosFB["cuit"];
+  
+        const docRef = doc(db, "clientes", uid);
+        const dataEmpresa = {
+          agregaCollection: addDoc(collection(docRef, "datosPersonales", "datosPersonalesDetalle"), {
+          fechaDeNacimiento: fechaDeNacimiento.value,
+          apellidoMaterno: apellidoMaterno.value,
+          cuit: cuit
+          })}
+          datosFB.reset();
+        });
 
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {
@@ -110,5 +128,7 @@
 
 
   $(document).ready(function(){
-    $('#empresaCuit').mask('00-00000000-0')
+    $('#empresaCuit').mask('00-00000000-0');
+    $('#cuit').mask('00-00000000-0');
+    $('#fechaDeNacimiento').mask('00/00/0000');
   });
