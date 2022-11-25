@@ -46,7 +46,7 @@ export const db = getFirestore(app);
               html += `
               <tr class="align-middle">
               <th scope="row">${doc.data().uid}</th>
-              <td>${querySnapshontDatos}</td>
+              <td>${auth.email}</td>
               <td>
                 <div class="form-check form-switch">
                   <input class="form-check-input" type="checkbox" role="switch" checked>
