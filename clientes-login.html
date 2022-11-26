@@ -101,10 +101,8 @@
 <div class="container col-lg-6 mt-5 pt-5">
 
   <!-- INICIO -->
-  <div class="alert alert-primary col-lg-12" role="alert">
-    <span class="display-6" id="nombre"></span> &nbsp; <span class="display-6" id="apellido"></span>
-    <hr>
-    <p class="mb-0 alert-heading">DDJJ ganancias - bienes personales - período fiscal 2022</p>
+  <div class="alert alert-primary col-lg-12" role="alert" id="listarDatosCabecera">
+    
   </div>
 
   <div class="row">
@@ -114,13 +112,22 @@
       </div>
 
       <!-- Datos personales Form-->
+      <div id="formDatos">
       <form id="datosFB">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="nombre">
+          <label for="fechaDeNacimiento">Nombre</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="apellido">
+          <label for="fechaDeNacimiento">Apellido</label>
+        </div>
         <div class="form-floating mb-3">
           <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="fechaDeNacimiento">
           <label for="fechaDeNacimiento">Fecha de nacimiento</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" id="apellidoMaterno">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="apellidoMaterno">
           <label for="apellidoMaterno">Apellido materno</label>
         </div>
         <div class="form-floating mb-3">
@@ -130,28 +137,12 @@
         <div class="d-grid gap-2">
           <button class="btn btn-outline-success mb-3 agregarDatos" id="agregarDatos" type="submit">Agregar <i class="bi bi-plus-circle-fill"></i></button>
         </div>
-      </form> <!-- Empresas Form -->
+      </form> <!-- Datos personales Form -->
+    </div>
       
-      <ol class="list-group list-group-numbered datosPersonales">
-        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">Fecha de nacimiento</div>
-            <span class="text-dark" id="fechaDeNacimiento"></span>
-          </div>
-        </li>
-        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">Apellido materno</div>
-            <span class="text-dark" id="apellidoMaterno"></span>
-          </div>
-        </li>
-        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">Nº de C.U.I.T.</div>
-            <span class="text-dark" id="cuit"></span>
-          </div>
-        </li>
-      </ol>
+      <div class="col" id="listarDatosPersonales">
+        
+      </div>
     </div>
   
     <div class="col-lg-6">

@@ -180,6 +180,33 @@
            
          }
 
+    // datos cabecera
+    const listarDatosCabeceraDetalle = document.getElementById('listarDatosCabecera')
+
+    onSnapshot(collection(db, "clientes", uid, "datosPersonales"), (listarDatosCabecera) => {
+
+    let htmlDatos = ''
+    listarDatosCabecera.forEach(doc => {
+    htmlDatos += `
+    <div class="row g-2">
+    <div class="col-6">
+    <h4 class="alert-heading fw-bold" style="text-transform:uppercase">${doc.data().nombre} ${doc.data().apellido}</h4>
+    <p class="mb-0 alert-heading">DDJJ ganancias - bienes personales - período fiscal 2022</p>
+  </div>
+    <div class="col-4 ms-auto d-grid gap-2">
+      <button class="btn btn-primary" onclick="location.href='clientes-login.html'">Ir a inicio</button>
+    </div>
+  </div>
+    <hr>
+    <p class="mb-0 alert-heading">Inmuebles</p>
+  `
+  })
+
+  listarDatosCabeceraDetalle.innerHTML = htmlDatos;
+
+  })
+
+
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {
         const auth = getAuth();

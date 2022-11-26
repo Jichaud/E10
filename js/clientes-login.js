@@ -33,16 +33,6 @@
       console.log(user.uid);
       console.log(user.email);
 
-      // leer datos
-      const datosPersonales = doc(db, "clientes", uid, "datosPersonales", "datosPersonalesDetalle");
-      const datosPersonalesDetalle = await getDoc(datosPersonales);
-
-      document.getElementById('apellido').innerHTML = datosPersonalesDetalle.data().apellido;
-      document.getElementById('nombre').innerHTML = datosPersonalesDetalle.data().nombre;
-      document.getElementById('fechaDeNacimiento').innerHTML = datosPersonalesDetalle.data().fechaDeNacimiento;
-      document.getElementById('apellidoMaterno').innerHTML = datosPersonalesDetalle.data().apellidoMaterno;
-      document.getElementById('cuit').innerHTML = datosPersonalesDetalle.data().cuit;
-
       // listar empresas
       const listarEmpresasDetalle = document.getElementById('listarEmpresas')
 
@@ -93,23 +83,93 @@
         });
 
       // agregar datos personales
+      const formDatos = document.querySelector('#formDatos');
       const datosFB = document.querySelector("#datosFB");
       datosFB.addEventListener("submit", async (e) => {
         e.preventDefault();
   
+        const nombre = datosFB["nombre"];
+        const apellido = datosFB["apellido"];
         const fechaDeNacimiento = datosFB["fechaDeNacimiento"];
         const apellidoMaterno = datosFB["apellidoMaterno"];
         const cuit = datosFB["cuit"];
   
         const docRef = doc(db, "clientes", uid);
-        const dataEmpresa = {
-          agregaCollection: addDoc(collection(docRef, "datosPersonales", "datosPersonalesDetalle"), {
+        const dataDatosPersonales = {
+          agregaCollection: addDoc(collection(docRef, "datosPersonales"), {
+          nombre: nombre.value,
+          apellido: apellido.value,
           fechaDeNacimiento: fechaDeNacimiento.value,
           apellidoMaterno: apellidoMaterno.value,
-          cuit: cuit
+          cuit: cuit.value
           })}
-          datosFB.reset();
         });
+
+        if (nombre.value) {
+          $("#formDatos").show();
+        } else {
+          $("#formDatos").hide();
+        }
+
+      // listar datos personales
+      const listarDatosDetalle = document.getElementById('listarDatosPersonales')
+
+      onSnapshot(collection(db, "clientes", uid, "datosPersonales"), (listarDatosPersonales) => {
+
+        let html = ''
+        listarDatosPersonales.forEach(doc => {
+          html += `
+          <div class="card border border border-success mt-3 align-center">
+            <div class="card-header">
+              <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().nombre} ${doc.data().apellido}</h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Nació el: ${doc.data().fechaDeNacimiento}</li>
+                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-success"></i> Apellido materno: ${doc.data().apellidoMaterno}</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> C.U.I.T.: ${doc.data().cuit}</li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <div class="d-grid-2 gap-2 d-md-block float-end">
+                <button class="btn btn-danger btn-borrar" type="button" data-id="${doc.id}">Borrar <i class="bi bi-trash3-fill"></i></button>
+              </div>
+            </div>
+          </div>
+        `
+        })
+
+        listarDatosDetalle.innerHTML = html;
+
+      // Borrar datos
+      const btnBorrar = listarDatosDetalle.querySelectorAll('.btn-borrar')
+      btnBorrar.forEach(btn => {
+        btn.addEventListener('click', ({target: {dataset}}) => {
+          const deleteDatos = id => deleteDoc(doc(db, "clientes", uid, "datosPersonales", id));
+          deleteDatos(dataset.id)
+          $("#formDatos").show();
+        })
+      })
+      
+    })
+
+    // datos cabecera
+    const listarDatosCabeceraDetalle = document.getElementById('listarDatosCabecera')
+
+    onSnapshot(collection(db, "clientes", uid, "datosPersonales"), (listarDatosCabecera) => {
+
+    let htmlDatos = ''
+    listarDatosCabecera.forEach(doc => {
+    htmlDatos += `
+    <span class="display-6 fw-bold" style="text-transform:uppercase">${doc.data().nombre}</span> &nbsp; <span class="display-6 fw-bold" style="text-transform:uppercase">${doc.data().apellido}</span>
+    <hr>
+    <p class="mb-0 alert-heading">DDJJ ganancias - bienes personales - período fiscal 2022</p>
+  `
+  })
+
+  listarDatosCabeceraDetalle.innerHTML = htmlDatos;
+
+  })
 
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {
