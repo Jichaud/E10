@@ -35,25 +35,25 @@
       console.log(user.uid);
       console.log(user.email);
 
-      const updateRodado = (id, newFields) => updateDoc(doc(db, "clientes", uid, "Rodados", id), newFields);
+      const updateBanco = (id, newFields) => updateDoc(doc(db, "clientes", uid, "Bancos", id), newFields);
 
       // listar datos
-      const listarRodadosDetalle = document.getElementById('listarRodados')
+      const listarBancosDetalle = document.getElementById('listarBancos')
 
-      onSnapshot(collection(db, "clientes", uid, "Rodados"), (listarRodados) => {
+      onSnapshot(collection(db, "clientes", uid, "Bancos"), (listarBancos) => {
 
         let html = ''
-        listarRodados.forEach(doc => {
+        listarBancos.forEach(doc => {
           html += `
           <div class="card border border border-success mt-3 align-center">
             <div class="card-header">
-              <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().marca} | ${doc.data().modelo}</h5>
+              <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().nombreBanco} | ${doc.data().nombreSucursal}</h5>
             </div>
             <div class="card-body">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Fecha de alta: ${doc.data().fechaAlta}</li>
-                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Patente: ${doc.data().patenteNumero}</li>
-                <li class="list-group-item fw-bolder"><i class="bi bi-check-circle-fill text-primary"></i> Valor de compra: $ ${doc.data().valorCompra}</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Patente: ${doc.data().patenteNumero}</li>
+                <li class="list-group-item fw-bolder"><i class="bi bi-check-circle-fill text-primary" style="text-transform:uppercase"></i> Valor de compra: $ ${doc.data().valorCompra}</li>
               </ul>
             </div>
             <div class="card-footer">
@@ -66,36 +66,36 @@
           `
         })
   
-        listarRodadosDetalle.innerHTML = html;
+        listarBancosDetalle.innerHTML = html;
         
         // Borrar datos
-        const btnBorrar = listarRodadosDetalle.querySelectorAll('.btn-borrar')
+        const btnBorrar = listarBancosDetalle.querySelectorAll('.btn-borrar')
         btnBorrar.forEach(btn => {
           btn.addEventListener('click', ({target: {dataset}}) => {
-            const deleteRodado = id => deleteDoc(doc(db, "clientes", uid, "Rodados", id));
-            deleteRodado(dataset.id)
+            const deleteBanco = id => deleteDoc(doc(db, "clientes", uid, "Bancos", id));
+            deleteBanco(dataset.id)
           })
         })
 
         // Editar datos
-        const editarRodado = id => getDoc(doc(db, "clientes", uid, "Rodados", id));
-        const btnEditar = listarRodadosDetalle.querySelectorAll('.btn-edit')
+        const editarBanco = id => getDoc(doc(db, "clientes", uid, "Bancos", id));
+        const btnEditar = listarBancosDetalle.querySelectorAll('.btn-edit')
           btnEditar.forEach((btn) => {
             btn.addEventListener('click', async (e) => {
-              const doc = await editarRodado(e.target.dataset.id)
+              const doc = await editarBanco(e.target.dataset.id)
               console.log(doc.data());
               const editar = doc.data()
-              rodadosFB["fechaAlta"].value = editar.fechaAlta
-              rodadosFB["yearModelo"].value = editar.yearModelo
-              rodadosFB["patenteNumero"].value = editar.patenteNumero
-              rodadosFB["marca"].value = editar.marca
-              rodadosFB["modelo"].value = editar.modelo
-              rodadosFB["tipoRodado"].value = editar.tipoRodado
-              rodadosFB["cantidadDePuertas"].value = editar.cantidadDePuertas
-              rodadosFB["valorCompra"].value = editar.valorCompra
+              bancosFB["fechaAlta"].value = editar.fechaAlta
+              bancosFB["yearModelo"].value = editar.yearModelo
+              bancosFB["patenteNumero"].value = editar.patenteNumero
+              bancosFB["marca"].value = editar.marca
+              bancosFB["modelo"].value = editar.modelo
+              bancosFB["tipoBanco"].value = editar.tipoBanco
+              bancosFB["cantidadDePuertas"].value = editar.cantidadDePuertas
+              bancosFB["valorCompra"].value = editar.valorCompra
               editStatus = true;
               id = doc.id;
-              document.getElementById('agregarRodados').innerHTML = "Editar";
+              document.getElementById('agregarBancos').innerHTML = "Editar";
             })
           })
           
@@ -104,48 +104,48 @@
 
     // agregar / editar datos
     
-    const rodadosFB = document.querySelector("#rodadosFB");
-    rodadosFB.addEventListener("submit", async (e) => {
+    const bancosFB = document.querySelector("#bancosFB");
+    bancosFB.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const fechaAlta = rodadosFB["fechaAlta"];
-      const yearModelo = rodadosFB["yearModelo"];
-      const patenteNumero = rodadosFB["patenteNumero"];
-      const marca = rodadosFB["marca"];
-      const modelo = rodadosFB["modelo"];
-      const tipoRodado = rodadosFB["tipoRodado"];
-      const cantidadDePuertas = rodadosFB["cantidadDePuertas"];
-      const valorCompra = rodadosFB["valorCompra"];
+      const fechaAlta = bancosFB["fechaAlta"];
+      const yearModelo = bancosFB["yearModelo"];
+      const patenteNumero = bancosFB["patenteNumero"];
+      const marca = bancosFB["marca"];
+      const modelo = bancosFB["modelo"];
+      const tipoBanco = bancosFB["tipoBanco"];
+      const cantidadDePuertas = bancosFB["cantidadDePuertas"];
+      const valorCompra = bancosFB["valorCompra"];
 
       if (!editStatus) {
       const docRef = doc(db, "clientes", uid);
-      const dataRodado = {
-        agregaCollection: addDoc(collection(docRef, "Rodados"), {
+      const dataBanco = {
+        agregaCollection: addDoc(collection(docRef, "Bancos"), {
         fechaAlta: fechaAlta.value,
         yearModelo: yearModelo.value,
         patenteNumero: patenteNumero.value,
         marca: marca.value,
         modelo: modelo.value,
-        tipoRodado: tipoRodado.value,
+        tipoBanco: tipoBanco.value,
         cantidadDePuertas: cantidadDePuertas.value,
         valorCompra: valorCompra.value
       })};
     } else {
-      await updateRodado(id, {
+      await updateBanco(id, {
         fechaAlta: fechaAlta.value,
         yearModelo: yearModelo.value,
         patenteNumero: patenteNumero.value,
         marca: marca.value,
         modelo: modelo.value,
-        tipoRodado: tipoRodado.value,
+        tipoBanco: tipoBanco.value,
         cantidadDePuertas: cantidadDePuertas.value,
         valorCompra: valorCompra.value
       })
       editStatus = false;
-      document.getElementById('agregarRodados').innerHTML = "Agregar";
+      document.getElementById('agregarBancos').innerHTML = "Agregar";
     }
     
-      rodadosFB.reset();
+      bancosFB.reset();
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
       fechaAlta.focus();
@@ -154,16 +154,16 @@
          // auditor
          const puedeEditar = doc(db, "clientes", uid);
          const auditor = await getDoc(puedeEditar);
-         const auditorBoolean = await auditor.data().auditorRodados;
+         const auditorBoolean = await auditor.data().auditorBancos;
          // const valueAuditor = puedeEditar.uid;
-         console.log(auditor.data().auditorRodados);
+         console.log(auditor.data().auditorBancos);
          if (auditorBoolean === true) {
            console.log("verdadero");
          } else {
            console.log("falso");
            $('.btn-borrar').prop('disabled', true);
            $('.btn-edit').prop('disabled', true);
-           const btnAgregar = document.querySelector('.agregarRodados');
+           const btnAgregar = document.querySelector('.agregarBancos');
            btnAgregar.disabled = true;
            
          }
@@ -186,7 +186,7 @@
     </div>
   </div>
     <hr>
-    <p class="mb-0 alert-heading">Rodados</p>
+    <p class="mb-0 alert-heading">Bancos</p>
   `
   })
 

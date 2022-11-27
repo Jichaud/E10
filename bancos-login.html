@@ -49,9 +49,9 @@
 
   <!-- Navigation -->
   <div class="container pb-5">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark bg-opacity-75 h3-a">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary h3-a">
       <a class="navbar-brand" href="index.html">
-        <img src="images/logo-ed-siglas.png" class="ms-3 img-fluid bg-light py-3 px-3 rounded-3" width="100rem" alt="Estudio Diez">
+        <img src="images/logo70blanco.png" class="ms-3 img-fluid rounded-3" width="60rem" alt="Estudio Diez">
       </a>
       <button class="navbar-toggler ms-2 me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,7 @@
               <small>Rodados</small> <br><i class="ps-3 bi bi-car-front-fill h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Rodados"></i></a>
           </li>
           <li class="nav-item ps-4 pt-2">
-            <a class="nav-link text-white ms-2" href="bancos-login.html" role="button">
+            <a class="nav-link text-white ms-2 text-bg-success rounded-3" href="bancos-login.html" role="button">
               <small>Bancos</small> <br><i class="ps-2 bi bi-bank2 h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Bancos"></i></a>
           </li>
           <li class="nav-item ps-4 pt-2">
@@ -98,78 +98,88 @@
   </div>
 
 <!-- Page Content -->
-<div class="container col-lg-6 mt-5 pt-5">
+<div class="container mt-5 pt-5">
 
   <!-- INICIO -->
   <div class="alert alert-primary col-lg-12" role="alert" id="listarDatosCabecera">
-    
+
   </div>
 
   <div class="row">
-    <div class="col-lg-6 mt-3">
+    <div class="col-lg-8">
       <div class="alert alert-success text-center fw-bold" role="alert">
-        Datos personales
+        Bancos
       </div>
-
-      <!-- Datos personales Form-->
-      <div id="formDatos">
-      <form id="datosFB">
+      <!-- Rodados Form-->
+      <form id="bancosFB">
+        <a class="btn btn-success btn-sm mb-3" href="https://docs.google.com/spreadsheets/d/1RA3qMlBDv7vkG0uQvGPaZrcSVEJ5YlJ3LhE-F6IgcBM/edit#gid=2107010822" target="blank_" data-bs-toggle="tooltip" data-bs-placement="top" title="Buscar nombre del banco en las tablas de bienes personales">Nombre banco</a>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="nombre">
-          <label for="fechaDeNacimiento">Nombre</label>
+          <input type="text" class="form-control rounded-3" id="nombreBanco">
+          <label for="nombreBanco">Nombre del banco</label>
+        </div>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="pais">
+          <label for="pais">País</label>
+        </div>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="nombreSucursal">
+          <label for="nombreSucursal">Nombre sucursal</label>
+        </div>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="codigoSucursal">
+          <label for="codigoSucursal">Código sucursal</label>
+        </div>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="cbu">
+          <label for="cbu">C.B.U.</label>
+        </div>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="numeroCuenta">
+          <label for="numeroCuenta">Número de cuenta</label>
+        </div>
+        <div class="col form-floating rounded-3 mb-3">
+          <select class="form-select" id="tipoCuenta" aria-label="Default select example">
+            <option selected>Seleccionar</option>
+            <option value="cuentaCorriente">Cuenta corriente</option>
+            <option value="cajaAhorro">Caja de ahorro</option>
+          </select>
+          <label for="tipoCuenta">Tipo de cuenta</label>
+        </div>
+        <div class="col form-floating rounded-3 mb-3">
+          <select class="form-select" id="estadoCuenta" aria-label="Default select example">
+            <option selected>Seleccionar</option>
+            <option value="abierta">Abierta</option>
+            <option value="cerrada">Cerrada</option>
+          </select>
+          <label for="estadoCuenta">Tipo de cuenta</label>
+        </div>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="nombreME">
+          <label for="nombreME">Nombre de la moneda extranjera</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="apellido">
-          <label for="fechaDeNacimiento">Apellido</label>
+          <input type="text" class="form-control rounded-3" value="0,00" id="nominalME">
+          <label for="nominalME">Monto nominal de la moneda extranjera</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="fechaDeNacimiento">
-          <label for="fechaDeNacimiento">Fecha de nacimiento</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="apellidoMaterno">
-          <label for="apellidoMaterno">Apellido materno</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" id="cuit">
-          <label for="cuit">C.U.I.T.</label>
+          <input type="text" class="form-control rounded-3" value="0,00" id="saldoPesos">
+          <label for="saldoPesos">Saldo en pesos al 31/12</label>
         </div>
         <div class="d-grid gap-2">
-          <button class="btn btn-outline-success mb-3 agregarDatos" id="agregarDatos" type="submit">Agregar <i class="bi bi-plus-circle-fill"></i></button>
+          <button class="btn btn-outline-success mb-3 agregarBancos" id="agregarBancos" type="submit">Agregar</button>
         </div>
-      </form> <!-- Datos personales Form -->
+      </form> <!-- Bancos Form -->
     </div>
-      
-      <div class="col" id="listarDatosPersonales">
-        
-      </div>
-    </div>
-  
-    <div class="col-lg-6 mt-3">
+    <div class="col-lg-4">
       <div class="alert alert-success text-center fw-bold" role="alert">
-        Datos societarios
+        Detalle de bancos cargados
       </div>
+      <div class="row row-cols-1 row-cols-md-1 g-4">
+        <div class="col" id="listarBancos">
 
-      <!-- Empresas Form-->
-      <form id="empresasFB">
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="empresaRazonSocial">
-          <label for="empresaRazonSocial">Empresa | Razón social</label>
         </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" id="empresaCuit">
-          <label for="empresaCuit">Empresa | C.U.I.T.</label>
-        </div>
-        <div class="d-grid gap-2">
-          <button class="btn btn-outline-success mb-3 agregarEmpresa" id="agregarEmpresa" type="submit">Agregar <i class="bi bi-plus-circle-fill"></i></button>
-        </div>
-      </form> <!-- Empresas Form -->
-      
-      <ol class="list-group list-group-numbered" id="listarEmpresas">
-
-      </ol>
+      </div>
     </div>
-  
   </div>
 
 </div> <!-- /.container -->
@@ -223,12 +233,12 @@
 
     <!-- Jquery and mask form-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
-      integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
@@ -240,7 +250,7 @@
     </script>
 
       <!-- Fb modules -->
-      <script src="./js/clientes-login.js" type="module"></script>
+      <script src="./js/bancos-login.js" type="module"></script>
 
   </body>
 </html>

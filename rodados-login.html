@@ -60,15 +60,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item ps-4 pt-2">
-            <a class="nav-link text-white ms-2 text-bg-success rounded-3" href="#" role="button">
+            <a class="nav-link text-white ms-2" href="inmuebles-login.html" role="button">
               <small>Inmuebles</small> <br><i class="ps-3 bi bi-building-fill align-items-center h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Inmuebles"></i> </a>
           </li>
           <li class="nav-item ps-4 pt-2">
-            <a class="nav-link text-white ms-2" href="#" role="button">
+            <a class="nav-link text-white ms-2 text-bg-success rounded-3" href="rodados-login.html" role="button">
               <small>Rodados</small> <br><i class="ps-3 bi bi-car-front-fill h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Rodados"></i></a>
           </li>
           <li class="nav-item ps-4 pt-2">
-            <a class="nav-link text-white ms-2" href="#" role="button">
+            <a class="nav-link text-white ms-2" href="bancos-login.html" role="button">
               <small>Bancos</small> <br><i class="ps-2 bi bi-bank2 h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Bancos"></i></a>
           </li>
           <li class="nav-item ps-4 pt-2">
@@ -108,104 +108,74 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="alert alert-success text-center fw-bold" role="alert">
-        Inmuebles
+        Rodados
       </div>
-      <!-- Inmuebles Form-->
-      <form id="inmueblesFB">
+      <!-- Rodados Form-->
+      <form id="rodadosFB">
         <div class="form-floating mb-3">
           <input type="text" class="form-control rounded-3" id="fechaAlta">
           <label for="fechaAlta">Fecha de alta | dd/mm/aaaa</label>
         </div>
-        <div class="col form-floating rounded-3 mb-3">
-          <select class="form-select" id="tipoInmueble" aria-label="Default select example">
-            <option selected>Seleccionar</option>
-            <option value="Casa">Casa</option>
-            <option value="Departamento">Departamento</option>
-            <option value="Departamento con cochera">Departamento con cochera</option>
-            <option value="Cochera">Cochera</option>
-          </select>
-          <label for="tipoInmueble">Tipo de inmueble</label>
-        </div>
-        <div class="col form-floating rounded-3 mb-3">
-          <select class="form-select" id="destinoInmueble" aria-label="Default select example">
-            <option selected>Seleccionar</option>
-            <option value="Alquiler">Alquiler</option>
-            <option value="Casa habitación">Casa habitación</option>
-            <option value="Inversión">Inversión</option>
-            <option value="Recreo o veraneo">Recreo o veraneo</option>
-            <option value="Terreno">Terreno</option>
-          </select>
-          <label for="destinoInmueble">Destino del inmueble</label>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="yearModelo">
+          <label for="yearModelo">Año modelo</label>
         </div>
         <div class="col form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="domicilioCalle">
-          <label for="domicilioCalle">Domicilio | calle</label>
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="patenteNumero">
+          <label for="patenteNumero">Nº de patente</label>
+        </div>
+        <a class="btn btn-success btn-sm mb-3" href="https://docs.google.com/spreadsheets/d/1RA3qMlBDv7vkG0uQvGPaZrcSVEJ5YlJ3LhE-F6IgcBM/edit#gid=1631544326" target="blank_" data-bs-toggle="tooltip" data-bs-placement="top" title="Buscar marca y modelo en las tablas de bienes personales">Marca - modelo</a>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="marca">
+          <label for="marca">Marca</label>
         </div>
         <div class="col form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="domicilioLocalidad">
-          <label for="domicilioLocalidad">Domicilio | Localidad</label>
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="modelo">
+          <label for="modelo">Modelo</label>
         </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="domicilioCodigoPostal">
-          <label for="domicilioCodigoPostal">Domicilio | Código postal</label>
-        </div>
-        <div class="form-floating rounded-3 mb-3">
-          <select class="form-select" id="domicilioProvincia" aria-label="Default select example">
+        <div class="col form-floating rounded-3 mb-3">
+          <select class="form-select" id="tipoRodado" aria-label="Default select example">
             <option selected>Seleccionar</option>
-            <option value="buenosAires">BUENOS AIRES</option>
-            <option value="caba">C.A.B.A.</option>
-            <option value="catamarca">CATAMARCA</option>
-            <option value="chaco">CHACO</option>
-            <option value="chubut">CHUBUT</option>
-            <option value="cordoba">CÓRDOBA</option>
-            <option value="corrientes">CORRIENTES</option>
-            <option value="entreRios">ENTRE RÍOS</option>
-            <option value="formosa">FORMOSA</option>
-            <option value="jujuy">JUJUY</option>
-            <option value="laPampa">LA PAMPA</option>
-            <option value="laRioja">LA RIOJA</option>
-            <option value="mendoza">MENDOZA</option>
-            <option value="misiones">MISIONES</option>
-            <option value="neuquen">NEUQUÉN</option>
-            <option value="rioNegro">RÍO NEGRO</option>
-            <option value="salta">SALTA</option>
-            <option value="sanJuan">SAN JUAN</option>
-            <option value="sanLuis">SAN LUIS</option>
-            <option value="santaCruz">SANTA CRUZ</option>
-            <option value="santaFe">SANTA FE</option>
-            <option value="santiagoDelEstero">SANTIAGO DEL ESTERO</option>
-            <option value="tierraDelFuego">TIERRA DEL FUEGO</option>
-            <option value="tucuman">TUCUMÁN</option>
+            <option value="camion">Camión</option>
+            <option value="chasis">Chasis</option>
+            <option value="convertible">Convertible</option>
+            <option value="coupe">Coupe</option>
+            <option value="cuatriciclo">Cuatriciclo</option>
+            <option value="descapotable">Descapotable</option>
+            <option value="familiar">Familiar</option>
+            <option value="furgon">Furgón</option>
+            <option value="motocicleta">Motocicleta</option>
+            <option value="motoneta">Motoneta</option>
+            <option value="pickup">Pick up</option>
+            <option value="pickupcabinasimple">Pick up cabina simple</option>
+            <option value="pickupcabinadoble">Pick up cabina doble</option>
+            <option value="rural">Rural</option>
+            <option value="sedan">Sedán</option>
+            <option value="tractor">Tractor</option>
+            <option value="todoterreno">Todo terreno</option>
+            <option value="utilitario">Utilitario</option>
           </select>
-          <label for="domicilioProvincia">Domicilio | Provincia</label>
+          <label for="tipoRodado">Tipo</label>
         </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" value="0,00" id="montoHipoteca">
-          <label for="montoHipoteca">Monto de crédito hipotecario</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" id="partidaInmobiliaria">
-          <label for="partidaInmobiliaria">Partida inmobiliaria</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" value="0,00" id="valuacionFiscal">
-          <label for="valuacionFiscal">Valuación fiscal</label>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="cantidadDePuertas">
+          <label for="cantidadDePuertas">Cantidad de puertas</label>
         </div>
         <div class="form-floating mb-3">
           <input type="text" class="form-control rounded-3" value="0,00" id="valorCompra">
           <label for="valorCompra">Valor de compra</label>
         </div>
         <div class="d-grid gap-2">
-          <button class="btn btn-outline-success mb-3 agregarInmueble" id="agregarInmueble" type="submit">Agregar</button>
+          <button class="btn btn-outline-success mb-3 agregarRodados" id="agregarRodados" type="submit">Agregar</button>
         </div>
-      </form> <!-- LogIn Form -->
+      </form> <!-- Rodados Form -->
     </div>
     <div class="col-lg-4">
       <div class="alert alert-success text-center fw-bold" role="alert">
-        Detalle de inmuebles cargados
+        Detalle de rodados cargados
       </div>
       <div class="row row-cols-1 row-cols-md-1 g-4">
-        <div class="col" id="listarInmuebles">
+        <div class="col" id="listarRodados">
 
         </div>
       </div>
