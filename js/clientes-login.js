@@ -105,12 +105,6 @@
           })}
         });
 
-        if (nombre.value) {
-          $("#formDatos").show();
-        } else {
-          $("#formDatos").hide();
-        }
-
       // listar datos personales
       const listarDatosDetalle = document.getElementById('listarDatosPersonales')
 
@@ -147,7 +141,6 @@
         btn.addEventListener('click', ({target: {dataset}}) => {
           const deleteDatos = id => deleteDoc(doc(db, "clientes", uid, "datosPersonales", id));
           deleteDatos(dataset.id)
-          $("#formDatos").show();
         })
       })
       

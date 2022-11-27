@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Estudio Diez - Zona clientes">
+    <meta name="author" content="Estudio Diez - Consultores Impositivos">
+
+          <link rel="icon"
+      type="image/png"
+      href="images/favicon-32x32.png">
+
+    <title>Estudio Diez - clientes</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <style>
+      .h2-a {
+        font-family: 'Helvetica', sans-serif;
+        font-size: 30px;
+      }
+    
+    
+      .h3-a {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1rem;
+      }
+    
+      .h4-a {
+        font-family: 'Helvetica', sans-serif;
+        font-size: 3rem;
+        color: white;
+      }
+    
+    </style>
+    
+  </head>
+
+  <body>
+
+  <!-- Navigation -->
+  <div class="container pb-5">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary h3-a">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo70blanco.png" class="ms-3 img-fluid rounded-3" width="60rem" alt="Estudio Diez">
+      </a>
+      <button class="navbar-toggler ms-2 me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item ps-4 pt-2">
+            <a class="nav-link text-white ms-2 text-bg-success rounded-3" href="#" role="button">
+              <small>Inmuebles</small> <br><i class="ps-3 bi bi-building-fill align-items-center h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Inmuebles"></i> </a>
+          </li>
+          <li class="nav-item ps-4 pt-2">
+            <a class="nav-link text-white ms-2" href="#" role="button">
+              <small>Rodados</small> <br><i class="ps-3 bi bi-car-front-fill h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Rodados"></i></a>
+          </li>
+          <li class="nav-item ps-4 pt-2">
+            <a class="nav-link text-white ms-2" href="#" role="button">
+              <small>Bancos</small> <br><i class="ps-2 bi bi-bank2 h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Bancos"></i></a>
+          </li>
+          <li class="nav-item ps-4 pt-2">
+            <a class="nav-link text-white ms-2" href="#" role="button">
+              <small>Tenencias</small> <br><i class="ps-3 bi bi-cash-coin h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tenencias"></i></a>
+          </li>
+          <li class="nav-item ps-4 pt-2">
+            <a class="nav-link text-white ms-2" href="#" role="button">
+              <small>Empresas</small> <br><i class="ps-3 bi bi-buildings-fill h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Empresas"></i></a>
+          </li>
+          <li class="nav-item ps-4 pt-2">
+            <a class="nav-link text-white ms-2" href="#" role="button">
+              <small>Saldos con empresas</small> <br><i class="ps-5 bi bi-person-vcard-fill h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Saldos con empresas"></i></a>
+          </li>
+          <li class="nav-item ps-4 pt-2">
+            <a class="nav-link text-white ms-2" href="#" role="button">
+              <small>Acciones - Títulos - Plazo fijo - FCI - etc.</small> <br><i class="ps-5 ms-5 bi bi-file-spreadsheet-fill h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Acciones - Títulos - Plazo fijo - FCI - etc."></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="d-grid gap-2 pe-2 ps-2 mx-auto">
+          <button class="btn btn-danger float-end" id="signOut" type="submit">Salir</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+<!-- Page Content -->
+<div class="container mt-5 pt-5">
+
+  <!-- INICIO -->
+  <div class="alert alert-primary col-lg-12" role="alert" id="listarDatosCabecera">
+
+  </div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="alert alert-success text-center fw-bold" role="alert">
+        Inmuebles
+      </div>
+      <!-- Inmuebles Form-->
+      <form id="inmueblesFB">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" id="fechaAlta">
+          <label for="fechaAlta">Fecha de alta | dd/mm/aaaa</label>
+        </div>
+        <div class="col form-floating rounded-3 mb-3">
+          <select class="form-select" id="tipoInmueble" aria-label="Default select example">
+            <option selected>Seleccionar</option>
+            <option value="Casa">Casa</option>
+            <option value="Departamento">Departamento</option>
+            <option value="Departamento con cochera">Departamento con cochera</option>
+            <option value="Cochera">Cochera</option>
+          </select>
+          <label for="tipoInmueble">Tipo de inmueble</label>
+        </div>
+        <div class="col form-floating rounded-3 mb-3">
+          <select class="form-select" id="destinoInmueble" aria-label="Default select example">
+            <option selected>Seleccionar</option>
+            <option value="Alquiler">Alquiler</option>
+            <option value="Casa habitación">Casa habitación</option>
+            <option value="Inversión">Inversión</option>
+            <option value="Recreo o veraneo">Recreo o veraneo</option>
+            <option value="Terreno">Terreno</option>
+          </select>
+          <label for="destinoInmueble">Destino del inmueble</label>
+        </div>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="domicilioCalle">
+          <label for="domicilioCalle">Domicilio | calle</label>
+        </div>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="domicilioLocalidad">
+          <label for="domicilioLocalidad">Domicilio | Localidad</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="domicilioCodigoPostal">
+          <label for="domicilioCodigoPostal">Domicilio | Código postal</label>
+        </div>
+        <div class="form-floating rounded-3 mb-3">
+          <select class="form-select" id="domicilioProvincia" aria-label="Default select example">
+            <option selected>Seleccionar</option>
+            <option value="buenosAires">BUENOS AIRES</option>
+            <option value="caba">C.A.B.A.</option>
+            <option value="catamarca">CATAMARCA</option>
+            <option value="chaco">CHACO</option>
+            <option value="chubut">CHUBUT</option>
+            <option value="cordoba">CÓRDOBA</option>
+            <option value="corrientes">CORRIENTES</option>
+            <option value="entreRios">ENTRE RÍOS</option>
+            <option value="formosa">FORMOSA</option>
+            <option value="jujuy">JUJUY</option>
+            <option value="laPampa">LA PAMPA</option>
+            <option value="laRioja">LA RIOJA</option>
+            <option value="mendoza">MENDOZA</option>
+            <option value="misiones">MISIONES</option>
+            <option value="neuquen">NEUQUÉN</option>
+            <option value="rioNegro">RÍO NEGRO</option>
+            <option value="salta">SALTA</option>
+            <option value="sanJuan">SAN JUAN</option>
+            <option value="sanLuis">SAN LUIS</option>
+            <option value="santaCruz">SANTA CRUZ</option>
+            <option value="santaFe">SANTA FE</option>
+            <option value="santiagoDelEstero">SANTIAGO DEL ESTERO</option>
+            <option value="tierraDelFuego">TIERRA DEL FUEGO</option>
+            <option value="tucuman">TUCUMÁN</option>
+          </select>
+          <label for="domicilioProvincia">Domicilio | Provincia</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" value="0,00" id="montoHipoteca">
+          <label for="montoHipoteca">Monto de crédito hipotecario</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" id="partidaInmobiliaria">
+          <label for="partidaInmobiliaria">Partida inmobiliaria</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" value="0,00" id="valuacionFiscal">
+          <label for="valuacionFiscal">Valuación fiscal</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" value="0,00" id="valorCompra">
+          <label for="valorCompra">Valor de compra</label>
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-outline-success mb-3 agregarInmueble" id="agregarInmueble" type="submit">Agregar</button>
+        </div>
+      </form> <!-- LogIn Form -->
+    </div>
+    <div class="col-lg-4">
+      <div class="alert alert-success text-center fw-bold" role="alert">
+        Detalle de inmuebles cargados
+      </div>
+      <div class="row row-cols-1 row-cols-md-1 g-4">
+        <div class="col" id="listarInmuebles">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- /.container -->
+
+<hr>
+
+      <!-- Footer -->
+      <footer class="py-5 bg-dark h3-a">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 mb-4">
+              <div class="list-group">
+                <a class="list-group-item bg-primary card-link lead text-light px-3 py-3" role="tab">Estudio</a>
+                <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/perfil.html" role="tab">Perfil</a>
+                <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/organizacion.html" role="tab">Organización</a>
+                <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/socios.html" role="tab">Socios</a>
+                <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/publicaciones.html" role="tab">Publicaciones</a>
+              </div>
+            </div>
+          <div class="col-lg-3 mb-4">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item bg-secondary card-link lead text-light px-3 py-3" role="tab">Servicios</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/impositivo.html" role="tab">Impositivos</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/contable.html" role="tab">Contable</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/juridico.html" role="tab">Jurídicos</a>
+            </div>
+          </div>
+          <div class="col-lg-3 mb-4">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item bg-success card-link lead text-light px-3 py-3" role="tab">Capacitación</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/eventos.html" role="tab">Eventos</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/suscriptores.html" role="tab">Suscriptores</a>
+            </div>
+          </div>
+          <div class="col-lg-3 mb-4">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item bg-warning card-link lead text-dark px-3 py-3" role="tab">Conecta</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/contact.html" role="tab">Contacto</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/sitios-de-interes.html" role="tab">Link's de interés</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.youtube.com/channel/UC1Rg9E5c1hEgTlysuGBRy6A" target="_blank" role="tab">Youtube</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
+            </div>
+          </div>
+          </div>
+            <hr class="text-light">
+            <p class="m-0 text-end text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
+        </div>
+        <!-- /.container -->
+      </footer>
+
+    <!-- Jquery and mask form-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+    </script>
+
+      <!-- Fb modules -->
+      <script src="./js/rodados-login.js" type="module"></script>
+
+  </body>
+</html>
