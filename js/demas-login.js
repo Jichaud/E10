@@ -24,7 +24,7 @@
 
   let editStatus = false;
   let id = "";
-  nombreEmpresa.focus();
+  tipoActivo.focus();
   
   onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -35,19 +35,19 @@
       console.log(user.uid);
       console.log(user.email);
 
-      const updateSaldo = (id, newFields) => updateDoc(doc(db, "clientes", uid, "Saldos", id), newFields);
+      const updateDemas = (id, newFields) => updateDoc(doc(db, "clientes", uid, "Demas", id), newFields);
 
       // listar datos
-      const listarSaldosDetalle = document.getElementById('listarSaldos')
+      const listarDemasDetalle = document.getElementById('listarDemas')
 
-      onSnapshot(collection(db, "clientes", uid, "Saldos"), (listarSaldos) => {
+      onSnapshot(collection(db, "clientes", uid, "Demas"), (listarDemas) => {
 
         let html = ''
-        listarSaldos.forEach(doc => {
+        listarDemas.forEach(doc => {
           html += `
           <div class="card border border border-success mt-3 align-center">
             <div class="card-header">
-              <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().nombreEmpresa} ${doc.data().tipoSocietario}</h5>
+              <h5 class="card-title fw-bolder">${doc.data().tipoActivo}</h5>
             </div>
             <div class="card-body">
               <ul class="list-group list-group-flush">
@@ -69,106 +69,106 @@
           `
         })
   
-        listarSaldosDetalle.innerHTML = html;
+        listarDemasDetalle.innerHTML = html;
         
         // Borrar datos
-        const btnBorrar = listarSaldosDetalle.querySelectorAll('.btn-borrar')
+        const btnBorrar = listarDemasDetalle.querySelectorAll('.btn-borrar')
         btnBorrar.forEach(btn => {
           btn.addEventListener('click', ({target: {dataset}}) => {
-            const deleteSaldos = id => deleteDoc(doc(db, "clientes", uid, "Saldos", id));
-            deleteSaldos(dataset.id)
+            const deleteDemas = id => deleteDoc(doc(db, "clientes", uid, "Demas", id));
+            deleteDemas(dataset.id)
           })
         })
 
         // Editar datos
-        const editarSaldos = id => getDoc(doc(db, "clientes", uid, "Saldos", id));
-        const btnEditar = listarSaldosDetalle.querySelectorAll('.btn-edit')
+        const editarDemas = id => getDoc(doc(db, "clientes", uid, "Demas", id));
+        const btnEditar = listarDemasDetalle.querySelectorAll('.btn-edit')
           btnEditar.forEach((btn) => {
             btn.addEventListener('click', async (e) => {
-              const doc = await editarSaldos(e.target.dataset.id)
+              const doc = await editarDemas(e.target.dataset.id)
               console.log(doc.data());
               const editar = doc.data()
-              saldosFB["nombreEmpresa"].value = editar.nombreEmpresa
-              saldosFB["pais"].value = editar.pais
-              saldosFB["tipoSaldo"].value = editar.tipoSaldo
-              saldosFB["estadoSaldo"].value = editar.estadoSaldo
-              saldosFB["nombreME"].value = editar.nombreME
-              saldosFB["montoNominalME"].value = editar.montoNominalME
-              saldosFB["cuit"].value = editar.cuit
-              saldosFB["tipoSocietario"].value = editar.tipoSocietario
-              saldosFB["valorPesos"].value = editar.valorPesos
+              demasFB["tipoActivo"].value = editar.tipoActivo
+              demasFB["fechaCompra"].value = editar.fechaCompra
+              demasFB["valorCompra"].value = editar.valorCompra
+              demasFB["radicacion"].value = editar.radicacion
+              demasFB["tipoRendimiento"].value = editar.tipoRendimiento
+              demasFB["montoRendimiento"].value = editar.montoRendimiento
+              demasFB["fechaVenta"].value = editar.fechaVenta
+              demasFB["valorVenta"].value = editar.valorVenta
+              demasFB["detalleActivo"].value = editar.detalleActivo
               editStatus = true;
               id = doc.id;
-              document.getElementById('agregarSaldos').innerHTML = "Editar";
+              document.getElementById('agregarDemas').innerHTML = "Editar";
             })
           })
       })
 
     // agregar / editar datos
     
-    const saldosFB = document.querySelector("#saldosFB");
-    saldosFB.addEventListener("submit", async (e) => {
+    const demasFB = document.querySelector("#demasFB");
+    demasFB.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const nombreEmpresa = saldosFB["nombreEmpresa"];
-      const pais = saldosFB["pais"];
-      const tipoSaldo = saldosFB["tipoSaldo"];
-      const estadoSaldo = saldosFB["estadoSaldo"];
-      const nombreME = saldosFB["nombreME"];
-      const montoNominalME = saldosFB["montoNominalME"];
-      const cuit = saldosFB["cuit"];
-      const tipoSocietario = saldosFB["tipoSocietario"];
-      const valorPesos = saldosFB["valorPesos"];
+      const tipoActivo = demasFB["tipoActivo"];
+      const fechaCompra = demasFB["fechaCompra"];
+      const valorCompra = demasFB["valorCompra"];
+      const radicacion = demasFB["radicacion"];
+      const tipoRendimiento = demasFB["tipoRendimiento"];
+      const montoRendimiento = demasFB["montoRendimiento"];
+      const fechaVenta = demasFB["fechaVenta"];
+      const valorVenta = demasFB["valorVenta"];
+      const detalleActivo = demasFB["detalleActivo"];
 
       if (!editStatus) {
       const docRef = doc(db, "clientes", uid);
       const dataSaldo = {
-        agregaCollection: addDoc(collection(docRef, "Saldos"), {
-        nombreEmpresa: nombreEmpresa.value,
-        pais: pais.value,
-        tipoSaldo: tipoSaldo.value,
-        estadoSaldo: estadoSaldo.value,
-        nombreME: nombreME.value,
-        montoNominalME: montoNominalME.value,
-        cuit: cuit.value,
-        tipoSocietario: tipoSocietario.value,
-        valorPesos: valorPesos.value
+        agregaCollection: addDoc(collection(docRef, "Demas"), {
+        tipoActivo: tipoActivo.value,
+        fechaCompra: fechaCompra.value,
+        valorCompra: valorCompra.value,
+        radicacion: radicacion.value,
+        tipoRendimiento: tipoRendimiento.value,
+        montoRendimiento: montoRendimiento.value,
+        fechaVenta: fechaVenta.value,
+        valorVenta: valorVenta.value,
+        detalleActivo: detalleActivo.value
       })};
     } else {
       await updateSaldo(id, {
-        nombreEmpresa: nombreEmpresa.value,
-        pais: pais.value,
-        tipoSaldo: tipoSaldo.value,
-        estadoSaldo: estadoSaldo.value,
-        nombreME: nombreME.value,
-        montoNominalME: montoNominalME.value,
-        cuit: cuit.value,
-        tipoSocietario: tipoSocietario.value,
-        valorPesos: valorPesos.value
+        tipoActivo: tipoActivo.value,
+        fechaCompra: fechaCompra.value,
+        valorCompra: valorCompra.value,
+        radicacion: radicacion.value,
+        tipoRendimiento: tipoRendimiento.value,
+        montoRendimiento: montoRendimiento.value,
+        fechaVenta: fechaVenta.value,
+        valorVenta: valorVenta.value,
+        detalleActivo: detalleActivo.value
       })
       editStatus = false;
-      document.getElementById('agregarSaldos').innerHTML = "Agregar";
+      document.getElementById('agregarDemas').innerHTML = "Agregar";
     }
     
-      saldosFB.reset();
+      demasFB.reset();
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
-      nombreEmpresa.focus();
+      tipoActivo.focus();
     });
 
          // auditor
          const puedeEditar = doc(db, "clientes", uid);
          const auditor = await getDoc(puedeEditar);
-         const auditorBoolean = await auditor.data().auditorSaldos;
+         const auditorBoolean = await auditor.data().auditorDemas;
          // const valueAuditor = puedeEditar.uid;
-         console.log(auditor.data().auditorSaldos);
+         console.log(auditor.data().auditorDemas);
          if (auditorBoolean === true) {
            console.log("verdadero");
          } else {
            console.log("falso");
            $('.btn-borrar').prop('disabled', true);
            $('.btn-edit').prop('disabled', true);
-           const btnAgregar = document.querySelector('.agregarSaldos');
+           const btnAgregar = document.querySelector('.agregarDemas');
            btnAgregar.disabled = true;
            
          }
@@ -191,7 +191,7 @@
     </div>
   </div>
     <hr>
-    <p class="mb-0 alert-heading">Saldos con empresas</p>
+    <p class="mb-0 alert-heading">Acciones - Títulos - Plazo fijo - FCI - etc.</p>
   `
   })
 
@@ -216,6 +216,9 @@
   });
 
   $(function(){
-    $('#valorPesos').mask('000.000.000.000.000,00', {reverse: true});
-    $('#cuit').mask('00-00000000-0');
+    $('#fechaCompra').mask('00/00/0000');
+    $('#fechaVenta').mask('00/00/0000');
+    $('#valorCompra').mask('000.000.000.000.000,00', {reverse: true});
+    $('#montoRendimiento').mask('000.000.000.000.000,00', {reverse: true});
+    $('#valorVenta').mask('000.000.000.000.000,00', {reverse: true});
   });

@@ -80,11 +80,11 @@
               <small>Empresas</small> <br><i class="ps-3 bi bi-buildings-fill h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Empresas"></i></a>
           </li>
           <li class="nav-item ps-4 pt-2">
-            <a class="nav-link text-white ms-2 text-bg-success" href="saldos-login.html" role="button">
+            <a class="nav-link text-white ms-2" href="saldos-login.html" role="button">
               <small>Saldos con empresas</small> <br><i class="ps-5 bi bi-person-vcard-fill h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Saldos con empresas"></i></a>
           </li>
           <li class="nav-item ps-4 pt-2">
-            <a class="nav-link text-white ms-2" href="#" role="button">
+            <a class="nav-link text-white ms-2 text-bg-success" href="demas-login.html" role="button">
               <small>Acciones - Títulos - Plazo fijo - FCI - etc.</small> <br><i class="ps-5 ms-5 bi bi-file-spreadsheet-fill h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Acciones - Títulos - Plazo fijo - FCI - etc."></i></a>
           </li>
         </ul>
@@ -108,71 +108,112 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="alert alert-success text-center fw-bold" role="alert">
-        Saldos con empresas
+        Acciones - Títulos - Plazo fijo - FCI - etc.
       </div>
-      <!-- Saldos Form-->
-      <form id="saldosFB">
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="nombreEmpresa">
-          <label for="nombreEmpresa">Nombre de la empresa | <span class="text-danger fw-bold">NO incluir el tipo societario</span></label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="pais">
-          <label for="pais">País</label>
-        </div>
+      <!-- Demás Form-->
+      <form id="demasFB">
         <div class="col form-floating rounded-3 mb-3">
-          <select class="form-select" id="tipoSaldo" aria-label="Default select example">
+          <select class="form-select" id="tipoActivo" aria-label="Default select example">
             <option selected>Seleccionar</option>
-            <option value="Aporte irrevocable">Aporte irrevocable</option>
-            <option value="Cuenta particular">Cuenta particular</option>
-            <option value="Préstamo">Préstamo</option>
+            <option value="Acciones">Acciones</option>
+            <option value="Fondo común de inversión">Fondo común de inversión</option>
+            <option value="Plazo fijo">Plazo fijo</option>
+            <option value="Títulos públicos">Títulos públicos</option>
+            <option value="Otros">Otros</option>
           </select>
-          <label for="tipoSaldo">Tipo de saldo</label>
-        </div>
-        <div class="col form-floating rounded-3 mb-3">
-          <select class="form-select" id="estadoSaldo" aria-label="Default select example">
-            <option selected>Seleccionar</option>
-            <option value="Crédito">Crédito</option>
-            <option value="Deuda">Deuda</option>
-          </select>
-          <label for="estadoSaldo">Estado del saldo</label>
-        </div>
-        <div class="col form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="nombreME">
-          <label for="nombreME">Nombre de la moneda extranjera</label>
-        </div>
-        <div class="col form-floating mb-3">
-          <input type="text" class="form-control rounded-3" value="0,00" id="montoNominalME">
-          <label for="montoNominalME">Monto nominal moneda extranjera</label>
+          <label for="tipoActivo">Tipo de activo</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" id="cuit">
-          <label for="cuit">C.U.I.T. / N.I.F.</label>
-        </div>
-        <div class="col form-floating rounded-3 mb-3">
-          <select class="form-select" id="tipoSocietario" aria-label="Default select example">
-            <option selected>Seleccionar</option>
-            <option value="S.A.">S.A.</option>
-            <option value="S.R.L.">S.R.L.</option>
-            <option value="S.A.S.">S.A.S.</option>
-          </select>
-          <label for="tipoSocietario">Tipo societario</label>
+          <input type="text" class="form-control rounded-3" id="fechaCompra">
+          <label for="fechaCompra">Fecha de compra | dd/mm/aaaa</label>
         </div>
         <div class="col form-floating mb-3">
-          <input type="text" class="form-control rounded-3" value="0,00" id="valorPesos">
-          <label for="valorPesos">Valor en pesos al 31/12</label>
+          <input type="text" class="form-control rounded-3" value="0,00" id="valorCompra">
+          <label for="valorCompra">Valor de compra</label>
+        </div>
+        <div class="col form-floating rounded-3 mb-3">
+          <select class="form-select" id="radicacion" aria-label="Default select example">
+            <option selected>Seleccionar</option>
+            <option value="Extranjero">Extranjero</option>
+            <option value="Nacional">Nacional</option>
+          </select>
+          <label for="radicacion">Radicación</label>
+        </div>
+        <div class="col form-floating rounded-3 mb-3">
+          <select class="form-select" id="tipoRendimiento" aria-label="Default select example">
+            <option selected>Seleccionar</option>
+            <option value="Amortización">Amortización</option>
+            <option value="Dividendos">Dividendos</option>
+            <option value="Intereses">Intereses</option>
+            <option value="Rescate">Rescate</option>
+            <option value="Venta">Venta</option>
+          </select>
+          <label for="tipoRendimiento">Tipo de rendimiento</label>
+        </div>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" value="0,00" id="montoRendimiento">
+          <label for="montoRendimiento">Monto rendimiento</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" id="fechaVenta">
+          <label for="fechaVenta">Fecha de venta | dd/mm/aaaa</label>
+        </div>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" value="0,00" id="valorVenta">
+          <label for="valorVenta">Valor de venta</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" id="detalleActivo">
+          <label for="detalleActivo">Detalle activos | <span class="text-danger fw-bold">Ver debajo información a brindar</span></label>
+
+          <button class="btn btn-sm btn-outline-success mt-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            Ver información
+          </button>
+          
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasExampleLabel">Detalle de activos | Información adicional</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <div>
+                Tenga presente las siguientes recomendaciones para completar la información solicitada:
+                <ul class="list-group mt-3">
+                  <li class="list-group-item active" aria-current="true">Acciones <a class="btn btn-warning btn-sm" href="https://docs.google.com/spreadsheets/d/1RA3qMlBDv7vkG0uQvGPaZrcSVEJ5YlJ3LhE-F6IgcBM/edit#gid=1358217622" target="blank_">Acciones <i class="bi bi-arrow-right-circle-fill"></i></a></li>
+                  <li class="list-group-item">Buscar la información en la pestaña de acciones de las tablas de bienes personales</li>
+                  <li class="list-group-item">Copiar y pegar la información</li>
+                </ul>
+                <ul class="list-group mt-3">
+                  <li class="list-group-item active" aria-current="true">Fondo común de inversión <a class="btn btn-warning btn-sm" href="https://docs.google.com/spreadsheets/d/1RA3qMlBDv7vkG0uQvGPaZrcSVEJ5YlJ3LhE-F6IgcBM/edit#gid=1090484443" target="blank_">FCI <i class="bi bi-arrow-right-circle-fill"></i></a></li>
+                  <li class="list-group-item">Buscar la información en la pestaña de FCI de las tablas de bienes personales</li>
+                  <li class="list-group-item">Copiar y pegar la información</li>
+                </ul>
+                <ul class="list-group mt-3">
+                  <li class="list-group-item active" aria-current="true">Títulos públicos <a class="btn btn-warning btn-sm" href="https://docs.google.com/spreadsheets/d/1RA3qMlBDv7vkG0uQvGPaZrcSVEJ5YlJ3LhE-F6IgcBM/edit#gid=1474558853" target="blank_">Títulos públicos <i class="bi bi-arrow-right-circle-fill"></i></a></li>
+                  <li class="list-group-item">Buscar la información en la pestaña de títulos públicos de las tablas de bienes personales</li>
+                  <li class="list-group-item">Copiar y pegar la información</li>
+                </ul>
+                <ul class="list-group mt-3">
+                  <li class="list-group-item active" aria-current="true">Plazo fijo</li>
+                  <li class="list-group-item">Informar banco</li>
+                  <li class="list-group-item">Informar nº de cuenta / nº de plazo fijo</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div class="d-grid gap-2">
-          <button class="btn btn-outline-success mb-3 agregarSaldos" id="agregarSaldos" type="submit">Agregar</button>
+          <button class="btn btn-outline-success mb-3 agregarDemas" id="agregarDemas" type="submit">Agregar</button>
         </div>
-      </form> <!-- Saldos Form -->
+      </form> <!-- Demás Form -->
     </div>
     <div class="col-lg-4">
       <div class="alert alert-success text-center fw-bold" role="alert">
         Detalle de saldos con empresas cargadas
       </div>
       <div class="row row-cols-1 row-cols-md-1 g-4">
-        <div class="col" id="listarSaldos">
+        <div class="col" id="listarDemas">
 
         </div>
       </div>
@@ -247,7 +288,7 @@
     </script>
 
       <!-- Fb modules -->
-      <script src="./js/saldos-login.js" type="module"></script>
+      <script src="./js/demas-login.js" type="module"></script>
 
   </body>
 </html>
