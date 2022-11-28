@@ -183,7 +183,7 @@
     </div>
   </div>
     <hr>
-    <p class="mb-0 alert-heading">Tenencias</p>
+    <p class="mb-0 alert-heading">Participaciones empresarias</p>
   `
   })
 
