@@ -64,7 +64,7 @@
               <small>Inmuebles</small> <br><i class="ps-3 bi bi-building-fill align-items-center h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Inmuebles"></i> </a>
           </li>
           <li class="nav-item ps-4 pt-2">
-            <a class="nav-link text-white ms-2 text-bg-success rounded-3" href="rodados-login.html" role="button">
+            <a class="nav-link text-white ms-2 rounded-3" href="rodados-login.html" role="button">
               <small>Rodados</small> <br><i class="ps-3 bi bi-car-front-fill h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Rodados"></i></a>
           </li>
           <li class="nav-item ps-4 pt-2">
@@ -76,7 +76,7 @@
               <small>Tenencias</small> <br><i class="ps-3 bi bi-cash-coin h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tenencias"></i></a>
           </li>
           <li class="nav-item ps-4 pt-2">
-            <a class="nav-link text-white ms-2" href="empresas-login.html" role="button">
+            <a class="nav-link text-white ms-2 text-bg-success" href="empresas-login.html" role="button">
               <small>Empresas</small> <br><i class="ps-3 bi bi-buildings-fill h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Empresas"></i></a>
           </li>
           <li class="nav-item ps-4 pt-2">
@@ -108,74 +108,58 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="alert alert-success text-center fw-bold" role="alert">
-        Rodados
+        Participaciones empresarias
       </div>
-      <!-- Rodados Form-->
-      <form id="rodadosFB">
+      <!-- Empresas Form-->
+      <form id="empresasFB">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" id="fechaAlta">
-          <label for="fechaAlta">Fecha de alta | dd/mm/aaaa</label>
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="nombreEmpresa">
+          <label for="nombreEmpresa">Nombre de la empresa | <span class="text-danger fw-bold">NO incluir el tipo societario</span></label>
         </div>
         <div class="col form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="yearModelo">
-          <label for="yearModelo">Año modelo</label>
+          <input type="text" class="form-control rounded-3" value="0,00" id="patrimonioEmpresa">
+          <label for="patrimonioEmpresa">Patrimonio neto empresa al 31/12</label>
         </div>
         <div class="col form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="patenteNumero">
-          <label for="patenteNumero">Nº de patente</label>
-        </div>
-        <a class="btn btn-success btn-sm mb-3" href="https://docs.google.com/spreadsheets/d/1RA3qMlBDv7vkG0uQvGPaZrcSVEJ5YlJ3LhE-F6IgcBM/edit#gid=1631544326" target="blank_" data-bs-toggle="tooltip" data-bs-placement="top" title="Buscar marca y modelo en las tablas de bienes personales">Marca - modelo <i class="bi bi-arrow-right-circle-fill"></i></a>
-        <div class="col form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="marca">
-          <label for="marca">Marca</label>
+          <input type="text" class="form-control rounded-3" value="0,00" id="totalAcciones">
+          <label for="totalAcciones">Cantidad total de acciones / cuotas</label>
         </div>
         <div class="col form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="modelo">
-          <label for="modelo">Modelo</label>
+          <input type="text" class="form-control rounded-3" value="0,00" id="tenenciaAcciones">
+          <label for="tenenciaAcciones">Tenencia propia de acciones/cuotas</label>
+        </div>
+        <div class="col form-floating mb-3">
+          <input type="text" class="form-control rounded-3" value="0,00" id="porcentajeParticipacion">
+          <label for="porcentajeParticipacion">Porcentaje de participación</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" id="cuit">
+          <label for="cuit">C.U.I.T. / N.I.F.</label>
         </div>
         <div class="col form-floating rounded-3 mb-3">
-          <select class="form-select" id="tipoRodado" aria-label="Default select example">
+          <select class="form-select" id="tipoSocietario" aria-label="Default select example">
             <option selected>Seleccionar</option>
-            <option value="Camión">Camión</option>
-            <option value="Chasis">Chasis</option>
-            <option value="Convertible">Convertible</option>
-            <option value="Coupe">Coupe</option>
-            <option value="Cuatriciclo">Cuatriciclo</option>
-            <option value="Descapotable">Descapotable</option>
-            <option value="Familiar">Familiar</option>
-            <option value="Furgón">Furgón</option>
-            <option value="Motocicleta">Motocicleta</option>
-            <option value="Motoneta">Motoneta</option>
-            <option value="Pick up">Pick up</option>
-            <option value="Pick up cabina simple">Pick up cabina simple</option>
-            <option value="Pick up cabina doble">Pick up cabina doble</option>
-            <option value="Rural">Rural</option>
-            <option value="Sedán">Sedán</option>
-            <option value="Tractor">Tractor</option>
-            <option value="Todo terreno">Todo terreno</option>
-            <option value="Utilitario">Utilitario</option>
+            <option value="S.A.">S.A.</option>
+            <option value="S.R.L.">S.R.L.</option>
+            <option value="S.A.S.">S.A.S.</option>
           </select>
-          <label for="tipoRodado">Tipo</label>
+          <label for="tipoSocietario">Tipo societario</label>
         </div>
         <div class="col form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="cantidadDePuertas">
-          <label for="cantidadDePuertas">Cantidad de puertas</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" value="0,00" id="valorCompra">
-          <label for="valorCompra">Valor de compra</label>
+          <input type="text" class="form-control rounded-3" value="0,00" id="valorPesos">
+          <label for="valorPesos">Valor en pesos al 31/12</label>
         </div>
         <div class="d-grid gap-2">
-          <button class="btn btn-outline-success mb-3 agregarRodados" id="agregarRodados" type="submit">Agregar</button>
+          <button class="btn btn-outline-success mb-3 agregarEmpresas" id="agregarEmpresas" type="submit">Agregar</button>
         </div>
-      </form> <!-- Rodados Form -->
+      </form> <!-- Empresas Form -->
     </div>
     <div class="col-lg-4">
       <div class="alert alert-success text-center fw-bold" role="alert">
-        Detalle de rodados cargados
+        Detalle de empresas cargadas
       </div>
       <div class="row row-cols-1 row-cols-md-1 g-4">
-        <div class="col" id="listarRodados">
+        <div class="col" id="listarEmpresas">
 
         </div>
       </div>
@@ -250,7 +234,7 @@
     </script>
 
       <!-- Fb modules -->
-      <script src="./js/rodados-login.js" type="module"></script>
+      <script src="./js/empresas-login.js" type="module"></script>
 
   </body>
 </html>
