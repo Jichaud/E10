@@ -24,8 +24,8 @@
 
   let editStatus = false;
   let id = "";
-  nombreBanco.focus();
-
+  tipoMoneda.focus();
+  
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
@@ -35,26 +35,25 @@
       console.log(user.uid);
       console.log(user.email);
 
-      const updateBanco = (id, newFields) => updateDoc(doc(db, "clientes", uid, "Bancos", id), newFields);
+      const updateTenencia = (id, newFields) => updateDoc(doc(db, "clientes", uid, "Tenencias", id), newFields);
 
       // listar datos
-      const listarBancosDetalle = document.getElementById('listarBancos')
+      const listarTenenciasDetalle = document.getElementById('listarTenencias')
 
-      onSnapshot(collection(db, "clientes", uid, "Bancos"), (listarBancos) => {
+      onSnapshot(collection(db, "clientes", uid, "Tenencias"), (listarTenencias) => {
 
         let html = ''
-        listarBancos.forEach(doc => {
+        listarTenencias.forEach(doc => {
           html += `
           <div class="card border border border-success mt-3 align-center">
             <div class="card-header">
-              <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().nombreBanco} | ${doc.data().nombreSucursal}</h5>
+              <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().tipoMoneda}</h5>
             </div>
             <div class="card-body">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Nº de cuenta: ${doc.data().numeroCuenta}</li>
-                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Tipo de cuenta: ${doc.data().tipoCuenta}</li>
-                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Estado cuenta: ${doc.data().estadoCuenta}</li>
-                <li class="list-group-item fw-bold"><i class="bi bi-check-circle-fill text-primary"></i> Saldo al 31/12: ${doc.data().saldoPesos}</li>
+                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Nombre de la moneda extranjera: ${doc.data().nombreMoneda}</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Monto nominal: ${doc.data().montoNominal}</li>
+                <li class="list-group-item fw-bolder"><i class="bi bi-check-circle-fill text-primary"></i> Valor al 31/12: $ ${doc.data().valorPesos}</li>
               </ul>
             </div>
             <div class="card-footer">
@@ -67,114 +66,86 @@
           `
         })
   
-        listarBancosDetalle.innerHTML = html;
+        listarTenenciasDetalle.innerHTML = html;
         
         // Borrar datos
-        const btnBorrar = listarBancosDetalle.querySelectorAll('.btn-borrar')
+        const btnBorrar = listarTenenciasDetalle.querySelectorAll('.btn-borrar')
         btnBorrar.forEach(btn => {
           btn.addEventListener('click', ({target: {dataset}}) => {
-            const deleteBanco = id => deleteDoc(doc(db, "clientes", uid, "Bancos", id));
-            deleteBanco(dataset.id)
+            const deleteTenencia = id => deleteDoc(doc(db, "clientes", uid, "Tenencias", id));
+            deleteTenencia(dataset.id)
           })
         })
 
         // Editar datos
-        const editarBanco = id => getDoc(doc(db, "clientes", uid, "Bancos", id));
-        const btnEditar = listarBancosDetalle.querySelectorAll('.btn-edit')
+        const editarTenencia = id => getDoc(doc(db, "clientes", uid, "Tenencias", id));
+        const btnEditar = listarTenenciasDetalle.querySelectorAll('.btn-edit')
           btnEditar.forEach((btn) => {
             btn.addEventListener('click', async (e) => {
-              const doc = await editarBanco(e.target.dataset.id)
+              const doc = await editarTenencia(e.target.dataset.id)
               console.log(doc.data());
               const editar = doc.data()
-              bancosFB["nombreBanco"].value = editar.nombreBanco
-              bancosFB["pais"].value = editar.pais
-              bancosFB["nombreSucursal"].value = editar.nombreSucursal
-              bancosFB["codigoSucursal"].value = editar.codigoSucursal
-              bancosFB["cbu"].value = editar.cbu
-              bancosFB["numeroCuenta"].value = editar.numeroCuenta
-              bancosFB["tipoCuenta"].value = editar.tipoCuenta
-              bancosFB["estadoCuenta"].value = editar.estadoCuenta
-              bancosFB["nombreME"].value = editar.nombreME
-              bancosFB["nominalME"].value = editar.nominalME
-              bancosFB["saldoPesos"].value = editar.saldoPesos
+              tenenciasFB["tipoMoneda"].value = editar.tipoMoneda
+              tenenciasFB["nombreMoneda"].value = editar.nombreMoneda
+              tenenciasFB["montoNominal"].value = editar.montoNominal
+              tenenciasFB["valorPesos"].value = editar.valorPesos
               editStatus = true;
               id = doc.id;
-              document.getElementById('agregarBancos').innerHTML = "Editar";
+              document.getElementById('agregarTenencias').innerHTML = "Editar";
             })
-          })            
+          })
       })
 
     // agregar / editar datos
     
-    const bancosFB = document.querySelector("#bancosFB");
-    bancosFB.addEventListener("submit", async (e) => {
+    const tenenciasFB = document.querySelector("#tenenciasFB");
+    tenenciasFB.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const nombreBanco = bancosFB["nombreBanco"];
-      const pais = bancosFB["pais"];
-      const nombreSucursal = bancosFB["nombreSucursal"];
-      const codigoSucursal = bancosFB["codigoSucursal"];
-      const cbu = bancosFB["cbu"];
-      const numeroCuenta = bancosFB["numeroCuenta"];
-      const tipoCuenta = bancosFB["tipoCuenta"];
-      const estadoCuenta = bancosFB["estadoCuenta"];
-      const nombreME = bancosFB["nombreME"];
-      const nominalME = bancosFB["nominalME"];
-      const saldoPesos = bancosFB["saldoPesos"];
+      const tipoMoneda = tenenciasFB["tipoMoneda"];
+      const nombreMoneda = tenenciasFB["nombreMoneda"];
+      const montoNominal = tenenciasFB["montoNominal"];
+      const valorPesos = tenenciasFB["valorPesos"];
 
       if (!editStatus) {
       const docRef = doc(db, "clientes", uid);
-      const dataBanco = {
-        agregaCollection: addDoc(collection(docRef, "Bancos"), {
-        nombreBanco: nombreBanco.value,
-        paiso: pais.value,
-        nombreSucursal: nombreSucursal.value,
-        codigoSucursal: codigoSucursal.value,
-        cbu: cbu.value,
-        numeroCuenta: numeroCuenta.value,
-        tipoCuenta: tipoCuenta.value,
-        estadoCuenta: estadoCuenta.value,
-        nombreME: nombreME.value,
-        nominalME: nominalME.value,
-        saldoPesos: saldoPesos.value
+      const dataTenencia = {
+        agregaCollection: addDoc(collection(docRef, "Tenencias"), {
+        tipoMoneda: tipoMoneda.value,
+        nombreMoneda: nombreMoneda.value,
+        montoNominal: montoNominal.value,
+        valorPesos: valorPesos.value
       })};
     } else {
-      await updateBanco(id, {
-        nombreBanco: nombreBanco.value,
-        paiso: pais.value,
-        nombreSucursal: nombreSucursal.value,
-        codigoSucursal: codigoSucursal.value,
-        cbu: cbu.value,
-        numeroCuenta: numeroCuenta.value,
-        tipoCuenta: tipoCuenta.value,
-        estadoCuenta: estadoCuenta.value,
-        nombreME: nombreME.value,
-        nominalME: nominalME.value,
-        saldoPesos: saldoPesos.value
+      await updateTenencia(id, {
+        tipoMoneda: tipoMoneda.value,
+        nombreMoneda: nombreMoneda.value,
+        montoNominal: montoNominal.value,
+        valorPesos: valorPesos.value
       })
       editStatus = false;
-      document.getElementById('agregarBancos').innerHTML = "Agregar";
+      document.getElementById('agregarTenencias').innerHTML = "Agregar";
     }
     
-      bancosFB.reset();
+      tenenciasFB.reset();
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
-      nombreBanco.focus();
+      tipoMoneda.focus();
     });
 
          // auditor
          const puedeEditar = doc(db, "clientes", uid);
          const auditor = await getDoc(puedeEditar);
-         const auditorBoolean = await auditor.data().auditorBancos;
+         const auditorBoolean = await auditor.data().auditorTenencias;
          // const valueAuditor = puedeEditar.uid;
-         console.log(auditor.data().auditorBancos);
+         console.log(auditor.data().auditorTenencias);
          if (auditorBoolean === true) {
            console.log("verdadero");
          } else {
            console.log("falso");
            $('.btn-borrar').prop('disabled', true);
            $('.btn-edit').prop('disabled', true);
-           const btnAgregar = document.querySelector('.agregarBancos');
+           const btnAgregar = document.querySelector('.agregarTenencias');
            btnAgregar.disabled = true;
            
          }
@@ -197,7 +168,7 @@
     </div>
   </div>
     <hr>
-    <p class="mb-0 alert-heading">Bancos</p>
+    <p class="mb-0 alert-heading">Tenencias</p>
   `
   })
 
@@ -222,7 +193,6 @@
   });
 
   $(function(){
-    $('#saldoPesos').mask('000.000.000.000.000,00', {reverse: true});
-    $('#nominalME').mask('000.000.000.000.000,00', {reverse: true});
-    $('#cbu').mask('00000000 00000000000000', {reverse: true});
+    $('#valorPesos').mask('000.000.000.000.000,00', {reverse: true});
+    $('#montoNominal').mask('000.000.000.000.000,00', {reverse: true});
   });

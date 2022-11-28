@@ -72,7 +72,7 @@
               <small>Bancos</small> <br><i class="ps-2 bi bi-bank2 h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Bancos"></i></a>
           </li>
           <li class="nav-item ps-4 pt-2">
-            <a class="nav-link text-white ms-2" href="#" role="button">
+            <a class="nav-link text-white ms-2" href="tenencias-login.html" role="button">
               <small>Tenencias</small> <br><i class="ps-3 bi bi-cash-coin h2-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tenencias"></i></a>
           </li>
           <li class="nav-item ps-4 pt-2">
@@ -112,9 +112,9 @@
       </div>
       <!-- Rodados Form-->
       <form id="bancosFB">
-        <a class="btn btn-success btn-sm mb-3" href="https://docs.google.com/spreadsheets/d/1RA3qMlBDv7vkG0uQvGPaZrcSVEJ5YlJ3LhE-F6IgcBM/edit#gid=2107010822" target="blank_" data-bs-toggle="tooltip" data-bs-placement="top" title="Buscar nombre del banco en las tablas de bienes personales">Nombre banco</a>
+        <a class="btn btn-success btn-sm mb-3" href="https://docs.google.com/spreadsheets/d/1RA3qMlBDv7vkG0uQvGPaZrcSVEJ5YlJ3LhE-F6IgcBM/edit#gid=2107010822" target="blank_" data-bs-toggle="tooltip" data-bs-placement="top" title="Buscar nombre del banco en las tablas de bienes personales">Nombre banco <i class="bi bi-arrow-right-circle-fill"></i></a>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" id="nombreBanco">
+          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="nombreBanco">
           <label for="nombreBanco">Nombre del banco</label>
         </div>
         <div class="col form-floating mb-3">
@@ -126,22 +126,22 @@
           <label for="nombreSucursal">Nombre sucursal</label>
         </div>
         <div class="col form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="codigoSucursal">
+          <input type="text" class="form-control rounded-3" id="codigoSucursal">
           <label for="codigoSucursal">Código sucursal</label>
         </div>
         <div class="col form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="cbu">
+          <input type="text" class="form-control rounded-3" id="cbu">
           <label for="cbu">C.B.U.</label>
         </div>
         <div class="col form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="numeroCuenta">
+          <input type="text" class="form-control rounded-3" id="numeroCuenta">
           <label for="numeroCuenta">Número de cuenta</label>
         </div>
         <div class="col form-floating rounded-3 mb-3">
           <select class="form-select" id="tipoCuenta" aria-label="Default select example">
             <option selected>Seleccionar</option>
-            <option value="cuentaCorriente">Cuenta corriente</option>
-            <option value="cajaAhorro">Caja de ahorro</option>
+            <option value="Cuenta corriente">Cuenta corriente</option>
+            <option value="Caja de ahorro">Caja de ahorro</option>
           </select>
           <label for="tipoCuenta">Tipo de cuenta</label>
         </div>
