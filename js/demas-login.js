@@ -51,12 +51,10 @@
             </div>
             <div class="card-body">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Tipo de saldo: ${doc.data().pais}</li>
-                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Tipo de saldo: ${doc.data().tipoSaldo}</li>
-                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Estado del saldo: ${doc.data().estadoSaldo}</li>
-                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Moneda extranjera: ${doc.data().nombreME}</li>
-                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Importe moneda extranjera: ${doc.data().montoNominalME}</li>
-                <li class="list-group-item fw-bolder"><i class="bi bi-check-circle-fill text-primary"></i> Valor al 31/12: $ ${doc.data().valorPesos}</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Radicación: ${doc.data().radicacion}</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Tipo de rendimiento: ${doc.data().tipoRendimiento}</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Monto del rendimiento: ${doc.data().montoRendimiento}</li>
+                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Detalle activo: ${doc.data().detalleActivo}</li>
               </ul>
             </div>
             <div class="card-footer">
@@ -135,7 +133,7 @@
         detalleActivo: detalleActivo.value
       })};
     } else {
-      await updateSaldo(id, {
+      await updateDemas(id, {
         tipoActivo: tipoActivo.value,
         fechaCompra: fechaCompra.value,
         valorCompra: valorCompra.value,
