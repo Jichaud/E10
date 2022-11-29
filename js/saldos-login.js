@@ -51,7 +51,7 @@
             </div>
             <div class="card-body">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Tipo de saldo: ${doc.data().pais}</li>
+                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> País: ${doc.data().pais}</li>
                 <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Tipo de saldo: ${doc.data().tipoSaldo}</li>
                 <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Estado del saldo: ${doc.data().estadoSaldo}</li>
                 <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Moneda extranjera: ${doc.data().nombreME}</li>
