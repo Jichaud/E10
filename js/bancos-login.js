@@ -127,7 +127,7 @@
       const dataBanco = {
         agregaCollection: addDoc(collection(docRef, "Bancos"), {
         nombreBanco: nombreBanco.value,
-        paiso: pais.value,
+        pais: pais.value,
         nombreSucursal: nombreSucursal.value,
         codigoSucursal: codigoSucursal.value,
         cbu: cbu.value,
@@ -141,7 +141,7 @@
     } else {
       await updateBanco(id, {
         nombreBanco: nombreBanco.value,
-        paiso: pais.value,
+        pais: pais.value,
         nombreSucursal: nombreSucursal.value,
         codigoSucursal: codigoSucursal.value,
         cbu: cbu.value,
