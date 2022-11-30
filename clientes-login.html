@@ -114,10 +114,15 @@
       <div class="alert alert-success text-center fw-bold" role="alert">
         Datos personales
       </div>
+      <div class="col" id="listarDatosPersonales">
+        
+      </div>
 
+      <hr>
+  
       <!-- Datos personales Form-->
       <div id="formDatos">
-      <form id="datosFB">
+      <form class="mt-3" id="datosFB">
         <div class="form-floating mb-3">
           <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="nombre">
           <label for="fechaDeNacimiento">Nombre</label>
@@ -143,10 +148,6 @@
         </div>
       </form> <!-- Datos personales Form -->
     </div>
-      
-      <div class="col" id="listarDatosPersonales">
-        
-      </div>
     </div>
   
     <div class="col-lg-6 mt-3">
@@ -154,8 +155,14 @@
         Datos societarios
       </div>
 
+      <ol class="list-group list-group-numbered" id="listarEmpresas">
+
+      </ol>
+
+      <hr>
+
       <!-- Empresas Form-->
-      <form id="empresasFB">
+      <form class="mt-3" id="empresasFB">
         <div class="form-floating mb-3">
           <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="empresaRazonSocial">
           <label for="empresaRazonSocial">Empresa | Razón social</label>
@@ -168,10 +175,6 @@
           <button class="btn btn-outline-success mb-3 agregarEmpresa" id="agregarEmpresa" type="submit">Agregar <i class="bi bi-plus-circle-fill"></i></button>
         </div>
       </form> <!-- Empresas Form -->
-      
-      <ol class="list-group list-group-numbered" id="listarEmpresas">
-
-      </ol>
     </div>
   
   </div>
