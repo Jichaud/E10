@@ -39,7 +39,6 @@
         let htmlInmuebles = ''
         listarInmuebles.forEach(doc => {
           htmlInmuebles += `
-          <div class="list-group mt-3 border border-danger rounded-4">
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:capitalize">${doc.data().domicilioCalle}</h5>
@@ -49,7 +48,6 @@
             <p class="mb-1">${doc.data().fechaAlta}</p>
             <small class="fw-bold"><i class="bi bi-circle-fill text-danger"></i> inmuebles</small>
           </span>
-        </div>
           `
         })
 
@@ -64,7 +62,6 @@
         let htmlRodados = ''
         listarRodados.forEach(doc => {
           htmlRodados += `
-          <div class="list-group mt-3 border border-warning rounded-4">
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:uppercase">${doc.data().marca} | ${doc.data().modelo}</h5>
@@ -74,7 +71,6 @@
             <p class="mb-1">${doc.data().fechaAlta}</p>
             <small class="fw-bold"><i class="bi bi-circle-fill text-warning"></i> rodados</small>
           </span>
-        </div>
           `
         })
 
@@ -89,7 +85,6 @@
         let htmlBancos = ''
         listarBancos.forEach(doc => {
           htmlBancos += `
-          <div class="list-group mt-3 border border-success rounded-4">
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:uppercase">${doc.data().nombreBanco} | ${doc.data().nombreSucursal}</h5>
@@ -99,7 +94,6 @@
             <p class="mb-1">$${doc.data().saldoPesos}</p>
             <small class="fw-bold"><i class="bi bi-circle-fill text-success"></i> bancos</small>
           </span>
-        </div>
           `
         })
 
@@ -114,7 +108,6 @@
         let htmlTenencias = ''
         listarTenencias.forEach(doc => {
           htmlTenencias += `
-          <div class="list-group mt-3 border border-primary rounded-4">
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:capitalize">${doc.data().tipoMoneda}</h5>
@@ -124,7 +117,6 @@
             <p class="mb-1">$${doc.data().valorPesos}</p>
             <small class="fw-bold"><i class="bi bi-circle-fill text-primary"></i> tenencias</small>
           </span>
-        </div>
           `
         })
 
@@ -139,7 +131,6 @@
         let htmlEmpresas = ''
         listarEmpresas.forEach(doc => {
           htmlEmpresas += `
-          <div class="list-group mt-3 border border-info rounded-4">
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:capitalize">${doc.data().nombreEmpresa}</h5>
@@ -149,7 +140,6 @@
             <p class="mb-1">$${doc.data().valorPesos}</p>
             <small class="fw-bold"><i class="bi bi-circle-fill text-info"></i> participación accionaria</small>
           </span>
-        </div>
           `
         })
 
@@ -164,7 +154,6 @@
         let htmlSaldos = ''
         listarSaldos.forEach(doc => {
           htmlSaldos += `
-          <div class="list-group mt-3 border border-secondary rounded-4">
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:uppercase">${doc.data().nombreEmpresa} ${doc.data().tipoSocietario}</h5>
@@ -174,7 +163,6 @@
             <p class="mb-1">$${doc.data().valorPesos}</p>
             <small class="fw-bold"><i class="bi bi-circle-fill text-secondary"></i> saldos con empresas</small>
           </span>
-        </div>
           `
         })
 
@@ -189,7 +177,6 @@
         let htmlDemas = ''
         listarDemas.forEach(doc => {
           htmlDemas += `
-          <div class="list-group mt-3 border border-dark rounded-4">
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:uppercase">${doc.data().tipoActivo}</h5>
@@ -200,7 +187,6 @@
             <p class="mb-1">Rendimiento: $${doc.data().montoRendimiento}</p>
             <small class="fw-bold"><i class="bi bi-circle-fill text-dark"></i> otros activos</small>
           </span>
-        </div>
           `
         })
 
