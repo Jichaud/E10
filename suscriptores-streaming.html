@@ -53,7 +53,6 @@
 
 <body>
 
-
 <!-- Navigation -->
 <div class="container pb-4">
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark h3-a" style="background-color: #1c2452ff">
@@ -197,6 +196,22 @@
         </div>
       </div>
 
+              <!-- Flexbox container for aligning the toasts -->
+              <div aria-live="polite" aria-atomic="true" class="pt-4 d-flex justify-content-center align-items-center w-100">
+
+                <!-- Then put toasts within -->
+                <div class="toast position-absolute border-warning top-10 end-0 text-bg-warning" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                  <div class="toast-header">
+                    <strong class="me-auto">Bootstrap</strong>
+                    <small>11 mins ago</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div>
+                  <div class="toast-body">
+                    Hello, world! This is a toast message.
+                  </div>
+                </div>
+              </div>
+      
       <!-- toast reuniones
       <div role="alert" aria-atomic="true" aria-live="assertive" class="toast pt-2 ml-1 position-relative" data-animation="false" data-bs-autohide="false">
         <div class="toast-header">
