@@ -46,7 +46,7 @@
             <div class="fw-bold" style="text-transform:uppercase">${doc.data().empresaRazonSocial}</div>
             ${doc.data().empresaCuit}
           </div>
-          <button class="btn btn-danger btn-borrar" type="button" data-id="${doc.id}">Borrar <i class="bi bi-trash3-fill"></i></button>
+          <button class="btn btn-danger btn-borrar" type="button" data-id="${doc.id}"> <i class="bi bi-trash3-fill"></i></button>
         </li>
 
           `
@@ -103,6 +103,7 @@
           apellidoMaterno: apellidoMaterno.value,
           cuit: cuit.value
           })}
+          datosFB.reset();
         });
 
       // listar datos personales
@@ -113,38 +114,43 @@
         let html = ''
         listarDatosPersonales.forEach(doc => {
           html += `
-          <div class="card border border border-success mt-3 align-center">
-            <div class="card-header">
-              <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().nombre} ${doc.data().apellido}</h5>
-            </div>
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Nació el: ${doc.data().fechaDeNacimiento}</li>
-                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-success"></i> Apellido materno: ${doc.data().apellidoMaterno}</li>
-                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> C.U.I.T.: ${doc.data().cuit}</li>
-              </ul>
-            </div>
-            <div class="card-footer">
-              <div class="d-grid-2 gap-2 d-md-block float-end">
-                <button class="btn btn-danger btn-borrar" type="button" data-id="${doc.id}">Borrar <i class="bi bi-trash3-fill"></i></button>
+                <li class="list-group-item list-group-item-action py-3"><i class="bi bi-check-circle-fill text-success"></i> Nació el: ${doc.data().fechaDeNacimiento}</li>
+                <li class="list-group-item list-group-item-action py-3" style="text-transform:capitalize"><i class="bi bi-check-circle-fill text-success"></i> Apellido materno: ${doc.data().apellidoMaterno}</li>
+                <li class="list-group-item list-group-item-action py-3"><i class="bi bi-check-circle-fill text-success"></i> C.U.I.T.: ${doc.data().cuit}</li>
+              <div class="d-grid-2 gap-2 d-md-block float-end mt-3 ms-auto">
+                <button class="btn btn-danger btn-borrar mb-4" type="button" data-id="${doc.id}">Borrar <i class="bi bi-trash3-fill"></i></button>
               </div>
-            </div>
-          </div>
         `
         })
 
         listarDatosDetalle.innerHTML = html;
 
-      // Borrar datos
-      const btnBorrar = listarDatosDetalle.querySelectorAll('.btn-borrar')
-      btnBorrar.forEach(btn => {
-        btn.addEventListener('click', ({target: {dataset}}) => {
-          const deleteDatos = id => deleteDoc(doc(db, "clientes", uid, "datosPersonales", id));
-          deleteDatos(dataset.id)
-        })
+        // Borrar datos
+        async function verificaNombre() {
+          const checkDatos = await getDocs(collection(db, "clientes", uid, "datosPersonales"));
+          checkDatos.forEach((docNombre) => {
+            const checkNombre = docNombre.data().nombre;
+
+            if (checkNombre === "") {
+              btnBorrar.hide;
+              document.getElementById('datosFB').style.display = "block";
+            }
+            else {
+              const btnBorrar = listarDatosDetalle.querySelectorAll('.btn-borrar')
+              btnBorrar.forEach(btn => {
+                btn.addEventListener('click', ({ target: { dataset } }) => {
+                  const deleteDatos = id => deleteDoc(doc(db, "clientes", uid, "datosPersonales", id));
+                  deleteDatos(dataset.id)
+                })
+              })
+              document.getElementById('datosFB').style.display = "none";
+            }
+          })
+        }
+        verificaNombre();
+
+
       })
-      
-    })
 
     // datos cabecera
     const listarDatosCabeceraDetalle = document.getElementById('listarDatosCabecera')
@@ -154,9 +160,9 @@
     let htmlDatos = ''
     listarDatosCabecera.forEach(doc => {
     htmlDatos += `
-    <span class="display-6 fw-bold" style="text-transform:uppercase">${doc.data().nombre}</span> &nbsp; <span class="display-6 fw-bold" style="text-transform:uppercase">${doc.data().apellido}</span>
-    <hr>
-    <p class="mb-0 alert-heading">DDJJ ganancias - bienes personales - período fiscal 2022</p>
+    <span class="h1-a fw-bold" style="text-transform:capitalize">${doc.data().nombre}</span> &nbsp; <span class="h1-a fw-bold" style="text-transform:capitalize">${doc.data().apellido}</span>
+    <hr class="border border-bottom border-dark border-1">
+    <p class="mb-0 h4-a">DDJJ ganancias - bienes personales - período fiscal 2022</p>
   `
   })
 

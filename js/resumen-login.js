@@ -210,7 +210,7 @@
     </div>
   </div>
     <hr>
-    <p class="mb-0 alert-heading">Inmuebles</p>
+    <p class="mb-0 alert-heading">Resumen</p>
   `
   })
 
