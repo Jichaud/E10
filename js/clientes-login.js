@@ -141,7 +141,6 @@
                 btn.addEventListener('click', ({ target: { dataset } }) => {
                   const deleteDatos = id => deleteDoc(doc(db, "clientes", uid, "datosPersonales", id));
                   deleteDatos(dataset.id)
-                  location.reload();
                 })
               })
               document.getElementById('datosFB').style.display = "none";
