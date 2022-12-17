@@ -152,21 +152,26 @@
     });
 
          // auditor
-         const puedeEditar = doc(db, "clientes", uid);
-         const auditor = await getDoc(puedeEditar);
-         const auditorBoolean = await auditor.data().auditorRodados;
-         // const valueAuditor = puedeEditar.uid;
-         console.log(auditor.data().auditorRodados);
-         if (auditorBoolean === true) {
-           console.log("verdadero");
-         } else {
-           console.log("falso");
-           $('.btn-borrar').prop('disabled', true);
-           $('.btn-edit').prop('disabled', true);
-           const btnAgregar = document.querySelector('.agregarRodados');
-           btnAgregar.disabled = true;
-           
-         }
+         const verBoolean = onSnapshot(doc(db, "clientes", uid), doc => {
+          console.log(doc.data().auditorRodados);
+          const valorBoolean = doc.data().auditorRodados;
+  
+          if (valorBoolean === true) {
+            console.log("verdadero");
+            $('.btn-borrar').prop('disabled', false);
+            $('.btn-edit').prop('disabled', false);
+            const btnAgregar = document.querySelector('.agregarRodados');
+            btnAgregar.disabled = false;
+          } else {
+            console.log("falso");
+            $('.btn-borrar').prop('disabled', true);
+            $('.btn-edit').prop('disabled', true);
+            const btnAgregar = document.querySelector('.agregarRodados');
+            btnAgregar.disabled = true;
+  
+          }
+        });
+  
 
     // datos cabecera
     const listarDatosCabeceraDetalle = document.getElementById('listarDatosCabecera')

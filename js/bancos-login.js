@@ -163,21 +163,26 @@
     });
 
          // auditor
-         const puedeEditar = doc(db, "clientes", uid);
-         const auditor = await getDoc(puedeEditar);
-         const auditorBoolean = await auditor.data().auditorBancos;
-         // const valueAuditor = puedeEditar.uid;
-         console.log(auditor.data().auditorBancos);
-         if (auditorBoolean === true) {
-           console.log("verdadero");
-         } else {
-           console.log("falso");
-           $('.btn-borrar').prop('disabled', true);
-           $('.btn-edit').prop('disabled', true);
-           const btnAgregar = document.querySelector('.agregarBancos');
-           btnAgregar.disabled = true;
-           
-         }
+         const verBoolean = onSnapshot(doc(db, "clientes", uid), doc => {
+          console.log(doc.data().auditorBancos);
+          const valorBoolean = doc.data().auditorBancos;
+  
+          if (valorBoolean === true) {
+            console.log("verdadero");
+            $('.btn-borrar').prop('disabled', false);
+            $('.btn-edit').prop('disabled', false);
+            const btnAgregar = document.querySelector('.agregarBancos');
+            btnAgregar.disabled = false;
+          } else {
+            console.log("falso");
+            $('.btn-borrar').prop('disabled', true);
+            $('.btn-edit').prop('disabled', true);
+            const btnAgregar = document.querySelector('.agregarBancos');
+            btnAgregar.disabled = true;
+  
+          }
+        });
+  
 
     // datos cabecera
     const listarDatosCabeceraDetalle = document.getElementById('listarDatosCabecera')
