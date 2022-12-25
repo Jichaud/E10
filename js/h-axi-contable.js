@@ -22,3 +22,30 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
+const listarIndicesDetalle = document.getElementById('listarIndices')
+
+const listarIndices = await getDocs(collection(db, "ipc"))
+
+  let html = ''
+  listarIndices.forEach(doc => {
+    var redondearIndice = (Math.round(doc.data().indice * 100) / 100).toFixed(4);
+    var dataIndice = redondearIndice.toString().replace(/\./g, ',');
+    
+    console.log(doc.data());    
+    html += `
+    <table class="table table-hover table-sm w-50">
+      <thead>
+        <tr>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-start">${doc.data().mes}</td>
+          <td class="text-end">${dataIndice}</td>
+        </tr>
+      </tbody>
+    </table>
+    `
+  })
+  
+  listarIndicesDetalle.innerHTML = html;
