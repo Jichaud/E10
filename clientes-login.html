@@ -15,13 +15,10 @@
     <title>Estudio Diez - clientes</title>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">    
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
     <!-- Bootstrap icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-
-    <!-- Custom styles for this template 
-    <link href="css/modern-business.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -59,11 +56,11 @@
 
   <!-- Navigation -->
   <div class="container pb-5">
-    <nav class="navbar fixed-top navbar-expand-lg bg-white navbar-light h4-a border-bottom border-secondary">
+    <nav class="navbar fixed-top navbar-collapse bg-white navbar-light h4-a border-bottom border-secondary">
       <a class="navbar-brand">
         <img src="images/logo-ed-siglas.png" class="ms-3 img-fluid bg-light py-3 px-3 rounded-3" width="100rem" alt="Estudio Diez">
       </a>
-      <button class="navbar-toggler ms-2 me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+      <button class="navbar-toggler ms-2 me-2 d-sm-block d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
         aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon text-dark"></span>
       </button>
@@ -103,25 +100,42 @@
           </li>
         </ul>
       </div>
-      <div class="col">
+      <div class="col d-sm-block d-lg-none">
         <div class="d-grid gap-2 pe-2 ps-2 mx-auto">
-          <button class="btn btn-danger float-end" id="signOut" type="submit">Salir</button>
+          <button class="btn btn-danger float-end signOut" type="submit">Salir</button>
+        </div>
+      </div>
+      <div class="col-lg-3 d-none d-lg-block d-md-none">
+        <div class="d-grid gap-2 pe-2 ps-2 mx-auto">
+          <button class="btn btn-danger float-end signOut" type="submit">Salir</button>
         </div>
       </div>
     </nav>
   </div>
 
 <!-- Page Content -->
-<div class="container col-lg-6 mt-5 pt-5">
+<div class="container-fluid pt-5 mt-5">
 
- 
   <!-- INICIO -->
   <div id="listarDatosCabecera">
-    
+
   </div>
 
   <div class="row">
-    <div class="col-lg-6 mt-3">
+    <div class="col-lg-3 mt-3 h4-a d-none d-sm-none d-lg-block">
+      <nav class="nav d-inline-flex flex-column">
+        <a class="nav-link text-dark border border-3 border-success rounded-3 mb-3" href="inmuebles-login.html"><i class="bi bi-building-fill h4-a text-dark"></i> Inmuebles</a>
+        <a class="nav-link text-dark border border-3 border-danger rounded-3 mb-3" href="rodados-login.html"><i class="bi bi-car-front-fill h4-a"></i> Rodados</a>
+        <a class="nav-link text-dark border border-3 border-primary rounded-3 mb-3" href="bancos-login.html"><i class="bi bi-bank2 h4-a"></i> Bancos</a>
+        <a class="nav-link text-dark border border-3 border-warning rounded-3 mb-3" href="tenencias-login.html"><i class="bi bi-cash-coin h4-a"></i> Tenencias</a>
+        <a class="nav-link text-dark border border-3 border-info rounded-3 mb-3" href="empresas-login.html"><i class="bi bi-buildings-fill h4-a"></i> Empresas</a>
+        <a class="nav-link text-dark border border-3 border-secondary rounded-3 mb-3" href="saldos-login.html"><i class="bi bi-person-vcard-fill h4-a"></i> Saldos</a>
+        <a class="nav-link text-dark border border-3 border-primary rounded-3 mb-3" href="demas-login.html"><i class="bi bi-file-spreadsheet-fill h4-a"></i> Demás</a>
+        <a class="nav-link text-danger border border-3 border-danger rounded-3 mb-3" href="resumen-login.html"><i class="bi bi-newspaper text-danger h4-a"></i> Resumen</a>
+      </nav>
+    </div>
+
+    <div class="col-lg-4 mt-3">
       <div class="text-center h4-a border border-success py-2 rounded-3">
         Datos personales
       </div>
@@ -129,40 +143,40 @@
         <ol class="list-group mt-3" id="listarDatosPersonales">
 
         </ol>
-      
+
       </div>
-  
-      <!-- Datos personales Form-->      
-      <div id="formDatos">        
-      <form class="mt-3" id="datosFB">
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="nombre">
-          <label for="nombre">Nombre</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="apellido">
-          <label for="apellido">Apellido</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="fechaDeNacimiento">
-          <label for="fechaDeNacimiento">Fecha de nacimiento</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="apellidoMaterno">
-          <label for="apellidoMaterno">Apellido materno</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control rounded-3" id="cuit">
-          <label for="cuit">C.U.I.T.</label>
-        </div>
-        <div class="d-grid gap-2">
-          <button class="btn btn-outline-success mb-3 agregarDatos" id="agregarDatos" type="submit">Agregar <i class="bi bi-plus-circle-fill"></i></button>
-        </div>
-      </form> <!-- Datos personales Form -->
+
+      <!-- Datos personales Form-->
+      <div id="formDatos">
+        <form class="mt-3" id="datosFB">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="nombre">
+            <label for="nombre">Nombre</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="apellido">
+            <label for="apellido">Apellido</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="fechaDeNacimiento">
+            <label for="fechaDeNacimiento">Fecha de nacimiento</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="apellidoMaterno">
+            <label for="apellidoMaterno">Apellido materno</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="cuit">
+            <label for="cuit">C.U.I.T.</label>
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-outline-success mb-3 agregarDatos" id="agregarDatos" type="submit">Agregar <i class="bi bi-plus-circle-fill"></i></button>
+          </div>
+        </form> <!-- Datos personales Form -->
+      </div>
     </div>
-    </div>
-  
-    <div class="col-lg-6 mt-3">
+
+    <div class="col-lg-5 mt-3">
       <div class="text-center h4-a border border-primary mb-3 py-2 rounded-3">
         Datos societarios
       </div>
@@ -184,61 +198,79 @@
           <label for="empresaCuit">Empresa | C.U.I.T.</label>
         </div>
         <div class="d-grid gap-2">
-          <button class="btn btn-outline-success mb-3 agregarEmpresa" id="agregarEmpresa" type="submit">Agregar <i class="bi bi-plus-circle-fill"></i></button>
+          <button class="btn btn-outline-success mb-3 agregarEmpresa" id="agregarEmpresa" type="submit">Agregar <i
+              class="bi bi-plus-circle-fill"></i></button>
         </div>
       </form> <!-- Empresas Form -->
     </div>
-  
+
   </div>
 
 </div> <!-- /.container -->
 
 <hr>
 
-      <!-- Footer -->
-      <footer class="py-5 bg-dark h3-a">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 mb-4">
-              <div class="list-group">
-                <a class="list-group-item bg-primary card-link lead text-light px-3 py-3" role="tab">Estudio</a>
-                <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/perfil.html" role="tab">Perfil</a>
-                <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/organizacion.html" role="tab">Organización</a>
-                <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/socios.html" role="tab">Socios</a>
-                <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/publicaciones.html" role="tab">Publicaciones</a>
-              </div>
-            </div>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark h3-a">
+      <div class="container">
+        <div class="row">
           <div class="col-lg-3 mb-4">
-            <div class="list-group" id="list-tab" role="tablist">
-              <a class="list-group-item bg-secondary card-link lead text-light px-3 py-3" role="tab">Servicios</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/impositivo.html" role="tab">Impositivos</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/contable.html" role="tab">Contable</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/juridico.html" role="tab">Jurídicos</a>
+            <div class="list-group">
+              <a class="list-group-item list-group-item-action list-group-item-primary card-link lead px-3 py-3">Estudio</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/perfil.html">Perfil</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/organizacion.html">Organización</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/socios.html">Socios</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/publicaciones.html">Publicaciones</a>
             </div>
           </div>
           <div class="col-lg-3 mb-4">
-            <div class="list-group" id="list-tab" role="tablist">
-              <a class="list-group-item bg-success card-link lead text-light px-3 py-3" role="tab">Capacitación</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/eventos.html" role="tab">Eventos</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/suscriptores.html" role="tab">Suscriptores</a>
+            <div class="list-group">
+              <a class="list-group-item list-group-item-action list-group-item-dark card-link lead px-3 py-3">Servicios</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/impositivo.html">Impositivos</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/contable.html">Contable</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/juridico.html">Jurídicos</a>
             </div>
           </div>
           <div class="col-lg-3 mb-4">
-            <div class="list-group" id="list-tab" role="tablist">
-              <a class="list-group-item bg-warning card-link lead text-dark px-3 py-3" role="tab">Conecta</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/contact.html" role="tab">Contacto</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/sitios-de-interes.html" role="tab">Link's de interés</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.youtube.com/channel/UC1Rg9E5c1hEgTlysuGBRy6A" target="_blank" role="tab">Youtube</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
+            <div class="list-group">
+              <a class="list-group-item list-group-item-action list-group-item-success card-link lead px-3 py-3">Capacitación</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/eventos.html">Eventos</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/suscriptores.html">Suscriptores</a>
             </div>
           </div>
+          <div class="col-lg-3 mb-4">
+            <div class="list-group">
+              <a class="list-group-item list-group-item-action list-group-item-warning lead px-3 py-3">Conecta</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/contact.html">Contacto</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/sitios-de-interes.html">Link's de interés</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.facebook.com/diezestudio"
+                target="_blank">Facebook</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.youtube.com/@diezestudio" target="_blank">Youtube</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://twitter.com/diez_estudio"
+                target="_blank">Twitter</a>
+            </div>
           </div>
-            <hr class="text-light">
-            <p class="m-0 text-end text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
         </div>
-        <!-- /.container -->
-      </footer>
+        <hr class="text-white">
+        <p class="m-0 text-end text-secondary">Copyright &copy;
+          <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires.
+          Argentina
+        </p>
+      </div>
+      <!-- /.container -->
+    </footer>
 
     <!-- Jquery and mask form-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -249,7 +281,7 @@
       crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))

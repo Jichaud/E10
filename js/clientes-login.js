@@ -161,8 +161,8 @@
     listarDatosCabecera.forEach(doc => {
     htmlDatos += `
     <span class="h1-a fw-bold" style="text-transform:capitalize">${doc.data().nombre}</span> &nbsp; <span class="h1-a fw-bold" style="text-transform:capitalize">${doc.data().apellido}</span>
-    <hr class="border border-bottom border-dark border-1">
     <p class="mb-0 h4-a">DDJJ ganancias - bienes personales - período fiscal 2022</p>
+    <hr class="border border-bottom border-dark border-1">
   `
   })
 
@@ -171,14 +171,17 @@
   })
 
       // signout process
-      document.getElementById('signOut').addEventListener('click', function (event) {
-        const auth = getAuth();
-        signOut(auth).then(() => {
-          // Sign-out successful.
-        }).catch((error) => {
-          // An error happened.
-        });
-      });
+      const singOutBtn = document.querySelectorAll('.signOut');
+      singOutBtn.forEach(singleBtn => {
+        singleBtn.addEventListener('click', function (event) {
+          const auth = getAuth();
+          signOut(auth).then(() => {
+            // Sign-out successful.
+          }).catch((error) => {
+            // An error happened.
+          });
+        });          
+        })
     } else {
       window.location.href = "clientes.html";
       // User is signed out    
