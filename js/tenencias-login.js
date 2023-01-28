@@ -44,6 +44,27 @@
 
         let html = ''
         listarTenencias.forEach(doc => {
+          if (doc.data().nombreMoneda=="") {
+          html += `
+          <div class="card border border border-success mt-3 align-center">
+            <div class="card-header">
+              <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().tipoMoneda}</h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item fw-bolder"><i class="bi bi-check-circle-fill text-primary"></i> Valor al 31/12: $ ${doc.data().valorPesos}</li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <div class="d-grid-2 gap-2 d-md-block float-end">
+                <button class="btn btn-warning btn-edit" type="button" data-id="${doc.id}">Editar <i class="bi bi-pencil-fill"></i></button>
+                <button class="btn btn-danger btn-borrar" type="button" data-id="${doc.id}">Borrar <i class="bi bi-trash3-fill"></i></button>
+              </div>
+            </div>
+          </div>
+          `
+        } else {
+
           html += `
           <div class="card border border border-success mt-3 align-center">
             <div class="card-header">
@@ -64,6 +85,7 @@
             </div>
           </div>
           `
+        }
         })
   
         listarTenenciasDetalle.innerHTML = html;
@@ -83,8 +105,23 @@
           btnEditar.forEach((btn) => {
             btn.addEventListener('click', async (e) => {
               const doc = await editarTenencia(e.target.dataset.id)
-              console.log(doc.data());
               const editar = doc.data()
+              if(doc.data().nombreMoneda=="") {
+               $('#nombreMoneda').hide()
+               $('#montoNominal').hide()
+      
+              tenenciasFB["tipoMoneda"].value = editar.tipoMoneda
+              tenenciasFB["valorPesos"].value = editar.valorPesos
+              $('#nombreMoneda').val("")
+              $('#montoNominal').val("")
+
+              editStatus = true;
+              id = doc.id;
+              document.getElementById('agregarTenencias').innerHTML = "Editar";
+            } else {
+              $('#nombreMoneda').show()
+              $('#montoNominal').show()
+
               tenenciasFB["tipoMoneda"].value = editar.tipoMoneda
               tenenciasFB["nombreMoneda"].value = editar.nombreMoneda
               tenenciasFB["montoNominal"].value = editar.montoNominal
@@ -92,6 +129,7 @@
               editStatus = true;
               id = doc.id;
               document.getElementById('agregarTenencias').innerHTML = "Editar";
+            }
             })
           })
       })
@@ -109,6 +147,13 @@
 
       if (!editStatus) {
       const docRef = doc(db, "clientes", uid);
+      if (tipoMoneda==="Pesos") {
+      const dataTenencia = {
+        agregaCollection: addDoc(collection(docRef, "Tenencias"), {
+        tipoMoneda: tipoMoneda.value,
+        valorPesos: valorPesos.value,
+      })};
+      } else {
       const dataTenencia = {
         agregaCollection: addDoc(collection(docRef, "Tenencias"), {
         tipoMoneda: tipoMoneda.value,
@@ -116,6 +161,8 @@
         montoNominal: montoNominal.value,
         valorPesos: valorPesos.value
       })};
+    }
+
     } else {
       await updateTenencia(id, {
         tipoMoneda: tipoMoneda.value,
@@ -180,6 +227,21 @@
   listarDatosCabeceraDetalle.innerHTML = htmlDatos;
 
   })
+
+      // verificar moneda seleccionada
+      $('#tipoMoneda').on('change', function(){
+        if ($(this).val()==="Otras monedas") {
+          $('#nombreMoneda').show()
+          $('#montoNominal').show()
+        }
+        else {
+          $('#nombreMoneda').hide()
+          $('#montoNominal').hide()
+          $('#nombreMoneda').val("")
+          $('#montoNominal').val("")
+        }
+      });
+      
 
 
       // signout process
