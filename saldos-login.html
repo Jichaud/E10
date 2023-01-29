@@ -151,6 +151,14 @@
           </select>
           <label for="estadoSaldo">Estado del saldo</label>
         </div>
+        <div class="col form-floating rounded-3 mb-3">
+          <select class="form-select" id="tipoMoneda" aria-label="Default select example">
+            <option selected>Seleccionar</option>
+            <option value="Pesos">Pesos</option>
+            <option value="Otras monedas">Otras monedas</option>
+          </select>
+          <label for="tipoMoneda">Tipo de moneda</label>
+        </div>
         <div class="col form-floating mb-3">
           <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="nombreME">
           <label for="nombreME">Nombre de la moneda extranjera</label>
@@ -174,7 +182,7 @@
         </div>
         <div class="col form-floating mb-3">
           <input type="text" class="form-control rounded-3" value="0,00" id="valorPesos">
-          <label for="valorPesos">Valor en pesos al 31/12</label>
+          <label for="valorPesos" id="labelValorPesos">Valor en pesos al 31/12</label>
         </div>
         <div class="d-grid gap-2">
           <button class="btn btn-outline-success mb-3 agregarSaldos" id="agregarSaldos" type="submit">Agregar</button>

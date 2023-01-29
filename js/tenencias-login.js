@@ -118,6 +118,7 @@
               editStatus = true;
               id = doc.id;
               document.getElementById('agregarTenencias').innerHTML = "Editar";
+              document.getElementById('labelValorPesos').innerHTML="Valor al 31/12";
             } else {
               $('#nombreMoneda').show()
               $('#montoNominal').show()
@@ -129,6 +130,7 @@
               editStatus = true;
               id = doc.id;
               document.getElementById('agregarTenencias').innerHTML = "Editar";
+              document.getElementById('labelValorPesos').innerHTML="Valor en pesos al 31/12";
             }
             })
           })
@@ -148,12 +150,14 @@
       if (!editStatus) {
       const docRef = doc(db, "clientes", uid);
       if (tipoMoneda==="Pesos") {
+      document.getElementById('labelValorPesos').innerHTML="Valor al 31/12";
       const dataTenencia = {
         agregaCollection: addDoc(collection(docRef, "Tenencias"), {
         tipoMoneda: tipoMoneda.value,
         valorPesos: valorPesos.value,
       })};
       } else {
+      document.getElementById('labelValorPesos').innerHTML="Valor en pesos al 31/12";
       const dataTenencia = {
         agregaCollection: addDoc(collection(docRef, "Tenencias"), {
         tipoMoneda: tipoMoneda.value,
@@ -229,20 +233,30 @@
   })
 
       // verificar moneda seleccionada
-      $('#tipoMoneda').on('change', function(){
-        if ($(this).val()==="Otras monedas") {
-          $('#nombreMoneda').show()
-          $('#montoNominal').show()
-        }
-        else {
-          $('#nombreMoneda').hide()
-          $('#montoNominal').hide()
-          $('#nombreMoneda').val("")
-          $('#montoNominal').val("")
+      $(document).ready(
+        $('#nombreMoneda').hide(),
+        $('#montoNominal').hide()
+      );
+      $('#tipoMoneda').change(function(){
+        switch($(this).val()){
+          case 'Seleccionar':
+            $('#nombreMoneda').hide()
+            $('#montoNominal').hide()
+          break;
+          case 'Pesos':
+            $('#nombreMoneda').hide()
+            $('#montoNominal').hide()
+            $('#nombreMoneda').val("")
+            $('#montoNominal').val("")
+            document.getElementById('labelValorPesos').innerHTML="Valor al 31/12";
+          break;
+          case 'Otras monedas':
+            $('#nombreMoneda').show()
+            $('#montoNominal').show()
+            document.getElementById('labelValorPesos').innerHTML="Valor en pesos al 31/12";
+          break;
         }
       });
-      
-
 
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {

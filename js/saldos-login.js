@@ -44,6 +44,29 @@
 
         let html = ''
         listarSaldos.forEach(doc => {
+          if (doc.data().nombreME=="") {
+          html += `
+          <div class="card border border border-success mt-3 align-center">
+            <div class="card-header">
+              <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().nombreEmpresa} ${doc.data().tipoSocietario}</h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> País: ${doc.data().pais}</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Tipo de saldo: ${doc.data().tipoSaldo}</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Estado del saldo: ${doc.data().estadoSaldo}</li>
+                <li class="list-group-item fw-bolder"><i class="bi bi-check-circle-fill text-primary"></i> Valor al 31/12: $ ${doc.data().valorPesos}</li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <div class="d-grid-2 gap-2 d-md-block float-end">
+                <button class="btn btn-warning btn-edit" type="button" data-id="${doc.id}">Editar <i class="bi bi-pencil-fill"></i></button>
+                <button class="btn btn-danger btn-borrar" type="button" data-id="${doc.id}">Borrar <i class="bi bi-trash3-fill"></i></button>
+              </div>
+            </div>
+          </div>
+          `
+          } else {
           html += `
           <div class="card border border border-success mt-3 align-center">
             <div class="card-header">
@@ -67,6 +90,7 @@
             </div>
           </div>
           `
+        }
         })
   
         listarSaldosDetalle.innerHTML = html;
@@ -88,6 +112,28 @@
               const doc = await editarSaldos(e.target.dataset.id)
               console.log(doc.data());
               const editar = doc.data()
+              if(doc.data().nombreME=="") {
+                $('#nombreME').hide()
+                $('#montoNominalME').hide()
+ 
+              saldosFB["nombreEmpresa"].value = editar.nombreEmpresa
+              saldosFB["pais"].value = editar.pais
+              saldosFB["tipoSaldo"].value = editar.tipoSaldo
+              saldosFB["estadoSaldo"].value = editar.estadoSaldo
+              saldosFB["cuit"].value = editar.cuit
+              saldosFB["tipoSocietario"].value = editar.tipoSocietario
+              saldosFB["valorPesos"].value = editar.valorPesos
+              $('#nombreME').val("")
+              $('#montoNominalME').val("")
+
+              editStatus = true;
+              id = doc.id;
+              document.getElementById('agregarSaldos').innerHTML = "Editar";
+              document.getElementById('labelValorPesos').innerHTML="Valor al 31/12";
+              } else {
+                $('#nombreME').show()
+                $('#montoNominalME').show()
+  
               saldosFB["nombreEmpresa"].value = editar.nombreEmpresa
               saldosFB["pais"].value = editar.pais
               saldosFB["tipoSaldo"].value = editar.tipoSaldo
@@ -100,6 +146,8 @@
               editStatus = true;
               id = doc.id;
               document.getElementById('agregarSaldos').innerHTML = "Editar";
+              document.getElementById('labelValorPesos').innerHTML="Valor en pesos al 31/12";
+            }
             })
           })
       })
@@ -122,6 +170,20 @@
 
       if (!editStatus) {
       const docRef = doc(db, "clientes", uid);
+      if (tipoMoneda==="Pesos") {
+      document.getElementById('labelValorPesos').innerHTML="Valor al 31/12";
+      const dataSaldo = {
+        agregaCollection: addDoc(collection(docRef, "Saldos"), {
+        nombreEmpresa: nombreEmpresa.value,
+        pais: pais.value,
+        tipoSaldo: tipoSaldo.value,
+        estadoSaldo: estadoSaldo.value,
+        cuit: cuit.value,
+        tipoSocietario: tipoSocietario.value,
+        valorPesos: valorPesos.value
+      })};
+    } else {
+      document.getElementById('labelValorPesos').innerHTML="Valor en pesos al 31/12";
       const dataSaldo = {
         agregaCollection: addDoc(collection(docRef, "Saldos"), {
         nombreEmpresa: nombreEmpresa.value,
@@ -134,6 +196,7 @@
         tipoSocietario: tipoSocietario.value,
         valorPesos: valorPesos.value
       })};
+    }
     } else {
       await updateSaldo(id, {
         nombreEmpresa: nombreEmpresa.value,
@@ -204,6 +267,32 @@
 
   })
 
+        // verificar moneda seleccionada
+        $(document).ready(
+          $('#nombreME').hide(),
+          $('#montoNominalME').hide()
+        );
+        $('#tipoMoneda').change(function(){
+          switch($(this).val()){
+            case 'Seleccionar':
+              $('#nombreME').hide()
+              $('#montoNominalME').hide()
+            break;
+            case 'Pesos':
+              $('#nombreME').hide()
+              $('#montoNominalME').hide()
+              $('#nombreME').val("")
+              $('#montoNominalME').val("")
+              document.getElementById('labelValorPesos').innerHTML="Valor al 31/12";
+            break;
+            case 'Otras monedas':
+              $('#nombreME').show()
+              $('#montoNominalME').show()
+              document.getElementById('labelValorPesos').innerHTML="Valor en pesos al 31/12";
+            break;
+          }
+        });
+
 
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {
@@ -222,5 +311,6 @@
 
   $(function(){
     $('#valorPesos').mask('000.000.000.000.000,00', {reverse: true});
+    $('#montoNominalME').mask('000.000.000.000.000,00', {reverse: true});
     $('#cuit').mask('00-00000000-0');
   });
