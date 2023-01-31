@@ -129,18 +129,18 @@
         <div class="col form-floating rounded-3 mb-3">
           <select class="form-select" id="tipoMoneda" aria-label="Default select example">
             <option selected>Seleccionar</option>
-            <option value="Pesos">Pesos</option>
+            <option value="Pesos" id="hasPesos">Pesos</option>
             <option value="Otras monedas">Otras monedas</option>
           </select>
           <label for="tipoMoneda">Tipo de moneda</label>
         </div>
         <div class="form-floating mb-3">
           <input type="text" class="form-control rounded-3" style="text-transform:uppercase" id="nombreMoneda">
-          <label for="nombreMoneda">Nombre de la moneda extranjera</label>
+          <label for="nombreMoneda" id="labelnombreMoneda">Nombre de la moneda extranjera</label>
         </div>
         <div class="col form-floating mb-3">
           <input type="text" class="form-control rounded-3" value="0,00" id="montoNominal">
-          <label for="montoNominal">Monto nominal de la moneda extranjera</label>
+          <label for="montoNominal" id="labelmontoNominal">Monto nominal de la moneda extranjera</label>
         </div>
         <div class="col form-floating mb-3">
           <input type="text" class="form-control rounded-3" value="0,00" id="valorPesos">

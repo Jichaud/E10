@@ -1,7 +1,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
   import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js"
-  import { getFirestore, collection, addDoc, getDocs, getDoc, doc, setDoc, onSnapshot, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
+  import { getFirestore, collection, addDoc, getDocs, getDoc, doc, setDoc, onSnapshot, deleteDoc, updateDoc, query, where } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -177,7 +177,6 @@
       editStatus = false;
       document.getElementById('agregarTenencias').innerHTML = "Agregar";
     }
-    
       tenenciasFB.reset();
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
@@ -236,27 +235,50 @@
       $(document).ready(
         $('#nombreMoneda').hide(),
         $('#montoNominal').hide()
-      );
+
+      )
       $('#tipoMoneda').change(function(){
         switch($(this).val()){
           case 'Seleccionar':
             $('#nombreMoneda').hide()
+            $('#labelnombreMoneda').hide()
             $('#montoNominal').hide()
+            $('#labelmontoNominal').hide()
+            $('#valorPesos').hide()
+            $('#labelValorPesos').hide()
           break;
           case 'Pesos':
             $('#nombreMoneda').hide()
             $('#montoNominal').hide()
             $('#nombreMoneda').val("")
             $('#montoNominal').val("")
+            $('#valorPesos').show()
+            $('#labelValorPesos').show()
             document.getElementById('labelValorPesos').innerHTML="Valor al 31/12";
           break;
           case 'Otras monedas':
             $('#nombreMoneda').show()
+            $('#labelnombreMoneda').show()
             $('#montoNominal').show()
+            $('#labelmontoNominal').show()
+            $('#valorPesos').show()
+            $('#labelValorPesos').show()
             document.getElementById('labelValorPesos').innerHTML="Valor en pesos al 31/12";
           break;
         }
       });
+
+      // verficar pesos
+      const tienePesos = collection(db, "clientes", uid, "Tenencias");
+      const qtienePesos = query(tienePesos, where("tipoMoneda", "==", "Pesos"))
+      const querySnapshot = await getDocs(qtienePesos);
+      querySnapshot.forEach((doc) => {
+        if (doc.exists()) {
+          $('#hasPesos').prop("disabled", true);
+        } else {
+          // vacío
+        }
+      })
 
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {
