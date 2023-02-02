@@ -35,6 +35,8 @@
       console.log(user.uid);
       console.log(user.email);
 
+      cargaInicio();
+
       const updateTenencia = (id, newFields) => updateDoc(doc(db, "clientes", uid, "Tenencias", id), newFields);
 
       // listar datos
@@ -63,6 +65,7 @@
             </div>
           </div>
           `
+          $('#hasPesos').prop("disabled", true);
         } else {
 
           html += `
@@ -96,10 +99,12 @@
           btn.addEventListener('click', ({target: {dataset}}) => {
             const deleteTenencia = id => deleteDoc(doc(db, "clientes", uid, "Tenencias", id));
             deleteTenencia(dataset.id)
+            $('#hasPesos').prop("disabled", false);
+            cargaInicio();
           })
         })
 
-        // Editar datos
+        // Editar datos - informa datos en campos Form
         const editarTenencia = id => getDoc(doc(db, "clientes", uid, "Tenencias", id));
         const btnEditar = listarTenenciasDetalle.querySelectorAll('.btn-edit')
           btnEditar.forEach((btn) => {
@@ -107,9 +112,7 @@
               const doc = await editarTenencia(e.target.dataset.id)
               const editar = doc.data()
               if(doc.data().nombreMoneda=="") {
-               $('#nombreMoneda').hide()
-               $('#montoNominal').hide()
-      
+              editaPesos();
               tenenciasFB["tipoMoneda"].value = editar.tipoMoneda
               tenenciasFB["valorPesos"].value = editar.valorPesos
               $('#nombreMoneda').val("")
@@ -120,8 +123,7 @@
               document.getElementById('agregarTenencias').innerHTML = "Editar";
               document.getElementById('labelValorPesos').innerHTML="Valor al 31/12";
             } else {
-              $('#nombreMoneda').show()
-              $('#montoNominal').show()
+              editaMoneda();
 
               tenenciasFB["tipoMoneda"].value = editar.tipoMoneda
               tenenciasFB["nombreMoneda"].value = editar.nombreMoneda
@@ -136,7 +138,7 @@
           })
       })
 
-    // agregar / editar datos
+    // agregar / editar datos | Carga de datos final
     
     const tenenciasFB = document.querySelector("#tenenciasFB");
     tenenciasFB.addEventListener("submit", async (e) => {
@@ -166,7 +168,7 @@
         valorPesos: valorPesos.value
       })};
     }
-
+      cargaInicio();
     } else {
       await updateTenencia(id, {
         tipoMoneda: tipoMoneda.value,
@@ -176,6 +178,7 @@
       })
       editStatus = false;
       document.getElementById('agregarTenencias').innerHTML = "Agregar";
+      cargaInicio();
     }
       tenenciasFB.reset();
       document.body.scrollTop = 0;
@@ -231,12 +234,34 @@
 
   })
 
-      // verificar moneda seleccionada
-      $(document).ready(
+      function cargaInicio(){
+        $('#nombreMoneda').hide(),
+        $('#labelnombreMoneda').hide(),
+        $('#montoNominal').hide(),
+        $('#montoNominal').hide(),
+        $('#labelmontoNominal').hide(),
+        $('#valorPesos').hide(),
+        $('#labelValorPesos').hide()
+        tipoMoneda.focus();
+      }
+
+      function editaPesos(){
+        $('#valorPesos').show(),
+        $('#labelValorPesos').show(),
         $('#nombreMoneda').hide(),
         $('#montoNominal').hide()
+      }
 
-      )
+      function editaMoneda(){
+        $('#valorPesos').show(),
+        $('#labelValorPesos').show(),
+        $('#nombreMoneda').show(),
+        $('#labelnombreMoneda').show(),
+        $('#montoNominal').show(),
+        $('#labelmontoNominal').show()
+      }
+
+      // verificar moneda seleccionada
       $('#tipoMoneda').change(function(){
         switch($(this).val()){
           case 'Seleccionar':
@@ -267,18 +292,6 @@
           break;
         }
       });
-
-      // verficar pesos
-      const tienePesos = collection(db, "clientes", uid, "Tenencias");
-      const qtienePesos = query(tienePesos, where("tipoMoneda", "==", "Pesos"))
-      const querySnapshot = await getDocs(qtienePesos);
-      querySnapshot.forEach((doc) => {
-        if (doc.exists()) {
-          $('#hasPesos').prop("disabled", true);
-        } else {
-          // vacío
-        }
-      })
 
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {
