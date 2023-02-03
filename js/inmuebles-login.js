@@ -83,7 +83,6 @@
           btnEditar.forEach((btn) => {
             btn.addEventListener('click', async (e) => {
               const doc = await editarInmueble(e.target.dataset.id)
-              console.log(doc.data());
               const editar = doc.data()
               inmueblesFB["fechaAlta"].value = editar.fechaAlta
               inmueblesFB["tipoInmueble"].value = editar.tipoInmueble
@@ -105,7 +104,15 @@
   
       })
 
-    // agregar / editar datos
+    // agregar / editar datos / cancela | Carga de datos final
+    const cancelBtn = document.querySelector("#cancela");
+    cancelBtn.addEventListener("click", async (e) =>{
+      document.getElementById('agregarInmueble').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
+      inmueblesFB.reset();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      fechaAlta.focus();
+    })    
     
     const inmueblesFB = document.querySelector("#inmueblesFB");
     inmueblesFB.addEventListener("submit", async (e) => {

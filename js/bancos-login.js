@@ -53,9 +53,12 @@
               <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().nombreBanco} | ${doc.data().nombreSucursal}</h5>
             </div>
             <div class="card-body">
+            <div class="d-flex w-100 justify-content-between">
+              <small class="mb-1 text-white badge bg-primary fw-bold" style="text-transform:capitalize">${doc.data().tipoCuenta}</small>
+              <small class="text-white mb-1 fw-bold badge bg-primary" style="text-transform:uppercase">Pesos</small>
+            </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Nº de cuenta: ${doc.data().numeroCuenta}</li>
-                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Tipo de cuenta: ${doc.data().tipoCuenta}</li>
                 <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Estado cuenta: ${doc.data().estadoCuenta}</li>
                 <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> País: ${doc.data().pais}</li>
                 <li class="list-group-item fw-bold"><i class="bi bi-check-circle-fill text-primary"></i> Saldo al 31/12: ${doc.data().saldoPesos}</li>
@@ -76,14 +79,16 @@
               <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().nombreBanco} | ${doc.data().nombreSucursal}</h5>
             </div>
             <div class="card-body">
+            <div class="d-flex w-100 justify-content-between">
+              <small class="mb-1 text-white badge bg-success fw-bold"  style="text-transform:capitalize">${doc.data().tipoCuenta}</small>
+              <small class="mb-1 text-white badge bg-success fw-bold" style="text-transform:uppercase">${doc.data().nombreME}</small>
+            </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Nº de cuenta: ${doc.data().numeroCuenta}</li>
-                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Tipo de cuenta: ${doc.data().tipoCuenta}</li>
-                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Estado cuenta: ${doc.data().estadoCuenta}</li>
-                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> País: ${doc.data().pais}</li>
-                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Moneda extranjera: ${doc.data().nombreME}</li>
-                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Monto nominal: ${doc.data().nominalME}</li>
-                <li class="list-group-item fw-bold"><i class="bi bi-check-circle-fill text-primary"></i> Saldo al 31/12: ${doc.data().saldoPesos}</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Nº de cuenta: ${doc.data().numeroCuenta}</li>
+                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-success"></i> Estado cuenta: ${doc.data().estadoCuenta}</li>
+                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-success"></i> País: ${doc.data().pais}</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Monto nominal: ${doc.data().nominalME}</li>
+                <li class="list-group-item fw-bold"><i class="bi bi-check-circle-fill text-success"></i> Saldo al 31/12: ${doc.data().saldoPesos}</li>
               </ul>
             </div>
             <div class="card-footer">
@@ -114,7 +119,6 @@
           btnEditar.forEach((btn) => {
             btn.addEventListener('click', async (e) => {
               const doc = await editarBanco(e.target.dataset.id)
-              console.log(doc.data());
               const editar = doc.data()
               if (doc.data().nombreME==""){
               editaPesos();
@@ -129,7 +133,7 @@
               bancosFB["saldoPesos"].value = editar.saldoPesos
               editStatus = true;
               id = doc.id;
-              document.getElementById('agregarBancos').innerHTML = "Editar";
+              document.getElementById('agregarBancos').innerHTML = '<i class="bi bi-check-circle"></i> Editar';
               } else {
               editaMoneda();
               bancosFB["nombreBanco"].value = editar.nombreBanco
@@ -145,14 +149,22 @@
               bancosFB["saldoPesos"].value = editar.saldoPesos
               editStatus = true;
               id = doc.id;
-              document.getElementById('agregarBancos').innerHTML = "Editar";
+              document.getElementById('agregarBancos').innerHTML = '<i class="bi bi-check-circle"></i> Editar';
               }
             })
           })            
       })
 
-    // agregar / editar datos | Carga de datos final
-    
+    // agregar / editar datos / cancela | Carga de datos final
+    const cancelBtn = document.querySelector("#cancela");
+    cancelBtn.addEventListener("click", async (e) =>{
+      document.getElementById('agregarBancos').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
+      bancosFB.reset();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      nombreBanco.focus();
+    })
+
     const bancosFB = document.querySelector("#bancosFB");
     bancosFB.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -216,7 +228,7 @@
         saldoPesos: saldoPesos.value
       })
       editStatus = false;
-      document.getElementById('agregarBancos').innerHTML = "Agregar";
+      document.getElementById('agregarBancos').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
       cargaInicio();
     }
     
@@ -335,7 +347,6 @@
           break;
         }
       });
-
 
 
       // signout process
