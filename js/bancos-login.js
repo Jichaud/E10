@@ -35,6 +35,8 @@
       console.log(user.uid);
       console.log(user.email);
 
+      cargaInicio();
+
       const updateBanco = (id, newFields) => updateDoc(doc(db, "clientes", uid, "Bancos", id), newFields);
 
       // listar datos
@@ -44,6 +46,7 @@
 
         let html = ''
         listarBancos.forEach(doc => {
+          if(doc.data().nombreME=="") {
           html += `
           <div class="card border border border-success mt-3 align-center">
             <div class="card-header">
@@ -54,6 +57,7 @@
                 <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Nº de cuenta: ${doc.data().numeroCuenta}</li>
                 <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Tipo de cuenta: ${doc.data().tipoCuenta}</li>
                 <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Estado cuenta: ${doc.data().estadoCuenta}</li>
+                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> País: ${doc.data().pais}</li>
                 <li class="list-group-item fw-bold"><i class="bi bi-check-circle-fill text-primary"></i> Saldo al 31/12: ${doc.data().saldoPesos}</li>
               </ul>
             </div>
@@ -65,6 +69,32 @@
             </div>
           </div>
           `
+          } else {
+          html += `
+          <div class="card border border border-success mt-3 align-center">
+            <div class="card-header">
+              <h5 class="card-title fw-bolder" style="text-transform:uppercase">${doc.data().nombreBanco} | ${doc.data().nombreSucursal}</h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Nº de cuenta: ${doc.data().numeroCuenta}</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Tipo de cuenta: ${doc.data().tipoCuenta}</li>
+                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Estado cuenta: ${doc.data().estadoCuenta}</li>
+                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Estado cuenta: ${doc.data().pais}</li>
+                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Moneda extranjera: ${doc.data().nombreME}</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Monto nominal: ${doc.data().nominalME}</li>
+                <li class="list-group-item fw-bold"><i class="bi bi-check-circle-fill text-primary"></i> Saldo al 31/12: ${doc.data().saldoPesos}</li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <div class="d-grid-2 gap-2 d-md-block float-end">
+                <button class="btn btn-warning btn-edit" type="button" data-id="${doc.id}">Editar <i class="bi bi-pencil-fill"></i></button>
+                <button class="btn btn-danger btn-borrar" type="button" data-id="${doc.id}">Borrar <i class="bi bi-trash3-fill"></i></button>
+              </div>
+            </div>
+          </div>
+          `
+          }
         })
   
         listarBancosDetalle.innerHTML = html;
@@ -78,7 +108,7 @@
           })
         })
 
-        // Editar datos
+        // Editar datos - informa datos en campos Form
         const editarBanco = id => getDoc(doc(db, "clientes", uid, "Bancos", id));
         const btnEditar = listarBancosDetalle.querySelectorAll('.btn-edit')
           btnEditar.forEach((btn) => {
@@ -86,6 +116,22 @@
               const doc = await editarBanco(e.target.dataset.id)
               console.log(doc.data());
               const editar = doc.data()
+              if (doc.data().nombreME==""){
+              editaPesos();
+              bancosFB["nombreBanco"].value = editar.nombreBanco
+              bancosFB["pais"].value = editar.pais
+              bancosFB["nombreSucursal"].value = editar.nombreSucursal
+              bancosFB["codigoSucursal"].value = editar.codigoSucursal
+              bancosFB["cbu"].value = editar.cbu
+              bancosFB["numeroCuenta"].value = editar.numeroCuenta
+              bancosFB["tipoCuenta"].value = editar.tipoCuenta
+              bancosFB["estadoCuenta"].value = editar.estadoCuenta
+              bancosFB["saldoPesos"].value = editar.saldoPesos
+              editStatus = true;
+              id = doc.id;
+              document.getElementById('agregarBancos').innerHTML = "Editar";
+              } else {
+              editaMoneda();
               bancosFB["nombreBanco"].value = editar.nombreBanco
               bancosFB["pais"].value = editar.pais
               bancosFB["nombreSucursal"].value = editar.nombreSucursal
@@ -100,11 +146,12 @@
               editStatus = true;
               id = doc.id;
               document.getElementById('agregarBancos').innerHTML = "Editar";
+              }
             })
           })            
       })
 
-    // agregar / editar datos
+    // agregar / editar datos | Carga de datos final
     
     const bancosFB = document.querySelector("#bancosFB");
     bancosFB.addEventListener("submit", async (e) => {
@@ -124,6 +171,20 @@
 
       if (!editStatus) {
       const docRef = doc(db, "clientes", uid);
+      if(tipoMoneda==="Pesos"){
+      const dataBanco = {
+        agregaCollection: addDoc(collection(docRef, "Bancos"), {
+        nombreBanco: nombreBanco.value,
+        pais: pais.value,
+        nombreSucursal: nombreSucursal.value,
+        codigoSucursal: codigoSucursal.value,
+        cbu: cbu.value,
+        numeroCuenta: numeroCuenta.value,
+        tipoCuenta: tipoCuenta.value,
+        estadoCuenta: estadoCuenta.value,
+        saldoPesos: saldoPesos.value
+      })};
+      } else {
       const dataBanco = {
         agregaCollection: addDoc(collection(docRef, "Bancos"), {
         nombreBanco: nombreBanco.value,
@@ -138,6 +199,8 @@
         nominalME: nominalME.value,
         saldoPesos: saldoPesos.value
       })};
+      }
+      cargaInicio();
     } else {
       await updateBanco(id, {
         nombreBanco: nombreBanco.value,
@@ -154,6 +217,7 @@
       })
       editStatus = false;
       document.getElementById('agregarBancos').innerHTML = "Agregar";
+      cargaInicio();
     }
     
       bancosFB.reset();
@@ -209,6 +273,69 @@
   listarDatosCabeceraDetalle.innerHTML = htmlDatos;
 
   })
+
+      function cargaInicio(){
+        $('#nombreME').hide(),
+        $('#labelnombreME').hide(),
+        $('#nominalME').hide(),
+        $('#labelnominalME').hide(),
+        $('#saldoPesos').hide(),
+        $('#labelsaldoPesos').hide()
+      }
+
+      function editaPesos(){
+        $('#nombreME').hide(),
+        $('#nombreME').val(""),
+        $('#labelnombreME').hide(),
+        $('#nominalME').hide(),
+        $('#nominalME').val(""),
+        $('#labelnominalME').hide(),
+        $('#saldoPesos').show(),
+        $('#labelsaldoPesos').show()
+      }
+
+      function editaMoneda(){
+        $('#nombreME').show(),
+        $('#labelnombreME').show(),
+        $('#nominalME').show(),
+        $('#labelnominalME').show(),
+        $('#saldoPesos').show(),
+        $('#labelsaldoPesos').show()
+      }
+
+      // función validar moneda
+      // verificar moneda seleccionada
+      $('#tipoMoneda').change(function(){
+        switch($(this).val()){
+          case 'Seleccionar':
+            $('#nombreME').hide()
+            $('#labelnombreME').hide()
+            $('#nominalME').hide()
+            $('#labelnominalME').hide()
+            $('#saldoPesos').hide()
+            $('#labelsaldoPesos').hide()
+          break;
+          case 'Pesos':
+            $('#nombreME').hide()
+            $('#nombreME').val("")
+            $('#labelnombreME').hide()
+            $('#nominalME').hide()
+            $('#nominalME').val("")
+            $('#labelnominalME').hide()
+            $('#saldoPesos').show()
+            $('#labelsaldoPesos').show()
+          break;
+          case 'Moneda extranjera':
+            $('#nombreME').show()
+            $('#labelnombreME').show()
+            $('#nominalME').show()
+            $('#labelnominalME').show()
+            $('#saldoPesos').show()
+            $('#labelsaldoPesos').show()
+          break;
+        }
+      });
+
 
 
       // signout process
