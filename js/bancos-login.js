@@ -80,7 +80,7 @@
                 <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Nº de cuenta: ${doc.data().numeroCuenta}</li>
                 <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Tipo de cuenta: ${doc.data().tipoCuenta}</li>
                 <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Estado cuenta: ${doc.data().estadoCuenta}</li>
-                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Estado cuenta: ${doc.data().pais}</li>
+                <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> País: ${doc.data().pais}</li>
                 <li class="list-group-item" style="text-transform:uppercase"><i class="bi bi-check-circle-fill text-primary"></i> Moneda extranjera: ${doc.data().nombreME}</li>
                 <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary"></i> Monto nominal: ${doc.data().nominalME}</li>
                 <li class="list-group-item fw-bold"><i class="bi bi-check-circle-fill text-primary"></i> Saldo al 31/12: ${doc.data().saldoPesos}</li>
