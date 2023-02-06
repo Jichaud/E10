@@ -104,7 +104,7 @@
           })
         })
 
-        // Editar datos
+        // Editar datos - informa datos en campos Form
         const editarSaldos = id => getDoc(doc(db, "clientes", uid, "Saldos", id));
         const btnEditar = listarSaldosDetalle.querySelectorAll('.btn-edit')
           btnEditar.forEach((btn) => {
@@ -128,7 +128,7 @@
 
               editStatus = true;
               id = doc.id;
-              document.getElementById('agregarSaldos').innerHTML = "Editar";
+              document.getElementById('agregarSaldos').innerHTML = '<i class="bi bi-check-circle"></i> Editar';
               document.getElementById('labelValorPesos').innerHTML="Valor al 31/12";
               } else {
                 $('#nombreME').show()
@@ -145,14 +145,22 @@
               saldosFB["valorPesos"].value = editar.valorPesos
               editStatus = true;
               id = doc.id;
-              document.getElementById('agregarSaldos').innerHTML = "Editar";
+              document.getElementById('agregarSaldos').innerHTML = '<i class="bi bi-check-circle"></i> Editar';
               document.getElementById('labelValorPesos').innerHTML="Valor en pesos al 31/12";
             }
             })
           })
       })
 
-    // agregar / editar datos
+    // agregar / editar datos / cancela | Carga de datos final
+    const cancelBtn = document.querySelector("#cancela");
+    cancelBtn.addEventListener("click", async (e) =>{
+      document.getElementById('agregarSaldos').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
+      saldosFB.reset();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      nombreEmpresa.focus();
+    })
     
     const saldosFB = document.querySelector("#saldosFB");
     saldosFB.addEventListener("submit", async (e) => {
@@ -210,7 +218,7 @@
         valorPesos: valorPesos.value
       })
       editStatus = false;
-      document.getElementById('agregarSaldos').innerHTML = "Agregar";
+      document.getElementById('agregarSaldos').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
     }
     
       saldosFB.reset();

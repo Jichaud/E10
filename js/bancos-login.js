@@ -25,6 +25,7 @@
   let editStatus = false;
   let id = "";
   nombreBanco.focus();
+  $('#nombreBanco').prop('required', true)
 
   onAuthStateChanged(auth, async (user) => {
     if (user) {

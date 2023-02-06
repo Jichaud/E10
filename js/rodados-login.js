@@ -25,6 +25,7 @@
   let editStatus = false;
   let id = "";
   fechaAlta.focus();
+  $('#fechaAlta').prop('required', true);
   
   onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -77,7 +78,7 @@
           })
         })
 
-        // Editar datos
+        // Editar datos - informa datos en campos Form
         const editarRodado = id => getDoc(doc(db, "clientes", uid, "Rodados", id));
         const btnEditar = listarRodadosDetalle.querySelectorAll('.btn-edit')
           btnEditar.forEach((btn) => {
@@ -95,15 +96,21 @@
               rodadosFB["valorCompra"].value = editar.valorCompra
               editStatus = true;
               id = doc.id;
-              document.getElementById('agregarRodados').innerHTML = "Editar";
+              document.getElementById('agregarRodados').innerHTML = '<i class="bi bi-check-circle"></i> Editar';
             })
           })
-          
-  
       })
 
-    // agregar / editar datos
-    
+    // agregar / editar datos / cancela | Carga de datos final
+    const cancelBtn = document.querySelector("#cancela");
+    cancelBtn.addEventListener("click", async (e) =>{
+      document.getElementById('agregarRodados').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
+      rodadosFB.reset();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      fechaAlta.focus();
+    })
+
     const rodadosFB = document.querySelector("#rodadosFB");
     rodadosFB.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -142,7 +149,7 @@
         valorCompra: valorCompra.value
       })
       editStatus = false;
-      document.getElementById('agregarRodados').innerHTML = "Agregar";
+      document.getElementById('agregarRodados').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
     }
     
       rodadosFB.reset();

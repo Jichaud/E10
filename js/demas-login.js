@@ -78,7 +78,7 @@
           })
         })
 
-        // Editar datos
+        // Editar datos - informa datos en campos Form
         const editarDemas = id => getDoc(doc(db, "clientes", uid, "Demas", id));
         const btnEditar = listarDemasDetalle.querySelectorAll('.btn-edit')
           btnEditar.forEach((btn) => {
@@ -97,12 +97,20 @@
               demasFB["detalleActivo"].value = editar.detalleActivo
               editStatus = true;
               id = doc.id;
-              document.getElementById('agregarDemas').innerHTML = "Editar";
+              document.getElementById('agregarDemas').innerHTML = '<i class="bi bi-check-circle"></i> Editar';
             })
           })
       })
 
-    // agregar / editar datos
+    // agregar / editar datos / cancela | Carga de datos final
+    const cancelBtn = document.querySelector("#cancela");
+    cancelBtn.addEventListener("click", async (e) =>{
+      document.getElementById('agregarDemas').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
+      demasFB.reset();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      tipoActivo.focus();
+    })
     
     const demasFB = document.querySelector("#demasFB");
     demasFB.addEventListener("submit", async (e) => {
@@ -145,7 +153,7 @@
         detalleActivo: detalleActivo.value
       })
       editStatus = false;
-      document.getElementById('agregarDemas').innerHTML = "Agregar";
+      document.getElementById('agregarDemas').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
     }
     
       demasFB.reset();
@@ -201,7 +209,6 @@
   listarDatosCabeceraDetalle.innerHTML = htmlDatos;
 
   })
-
 
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {

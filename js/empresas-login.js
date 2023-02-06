@@ -76,7 +76,7 @@
           })
         })
 
-        // Editar datos
+        // Editar datos - informa datos en campos Form
         const editarEmpresas = id => getDoc(doc(db, "clientes", uid, "Empresas", id));
         const btnEditar = listarEmpresasDetalle.querySelectorAll('.btn-edit')
           btnEditar.forEach((btn) => {
@@ -94,12 +94,20 @@
               empresasFB["valorPesos"].value = editar.valorPesos
               editStatus = true;
               id = doc.id;
-              document.getElementById('agregarEmpresas').innerHTML = "Editar";
+              document.getElementById('agregarEmpresas').innerHTML = '<i class="bi bi-check-circle"></i> Editar';
             })
           })
       })
 
-    // agregar / editar datos
+    // agregar / editar datos / cancela | Carga de datos final
+    const cancelBtn = document.querySelector("#cancela");
+    cancelBtn.addEventListener("click", async (e) =>{
+      document.getElementById('agregarEmpresas').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
+      empresasFB.reset();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      nombreEmpresa.focus();
+    })
     
     const empresasFB = document.querySelector("#empresasFB");
     empresasFB.addEventListener("submit", async (e) => {
@@ -139,7 +147,7 @@
         valorPesos: valorPesos.value
       })
       editStatus = false;
-      document.getElementById('agregarEmpresas').innerHTML = "Agregar";
+      document.getElementById('agregarEmpresas').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
     }
     
       empresasFB.reset();

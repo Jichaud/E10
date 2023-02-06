@@ -25,6 +25,7 @@
   let editStatus = false;
   let id = "";
   fechaAlta.focus();
+  $('#fechaAlta').prop('required', true);
   
   onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -97,7 +98,7 @@
               inmueblesFB["valorCompra"].value = editar.valorCompra
               editStatus = true;
               id = doc.id;
-              document.getElementById('agregarInmueble').innerHTML = "Editar";
+              document.getElementById('agregarInmueble').innerHTML = '<i class="bi bi-check-circle"></i> Editar';
             })
           })
           
@@ -161,7 +162,7 @@
         valorCompra: valorCompra.value
       })
       editStatus = false;
-      document.getElementById('agregarInmueble').innerHTML = "Agregar";
+      document.getElementById('agregarInmueble').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
     }
     
       inmueblesFB.reset();

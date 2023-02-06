@@ -122,7 +122,7 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="alert alert-success text-center fw-bold" role="alert">
-        Acciones - Títulos - Plazo fijo - FCI - etc.
+        Acciones - Títulos - FCI - etc.
       </div>
       <!-- Demás Form-->
       <form id="demasFB">
@@ -131,7 +131,6 @@
             <option selected>Seleccionar</option>
             <option value="Acciones">Acciones</option>
             <option value="Fondo común de inversión">Fondo común de inversión</option>
-            <option value="Plazo fijo">Plazo fijo</option>
             <option value="Títulos públicos">Títulos públicos</option>
             <option value="Otros">Otros</option>
           </select>
@@ -207,18 +206,14 @@
                   <li class="list-group-item">Buscar la información en la pestaña de títulos públicos de las tablas de bienes personales</li>
                   <li class="list-group-item">Copiar y pegar la información</li>
                 </ul>
-                <ul class="list-group mt-3">
-                  <li class="list-group-item active" aria-current="true">Plazo fijo</li>
-                  <li class="list-group-item">Informar banco</li>
-                  <li class="list-group-item">Informar nº de cuenta / nº de plazo fijo</li>
-                </ul>
               </div>
             </div>
           </div>
 
         </div>
-        <div class="d-grid gap-2">
-          <button class="btn btn-outline-success mb-3 agregarDemas" id="agregarDemas" type="submit">Agregar</button>
+        <div class="d-grid gap-2 d-flex justify-content-end">
+          <button class="btn btn-outline-success mb-3 agregarDemas" id="agregarDemas" type="submit"><i class="bi bi-check-circle"></i> Agregar</button>
+          <button class="btn btn-outline-danger mb-3 cancelaBancos" id="cancela" type="button"><i class="bi bi-x-circle"></i> Cancelar</button>
         </div>
       </form> <!-- Demás Form -->
     </div>

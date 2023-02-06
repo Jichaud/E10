@@ -25,7 +25,7 @@
   let editStatus = false;
   let id = "";
   tipoMoneda.focus();
-  
+    
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
@@ -120,7 +120,7 @@
 
               editStatus = true;
               id = doc.id;
-              document.getElementById('agregarTenencias').innerHTML = "Editar";
+              document.getElementById('agregarTenencias').innerHTML = '<i class="bi bi-check-circle"></i> Editar';
               document.getElementById('labelValorPesos').innerHTML="Valor al 31/12";
             } else {
               editaMoneda();
@@ -131,7 +131,7 @@
               tenenciasFB["valorPesos"].value = editar.valorPesos
               editStatus = true;
               id = doc.id;
-              document.getElementById('agregarTenencias').innerHTML = "Editar";
+              document.getElementById('agregarTenencias').innerHTML = '<i class="bi bi-check-circle"></i> Editar';
               document.getElementById('labelValorPesos').innerHTML="Valor en pesos al 31/12";
             }
             })
@@ -139,7 +139,15 @@
       })
 
     // agregar / editar datos | Carga de datos final
-    
+    const cancelBtn = document.querySelector("#cancela");
+    cancelBtn.addEventListener("click", async (e) =>{
+      document.getElementById('agregarTenencias').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
+      tenenciasFB.reset();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      cargaInicio();
+    })
+
     const tenenciasFB = document.querySelector("#tenenciasFB");
     tenenciasFB.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -177,7 +185,7 @@
         valorPesos: valorPesos.value
       })
       editStatus = false;
-      document.getElementById('agregarTenencias').innerHTML = "Agregar";
+      document.getElementById('agregarTenencias').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
       cargaInicio();
     }
       tenenciasFB.reset();

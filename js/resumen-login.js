@@ -42,7 +42,7 @@
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:capitalize">${doc.data().domicilioCalle}</h5>
-              <small class="text-danger fw-bold">${doc.data().destinoInmueble}</small>
+              <small class="text-danger fw-bold badge bg-danger text-white mb-1">${doc.data().destinoInmueble}</small>
             </div>
             <p class="mb-1">$${doc.data().valorCompra}</p>
             <p class="mb-1">${doc.data().fechaAlta}</p>
@@ -65,7 +65,7 @@
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:uppercase">${doc.data().marca} | ${doc.data().modelo}</h5>
-              <small class="text-warning fw-bold" style="text-transform:uppercase">${doc.data().patenteNumero}</small>
+              <small class="text-warning mb-1 fw-bold badge bg-warning text-dark" style="text-transform:uppercase">${doc.data().patenteNumero}</small>
             </div>
             <p class="mb-1">$${doc.data().valorCompra}</p>
             <p class="mb-1">${doc.data().fechaAlta}</p>
@@ -84,17 +84,36 @@
 
         let htmlBancos = ''
         listarBancos.forEach(doc => {
+          if(doc.data().nombreME=="") {
           htmlBancos += `
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:uppercase">${doc.data().nombreBanco} | ${doc.data().nombreSucursal}</h5>
-              <small class="text-success fw-bold" style="text-transform:capitalize">${doc.data().tipoCuenta} <br> ${doc.data().estadoCuenta}</small>
+              <small class="text-white mb-1 fw-bold badge bg-primary" style="text-transform:uppercase">Pesos</small>
             </div>
+            <p class="mb-1">${doc.data().tipoCuenta}</p>
             <p class="mb-1">${doc.data().numeroCuenta}</p>
+            <p class="mb-1 fw-bolder text-primary">$${doc.data().saldoPesos}</p>
+            <p class="mb-1">${doc.data().estadoCuenta}</p>
+            <small class="fw-bold"><i class="bi bi-circle-fill text-primary"></i> bancos</small>
+          </span>
+          `
+          } else {
+          htmlBancos += `
+          <span class="list-group-item list-group-item-action" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1" style="text-transform:uppercase">${doc.data().nombreBanco} | ${doc.data().nombreSucursal}</h5>
+              <small class="mb-1 text-white badge bg-success fw-bold" style="text-transform:uppercase">${doc.data().nombreME}</small>
+            </div>
+            <p class="mb-1">${doc.data().tipoCuenta}</p>
+            <p class="mb-1">${doc.data().numeroCuenta}</p>
+            <p class="mb-1 fw-bolder text-success" style="text-transform:uppercase">${doc.data().nombreME} ${doc.data().nominalME}</p>
             <p class="mb-1">$${doc.data().saldoPesos}</p>
+            <p class="mb-1">${doc.data().estadoCuenta}</p>
             <small class="fw-bold"><i class="bi bi-circle-fill text-success"></i> bancos</small>
           </span>
           `
+        }
         })
 
         listarBancosDetalle.innerHTML = htmlBancos;
@@ -111,9 +130,9 @@
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:capitalize">${doc.data().tipoMoneda}</h5>
-              <small class="text-primary fw-bold" style="text-transform:uppercase">${doc.data().nombreMoneda}</small>
+              <small class="text-primary fw-bold badge bg-primary text-white mb-1" style="text-transform:uppercase">${doc.data().nombreMoneda}</small>
             </div>
-            <p class="mb-1"  style="text-transform:uppercase">${doc.data().nombreMoneda}${doc.data().montoNominal}</p>
+            <p class="mb-1"  style="text-transform:uppercase">${doc.data().nombreMoneda} ${doc.data().montoNominal}</p>
             <p class="mb-1">$${doc.data().valorPesos}</p>
             <small class="fw-bold"><i class="bi bi-circle-fill text-primary"></i> tenencias</small>
           </span>
@@ -134,7 +153,7 @@
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:capitalize">${doc.data().nombreEmpresa}</h5>
-              <small class="text-info fw-bold" style="text-transform:uppercase">${doc.data().tipoSocietario}</small>
+              <small class="text-info fw-bold badge bg-info mb-1 text-white" style="text-transform:uppercase">${doc.data().tipoSocietario}</small>
             </div>
             <p class="mb-1">Acciones: ${doc.data().tenenciaAcciones}</p>
             <p class="mb-1">$${doc.data().valorPesos}</p>
@@ -157,9 +176,9 @@
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:uppercase">${doc.data().nombreEmpresa} ${doc.data().tipoSocietario}</h5>
-              <small class="text-secondary fw-bold" style="text-transform:uppercase">${doc.data().tipoSaldo}</small>
+              <small class="text-secondary fw-bold badge bg-secondary text-white mb-1" style="text-transform:uppercase">${doc.data().tipoSaldo}</small>
             </div>
-            <p class="mb-1">${doc.data().nombreME}${doc.data().montoNominalME}</p>
+            <p class="mb-1">${doc.data().nombreME} ${doc.data().montoNominalME}</p>
             <p class="mb-1">$${doc.data().valorPesos}</p>
             <small class="fw-bold"><i class="bi bi-circle-fill text-secondary"></i> saldos con empresas</small>
           </span>
@@ -180,7 +199,7 @@
           <span class="list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"  style="text-transform:uppercase">${doc.data().tipoActivo}</h5>
-              <small class="text-dark fw-bold" style="text-transform:uppercase">${doc.data().tipoRendimiento}</small>
+              <small class="text-dark fw-bold badge bg-dark text-white mb-1" style="text-transform:uppercase">${doc.data().tipoRendimiento}</small>
             </div>
             <p class="mb-1" style="text-transform:uppercase">${doc.data().detalleActivo}</p>
             <p class="mb-1">Valor: $${doc.data().valorCompra}</p>
