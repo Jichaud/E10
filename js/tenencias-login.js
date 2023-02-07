@@ -249,7 +249,8 @@
         $('#montoNominal').hide(),
         $('#labelmontoNominal').hide(),
         $('#valorPesos').hide(),
-        $('#labelValorPesos').hide()
+        $('#labelValorPesos').hide(),
+        $('#agregarTenencias').hide()
         tipoMoneda.focus();
       }
 
@@ -279,6 +280,7 @@
             $('#labelmontoNominal').hide()
             $('#valorPesos').hide()
             $('#labelValorPesos').hide()
+            $('#agregarTenencias').hide()
           break;
           case 'Pesos':
             $('#nombreMoneda').hide()
@@ -288,6 +290,7 @@
             $('#valorPesos').show()
             $('#labelValorPesos').show()
             document.getElementById('labelValorPesos').innerHTML="Valor al 31/12";
+            $('#agregarTenencias').show()
           break;
           case 'Otras monedas':
             $('#nombreMoneda').show()
@@ -297,6 +300,7 @@
             $('#valorPesos').show()
             $('#labelValorPesos').show()
             document.getElementById('labelValorPesos').innerHTML="Valor en pesos al 31/12";
+            $('#agregarTenencias').show()
           break;
         }
       });

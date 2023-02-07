@@ -25,7 +25,7 @@
   let editStatus = false;
   let id = "";
   tipoActivo.focus();
-  
+    
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
@@ -34,6 +34,8 @@
       const email = user.email;
       console.log(user.uid);
       console.log(user.email);
+
+      cargaInicio();
 
       const updateDemas = (id, newFields) => updateDoc(doc(db, "clientes", uid, "Demas", id), newFields);
 
@@ -83,6 +85,7 @@
         const btnEditar = listarDemasDetalle.querySelectorAll('.btn-edit')
           btnEditar.forEach((btn) => {
             btn.addEventListener('click', async (e) => {
+              editaActivo();
               const doc = await editarDemas(e.target.dataset.id)
               console.log(doc.data());
               const editar = doc.data()
@@ -110,6 +113,7 @@
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
       tipoActivo.focus();
+      cargaInicio();
     })
     
     const demasFB = document.querySelector("#demasFB");
@@ -140,6 +144,7 @@
         valorVenta: valorVenta.value,
         detalleActivo: detalleActivo.value
       })};
+      cargaInicio();
     } else {
       await updateDemas(id, {
         tipoActivo: tipoActivo.value,
@@ -154,6 +159,7 @@
       })
       editStatus = false;
       document.getElementById('agregarDemas').innerHTML = '<i class="bi bi-check-circle"></i> Agregar';
+      cargaInicio();
     }
     
       demasFB.reset();
@@ -209,6 +215,27 @@
   listarDatosCabeceraDetalle.innerHTML = htmlDatos;
 
   })
+
+      // función al cargar
+      function cargaInicio() {
+        $('#agregarDemas').hide()
+      }
+
+      // función al editar
+      function editaActivo() {
+        $('#agregarDemas').show()
+      }
+
+      // verifica activo seleccionado
+      $('#tipoActivo').change(function(){
+        switch($(this).val()){
+          case 'Seleccionar':
+            $('#agregarDemas').hide()
+            break;
+            default:
+            $('#agregarDemas').show()
+        }
+      });
 
       // signout process
       document.getElementById('signOut').addEventListener('click', function (event) {
