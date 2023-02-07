@@ -258,7 +258,8 @@
         $('#valorPesos').show(),
         $('#labelValorPesos').show(),
         $('#nombreMoneda').hide(),
-        $('#montoNominal').hide()
+        $('#montoNominal').hide(),
+        $('#agregarTenencias').show()
       }
 
       function editaMoneda(){
@@ -267,7 +268,8 @@
         $('#nombreMoneda').show(),
         $('#labelnombreMoneda').show(),
         $('#montoNominal').show(),
-        $('#labelmontoNominal').show()
+        $('#labelmontoNominal').show(),
+        $('#agregarTenencias').show()
       }
 
       // verificar moneda seleccionada
