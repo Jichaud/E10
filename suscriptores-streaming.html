@@ -113,64 +113,62 @@ onAuthStateChanged(auth, (user) => {
 
 <!-- Navigation -->
 <div class="container pb-4">
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark h3-a" style="background-color: #1c2452ff">
+  <nav class="navbar fixed-top navbar-expand-lg h3-a bg-primary-subtle">
     <a class="navbar-brand" href="index.html">
-      <img src="images/logo-ed-azul.png" class="ms-3 img-fluid" width="200rem" alt="Estudio Diez">
+      <img src="images/logo-ed-siglas.png" class="ms-5 img-fluid" width="100rem" alt="Estudio Diez">
     </a>
     <button class="navbar-toggler ms-2 me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon text-white"></span>
+      <span class="navbar-toggler-icon text-dark"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        <li class="nav-item dropdown pt-2">
-          <a class="nav-link dropdown-toggle text-white ms-2" href="#" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Estudio
-          </a>
-          <div class="dropdown-menu alert alert-info me-2 ms-2" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="perfil.html">Perfil</a>
-            <a class="dropdown-item" href="organizacion.html">Organización</a>
-            <a class="dropdown-item" href="socios.html">Socios</a>
+        <li class="nav-item dropdown pt-2 ps-2">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Estudio
+            </button>
+            <ul class="dropdown-menu bg-primary-subtle">
+              <li><a class="dropdown-item" href="perfil.html">Perfil</a></li>
+              <li><a class="dropdown-item" href="organizacion.html">Organización</a></li>
+              <li><a class="dropdown-item" href="socios.html">Socios</a></li>
+            </ul>
           </div>
         </li>
-        <li class="nav-item dropdown pt-2">
-          <a class="nav-link dropdown-toggle text-white ms-2" href="#" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Servicios
-          </a>
-          <div class="dropdown-menu alert alert-secondary me-2 ms-2" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="impositivo.html">Impositivo</a>
-            <a class="dropdown-item" href="contable.html">Contable</a>
-            <a class="dropdown-item" href="juridico.html">Jurídico</a>
+        <li class="nav-item dropdown pt-2 ps-2">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Servicios
+            </button>
+            <ul class="dropdown-menu bg-light-subtle">
+              <li><a class="dropdown-item" href="impositivo.html">Impositivo</a></li>
+              <li><a class="dropdown-item" href="contable.html">Contable</a></li>
+              <li><a class="dropdown-item" href="juridico.html">Jurídico</a></li>
+            </ul>
           </div>
         </li>
-        <li class="nav-item dropdown pt-2">
-          <a class="nav-link dropdown-toggle text-white ms-2" href="#" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Capacitación
-          </a>
-          <div class="dropdown-menu alert alert-success me-2 ms-2" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="eventos.html">Eventos</a>
-            <hr class="bg-success">
-            <a class="dropdown-item" href="suscriptores.html">Suscriptores</a>
+        <li class="nav-item dropdown pt-2 ps-2">
+          <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Capacitación
+            </button>
+            <ul class="dropdown-menu bg-success-subtle">
+              <li><a class="dropdown-item" href="eventos.html">Eventos</a></li>
+            </ul>
           </div>
         </li>
-        <li class="nav-item pt-2">
-          <a class="nav-link text-white ms-2" href="publicaciones.html">Publicaciones</a>
+        <li class="nav-item ps-2">
+          <a class="nav-link text-dark" href="publicaciones.html"><button class="btn btn-warning">Publicaciones</button></a>
         </li>
-        <li class="nav-item pt-2">
-          <a class="nav-link text-white ms-2" href="sitios-de-interes.html">Sitios de interés</a>
+        <li class="nav-item ps-2">
+          <a class="nav-link text-dark" href="sitios-de-interes.html"><button class="btn btn-danger">Sitios de interés</button></a>
         </li>
-        <li class="nav-item pt-2">
-          <a class="nav-link text-white ms-2" href="contact.html">Contacto</a>
-        </li>
-        <li class="nav-item pt-3">
-          <a href="blog.html"><span class="badge bg-light text-dark h2-a ms-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ingresá al blog del Estudio">Blog</span></a>
+        <li class="nav-item ps-2">
+          <a class="nav-link text-dark" href="contact.html"><button class="btn btn-dark">Contacto</button></a>
         </li>
       </ul>
     </div>
-    <div class="col">
+<div class="col">
       <div class="d-grid gap-2 col-8 pe-4 mx-auto">
         <button class="btn btn-danger float-end" id="signOut" type="button">Salir</button>
       </div>
@@ -361,11 +359,11 @@ FIN REUNIÓN EN PROGRESO -->
 <div class="d-grid gap-2 col-6 mx-end">
   <button class="btn btn-outline-success btn-lg mb-4" type="submit" onclick="window.open('https://www.dropbox.com/sh/8hkknad2x84qd38/AACkJvaUl3xIcY36H_0wtNMEa?dl=0','blank_')">Material <i class="bi bi-arrow-right-square"></i></button>
 </div>
-<div class="table-responsive col-lg-6 rounded-4">
+<div class="table-responsive col-lg-6 rounded-2">
   <table class="table table-sm table-bordered border border-success text-dark-emphasis">
     <thead>
       <tr>
-        <th class="text-center text-light bg-success" scope="col" colspan="2">Reunión en vivo y en directo</th>
+        <th class="text-center text-light bg-success" scope="col" colspan="2">Reunión en vivo y en directo desde las 8:30 hs.</th>
       </tr>
     </thead>
     <tbody>
@@ -386,7 +384,7 @@ FIN REUNIÓN EN PROGRESO -->
 </div>
 <hr class="text-primary">
 <div class="ratio ratio-16x9">
-<iframe class="embed-responsive-item rounded" width="460" height="315" src="https://www.youtube.com/embed/?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe class="embed-responsive-item rounded" width="460" height="315" src="https://www.youtube.com/embed/oMBKw4wbNqE?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 <!-- FIN TRANSMISIÓN -->
 
