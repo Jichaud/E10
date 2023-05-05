@@ -14,57 +14,56 @@
     <link href="../css/modern-business.css" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     
     <!-- Bootstrap icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    
+
     <style>
+      .h1-a {
+        font-family: 'Roboto Slab', serif;
+        font-size: 40px;
+      }
+    </style>
 
-    .h1-a {
-      font-family: 'Roboto', sans-serif;
-      font-size: calc(100% + 2.5vw + 2.5vh);
-      color: #333;
-      font-weight: 900;
-    }
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 
-    .h2-a {
-      font-family: 'Roboto', sans-serif;
-      font-size: calc(100% + 1vw + 1vh);
-    }
+    <style>
+      .h2-a {
+        font-family: 'Helvetica', sans-serif;
+        font-size: 25px;
+      }
+    </style>
 
+    <style>
       .h3-a {
         font-family: 'Roboto', sans-serif;
         font-size: 1rem;
       }
 
       .h4-a {
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-  }
-
-      .modal-backdrop {
-    /* bug fix - no overlay */
-    display: none;
-}
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+      }
+      .h5-a {
+        font-family: 'Helvetica', sans-serif;
+        font-size: 14px;
+      }
     </style>
 
   </head>
 
   <body>
 
-    <nav class="navbar fixed-top navbar-light bg-warning">
+    <nav class="navbar fixed-top navbar-light bg-primary-subtle">
       <div class="container-fluid">
         <div class="col">
-          <button type="button" class="btn btn-dark ms-4" onclick="history.back()">Volver</button>
+          <button type="button" class="btn btn-outline-primary ms-4" onclick="history.back()">Volver</button>
         </div>
         <div class="ms-auto me-4">
-          <span class="badge bg-primary h5-a text-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ajuste por inflación contable - índices">AxI contable</span>
+          <span class="badge bg-primary h5-a" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ajuste por inflación contable - índices">AxI contable</span>
         </div>
       </div>
     </nav>
@@ -73,7 +72,7 @@
 
     <div class="container-fluid">
     <br><br>
-    <h1 class="mt-4 mb-3 h1-a">Ajuste por inflación contable <span class="badge text-bg-primary text-white px-3 py-3">índices</span></h1>
+    <h1 class="mt-4 mb-3 h2-a">Ajuste por inflación contable <span class="badge text-bg-primary text-white px-3 py-3">índices</span></h1>
     <div class="row mt-4">
     <div class="col-lg-4">
     <div class="card border-primary">
@@ -92,249 +91,31 @@
           <h5 class="text-justify h4-a lead text-dark"><i class="bi bi-arrow-right-square-fill h2-a text-primary"></i> Se establecen los <span class="text-wrap text-light badge bg-primary">vencimientos 2023</span> para los contribuyentes de AGIP </h5>
         </div>
 
-        <hr class="bg-primary">
-
-        <div class="d-grid gap-2">
-        <!-- Button contribuyentes directos -->
-        <button type="button" class="btn btn-outline-primary btn-block btn-lg" data-bs-toggle="modal" data-bs-target="#vencModal">
-          Ver vencimientos Contribuyentes directos
-        </button>
-
-        <!-- Button DDJJ anual -->
-        <button type="button" class="btn btn-outline-primary btn-block btn-lg" data-bs-toggle="modal" data-bs-target="#anualModal">
-          Ver vencimientos Régimen simplificado
-        </button>
-      </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="vencModal" tabindex="-1" aria-labelledby="vencModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-xl modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="vencModalLabel">Contribuyentes Directos - vencimientos 2023</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="table-responsive">
-                  <table class="table table-hover table-sm">
-                    <thead>
-                      <tr>
-                        <th class="border border-primary alert alert-primary text-center align-middle" scope="col">Anticipos</th>
-                        <th class="border border-primary alert alert-primary text-center align-middle" scope="col">0 - 1</th>
-                        <th class="border border-primary alert alert-primary text-center align-middle" scope="col">2 - 3</th>
-                        <th class="border border-primary alert alert-primary text-center align-middle" scope="col">4 - 5</th>
-                        <th class="border border-primary alert alert-primary text-center align-middle" scope="col">6 - 7</th>
-                        <th class="border border-primary alert alert-primary text-center align-middle" scope="col">8 - 9</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">1</td>
-                        <td class="border border-primary text-center align-middle">13/02/2023</td>
-                        <td class="border border-primary text-center align-middle">14/02/2023</td>
-                        <td class="border border-primary text-center align-middle">15/02/2023</td>
-                        <td class="border border-primary text-center align-middle">16/02/2023</td>
-                        <td class="border border-primary text-center align-middle">17/02/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">2</td>
-                        <td class="border border-primary text-center align-middle">13/03/2023</td>
-                        <td class="border border-primary text-center align-middle">14/03/2023</td>
-                        <td class="border border-primary text-center align-middle">15/03/2023</td>
-                        <td class="border border-primary text-center align-middle">16/03/2023</td>
-                        <td class="border border-primary text-center align-middle">17/03/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">3</td>
-                        <td class="border border-primary text-center align-middle">11/04/2023</td>
-                        <td class="border border-primary text-center align-middle">12/04/2023</td>
-                        <td class="border border-primary text-center align-middle">13/04/2023</td>
-                        <td class="border border-primary text-center align-middle">14/04/2023</td>
-                        <td class="border border-primary text-center align-middle">17/04/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">4</td>
-                        <td class="border border-primary text-center align-middle">15/05/2023</td>
-                        <td class="border border-primary text-center align-middle">16/05/2023</td>
-                        <td class="border border-primary text-center align-middle">17/05/2023</td>
-                        <td class="border border-primary text-center align-middle">18/05/2023</td>
-                        <td class="border border-primary text-center align-middle">19/05/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">5</td>
-                        <td class="border border-primary text-center align-middle">12/06/2023</td>
-                        <td class="border border-primary text-center align-middle">13/06/2023</td>
-                        <td class="border border-primary text-center align-middle">14/06/2023</td>
-                        <td class="border border-primary text-center align-middle">15/06/2023</td>
-                        <td class="border border-primary text-center align-middle">16/06/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">6</td>
-                        <td class="border border-primary text-center align-middle">11/07/2023</td>
-                        <td class="border border-primary text-center align-middle">12/07/2023</td>
-                        <td class="border border-primary text-center align-middle">13/07/2023</td>
-                        <td class="border border-primary text-center align-middle">14/07/2023</td>
-                        <td class="border border-primary text-center align-middle">17/07/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">7</td>
-                        <td class="border border-primary text-center align-middle">11/08/2023</td>
-                        <td class="border border-primary text-center align-middle">14/08/2023</td>
-                        <td class="border border-primary text-center align-middle">15/08/2023</td>
-                        <td class="border border-primary text-center align-middle">16/08/2023</td>
-                        <td class="border border-primary text-center align-middle">18/08/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">8</td>
-                        <td class="border border-primary text-center align-middle">11/09/2023</td>
-                        <td class="border border-primary text-center align-middle">12/09/2023</td>
-                        <td class="border border-primary text-center align-middle">13/09/2023</td>
-                        <td class="border border-primary text-center align-middle">14/09/2023</td>
-                        <td class="border border-primary text-center align-middle">15/09/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">9</td>
-                        <td class="border border-primary text-center align-middle">11/10/2023</td>
-                        <td class="border border-primary text-center align-middle">12/10/2023</td>
-                        <td class="border border-primary text-center align-middle">17/10/2023</td>
-                        <td class="border border-primary text-center align-middle">18/10/2023</td>
-                        <td class="border border-primary text-center align-middle">19/10/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">10</td>
-                        <td class="border border-primary text-center align-middle">13/11/2023</td>
-                        <td class="border border-primary text-center align-middle">14/11/2023</td>
-                        <td class="border border-primary text-center align-middle">15/11/2023</td>
-                        <td class="border border-primary text-center align-middle">16/11/2023</td>
-                        <td class="border border-primary text-center align-middle">17/11/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">11</td>
-                        <td class="border border-primary text-center align-middle">11/12/2023</td>
-                        <td class="border border-primary text-center align-middle">12/12/2023</td>
-                        <td class="border border-primary text-center align-middle">13/12/2023</td>
-                        <td class="border border-primary text-center align-middle">14/12/2023</td>
-                        <td class="border border-primary text-center align-middle">15/12/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">12</td>
-                        <td class="border border-primary text-center align-middle">15/01/2024</td>
-                        <td class="border border-primary text-center align-middle">16/01/2024</td>
-                        <td class="border border-primary text-center align-middle">17/01/2024</td>
-                        <td class="border border-primary text-center align-middle">18/01/2024</td>
-                        <td class="border border-primary text-center align-middle">19/01/2024</td>
-                      </tr>
-                   </tbody>
-                  </table>
-                </div>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div> <!-- Modal -->
-
-        <!-- Modal -->
-        <div class="modal fade" id="anualModal" tabindex="-1" aria-labelledby="anualModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-xl modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="anualModalLabel">Régimen simplificado - vencimientos 2023</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="table-responsive">
-                  <table class="table table-hover table-sm">
-                    <thead>
-                      <tr>
-                        <th class="border border-primary alert alert-primary text-center align-middle" scope="col">Cuotas</th>
-                        <th class="border border-primary alert alert-primary text-center align-middle" scope="col">0 - 1</th>
-                        <th class="border border-primary alert alert-primary text-center align-middle" scope="col">2 - 3</th>
-                        <th class="border border-primary alert alert-primary text-center align-middle" scope="col">4 - 5</th>
-                        <th class="border border-primary alert alert-primary text-center align-middle" scope="col">6 - 7</th>
-                        <th class="border border-primary alert alert-primary text-center align-middle" scope="col">8 - 9</th>
-
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">1</td>
-                        <td class="border border-primary text-center align-middle">17/03/2023</td>
-                        <td class="border border-primary text-center align-middle">20/03/2023</td>
-                        <td class="border border-primary text-center align-middle">21/03/2023</td>
-                        <td class="border border-primary text-center align-middle">22/03/2023</td>
-                        <td class="border border-primary text-center align-middle">23/03/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">2</td>
-                        <td class="border border-primary text-center align-middle">17/05/2023</td>
-                        <td class="border border-primary text-center align-middle">18/05/2023</td>
-                        <td class="border border-primary text-center align-middle">19/05/2023</td>
-                        <td class="border border-primary text-center align-middle">22/05/2023</td>
-                        <td class="border border-primary text-center align-middle">23/05/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">3</td>
-                        <td class="border border-primary text-center align-middle">17/07/2023</td>
-                        <td class="border border-primary text-center align-middle">18/07/2023</td>
-                        <td class="border border-primary text-center align-middle">19/07/2023</td>
-                        <td class="border border-primary text-center align-middle">20/07/2023</td>
-                        <td class="border border-primary text-center align-middle">21/07/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">4</td>
-                        <td class="border border-primary text-center align-middle">18/09/2023</td>
-                        <td class="border border-primary text-center align-middle">19/09/2023</td>
-                        <td class="border border-primary text-center align-middle">20/09/2023</td>
-                        <td class="border border-primary text-center align-middle">21/09/2023</td>
-                        <td class="border border-primary text-center align-middle">22/09/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">5</td>
-                        <td class="border border-primary text-center align-middle">17/11/2023</td>
-                        <td class="border border-primary text-center align-middle">21/11/2023</td>
-                        <td class="border border-primary text-center align-middle">22/11/2023</td>
-                        <td class="border border-primary text-center align-middle">23/11/2023</td>
-                        <td class="border border-primary text-center align-middle">24/11/2023</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-primary text-center align-middle">6</td>
-                        <td class="border border-primary text-center align-middle">17/01/2024</td>
-                        <td class="border border-primary text-center align-middle">18/01/2024</td>
-                        <td class="border border-primary text-center align-middle">19/01/2024</td>
-                        <td class="border border-primary text-center align-middle">22/01/2024</td>
-                        <td class="border border-primary text-center align-middle">23/01/2024</td>
-                      </tr>
-                   </tbody>
-                  </table>
-                </div>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div> <!-- Modal -->
-
       </div>
 
       <div class="card-footer bg-primary border-primary text-end">
         <small class="text-light h3-a">#16-dic-22</small>
       </div>
     </div>
-
     </div> <!-- col -->
 
-    <div class="col-lg">
-      <div class="ratio ratio-16x9">
-        <iframe src="https://script.google.com/macros/s/AKfycbxDASJlk1j3NLez6ggDvwjJY0ksznKXSP0hQwTWItxhTSpJhYTTKk-mrL6DtoOimF2ERA/exec" title="YouTube video" allowfullscreen></iframe>
-      </div>
+    <div class="col-lg-4">
+      <select class="form-select" id="selectDate" aria-label="Default select example">
+        <option selected>Elige fecha...</option>
+        <option value="1">Enero 2023</option>
+        <option value="2">Febrero 2023</option>
+        <option value="3">Marzo 2023</option>
+      </select>
+    </div> <!-- col -->
 
-</div> <!-- col -->
-</div> <!-- row -->
+    <div class="col-lg-4">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="selectIndex">Índice</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div> <!-- col -->
+
+  </div> <!-- row -->
 </div> <!-- container -->
 
     <hr>
@@ -345,41 +126,58 @@
         <div class="row">
           <div class="col-lg-3 mb-4">
             <div class="list-group">
-              <a class="list-group-item bg-primary card-link lead text-light px-3 py-3" role="tab">Estudio</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/perfil.html" role="tab">Perfil</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/organizacion.html" role="tab">Organización</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/socios.html" role="tab">Socios</a>
-              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/publicaciones.html" role="tab">Publicaciones</a>
+              <a class="list-group-item list-group-item-action list-group-item-primary card-link lead px-3 py-3">Estudio</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/perfil.html">Perfil</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/organizacion.html">Organización</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/socios.html">Socios</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/publicaciones.html">Publicaciones</a>
             </div>
           </div>
-        <div class="col-lg-3 mb-4">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item bg-secondary card-link lead text-light px-3 py-3" role="tab">Servicios</a>
-            <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/impositivo.html" role="tab">Impositivos</a>
-            <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/contable.html" role="tab">Contable</a>
-            <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/juridico.html" role="tab">Jurídicos</a>
+          <div class="col-lg-3 mb-4">
+            <div class="list-group">
+              <a class="list-group-item list-group-item-action list-group-item-dark card-link lead px-3 py-3">Servicios</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/impositivo.html">Impositivos</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/contable.html">Contable</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/juridico.html">Jurídicos</a>
+            </div>
+          </div>
+          <div class="col-lg-3 mb-4">
+            <div class="list-group">
+              <a class="list-group-item list-group-item-action list-group-item-success card-link lead px-3 py-3">Capacitación</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/eventos.html">Eventos</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/suscriptores.html">Suscriptores</a>
+            </div>
+          </div>
+          <div class="col-lg-3 mb-4">
+            <div class="list-group">
+              <a class="list-group-item list-group-item-action list-group-item-warning lead px-3 py-3">Conecta</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/contact.html">Contacto</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.estudiodiez.com/sitios-de-interes.html">Link's de interés</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.facebook.com/diezestudio"
+                target="_blank">Facebook</a>
+              <a class="list-group-item list-group-item-action px-3 py-3"
+                href="https://www.youtube.com/@diezestudio" target="_blank">Youtube</a>
+              <a class="list-group-item list-group-item-action px-3 py-3" href="https://twitter.com/diez_estudio"
+                target="_blank">Twitter</a>
+            </div>
           </div>
         </div>
-        <div class="col-lg-3 mb-4">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item bg-success card-link lead text-light px-3 py-3" role="tab">Capacitación</a>
-            <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/eventos.html" role="tab">Eventos</a>
-            <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/suscriptores.html" role="tab">Suscriptores</a>
-          </div>
-        </div>
-        <div class="col-lg-3 mb-4">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item bg-warning card-link lead text-dark px-3 py-3" role="tab">Conecta</a>
-            <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/contact.html" role="tab">Contacto</a>
-            <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.estudiodiez.com/sitios-de-interes.html" role="tab">Link's de interés</a>
-            <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.facebook.com/diezestudio" target="_blank" role="tab">Facebook</a>
-            <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.youtube.com/channel/UC1Rg9E5c1hEgTlysuGBRy6A" target="_blank" role="tab">Youtube</a>
-            <a class="list-group-item list-group-item-action px-3 py-3" href="https://twitter.com/diez_estudio" target="_blank" role="tab">Twitter</a>
-          </div>
-        </div>
-        </div>
-          <hr class="text-white">
-          <p class="m-0 text-end text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
+        <hr class="text-white">
+        <p class="m-0 text-end text-secondary">Copyright &copy;
+          <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires.
+          Argentina
+        </p>
       </div>
       <!-- /.container -->
     </footer>
@@ -391,15 +189,15 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
-  <script type="text/javascript">
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-  });
-  </script>
+    <script type="text/javascript">
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+    </script>
 
 <!-- Fb modules -->
 <script src="/js/h-axi-contable.js" type="module"></script>
