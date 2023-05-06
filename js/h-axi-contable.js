@@ -1,8 +1,45 @@
+function findIndex() {
+    let selectDate = document.getElementById('selectDate').value;
+    let findIndex = index.find(element => element.mes === selectDate);
+    let selectIndex = document.getElementById('selectIndex').innerHTML = findIndex.indice;
+}
+
+$('#selectDate').change(function(){
+    switch($(this).val()){
+        case "Selecciona fecha base...":
+        selectIndex.innerHTML = '<i class="bi bi-three-dots"></i>';
+        break;
+        default:
+        findIndex();
+        break;
+    }
+})
+
+/* let html = ''
+const indexTable = document.getElementById('indexTable');
+indexTable.forEach(element => {
+html += `
+<table class="table table-striped table-bordered border-primary border-2">
+<thead class="bg-primary-subtle text-primary">
+  <tr>
+    <th scope="col">Mes</th>
+    <th scope="col">Índice</th>
+    <th scope="col">Coeficiente</th>
+  </tr>
+</thead>
+<tbody class="table-group-divider">
+  <tr>
+    <td>${element.mes}</td>
+    <td>${element.indice}</td>
+    <td>${element.indice}</td>
+  </tr>
+</tbody>
+</table>
+
+`
+});*/
+
 let index = [
-    {
-        mes: "Selecciona fecha...",
-        indice: 1800.4565
-    },
     {
         mes: "Enero 2023",
         indice: 1202.9790
@@ -14,23 +51,273 @@ let index = [
     {
         mes: "Marzo 2023",
         indice: 1381.1601
+    },
+    {
+        mes: "Enero 2022",
+        indice: 605.0317
+    },
+    {
+        mes: "Febrero 2022",
+        indice: 633.4341
+    },
+    {
+        mes: "Marzo 2022",
+        indice: 676.0566
+    },
+    {
+        mes: "Abril 2022",
+        indice: 716.9399
+    },
+    {
+        mes: "Mayo 2022",
+        indice: 753.147
+    },
+    {
+        mes: "Junio 2022",
+        indice: 793.0278
+    },
+    {
+        mes: "Julio 2022",
+        indice: 851.761
+    },
+    {
+        mes: "Agosto 2022",
+        indice: 911.1316
+    },
+    {
+        mes: "Septiembre 2022",
+        indice: 967.3076
+    },
+    {
+        mes: "Octubre 2022",
+        indice: 1028.706
+    },
+    {
+        mes: "Noviembre 2022",
+        indice: 1079.2787
+    },
+    {
+        mes: "Diciembre 2022",
+        indice: 1134.5875
+    },
+    {
+        mes: "Enero 2021",
+        indice: 401.5071
+    },
+    {
+        mes: "Febrero 2021",
+        indice: 415.8595
+    },
+    {
+        mes: "Marzo 2021",
+        indice: 435.8657
+    },
+    {
+        mes: "Abril 2021",
+        indice: 453.6503
+    },
+    {
+        mes: "Mayo 2021",
+        indice: 468.725
+    },
+    {
+        mes: "Junio 2021",
+        indice: 483.6049
+    },
+    {
+        mes: "Julio 2021",
+        indice: 498.0987
+    },
+    {
+        mes: "Agosto 2021",
+        indice: 510.3942
+    },
+    {
+        mes: "Septiembre 2021",
+        indice: 528.4968
+    },
+    {
+        mes: "Octubre 2021",
+        indice: 547.0802
+    },
+    {
+        mes: "Noviembre 2021",
+        indice: 560.9184
+    },
+    {
+        mes: "Diciembre 2021",
+        indice: 582.4575
+    },
+    {
+        mes: "Enero 2020",
+        indice: 289.8299
+    },
+    {
+        mes: "Febrero 2020",
+        indice: 295.666
+    },
+    {
+        mes: "Marzo 2020",
+        indice: 305.5515
+    },
+    {
+        mes: "Abril 2020",
+        indice: 310.1243
+    },
+    {
+        mes: "Mayo 2020",
+        indice: 314.9087
+    },
+    {
+        mes: "Junio 2020",
+        indice: 321.9738
+    },
+    {
+        mes: "Julio 2020",
+        indice: 328.2014
+    },
+    {
+        mes: "Agosto 2020",
+        indice: 337.0632
+    },
+    {
+        mes: "Septiembre 2020",
+        indice: 346.6207
+    },
+    {
+        mes: "Octubre 2020",
+        indice: 359.657
+    },
+    {
+        mes: "Noviembre 2020",
+        indice: 371.0211
+    },
+    {
+        mes: "Diciembre 2020",
+        indice: 385.8826
+    },
+    {
+        mes: "Enero 2019",
+        indice: 189.6101
+    },
+    {
+        mes: "Febrero 2019",
+        indice: 196.7501
+    },
+    {
+        mes: "Marzo 2019",
+        indice: 205.9571
+    },
+    {
+        mes: "Abril 2019",
+        indice: 213.0517
+    },
+    {
+        mes: "Mayo 2019",
+        indice: 219.5691
+    },
+    {
+        mes: "Junio 2019",
+        indice: 225.537
+    },
+    {
+        mes: "Julio 2019",
+        indice: 230.494
+    },
+    {
+        mes: "Agosto 2019",
+        indice: 239.6077
+    },
+    {
+        mes: "Septiembre 2019",
+        indice: 253.7102
+    },
+    {
+        mes: "Octubre 2019",
+        indice: 262.0661
+    },
+    {
+        mes: "Noviembre 2019",
+        indice: 273.2158
+    },
+    {
+        mes: "Diciembre 2019",
+        indice: 283.4442
+    },
+    {
+        mes: "Enero 2018",
+        indice: 126.9887
+    },
+    {
+        mes: "Febrero 2018",
+        indice: 130.0606
+    },
+    {
+        mes: "Marzo 2018",
+        indice: 133.1054
+    },
+    {
+        mes: "Abril 2018",
+        indice: 136.7512
+    },
+    {
+        mes: "Mayo 2018",
+        indice: 139.5893
+    },
+    {
+        mes: "Junio 2018",
+        indice: 144.8053
+    },
+    {
+        mes: "Julio 2018",
+        indice: 149.2966
+    },
+    {
+        mes: "Agosto 2018",
+        indice: 155.1034
+    },
+    {
+        mes: "Septiembre 2018",
+        indice: 165.2383
+    },
+    {
+        mes: "Octubre 2018",
+        indice: 174.1473
+    },
+    {
+        mes: "Noviembre 2018",
+        indice: 179.6388
+    },
+    {
+        mes: "Diciembre 2018",
+        indice: 184.2552
     }
     ];
 
-    function findIndex() {
-        let selectDate = document.getElementById('selectDate').value;
-        let findIndex = index.find(element => element.mes === selectDate);
-        let selectIndex = document.getElementById('selectIndex').innerHTML = findIndex.indice;
+
+    function showDom(element, arr){
+        document.getElementById(element).innerHTML = "";
+        for(let i = 0; i<arr.length; i++) {
+            console.log(index[i])
+            document.getElementById(element).innerHTML +=
+            `<table class="table table-striped table-bordered border-primary border-2">
+             <thead class="bg-primary-subtle text-primary">
+             <tr>
+             <th scope="col">Mes</th>
+             <th scope="col">Índice</th>
+             <th scope="col">Coeficiente</th>
+             </tr>
+             </thead>
+             <tbody class="table-group-divider">
+             <tr>
+             <td>${arr[i].mes}</td>
+             <td>${arr[i].indice}</td>
+             <td>${arr[i].indice}</td>
+             </tr>
+             </tbody>
+             </table>`
+        }
+    
     }
 
-    $('#selectDate').change(function(){
-        switch($(this).val()){
-            case "Selecciona fecha...":
-            console.log("Selecciona");
-            break;
-            default:
-            findIndex();
-            break;
-        }
-    })
-
+    showDom("indexTable", index)
