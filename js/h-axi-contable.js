@@ -1,4 +1,3 @@
-let selectDate = document.getElementById('selectDate').value;
 let index = [
     {
         mes: "Selecciona fecha...",
@@ -18,15 +17,19 @@ let index = [
     }
     ];
 
+    function findIndex() {
+        let selectDate = document.getElementById('selectDate').value;
+        let findIndex = index.find(element => element.mes === selectDate);
+        let selectIndex = document.getElementById('selectIndex').innerHTML = findIndex.indice;
+    }
 
     $('#selectDate').change(function(){
-        let findIndex = index.find(element => element.mes === selectDate);
         switch($(this).val()){
             case "Selecciona fecha...":
-            console.log(findIndex.indice);
+            console.log("Selecciona");
             break;
             default:
-            console.log(findIndex.indice);
+            findIndex();
             break;
         }
     })
