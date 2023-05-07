@@ -15,9 +15,9 @@ $('#selectDate').change(function(){
     }
 })
 
-/* let html = ''
-const indexTable = document.getElementById('indexTable');
-indexTable.forEach(element => {
+/*let html = ''
+let indexTableDetalle = document.getElementById('indexTable');
+indexTable.forEach(doc => {
 html += `
 <table class="table table-striped table-bordered border-primary border-2">
 <thead class="bg-primary-subtle text-primary">
@@ -29,15 +29,16 @@ html += `
 </thead>
 <tbody class="table-group-divider">
   <tr>
-    <td>${element.mes}</td>
-    <td>${element.indice}</td>
-    <td>${element.indice}</td>
+    <td>${doc.mes}</td>
+    <td>${doc.indice}</td>
+    <td>${doc.indice}</td>
   </tr>
 </tbody>
 </table>
-
 `
-});*/
+});
+
+indexTableDetalle.innerHTML = html; */
 
 let index = [
     {
@@ -294,30 +295,18 @@ let index = [
     }
     ];
 
+let indexTable = document.getElementById('indexTable');
 
-    function showDom(element, arr){
-        document.getElementById(element).innerHTML = "";
+    function showDom(indexTable, arr){
+        document.getElementById(indexTable).innerHTML = "";
         for(let i = 0; i<arr.length; i++) {
             console.log(index[i])
-            document.getElementById(element).innerHTML +=
-            `<table class="table table-striped table-bordered border-primary border-2">
-             <thead class="bg-primary-subtle text-primary">
-             <tr>
-             <th scope="col">Mes</th>
-             <th scope="col">Índice</th>
-             <th scope="col">Coeficiente</th>
-             </tr>
-             </thead>
-             <tbody class="table-group-divider">
-             <tr>
-             <td>${arr[i].mes}</td>
+            document.getElementById(indexTable).innerHTML +=
+            `<td>${arr[i].mes}</td>
              <td>${arr[i].indice}</td>
-             <td>${arr[i].indice}</td>
-             </tr>
-             </tbody>
-             </table>`
-        }
-    
+             <td>${arr[i].indice}</td>`     
+        }    
     }
 
     showDom("indexTable", index)
+    
