@@ -299,14 +299,36 @@ let indexTable = document.getElementById('indexTable');
 
     function showDom(indexTable, arr){
         document.getElementById(indexTable).innerHTML = "";
-        for(let i = 0; i<arr.length; i++) {
-            console.log(index[i])
+        for(let e of arr) {
             document.getElementById(indexTable).innerHTML +=
-            `<td>${arr[i].mes}</td>
-             <td>${arr[i].indice}</td>
-             <td>${arr[i].indice}</td>`     
+            `<td>${e.mes}</td>
+             <td>${e.indice}</td>
+             <td>${e.indice}</td>`     
         }    
     }
 
     showDom("indexTable", index)
+    
+    function filterIndex() {
+        let selectDateStart = document.getElementById('selectDateStart').value;
+        let filterIndexValue = index.find(element => element.mes === selectDateStart);
+        let selectIndexStart = document.getElementById('selectIndexStart').value = filterIndexValue.indice;
+    }
+    
+    $('#selectDateStart').change(function(){
+        switch($(this).val()){
+            case "Selecciona fecha de inicio...":
+            selectIndexStart.innerHTML = '<i class="bi bi-three-dots"></i>';
+            break;
+            default:
+            filterIndex();
+            let inVal = document.getElementById('selectIndexStart').value;
+            console.log(inVal)
+            let filterIndexConsole = index.filter(element => element.indice <= inVal);
+            console.log(filterIndexConsole)
+            break;
+        }
+    })
+
+    
     
