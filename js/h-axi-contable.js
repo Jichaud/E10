@@ -1,7 +1,7 @@
 function findIndex() {
     let selectDate = document.getElementById('selectDate').value;
     let findIndex = index.find(element => element.mes === selectDate);
-    let selectIndex = document.getElementById('selectIndex').innerHTML = findIndex.indice;
+    let selectIndex = document.getElementById('selectIndex').value = findIndex.indice;
 }
 
 $('#selectDate').change(function(){
@@ -11,7 +11,10 @@ $('#selectDate').change(function(){
         break;
         default:
         findIndex();
-        break;
+        let inValIndex = document.getElementById('selectIndex').value;
+        let commaValue = inValIndex.toString().replace(".",",")
+        document.getElementById('selectIndex').value = commaValue;
+    break;
     }
 })
 
@@ -303,8 +306,8 @@ let indexTable = document.getElementById('indexTable');
             document.getElementById(indexTable).innerHTML +=
             `<td>${e.mes}</td>
              <td>${e.indice}</td>
-             <td>${e.indice}</td>`     
-        }    
+             <td>${e.indice}</td>`
+        }
     }
 
     showDom("indexTable", index)
@@ -323,9 +326,11 @@ let indexTable = document.getElementById('indexTable');
             default:
             filterIndex();
             let inVal = document.getElementById('selectIndexStart').value;
-            console.log(inVal)
             let filterIndexConsole = index.filter(element => element.indice <= inVal);
             console.log(filterIndexConsole)
+            let commaValueStart = inVal.toString().replace(".",",")
+            document.getElementById('selectIndexStart').value = commaValueStart;
+            console.log(commaValueStart)
             break;
         }
     })
