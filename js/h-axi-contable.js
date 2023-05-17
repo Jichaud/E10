@@ -11,42 +11,16 @@ $('#selectDate').change(function(){
         break;
         default:
         findIndex();
-        let inValIndex = document.getElementById('selectIndex').value;
-        let commaValue = inValIndex.toString().replace(".",",")
-        document.getElementById('selectIndex').value = commaValue;
+        console.log(selectIndex.value)
     break;
     }
 })
 
-/*let html = ''
-let indexTableDetalle = document.getElementById('indexTable');
-indexTable.forEach(doc => {
-html += `
-<table class="table table-striped table-bordered border-primary border-2">
-<thead class="bg-primary-subtle text-primary">
-  <tr>
-    <th scope="col">Mes</th>
-    <th scope="col">Índice</th>
-    <th scope="col">Coeficiente</th>
-  </tr>
-</thead>
-<tbody class="table-group-divider">
-  <tr>
-    <td>${doc.mes}</td>
-    <td>${doc.indice}</td>
-    <td>${doc.indice}</td>
-  </tr>
-</tbody>
-</table>
-`
-});
-
-indexTableDetalle.innerHTML = html; */
-
 let index = [
     {
         mes: "Enero 2023",
-        indice: 1202.9790
+        indice: 1202.9790,
+        coeficiente: selectIndex.value
     },
     {
         mes: "Febrero 2023",
@@ -306,7 +280,7 @@ let indexTable = document.getElementById('indexTable');
             document.getElementById(indexTable).innerHTML +=
             `<td>${e.mes}</td>
              <td>${e.indice}</td>
-             <td>${e.indice}</td>`
+             <td>${e.coeficiente}</td>`
         }
     }
 
