@@ -1,7 +1,7 @@
 function findIndex() {
     let selectDate = document.getElementById('selectDate').value;
     let findIndex = index.find(element => element.mes === selectDate);
-    let selectIndex = document.getElementById('selectIndex').value = findIndex.indice;
+    let selectIndex = document.getElementById('selectIndex').value = Number.parseFloat(findIndex.indice).toFixed(4);
 }
 
 $('#selectDate').change(function(){
@@ -11,7 +11,7 @@ $('#selectDate').change(function(){
         break;
         default:
         findIndex();
-        console.log(selectIndex.value)
+        showDom("indexTable", index)
     break;
     }
 })
@@ -19,8 +19,7 @@ $('#selectDate').change(function(){
 let index = [
     {
         mes: "Enero 2023",
-        indice: 1202.9790,
-        coeficiente: selectIndex.value
+        indice: 1202.9790
     },
     {
         mes: "Febrero 2023",
@@ -29,6 +28,10 @@ let index = [
     {
         mes: "Marzo 2023",
         indice: 1381.1601
+    },
+    {
+        mes: "Abril 2023",
+        indice: 1497.2147
     },
     {
         mes: "Enero 2022",
@@ -276,20 +279,19 @@ let indexTable = document.getElementById('indexTable');
 
     function showDom(indexTable, arr){
         document.getElementById(indexTable).innerHTML = "";
+        index.coeficiente= document.getElementById('selectIndex').innerHTML
         for(let e of arr) {
             document.getElementById(indexTable).innerHTML +=
             `<td>${e.mes}</td>
-             <td>${e.indice}</td>
-             <td>${e.coeficiente}</td>`
+             <td>${Number.parseFloat(e.indice).toFixed(4).toString().replace(".",",")}</td>
+             <td>${Number.parseFloat(selectIndex.value / e.indice).toFixed(4).toString().replace(".",",")}</td>`
         }
     }
 
-    showDom("indexTable", index)
-    
-    function filterIndex() {
+    function filterIndexStart() {
         let selectDateStart = document.getElementById('selectDateStart').value;
         let filterIndexValue = index.find(element => element.mes === selectDateStart);
-        let selectIndexStart = document.getElementById('selectIndexStart').value = filterIndexValue.indice;
+        let selectIndexStart = document.getElementById('selectIndexStart').value = Number.parseFloat(filterIndexValue.indice).toFixed(4);
     }
     
     $('#selectDateStart').change(function(){
@@ -298,16 +300,30 @@ let indexTable = document.getElementById('indexTable');
             selectIndexStart.innerHTML = '<i class="bi bi-three-dots"></i>';
             break;
             default:
-            filterIndex();
+            filterIndexStart();
             let inVal = document.getElementById('selectIndexStart').value;
             let filterIndexConsole = index.filter(element => element.indice <= inVal);
             console.log(filterIndexConsole)
-            let commaValueStart = inVal.toString().replace(".",",")
-            document.getElementById('selectIndexStart').value = commaValueStart;
-            console.log(commaValueStart)
             break;
         }
     })
 
+    function filterIndexEnd() {
+        let selectDateEnd = document.getElementById('selectDateEnd').value;
+        let filterIndexValueEnd = index.find(element => element.mes === selectDateEnd);
+        let selectIndexEnd = document.getElementById('selectIndexEnd').value = Number.parseFloat(filterIndexValueEnd.indice).toFixed(4);
+    }
     
-    
+    $('#selectDateEnd').change(function(){
+        switch($(this).val()){
+            case "Selecciona fecha de final...":
+            selectIndexEnd.innerHTML = '<i class="bi bi-three-dots"></i>';
+            break;
+            default:
+            filterIndexEnd();
+            let inValEnd = document.getElementById('selectIndexEnd').value;
+            let filterIndexConsoleEnd = index.filter(element => element.indice <= inValEnd);
+            console.log(filterIndexConsoleEnd)
+            break;
+        }
+    })
