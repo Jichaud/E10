@@ -57,7 +57,6 @@
 
 </head>
 
-
 <body>
 
   <nav class="navbar fixed-top navbar-light bg-primary-subtle">
@@ -78,6 +77,17 @@
     <br><br>
     <h1 class="mt-4 mb-3 h1-a">Ajuste por inflación contable <span
         class="badge text-bg-primary text-white px-3 py-3">índices</span></h1>
+    <!-- toast error message -->
+    <div aria-atomic="true" aria-live="polite" class="toast text-bg-white top-50 start-50" data-bs-autohide="true" data-bs-animation="true" data-bs-delay="5000">
+      <div class="toast-header text-bg-warning">
+        <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#ff0000"></rect></svg>
+        <strong class="me-auto">&nbsp; Algo salió mal...</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div id="toast-msg-error" class="toast-body h3-a text-dark">
+        <!-- texto h-axi-contable.js -->
+      </div>
+    </div>
     <div class="row mt-4">
       <div class="col-lg-4 mb-3">
         <div class="card border-primary">
@@ -385,7 +395,7 @@
         <div class="col-lg-3 mb-4">
           <div class="list-group">
             <a
-              class="list-group-item list-group-item-action list-group-item-primary card-link lead px-3 py-3">Estudio</a>
+              class="list-group-item list-group-item-action list-group-item-primary card-link fw-normal lead px-3 py-3">Estudio</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
               href="https://www.estudiodiez.com/perfil.html">Perfil</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
@@ -399,7 +409,7 @@
         <div class="col-lg-3 mb-4">
           <div class="list-group">
             <a
-              class="list-group-item list-group-item-action list-group-item-dark card-link lead px-3 py-3">Servicios</a>
+              class="list-group-item list-group-item-action list-group-item-dark card-link fw-normal lead px-3 py-3">Servicios</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
               href="https://www.estudiodiez.com/impositivo.html">Impositivos</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
@@ -411,7 +421,7 @@
         <div class="col-lg-3 mb-4">
           <div class="list-group">
             <a
-              class="list-group-item list-group-item-action list-group-item-success card-link lead px-3 py-3">Capacitación</a>
+              class="list-group-item list-group-item-action list-group-item-success card-link fw-normal lead px-3 py-3">Capacitación</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
               href="https://www.estudiodiez.com/eventos.html">Eventos</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
@@ -420,7 +430,7 @@
         </div>
         <div class="col-lg-3 mb-4">
           <div class="list-group">
-            <a class="list-group-item list-group-item-action list-group-item-warning lead px-3 py-3">Conecta</a>
+            <a class="list-group-item list-group-item-action list-group-item-warning fw-normal lead px-3 py-3">Conecta</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
               href="https://www.estudiodiez.com/contact.html">Contacto</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
@@ -468,6 +478,13 @@
   <!-- JS -->
   <script src="../js/h-axi-contable.js"></script>
 
+  <!-- toast -->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".toast").toast("hide");
+    });
+  </script>
+  
 </body>
 
 </html>

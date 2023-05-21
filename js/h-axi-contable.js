@@ -7,11 +7,10 @@ function findIndex() {
 $('#selectDate').change(function(){
     switch($(this).val()){
         case "Selecciona fecha base...":
-        selectIndex.innerHTML = '<i class="bi bi-three-dots"></i>';
+        selectIndex.value = '...';
         break;
         default:
         findIndex();
-        showDom("indexTable", index)
     break;
     }
 })
@@ -280,7 +279,8 @@ let indexTable = document.getElementById('indexTable');
     function showDom(indexTable, arr){
         document.getElementById(indexTable).innerHTML = "";
         index.coeficiente= document.getElementById('selectIndex').innerHTML
-        for(let e of arr) {
+        let filtroIndice = index.filter(element => element.indice >= selectIndexStart.value && element.indice <= selectIndexEnd.value);
+        for(let e of filtroIndice) {
             document.getElementById(indexTable).innerHTML +=
             `<td>${e.mes}</td>
              <td>${Number.parseFloat(e.indice).toFixed(4).toString().replace(".",",")}</td>
@@ -297,13 +297,12 @@ let indexTable = document.getElementById('indexTable');
     $('#selectDateStart').change(function(){
         switch($(this).val()){
             case "Selecciona fecha de inicio...":
-            selectIndexStart.innerHTML = '<i class="bi bi-three-dots"></i>';
+            selectIndexStart.value = '...';
             break;
             default:
             filterIndexStart();
             let inVal = document.getElementById('selectIndexStart').value;
-            let filterIndexConsole = index.filter(element => element.indice <= inVal);
-            console.log(filterIndexConsole)
+            let filterIndexConsole = index.filter(element => element.indice >= inVal);
             break;
         }
     })
@@ -316,14 +315,20 @@ let indexTable = document.getElementById('indexTable');
     
     $('#selectDateEnd').change(function(){
         switch($(this).val()){
-            case "Selecciona fecha de final...":
-            selectIndexEnd.innerHTML = '<i class="bi bi-three-dots"></i>';
+            case "Selecciona fecha final...":
+            selectIndexEnd.value = '...';
             break;
             default:
             filterIndexEnd();
             let inValEnd = document.getElementById('selectIndexEnd').value;
             let filterIndexConsoleEnd = index.filter(element => element.indice <= inValEnd);
-            console.log(filterIndexConsoleEnd)
+            showDom("indexTable", index);
+            if (selectIndexStart.value > selectIndexEnd.value) {
+                $(document).ready(function(){
+                    $(".toast").toast("show");
+                  });
+                  document.getElementById('toast-msg-error').innerHTML = "La fecha de inicio debe ser menor a la fecha de cierre";
+            };
             break;
         }
     })
