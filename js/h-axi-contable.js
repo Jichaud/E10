@@ -1,3 +1,5 @@
+cargaInicio();
+
 function findIndex() {
     let selectDate = document.getElementById('selectDate').value;
     let findIndex = index.find(element => element.mes === selectDate);
@@ -275,6 +277,7 @@ let index = [
     ];
 
 let indexTable = document.getElementById('indexTable');
+let rangoFechas = document.getElementById('rangoFechas');
 
     function showDom(indexTable, arr){
         document.getElementById(indexTable).innerHTML = "";
@@ -322,6 +325,8 @@ let indexTable = document.getElementById('indexTable');
             filterIndexEnd();
             let inValEnd = document.getElementById('selectIndexEnd').value;
             let filterIndexConsoleEnd = index.filter(element => element.indice <= inValEnd);
+            rangoFechas.innerHTML +=
+            `Coeficientes para el período ${selectDateStart.value} - ${selectDateEnd.value}`
             showDom("indexTable", index);
             if (selectIndexStart.value > selectIndexEnd.value) {
                 $(document).ready(function(){
@@ -329,6 +334,13 @@ let indexTable = document.getElementById('indexTable');
                   });
                   document.getElementById('toast-msg-error').innerHTML = "La fecha de inicio debe ser menor a la fecha de cierre";
             };
+            $('#rangoFechas').show()
+            $('#tableVisIndex').show()
             break;
         }
     })
+
+    function cargaInicio(){
+        $('#rangoFechas').hide(),
+        $('#tableVisIndex').hide()
+    }
