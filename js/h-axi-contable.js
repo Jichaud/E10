@@ -325,22 +325,36 @@ let rangoFechas = document.getElementById('rangoFechas');
             filterIndexEnd();
             let inValEnd = document.getElementById('selectIndexEnd').value;
             let filterIndexConsoleEnd = index.filter(element => element.indice <= inValEnd);
-            rangoFechas.innerHTML +=
-            `Coeficientes para el período ${selectDateStart.value} - ${selectDateEnd.value}`
-            showDom("indexTable", index);
-            if (selectIndexStart.value > selectIndexEnd.value) {
-                $(document).ready(function(){
-                    $(".toast").toast("show");
-                  });
-                  document.getElementById('toast-msg-error').innerHTML = "La fecha de inicio debe ser menor a la fecha de cierre";
-            };
-            $('#rangoFechas').show()
-            $('#tableVisIndex').show()
             break;
         }
     })
 
+    // Visualización tabla
+    $('#verTabla').on("click", function(){
+        rangoFechas.innerHTML +=
+        `Coeficientes para el período ${selectDateStart.value} - ${selectDateEnd.value}`
+        showDom("indexTable", index);
+        /* if (selectIndexStart.value > selectIndexEnd.value) {
+            $(document).ready(function(){
+                $(".toast").toast("show");
+              });
+              document.getElementById('toast-msg-error').innerHTML = "La fecha de inicio debe ser menor a la fecha de cierre";
+        }; */
+        $('#rangoFechas').show()
+        $('#tableVisIndex').show()
+        $('#verTabla').hide()
+        $('#nuevoCalculo').show()
+
+    })
+
+    $('#nuevoCalculo').on("click", function(){
+        location.reload(true);
+        cargaInicio()
+    })
+
     function cargaInicio(){
         $('#rangoFechas').hide(),
-        $('#tableVisIndex').hide()
+        $('#tableVisIndex').hide(),
+        $('#nuevoCalculo').hide(),
+        $('#verTabla').show()
     }

@@ -10,7 +10,7 @@
 
   <link rel="icon" type="../image/png" href="../images/favicon-32x32.png">
 
-  <title>ED blog - Herramientas - Ajuste por inflación contable - índices</title>
+  <title>ED blog - Herramientas - Ajuste por inflación contable - coeficientes</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -66,7 +66,7 @@
       </div>
       <div class="ms-auto me-4">
         <span class="badge bg-primary fs-6" data-bs-toggle="tooltip" data-bs-placement="bottom"
-          title="Ajuste por inflación contable - índices">AxI contable</span>
+          title="Ajuste por inflación contable - coeficientes">AxI contable</span>
       </div>
     </div>
   </nav>
@@ -76,7 +76,7 @@
   <div class="container">
     <br><br>
     <h1 class="mt-4 mb-3 h1-a">Ajuste por inflación contable <span
-        class="badge text-bg-primary text-white px-3 py-3">índices</span></h1>
+        class="badge text-bg-primary text-white px-3 py-3">coeficientes</span></h1>
     <!-- toast error message -->
     <div aria-atomic="true" aria-live="polite" class="toast text-bg-white top-50 start-50" data-bs-autohide="true" data-bs-animation="true" data-bs-delay="5000">
       <div class="toast-header text-bg-warning">
@@ -349,7 +349,8 @@
               <input type="text" class="form-control text-center fs-4" id="selectIndexEnd" disabled>
             </div>
             <div class="d-grid gap-2">
-              <button class="btn btn-outline-danger fs-4 fw-bold" type="button">Ver tabla <i class="bi bi-box-arrow-right"></i></button>
+              <button class="btn btn-outline-danger fs-4 fw-bold" type="button" id="verTabla">Ver tabla <i class="bi bi-box-arrow-right"></i></button>
+              <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo">Nuevo cálculo <i class="bi bi-box-arrow-right"></i></button>
             </div>
           </div>
 
@@ -360,13 +361,14 @@
       </div> <!-- col -->
 
       <div class="col-lg">
-        <div class="col-lg-6">
+        <div class="col-lg">
         <div class="input-group input-group-lg mb-3">
           <span class="input-group-text bg-primary-subtle text-primary border-3 border-primary">Índice base</span>
           <input type="text" class="form-control text-center fs-4 " id="selectIndex" disabled>
+          <button class="btn btn-outline-success" type="button" id="exportarTabla" disabled>Exportar tabla</button>
         </div>
       </div>
-        <div class="table-responsive fs-6 text-center col-lg-8" id="tableVisIndex">
+        <div class="table-responsive fs-6 text-center col-lg" id="tableVisIndex">
           <div class="alert alert-success fw-bold" role="alert" id="rangoFechas">
             <!-- text from h-axi-contable.js -->
           </div>
