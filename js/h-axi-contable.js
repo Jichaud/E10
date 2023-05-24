@@ -347,6 +347,10 @@ let rangoFechas = document.getElementById('rangoFechas');
         $('#exportarTabla').show()
     })
 
+    $('#exportarTabla').on("click", function(){
+        TableExport(document.getElementsByTagName("table"));
+    })
+
     $('#nuevoCalculo').on("click", function(){
         location.reload(true);
     })
