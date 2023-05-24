@@ -344,17 +344,17 @@ let rangoFechas = document.getElementById('rangoFechas');
         $('#tableVisIndex').show()
         $('#verTabla').hide()
         $('#nuevoCalculo').show()
-
+        $('#exportarTabla').show()
     })
 
     $('#nuevoCalculo').on("click", function(){
         location.reload(true);
-        cargaInicio()
     })
 
     function cargaInicio(){
         $('#rangoFechas').hide(),
         $('#tableVisIndex').hide(),
         $('#nuevoCalculo').hide(),
-        $('#verTabla').show()
+        $('#verTabla').show(),
+        $('#exportarTabla').hide()
     }

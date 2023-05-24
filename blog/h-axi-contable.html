@@ -350,7 +350,7 @@
             </div>
             <div class="d-grid gap-2">
               <button class="btn btn-outline-danger fs-4 fw-bold" type="button" id="verTabla">Ver tabla <i class="bi bi-box-arrow-right"></i></button>
-              <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo">Nuevo cálculo <i class="bi bi-box-arrow-right"></i></button>
+              <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo">Nuevo cálculo <i class="bi bi-arrow-clockwise"></i></button>
             </div>
           </div>
 
@@ -361,12 +361,14 @@
       </div> <!-- col -->
 
       <div class="col-lg">
-        <div class="col-lg">
+        <div class="col-lg-6">
         <div class="input-group input-group-lg mb-3">
           <span class="input-group-text bg-primary-subtle text-primary border-3 border-primary">Índice base</span>
           <input type="text" class="form-control text-center fs-4 " id="selectIndex" disabled>
-          <button class="btn btn-outline-success" type="button" id="exportarTabla" disabled>Exportar tabla</button>
         </div>
+      </div>
+      <div class="d-grid gap-2">
+        <button class="btn btn-outline-success mb-3 fs-4 fw-bold" type="button" id="exportarTabla">Exportar tabla <i class="bi bi-grid-3x3"></i></button>
       </div>
         <div class="table-responsive fs-6 text-center col-lg" id="tableVisIndex">
           <div class="alert alert-success fw-bold" role="alert" id="rangoFechas">
