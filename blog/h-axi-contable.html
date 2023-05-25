@@ -106,15 +106,81 @@
               </select>
               <input type="text" class="form-control text-center fs-4" id="selectIndexStart" disabled>
             </div>
-            <div class="d-grid gap-2">
+            <div class="d-grid gap-2 mb-3">
               <button class="btn btn-outline-danger fs-4 fw-bold" type="button" id="verTabla">Ver tabla <i class="bi bi-box-arrow-right"></i></button>
               <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo">Nuevo cálculo <i class="bi bi-arrow-clockwise"></i></button>
               <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="cambiarValores">Cambiar <i class="bi bi-pencil-square"></i></button>
             </div>
+            <div class="alert alert-dark mb-3" role="alert">
+              <p class="fs-5 fw-bold text-center">¿Necesitás ayuda?</p>
+              <div class="d-grid gap-2 mb-3">
+                <button class="btn btn-outline-dark fs-5 fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#ayudaModal">Ver ayuda <i class="bi bi-info-circle-fill"></i></button>
+              </div>
+            </div>
           </div>
 
+          <!-- Button ayuda modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="ayudaModal" tabindex="-1" aria-labelledby="ayudaModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Ayuda</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="list-group mb-3">
+                    <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 text-success">Índice base</h5>
+                        <small><span class="badge bg-success fs-6">paso nº 1</span></small>
+                      </div>
+                      <p class="mb-1">Seleccioná el índice base que será el divisor para los coeficientes entre fecha de cierre y fecha de incio.</p>
+                      <small>Por ejemplo: cierre diciembre/2022 tiene un índice de 1134.5875 y dividirá todos los índices desde fecha de cierre a fecha de inicio.</small>
+                    </a>
+                    <a class="list-group-item list-group-item-action bg-warning-subtle">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Seleccioná la fecha de cierre</h5>
+                        <small><span class="badge bg-warning fs-6 text-dark">paso nº 2</span></small>
+                      </div>
+                      <p class="mb-1">La fecha de cierre marcará el tope de fecha de la tabla final.</p>
+                      <small class="text-body-secondary">Por ejemplo: cierre diciembre/2022 tendrá desde ese mes hasta los meses anteriores según la fecha de inicio del punto siguiente.</small>
+                    </a>
+                    <a class="list-group-item list-group-item-action bg-primary-subtle">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Seleccioná la fecha de inicio</h5>
+                        <small><span class="badge bg-primary fs-6">paso nº 3</span></small>
+                      </div>
+                      <p class="mb-1">Con la fecha de inicio se indicará hasta qué mes llegará el cálculo arrancando de la fecha de cierre indicada anteriormente.</p>
+                      <small class="text-body-secondary">Por ejemplo: diciembre/2021 tendrá los meses desde diciembre/2022 a diciembre/2021.</small>
+                    </a>
+                    <a class="list-group-item list-group-item-action bg-danger-subtle">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Ver tabla | Cambiar valores</h5>
+                        <small><span class="badge bg-danger fs-6">paso nº 4</span></small>
+                      </div>
+                      <p class="mb-1">Haciendo clic en "Ver tabla" te mostrará la tabla con los datos introducidos y tendrás un botón arriba para exportarla a Excel. También podés modificar los valores introducidos.</p>
+                      <small class="text-body-secondary">Ver tabla: una vez visualizada la tabla tendrás un botón para hacer un nuevo cálculo.</small>
+                    </a>
+                  </div>
+                  <div class="alert alert-dark" role="alert">
+                    Tenés algún comentario, encontraste un error, o querés enviarnos un agradecimiento...
+                    <a href="mailto:blog@estudiodiez.com?subject=Herramientas Estudio Diez | AxI contable"><button type="button" class="btn btn-outline-success mt-3">Enviar consulta <i class="bi bi-arrow-right-circle-fill"></i></button></a>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div> <!-- fin modal ayuda -->
+
           <div class="card-footer bg-primary border-primary text-end">
-            <small class="text-light h3-a">#Herramientas ED</small>
+            <small class="text-light h3-a">#Herramientas ED | IPC abril/2023</small>
           </div>
         </div>
       </div> <!-- col -->
