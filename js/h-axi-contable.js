@@ -10,9 +10,18 @@ $('#selectDate').change(function(){
     switch($(this).val()){
         case "Selecciona fecha base...":
         selectIndex.value = '...';
+        selectDateEnd.value = "Selecciona fecha..."
+        selectDateStart.value = "Selecciona fecha..."
+        selectIndexEnd.value = '...';
+        selectIndexStart.value = '...';
+        $('#selectDateEnd').prop('disabled', true)
+        $('#selectDateStart').prop('disabled', true)
+        $('#verTabla').prop('disabled', true)
+        $('#cambiaSelectDateEnd').prop('hidden', true)
         break;
         default:
         findIndex();
+        $('#selectDateEnd').prop('disabled', false)
     break;
     }
 })
@@ -313,14 +322,18 @@ let index = [
     
     $('#selectDateStart').change(function(){
         switch($(this).val()){
-            case "Selecciona fecha de inicio...":
+            case "Selecciona fecha...":
             selectIndexStart.value = '...';
+            $('#verTabla').prop('disabled', true)
             break;
             default:
+            $('#verTabla').prop('disabled', false)
+            $('#cambiaSelectDateEnd').prop('hidden', false)
             filterIndexStart();
             let inVal = document.getElementById('selectIndexStart').value;
             let filterIndexConsole = index.filter(element => element.indice >= inVal);
             $('#selectDateEnd').prop('disabled', true)
+            $('#cambiarValores').show()
             break;
         }
     })
@@ -333,35 +346,38 @@ let index = [
     
     $('#selectDateEnd').change(function(){
         switch($(this).val()){
-            case "Selecciona fecha final...":
+            case "Selecciona fecha...":
             selectIndexEnd.value = '...';
+            $('#selectDateStart').prop('disabled', true)
             break;
             default:
             filterIndexEnd();
             let inValEnd = document.getElementById('selectIndexEnd').value;
             let filterIndexConsoleEnd = index.filter(element => element.indice <= inValEnd);
-            let filterDateStart = index.filter(element => element.indice < selectIndexEnd.value)
-            // Fill selectDateStart - fecha de inicio
-            filterDateStart.forEach((mes) => {
-                let mesSelectStart = document.createElement("option");
-                mesSelectStart.text = mes.mes;
-                selectDateStart.appendChild(mesSelectStart);
-            });
+            $('#selectDateStart').prop('disabled', false)
             break;
         }
     })
 
+    $('#selectDateEnd').on('focusout', function(){
+        let filterDateStart = index.filter(element => element.indice < selectIndexEnd.value)
+        // Fill selectDateStart - fecha de inicio
+        filterDateStart.forEach((mes) => {
+            let mesSelectStart = document.createElement("option");
+            mesSelectStart.text = mes.mes;
+            selectDateStart.appendChild(mesSelectStart);
+        });
+    })
+
+    $('#cambiarValores').on("click", function() {
+        location.reload(true);
+    })
+    
     // Visualización tabla
     $('#verTabla').on("click", function(){
         rangoFechas.innerHTML +=
         `Coeficientes para el período ${selectDateStart.value} - ${selectDateEnd.value}`
         showDom("indexTable", index);
-        /* if (selectIndexStart.value > selectIndexEnd.value) {
-            $(document).ready(function(){
-                $(".toast").toast("show");
-              });
-              document.getElementById('toast-msg-error').innerHTML = "La fecha de inicio debe ser menor a la fecha de cierre";
-        }; */
         $('#rangoFechas').show()
         $('#tableVisIndex').show()
         $('#verTabla').hide()
@@ -370,6 +386,8 @@ let index = [
         $('#selectDate').prop('disabled', true)
         $('#selectDateStart').prop('disabled', true)
         $('#selectDateEnd').prop('disabled', true)
+        $('#cambiaSelectDateEnd').prop('hidden', true)
+        $('#cambiarValores').hide()
     })
 
     $('#exportarTabla').on("click", function(){
@@ -390,5 +408,9 @@ let index = [
         $('#tableVisIndex').hide(),
         $('#nuevoCalculo').hide(),
         $('#verTabla').show(),
+        $('#verTabla').prop('disabled', true),
+        $('#selectDateEnd').prop('disabled', true),
+        $('#selectDateStart').prop('disabled', true),
+        $('#cambiarValores').hide(),
         $('#exportarTabla').hide()
     }
