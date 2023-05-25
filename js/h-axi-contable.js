@@ -348,7 +348,12 @@ let rangoFechas = document.getElementById('rangoFechas');
     })
 
     $('#exportarTabla').on("click", function(){
-        TableExport(document.getElementsByTagName("table"));
+        $("#tableVisIndex").table2excel({
+            exclude: ".excludeThisClass",
+            name: "AxI contable",
+            filename: "AxI contable.xls", // do include extension
+            preserveColors: false // set to true if you want background colors and font colors preserved
+        });
     })
 
     $('#nuevoCalculo').on("click", function(){
