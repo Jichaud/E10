@@ -276,8 +276,22 @@ let index = [
     }
     ];
 
-let indexTable = document.getElementById('indexTable');
-let rangoFechas = document.getElementById('rangoFechas');
+    // Fill selectDate - fecha base
+    index.forEach((mes) => {
+        let mesSelect = document.createElement("option");
+        mesSelect.text = mes.mes;
+        selectDate.appendChild(mesSelect);
+    });
+
+    // Fill selectDateEnd - fecha final
+    index.forEach((mes) => {
+        let mesSelectEnd = document.createElement("option");
+        mesSelectEnd.text = mes.mes;
+        selectDateEnd.appendChild(mesSelectEnd);
+    });
+
+    let indexTable = document.getElementById('indexTable');
+    let rangoFechas = document.getElementById('rangoFechas');
 
     function showDom(indexTable, arr){
         document.getElementById(indexTable).innerHTML = "";
@@ -306,6 +320,7 @@ let rangoFechas = document.getElementById('rangoFechas');
             filterIndexStart();
             let inVal = document.getElementById('selectIndexStart').value;
             let filterIndexConsole = index.filter(element => element.indice >= inVal);
+            $('#selectDateEnd').prop('disabled', true)
             break;
         }
     })
@@ -325,6 +340,13 @@ let rangoFechas = document.getElementById('rangoFechas');
             filterIndexEnd();
             let inValEnd = document.getElementById('selectIndexEnd').value;
             let filterIndexConsoleEnd = index.filter(element => element.indice <= inValEnd);
+            let filterDateStart = index.filter(element => element.indice < selectIndexEnd.value)
+            // Fill selectDateStart - fecha de inicio
+            filterDateStart.forEach((mes) => {
+                let mesSelectStart = document.createElement("option");
+                mesSelectStart.text = mes.mes;
+                selectDateStart.appendChild(mesSelectStart);
+            });
             break;
         }
     })
@@ -345,6 +367,9 @@ let rangoFechas = document.getElementById('rangoFechas');
         $('#verTabla').hide()
         $('#nuevoCalculo').show()
         $('#exportarTabla').show()
+        $('#selectDate').prop('disabled', true)
+        $('#selectDateStart').prop('disabled', true)
+        $('#selectDateEnd').prop('disabled', true)
     })
 
     $('#exportarTabla').on("click", function(){
