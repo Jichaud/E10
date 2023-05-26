@@ -394,7 +394,7 @@ let index = [
         $("#tableVisIndex").table2excel({
             exclude: ".excludeThisClass",
             name: "AxI contable",
-            filename: "AxI contable.xlsx",
+            filename: "AxI contable.xls",
             preserveColors: false
         });
     })
