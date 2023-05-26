@@ -306,7 +306,8 @@ let index = [
         document.getElementById(indexTable).innerHTML = "";
         index.coeficiente= document.getElementById('selectIndex').innerHTML
         let filtroIndice = index.filter(element => element.indice >= selectIndexStart.value && element.indice <= selectIndexEnd.value);
-        for(let e of filtroIndice) {
+        let filtroOrdenado = filtroIndice.toSorted((a, b) => b.indice - a.indice);
+        for(let e of filtroOrdenado) {
             document.getElementById(indexTable).innerHTML +=
             `<td>${e.mes}</td>
              <td>${Number.parseFloat(e.indice).toFixed(4).toString().replace(".",",")}</td>
