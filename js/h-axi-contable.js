@@ -22,7 +22,7 @@ $('#selectDate').change(function(){
         default:
         findIndex();
         $('#selectDateEnd').prop('disabled', false)
-    break;
+        break;
     }
 })
 
@@ -333,7 +333,6 @@ let index = [
             let inVal = document.getElementById('selectIndexStart').value;
             let filterIndexConsole = index.filter(element => element.indice >= inVal);
             $('#selectDateEnd').prop('disabled', true)
-            $('#cambiarValores').show()
             break;
         }
     })
@@ -355,6 +354,7 @@ let index = [
             let inValEnd = document.getElementById('selectIndexEnd').value;
             let filterIndexConsoleEnd = index.filter(element => element.indice <= inValEnd);
             $('#selectDateStart').prop('disabled', false)
+            $('#selectDate').prop('disabled', true)
             break;
         }
     })
@@ -367,6 +367,8 @@ let index = [
             mesSelectStart.text = mes.mes;
             selectDateStart.appendChild(mesSelectStart);
         });
+        $('#cambiarValores').show()
+        $('#selectDateEnd').prop('disabled', true)
     })
 
     $('#cambiarValores').on("click", function() {
