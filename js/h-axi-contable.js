@@ -394,8 +394,8 @@ let index = [
         $("#tableVisIndex").table2excel({
             exclude: ".excludeThisClass",
             name: "AxI contable",
-            filename: "AxI contable.xls", // do include extension
-            preserveColors: false // set to true if you want background colors and font colors preserved
+            filename: "AxI contable.xlsx",
+            preserveColors: false
         });
     })
 
