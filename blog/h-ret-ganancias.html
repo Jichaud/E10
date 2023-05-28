@@ -133,27 +133,26 @@
                 <option value="116">Profesiones liberales</option>
               </select>
             </div>
-            <div class="alert alert-warning mb-3" role="alert">
-              <label for="fechabase" class="form-label fs-5">Fecha de cierre</label>
-              <select class="form-select form-select-lg border-3 border-warning mb-3" id="selectDateEnd"
-                aria-label="fecha base end">
-                <option selected>Selecciona fecha...</option>
-              </select>
-              <input type="text" class="form-control text-center fs-4" id="selectIndexEnd" disabled>
-            </div>
-            <div class="alert alert-primary mb-3" role="alert">
-              <label for="fechabase" class="form-label fs-5">Fecha de inicio</label>
-              <select class="form-select form-select-lg border-3 border-primary mb-3" id="selectDateStart"
-                aria-label="fecha base start">
-                <option selected>Selecciona fecha...</option>
-              </select>
-              <input type="text" class="form-control text-center fs-4" id="selectIndexStart" disabled>
-            </div>
-            <div class="d-grid gap-2 mb-3">
-              <button class="btn btn-outline-danger fs-4 fw-bold" type="button" id="verTabla">Ver tabla <i class="bi bi-box-arrow-right"></i></button>
-              <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo">Nuevo cálculo <i class="bi bi-arrow-clockwise"></i></button>
-              <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="cambiarValores">Cambiar <i class="bi bi-pencil-square"></i></button>
-            </div>
+            <div class="alert bg-warning-subtle fs-5" role="alert" id="retencionAlquileres">
+              <span class="fs-5 fw-bold">Retención alquileres</span>
+              <div class="input-group mb-3 mt-3">
+                <span class="input-group-text border-3 border-warning fw-bold" id="basic-addon1">Importe neto</span>
+                <input type="text" class="form-control border-3 border-warning text-end" placeholder="0,00" aria-label="Importe neto" aria-describedby="basic-addon1" id="importeNeto">
+              </div>
+              <hr>
+              <div class="form-check form-switch">
+                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelInscriptoGanancias">Inscripto en ganancias</label>
+                <input class="form-check-input" type="checkbox" role="switch" id="inscriptoGanancias" checked value="true">
+              </div>
+              <hr>
+              <div class="mb-3">
+                <label for="pagosMes" class="form-label">Pagos en el mismo mes</label>
+                <input type="text" class="form-control text-end border-3 border-warning" placeholder="0,00" id="pagosMes">
+              </div>
+              <div class="d-grid gap-2 mb-3">
+                <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="retAlquileres">Calcular retención <i class="bi bi-box-arrow-right"></i></button>
+              </div>
+              </div>
             <div class="alert alert-dark mb-3" role="alert">
               <p class="fs-5 fw-bold text-center">¿Necesitás ayuda?</p>
               <div class="d-grid gap-2 mb-3">
@@ -224,11 +223,15 @@
       </div> <!-- col -->
 
       <div class="col-lg">
-        <div class="col-lg-6">
-        <div class="input-group input-group-lg mb-3">
-          <span class="input-group-text bg-primary-subtle text-primary border-3 border-primary">Índice base</span>
-          <input type="text" class="form-control text-center fs-4 " id="selectIndex" disabled>
+        <div class="alert alert-warning" role="alert">
+          <p class="fw-bold fs-4 text-center">Retención alquileres</p>
+          <div class="input-group mb-3 mt-3">
+            <span class="input-group-text border-3 border-warning fw-bold fs-4" id="basic-addon2">Importe retención</span>
+            <input type="text" class="form-control border-3 border-warning text-end fs-4 fw-bold" placeholder="0,00" aria-label="Importe retención alquileres" aria-describedby="basic-addon2" id="importeRetAlquileres">
+          </div>
+
         </div>
+        <div class="col-lg-6">
       </div>
       </div> <!-- col -->
 
