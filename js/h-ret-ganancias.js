@@ -3,10 +3,10 @@ cargaInicio();
 function retAlquileresCalc () {
     let importeNeto = document.getElementById("importeNeto").value;
     let pagosMes = document.getElementById("pagosMes").value;
-    let importeNetoNum = parseFloat(importeNeto);
-    let pagosMesNum = parseFloat(pagosMes);
-    document.getElementById("importeRetAlquileres").value = (importeNetoNum + pagosMesNum).toFixed(2).replace(".",",")
-    
+    let importeNetoNum = importeNeto.replace(".","")
+    let pagosMesNum = pagosMes.replace(",",".","."," ")
+    // document.getElementById("importeRetAlquileres").value = (+importeNetoNum + +pagosMesNum).toFixed(2)
+    console.log(importeNetoNum)
 }
 
 $('#retAlquileres').on("click", function(){
@@ -45,3 +45,8 @@ $('#regRet').change(function(){
 function cargaInicio(){
    // $('#retencionAlquileres').hide()
 }
+
+$(function(){
+    $('#importeNeto').mask('000.000.000.000.000,00', {reverse: true});
+    $('#pagosMes').mask('000.000.000.000.000,00', {reverse: true});
+  });
