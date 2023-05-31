@@ -26,18 +26,38 @@ $('#regRet').change(function(){
     switch($(this).val()){
         case "Selecciona régimen...":
             $('#retencionAlquileres').hide()
+            $('#codigo31').hide()
+            $('#codigo78').hide()
+            $('#codigo94').hide()
+            $('#codigo116').hide()
         break;
         case "31":
             $('#retencionAlquileres').show()
+            $('#codigo31').show()
+            $('#codigo78').hide()
+            $('#codigo94').hide()
+            $('#codigo116').hide()
         break;
         case "78":
             $('#retencionAlquileres').hide()
+            $('#codigo78').show()
+            $('#codigo31').hide()
+            $('#codigo94').hide()
+            $('#codigo116').hide()
         break;
         case "94":
             $('#retencionAlquileres').hide()
+            $('#codigo94').show()
+            $('#codigo31').hide()
+            $('#codigo78').hide()
+            $('#codigo116').hide()
         break;
         case "116":
             $('#retencionAlquileres').hide()
+            $('#codigo116').show()
+            $('#codigo31').hide()
+            $('#codigo78').hide()
+            $('#codigo94').hide()
         break;
     }
 
