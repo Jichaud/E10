@@ -13,8 +13,7 @@
   <title>ED blog - Herramientas - Retención ganancias - RG AFIP 830</title>
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
   <!-- Bootstrap icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -223,18 +222,42 @@
       </div> <!-- col -->
 
       <div class="col-lg">
-        <div class="alert alert-warning" role="alert">
-          <p class="fw-bold fs-4 text-center">Retención alquileres</p>
-          <div class="input-group mb-3 mt-3">
-            <span class="input-group-text border-3 border-warning fw-bold fs-4" id="basic-addon2">Importe retención</span>
-            <input type="text" class="form-control border-3 border-warning text-end fs-4 fw-bold" placeholder="0,00" aria-label="Importe retención alquileres" aria-describedby="basic-addon2" id="importeRetAlquileres" disabled>
+        <div class="row">
+          <div class="alert alert-light" role="alert">
+            <p class="fw-bold fs-4 text-center">Datos retención alquileres</p>
+            <div class="row g-2 align-items-center mb-3">
+              <div class="col-lg-3">
+                <label for="datosNeto" class="col-form-label">Importe neto</label>
+                <input type="text" id="datosNeto" class="form-control" disabled>
+              </div>
+              <div class="col-lg-3">
+                <label for="datosPagosAnteriores" class="col-form-label">Pagos anteriores</label>
+                <input type="text" id="datosPagosAnteriores" class="form-control" disabled>
+              </div>
+              <div class="col-lg-3">
+                <label for="datosMin" class="col-form-label">Retención mínima</label>
+                <input type="text" id="datosMin" class="form-control text-center" disabled>
+              </div>
+              <div class="col-lg-3">
+                <label for="datosMNSR" class="col-form-label">Monto no sujeto</label>
+                <input type="text" id="datosMNSR" class="form-control text-center" disabled>
+              </div>
+            </div>
           </div>
-
         </div>
-        <div class="col-lg-6">
-      </div>
+        <div class="row">
+          <div class="alert alert-warning" role="alert">
+            <p class="fw-bold fs-4 text-center">Retención alquileres</p>
+            <span class="border border-2 rounded-3 border-warning px-2 py-2 fw-bold fs-4" id="basic-addon2">Importe retención</span>
+            <div class="input-group mb-3 mt-3">
+              
+              <input type="text" class="form-control border-3 border-warning text-end fs-4 fw-bold" placeholder="0,00"
+                aria-label="Importe retención alquileres" aria-describedby="basic-addon2" id="importeRetAlquileres" disabled>
+            </div>
+          </div>
+        </div> <!-- row -->
       </div> <!-- col -->
-
+      
     </div> <!-- row -->
   </div> <!-- container -->
 
@@ -315,9 +338,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
   <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
   <script type="text/javascript">
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
