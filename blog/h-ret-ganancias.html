@@ -121,9 +121,9 @@
           <h4 class="card-header bg-primary h4-a text-light text-center border-primary"><i class="bi bi-gear"></i>
             Configuración</h4>
           <div class="card-body">
-            <div class="alert bg-success-subtle fs-5 text-success" role="alert">
+            <div class="alert bg-dark-subtle fs-5 text-dark" role="alert">
               <label for="regret" class="form-label">Régimen de retención</label>
-              <select class="form-select form-select-lg border-3 border-success" id="regRet"
+              <select class="form-select form-select-lg border-3 border-dark" id="regRet"
                 aria-label="régimen de retención">
                 <option selected>Selecciona régimen...</option>
                 <option value="31">Alquileres</option>
@@ -132,26 +132,39 @@
                 <option value="116">Profesiones liberales</option>
               </select>
             </div>
-            <div class="alert bg-warning-subtle fs-5" role="alert" id="retencionAlquileres">
+
+            <!-- Retención mod -->
+            <div class="alert bg-warning-subtle fs-5" role="alert" id="retencion">
               <span class="fs-5 fw-bold">Retención alquileres</span>
               <div class="input-group mb-3 mt-3">
                 <span class="input-group-text border-3 border-warning fw-bold" id="basic-addon1">Importe neto</span>
-                <input type="text" class="form-control border-3 border-warning text-end" aria-label="Importe neto" aria-describedby="basic-addon1" id="importeNeto">
+                <input type="text" class="form-control border-3 border-warning text-end" aria-label="Importe neto"
+                  aria-describedby="basic-addon1" id="importeNeto">
               </div>
               <hr>
               <div class="form-check form-switch">
-                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelInscriptoGanancias">Inscripto en ganancias</label>
-                <input class="form-check-input" type="checkbox" role="switch" id="inscriptoGanancias" checked value="true">
+                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelInscriptoGanancias">Inscripto en
+                  ganancias</label>
+                <input class="form-check-input mb-3" type="checkbox" role="switch" id="inscriptoGanancias" checked value="true">
+                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelPersona">PH / SI</label>
+                <input class="form-check-input" type="checkbox" role="switch" id="tipoPersona" checked value="true">
               </div>
               <hr>
               <div class="mb-3">
                 <label for="pagosMes" class="form-label">Pagos en el mismo mes</label>
                 <input type="text" class="form-control text-end border-3 border-warning" id="pagosMes">
               </div>
+              <div class="mb-3">
+                <label for="pagosMes" class="form-label">Retenciones en el mismo mes</label>
+                <input type="text" class="form-control text-end border-3 border-warning" id="retencionesMes">
+              </div>
               <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="retAlquileres">Calcular retención <i class="bi bi-box-arrow-right"></i></button>
+                <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="ret">Calcular retención <i
+                    class="bi bi-box-arrow-right"></i></button>
+                <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo" hidden>Nuevo cálculo <i class="bi bi-arrow-clockwise"></i></button>
               </div>
-              </div>
+            </div> <!-- fin retención mod -->
+
             <div class="alert alert-dark mb-3" role="alert">
               <p class="fs-5 fw-bold text-center">¿Necesitás ayuda?</p>
               <div class="d-grid gap-2 mb-3">
@@ -223,7 +236,7 @@
 
       <div class="col-lg">
         <div class="row">
-          <div class="alert alert-light" role="alert">
+          <div class="alert alert-light border border-3" role="alert">
             <p class="fw-bold fs-4 text-center">Datos retención alquileres</p>
             <div class="row g-2 align-items-center mb-3">
               <div class="col-lg-3">
@@ -252,7 +265,7 @@
             <div class="input-group mb-3 mt-3">
               
               <input type="text" class="form-control border-3 border-warning text-end fs-4 fw-bold" placeholder="0,00"
-                aria-label="Importe retención alquileres" aria-describedby="basic-addon2" id="importeRetAlquileres" disabled>
+                aria-label="Importe retención alquileres" aria-describedby="basic-addon2" id="importeRet" disabled>
             </div>
           </div>
         </div> <!-- row -->
