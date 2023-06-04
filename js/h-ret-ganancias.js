@@ -12,31 +12,45 @@ function retCalc () {
     switch($('#regRet').val()){
         case "31":
     if ($('#inscriptoGanancias').prop('checked') == true) {
-    document.getElementById("importeRet").value = Intl.NumberFormat("es-ES", {minimumFractionDigits: 2}).format((+importeNetoNum - +pagosMesNum - 11200) * 0.06 - +retencionesMesNum)
+        let importeRetInscripto = (+importeNetoNum + +pagosMesNum - 11200) * 0.06 - +retencionesMesNum
+        if (importeRetInscripto < 240) {
+            $('#importeRet').val("Menor al mínimo")
+        } else {
+            document.getElementById("importeRet").value = Intl.NumberFormat("es", {style: "currency", currency:"USD", currencySign: "accounting"}).format(importeRetInscripto).replace("US$", "")
+        }
+        $('#datosMin').val("240,00")
+        $('#datosMNSR').val("11.200,00")
+
     } else if ($('#tipoPersona').prop('checked')) {
-        document.getElementById("importeRet").value = Intl.NumberFormat("es-ES", {minimumFractionDigits: 2}).format((+importeNetoNum - +pagosMesNum) * 0.28 - +retencionesMesNum)
+        document.getElementById("importeRet").value = Intl.NumberFormat("es", {style: "currency", currency:"USD", currencySign: "accounting"}).format((+importeNetoNum + +pagosMesNum) * 0.28 - +retencionesMesNum).replace("US$", "")
+        $('#datosMin').val("1.020,00")
+        $('#datosMNSR').val("-.-")
+
     } else {
-        document.getElementById("importeRet").value = Intl.NumberFormat("es-ES", {minimumFractionDigits: 2}).format((+importeNetoNum - +pagosMesNum) * 0.25 - +retencionesMesNum)
+        document.getElementById("importeRet").value = Intl.NumberFormat("es-ES", {style: "currency", currency:"USD", currencySign: "accounting"}).format((+importeNetoNum + +pagosMesNum) * 0.25 - +retencionesMesNum).replace("US$", "")
+        $('#datosMin').val("1.020,00")
+        $('#datosMNSR').val("-.-")
+
     }
+    
 }
 };
 
 $('#ret').on("click", function(){
     retCalc();
+    $('#datosNeto').val(importeNeto.value)
+    $('#datosPagosAnteriores').val(pagosMes.value)
+    $('#datosRetAnteriores').val(retencionesMes.value)
     
 })
 
 $('#inscriptoGanancias').click(function(){
     if ($(this).prop('checked') == true) {
         $('#labelInscriptoGanancias').text("Inscripto ganancias");
-        $('#datosMin').val("240,00")
-        $('#datosMNSR').val("11.200,00")
         $('#tipoPersona').hide()
         $('#labelPersona').hide()
     } else {
         $('#labelInscriptoGanancias').text("NO inscripto ganancias");
-        $('#datosMin').val("1.020,00")
-        $('#datosMNSR').val("-.-")
         $('#tipoPersona').show()
         $('#labelPersona').show()
     }
@@ -81,5 +95,4 @@ $(function(){
     $('#importeNeto').mask('000.000.000.000.000,00', {reverse: true});
     $('#pagosMes').mask('000.000.000.000.000,00', {reverse: true});
     $('#retencionesMes').mask('000.000.000.000.000,00', {reverse: true});
-    $('#importeRet').mask('000.000.000.000.000,00', {reverse: true});
   });

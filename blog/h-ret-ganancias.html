@@ -14,7 +14,7 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
+  
   <!-- Bootstrap icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
@@ -238,15 +238,20 @@
         <div class="row">
           <div class="alert alert-light border border-3" role="alert">
             <p class="fw-bold fs-4 text-center">Datos retención alquileres</p>
-            <div class="row g-2 align-items-center mb-3">
+            <div class="row d-flex justify-content-center g-2 align-items-center mb-3">
               <div class="col-lg-3">
                 <label for="datosNeto" class="col-form-label">Importe neto</label>
-                <input type="text" id="datosNeto" class="form-control" disabled>
+                <input type="text" id="datosNeto" class="form-control text-center" disabled>
               </div>
               <div class="col-lg-3">
                 <label for="datosPagosAnteriores" class="col-form-label">Pagos anteriores</label>
-                <input type="text" id="datosPagosAnteriores" class="form-control" disabled>
+                <input type="text" id="datosPagosAnteriores" class="form-control text-center" disabled>
               </div>
+              <div class="col-lg-3">
+                <label for="datosPagosAnteriores" class="col-form-label">Retenciones anteriores</label>
+                <input type="text" id="datosRetAnteriores" class="form-control text-center" disabled>
+              </div>
+              <div class="w-100"></div>
               <div class="col-lg-3">
                 <label for="datosMin" class="col-form-label">Retención mínima</label>
                 <input type="text" id="datosMin" class="form-control text-center" disabled>
@@ -350,8 +355,8 @@
   <!-- Mask -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 
   <script type="text/javascript">
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
