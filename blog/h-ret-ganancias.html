@@ -146,7 +146,9 @@
                 <label class="form-check-label" for="flexSwitchCheckChecked" id="labelInscriptoGanancias">Inscripto en
                   ganancias</label>
                 <input class="form-check-input mb-3" type="checkbox" role="switch" id="inscriptoGanancias" checked value="true">
-                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelPersona">PH / SI</label>
+              </div>
+              <div class="form-check form-switch">
+                <label class="form-check-label" for="flexSwitchCheckChecked1" id="labelPersona">PH / SI</label>
                 <input class="form-check-input" type="checkbox" role="switch" id="tipoPersona" checked value="true">
               </div>
               <hr>
@@ -236,8 +238,8 @@
 
       <div class="col-lg">
         <div class="row">
-          <div class="alert alert-light border border-3" role="alert">
-            <p class="fw-bold fs-4 text-center">Datos retención alquileres</p>
+          <div class="alert alert-light border border-3" role="alert" id="alertDatosRetencion">
+            <p class="fw-bold fs-4 text-center" id="datosRetencion"></p>
             <div class="row d-flex justify-content-center g-2 align-items-center mb-3">
               <div class="col-lg-3">
                 <label for="datosNeto" class="col-form-label">Importe neto</label>
@@ -264,7 +266,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="alert alert-warning" role="alert">
+          <div class="alert alert-warning" role="alert" id="datosImporteRetencionAlquilere">
             <p class="fw-bold fs-4 text-center">Retención alquileres</p>
             <span class="border border-2 rounded-3 border-warning px-2 py-2 fw-bold fs-4" id="basic-addon2">Importe retención</span>
             <div class="input-group mb-3 mt-3">

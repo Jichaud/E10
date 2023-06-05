@@ -20,16 +20,25 @@ function retCalc () {
         }
         $('#datosMin').val("240,00")
         $('#datosMNSR').val("11.200,00")
+        $('#alertDatosRetencion').show()
+        $('#datosRetencion').text("Datos retención alquileres")
+        $('#datosImporteRetencionAlquilere').show()
 
     } else if ($('#tipoPersona').prop('checked')) {
         document.getElementById("importeRet").value = Intl.NumberFormat("es", {style: "currency", currency:"USD", currencySign: "accounting"}).format((+importeNetoNum + +pagosMesNum) * 0.28 - +retencionesMesNum).replace("US$", "")
         $('#datosMin').val("1.020,00")
         $('#datosMNSR').val("-.-")
+        $('#alertDatosRetencion').show()
+        $('#datosRetencion').text("Datos retención alquileres")
+        $('#datosImporteRetencionAlquilere').show()
 
     } else {
         document.getElementById("importeRet").value = Intl.NumberFormat("es-ES", {style: "currency", currency:"USD", currencySign: "accounting"}).format((+importeNetoNum + +pagosMesNum) * 0.25 - +retencionesMesNum).replace("US$", "")
         $('#datosMin').val("1.020,00")
         $('#datosMNSR').val("-.-")
+        $('#alertDatosRetencion').show()
+        $('#datosRetencion').text("Datos retención alquileres")
+        $('#datosImporteRetencionAlquilere').show()
 
     }
     
@@ -59,8 +68,10 @@ $('#inscriptoGanancias').click(function(){
 $('#tipoPersona').click(function(){
     if ($(this).prop('checked') == true) {
         $('#labelPersona').text("PH / SI");
+        $('#inscriptoGanancias').show();
     } else {
         $('#labelPersona').text("Resto de sujetos");
+        $('#inscriptoGanancias').show();
     }
 })
 
@@ -68,6 +79,8 @@ $('#regRet').change(function(){
     switch($(this).val()){
         case "Selecciona régimen...":
             $('#retencion').hide()
+            $('#alertDatosRetencion').hide()
+            $('#datosImporteRetencionAlquilere').hide()
         break;
         case "31":
             $('#retencion').show()
@@ -86,9 +99,11 @@ $('#regRet').change(function(){
 })
 
 function cargaInicio(){
-   // $('#retencion').hide()
+   $('#retencion').hide()
    $('#tipoPersona').hide()
    $('#labelPersona').hide()
+   $('#alertDatosRetencion').hide()
+   $('#datosImporteRetencionAlquilere').hide()
 }
 
 $(function(){
