@@ -25,7 +25,12 @@ function retCalc () {
         $('#datosImporteRetencionAlquilere').show()
 
     } else if ($('#tipoPersona').prop('checked')) {
-        document.getElementById("importeRet").value = Intl.NumberFormat("es", {style: "currency", currency:"USD", currencySign: "accounting"}).format((+importeNetoNum + +pagosMesNum) * 0.28 - +retencionesMesNum).replace("US$", "")
+        let importeRetPersona = (+importeNetoNum + +pagosMesNum) * 0.28 - +retencionesMesNum
+        if (importeRetPersona < 1020) {
+            $('#importeRet').val("Menor al mínimo")
+        } else {
+            document.getElementById("importeRet").value = Intl.NumberFormat("es", {style: "currency", currency:"USD", currencySign: "accounting"}).format(importeRetPersona).replace("US$", "")
+        }
         $('#datosMin').val("1.020,00")
         $('#datosMNSR').val("-.-")
         $('#alertDatosRetencion').show()
@@ -33,7 +38,12 @@ function retCalc () {
         $('#datosImporteRetencionAlquilere').show()
 
     } else {
-        document.getElementById("importeRet").value = Intl.NumberFormat("es-ES", {style: "currency", currency:"USD", currencySign: "accounting"}).format((+importeNetoNum + +pagosMesNum) * 0.25 - +retencionesMesNum).replace("US$", "")
+        let importeRetResto = (+importeNetoNum + +pagosMesNum) * 0.25 - +retencionesMesNum
+        if (importeRetResto < 1020) {
+            $('#importeRet').val("Menor al mínimo")
+        } else {
+            document.getElementById("importeRet").value = Intl.NumberFormat("es", {style: "currency", currency:"USD", currencySign: "accounting"}).format(importeRetResto).replace("US$", "")
+        }
         $('#datosMin').val("1.020,00")
         $('#datosMNSR').val("-.-")
         $('#alertDatosRetencion').show()
@@ -98,12 +108,21 @@ $('#regRet').change(function(){
 
 })
 
+$('#importeNeto').on('change', function(){
+    if ($('#importeNeto').val() <= 0 ) {
+        $('#ret').prop('disabled', true)
+    } else {
+        $('#ret').prop('disabled', false)
+    }
+})
+
 function cargaInicio(){
    $('#retencion').hide()
    $('#tipoPersona').hide()
    $('#labelPersona').hide()
    $('#alertDatosRetencion').hide()
    $('#datosImporteRetencionAlquilere').hide()
+   $('#ret').prop('disabled', true)
 }
 
 $(function(){
