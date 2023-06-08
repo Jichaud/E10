@@ -117,7 +117,7 @@ $('#importeNeto').on('change', function(){
 })
 
 function cargaInicio(){
-   $('#retencion').hide()
+   // $('#retencion').hide()
    $('#tipoPersona').hide()
    $('#labelPersona').hide()
    $('#alertDatosRetencion').hide()
