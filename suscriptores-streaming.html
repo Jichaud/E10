@@ -46,6 +46,19 @@
     transition-duration: 0.5s;
   }
 
+  body::-webkit-scrollbar {
+    width: 10px;
+}
+
+  body::-webkit-scrollbar-thumb {
+    background: #0d6efd;
+    border-radius: 10px;
+}
+
+  body::-webkit-scrollbar-thumb:hover {
+    background: #198754;
+  }
+
 </style>
 
 <script type="module">
@@ -234,24 +247,24 @@ onAuthStateChanged(auth, (user) => {
         </div>
       </div>
 
-      <!-- toast reuniones -->
+      <!-- toast reuniones
       <div role="alert" aria-atomic="true" aria-live="assertive" class="toast pt-2 ml-1 position-relative bg-primary-subtle border border-primary" data-animation="false" data-bs-autohide="false">
         <div class="toast-header bg-primary-subtle border-bottom border-primary">
         <svg class="bd-placeholder-img rounded me-2 mb-1" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#0d6efd"></rect></svg>
         <strong class="me-auto text-primary">&nbsp; Ciclo 2023</strong>
-        <small class="text-primary">#26/may | #09/jun</small>
+        <small class="text-primary">#23/jun | #30/jun</small>
         </div>
         <div class="toast-body h3-a">
           <div class="row">
             <div class="col-lg-8 text-primary">
-            Reunión PH - Ciclo 2023
+            3º reunión - Ciclo 2023
             </div>
             <div class="col-lg-4 mt-auto">
-              <a href="blog/ciclo-ph.html" <button type="button" class="d-flex justify-content-center btn btn-outline-primary btn-sm">temario</button></a>
+              <a href="blog/ciclo-3.html" <button type="button" class="d-flex justify-content-center btn btn-outline-primary btn-sm">temario</button></a>
             </div>
           </div> 
         </div>
-      </div> <!-- fin toast reuniones -->
+      </div> fin toast reuniones -->
 
       <!-- toast reuniones adicionales
       <div role="alert" aria-atomic="true" aria-live="assertive" class="bg-primary toast pt-2 ml-1 position-relative" data-animation="false" data-bs-autohide="false">
@@ -326,7 +339,7 @@ Departamento de Capacitación
   <small>Departamento de Capacitación</small>
 </h1>
 
-<!-- INICIO PRÓXIMA REUNIÓN
+<!-- INICIO PRÓXIMA REUNIÓN -->
 <div class="alert alert-danger col-lg-12" role="alert">
   <h4 class="alert-heading"><b>Próxima transmisión</b> 3º reunión del Ciclo de Actualización Tributaria 2023</h4>
   <hr>
@@ -335,7 +348,7 @@ Departamento de Capacitación
   <hr>
   <p class="mb-0 alert-heading">Departamento de Capacitación</p>
 </div>
-FIN PRÓXIMA REUNIÓN -->
+<!-- FIN PRÓXIMA REUNIÓN -->
 
 <!-- REUNIÓN EN PROGRESO
 <div class="alert alert-danger col-lg-12" role="alert">
@@ -357,38 +370,28 @@ FIN PRÓXIMA REUNIÓN -->
 </div>
 FIN REUNIÓN EN PROGRESO -->
 
-<!-- INICIO TRANSMISIÓN -->
+<!-- INICIO TRANSMISIÓN
 <div class="alert alert-success col-lg-12" role="alert">
-<h4 class="alert-heading"><b>Transmisión</b> - Reunión PH Ciclo de Actualización Tributaria 2023</h4>
-<p class="mt-3 alert-heading"><b>Transmisión viernes 26/mayo - viernes 09/junio</b></p>
+<h4 class="alert-heading"><b>Transmisión</b> - 3º reunión Ciclo de Actualización Tributaria 2023</h4>
+<p class="mt-3 alert-heading"><b>Transmisión viernes 23/junio - viernes 30/junio</b></p>
 <hr>
 <p class="mb-0 alert-heading">Departamento de Capacitación</p>
 </div>
 <hr class="text-primary">
 <div class="d-grid gap-2 col-6 mx-end">
-  <button class="btn btn-outline-success btn-lg mb-4" type="submit" onclick="window.open('https://www.dropbox.com/sh/byqynqditej3r9q/AABN-CsAC9lq1SZ-c1U-QwOHa?dl=0')">Material <i class="bi bi-arrow-right-square"></i></button>
+  <button class="btn btn-outline-success btn-lg mb-4" type="submit" onclick="window.open('#')">Material <i class="bi bi-arrow-right-square"></i></button>
 </div>
-<div class="alert alert-success col-lg-12" role="alert">
-  <h4 class="alert-heading"><b>Reunión PH - 1era. parte</b></h4>
-</div>  
 <div class="ratio ratio-16x9">
-<iframe class="embed-responsive-item rounded" width="460" height="315" src="https://www.youtube.com/embed/w7mJuQTLq34?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe class="embed-responsive-item rounded" width="460" height="315" src="https://www.youtube.com/embed/?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
-<hr class="text-primary">
-<div class="alert alert-success col-lg-12" role="alert">
-  <h4 class="alert-heading"><b>Reunión PH - 2da. parte</b></h4>
-</div>  
-<div class="ratio ratio-16x9">
-<iframe class="embed-responsive-item rounded" width="460" height="315" src="https://www.youtube.com/embed/pFSXPguVADM?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
-<!-- FIN TRANSMISIÓN -->
+FIN TRANSMISIÓN -->
 
 <hr class="text-primary">
 
-<!-- INICIO CONSULTAS -->
+<!-- INICIO CONSULTAS
 <div class="alert alert-success col-lg-12" role="alert">
-<h4 class="alert-heading"><b>Consultas</b> - Reunión PH - Ciclo 2023</h4>
-<p class="alert-heading">Período de consultas - viernes 26/mayo - viernes 09/junio</p>
+<h4 class="alert-heading"><b>Consultas</b> - 3º reunión - Ciclo 2023</h4>
+<p class="alert-heading">Período de consultas - viernes 23/junio - viernes 30/junio</p>
 <hr>
 <p class="mb-0 alert-heading">Departamento de Capacitación</p>
 </div>
@@ -401,7 +404,7 @@ FIN REUNIÓN EN PROGRESO -->
 </div>
 </div>
 <hr class="text-primary">
-<!-- FIN CONSULTAS -->
+FIN CONSULTAS -->
 
 <!-- Novedades impositivas -->
 <h1 class="mt-4 mb-3">Novedades impositivas
@@ -2771,29 +2774,31 @@ FIN REUNIÓN EN PROGRESO -->
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+      integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    
     <script type="text/javascript">
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-    });
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+      });
     </script>
-
+    
     <script type="text/javascript">
-      $(document).ready(function(){
+      $(document).ready(function () {
         $(".toast").toast("show");
       });
     </script>
-
+    
     <script type="text/javascript">
-        $(window).on('load', function() {
-            $('#').modal('show');
-        });
+      $(window).on('load', function () {
+        $('#').modal('show');
+      });
     </script>
 
 </body>
