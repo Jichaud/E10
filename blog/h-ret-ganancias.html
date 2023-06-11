@@ -155,14 +155,19 @@
                 <label class="form-check-label" for="flexSwitchCheckChecked" id="labelPluralidadSujetos">Pluralidad de sujetos <a type="button" data-bs-toggle="modal" data-bs-target="#pluralidadModal"><i class="bi bi-info-circle-fill"></i></a></label>
                 <input class="form-check-input mb-3" type="checkbox" role="switch" id="pluralidadSujetos">
               </div>
-              <div class="input-group mb-3 mt-3">
+              <div class="input-group mb-3 mt-3" id="divPluralidad">
                 <div class="row justify-content-center">
                   <div class="col-6">
-                    <span class="fw-bold" id="basic-addon2">Pluralidad</span>
+                    <span class="fw-bold" id="labelBeneficiarios">Beneficiarios</span>
                   </div>
                   <div class="col-4">
                     <input type="text" class="form-control text-center" aria-label="Importe neto" aria-describedby="basic-addon2"
                       id="pluralidad">
+                  </div>
+                  <small class="text-center mt-2">(Indicá un número)</small>
+                  <button id="btnPluralidad" class="btn btn-warning mt-4 mb-3">Cargar beneficiarios</button>
+                  <div class="row justify-content-center" id="camposPluralidad">
+                      <!-- vía JS -->
                   </div>
                 </div>
               </div>
