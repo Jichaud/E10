@@ -1,4 +1,5 @@
 cargaInicio();
+let html = ''
 
 function retCalc () {
 
@@ -125,21 +126,17 @@ $('#importeNeto').on('change', function(){
 })
 
 $('#btnPluralidad').click(function(){
-    // Generate a dynamic number of inputs
     var number = document.getElementById("pluralidad").value;
-    // Get the element where the inputs will be added to
     var divElement = document.getElementById("camposPluralidad");
-    // Remove every children it had before
     while (divElement.hasChildNodes()) {
         divElement.removeChild(divElement.lastChild);
     }
     for (i=0;i<number;i++){
         var newSpanPorcentaje = divElement.appendChild(document.createElement("span"));
-        newSpanPorcentaje.className = "fw-bold badge bg-warning text-dark mb-3 text-wrap";
+        newSpanPorcentaje.className = "fw-bold badge bg-warning text-dark mb-3 py-3 text-wrap";
         newSpanPorcentaje.textContent = "Indicar porcentaje de participación";
         var newDivElementLabel = divElement.appendChild(document.createElement("div"));
         newDivElementLabel.className = "col-4"
-        // Append a node with a random text
         var label = document.createElement("label");
         label.name = "Beneficiario" + (1+i);
         label.className = "form-check-label fw-bold"
@@ -147,8 +144,6 @@ $('#btnPluralidad').click(function(){
         label.textContent = "nº " + (i+1);
         divElement.appendChild(label);
         newDivElementLabel.appendChild(label);
-        // divElement.appendChild(document.createTextNode("Beneficiario nº " + (i+1)));
-        // Create an <input> element, set its type and name attributes
         var newDivElementInput = divElement.appendChild(document.createElement("div"))
         newDivElementInput.className = "col-6"
         var input = document.createElement("input");
@@ -157,7 +152,6 @@ $('#btnPluralidad').click(function(){
         input.id = "beneficiario" + (1+ i);
         input.className = "form-control text-center mb-3";
         divElement.appendChild(input);
-        // Append a line break 
         divElement.appendChild(document.createElement("br"));
         newDivElementInput.appendChild(input);
     }
