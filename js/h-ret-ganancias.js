@@ -126,8 +126,12 @@ $('#importeNeto').on('change', function(){
 })
 
 $('#btnSumaPluralidad').click(function(){
-    let sumaPluralidad = [...document.querySelectorAll("beneficiariosPluralidad")];
-    console.log(sumaPluralidad)
+    let sumaPluralidad = document.querySelectorAll("beneficiariosPluralidad");
+    var sum = 0;
+    for (var i=0;i<sumaPluralidad.length;i++) {
+        sum = sum + parseFloat(sumaPluralidad.childNodes[0].nodeValue);
+        console.log(sum)
+    }
 })
 
 $('#btnPluralidad').click(function(){
