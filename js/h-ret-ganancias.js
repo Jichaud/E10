@@ -126,11 +126,10 @@ $('#importeNeto').on('change', function(){
 })
 
 $('#btnSumaPluralidad').click(function(){
-    let sumaPluralidad = document.querySelectorAll("beneficiariosPluralidad");
-    var sum = 0;
-    for (var i=0;i<sumaPluralidad.length;i++) {
-        sum = sum + parseFloat(sumaPluralidad.childNodes[0].nodeValue);
-        console.log(sum)
+    let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+    for (let sumaPlu of sumaPluralidad) {
+        calculoSumaPlu = parseFloat(sumaPlu.value) + 100 + 200
+        console.log(calculoSumaPlu)
     }
 })
 
@@ -156,7 +155,7 @@ $('#btnPluralidad').click(function(){
         var newDivElementInput = divElement.appendChild(document.createElement("div"))
         newDivElementInput.className = "col-6"
         var input = document.createElement("input");
-        input.type = "text";
+        input.type = "number";
         input.name = "Beneficiario" + (1 + i);
         input.id = "beneficiario" + (1+ i);
         input.className = "form-control text-center mb-3 beneficiariosPluralidad";
