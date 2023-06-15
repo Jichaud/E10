@@ -13,6 +13,13 @@ function retCalc () {
     switch($('#regRet').val()){
         case "31":
     if ($('#inscriptoGanancias').prop('checked') == true) {
+        if ($('#pluralidadSujetos').prop('checked') == true) {
+            let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+            for (let sumaPlu of sumaPluralidad) {
+                calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * +importeNetoNum + +pagosMesNum ) - 11200) * 0.06 - +retencionesMesNum
+                console.log(calculoSumaPlu)
+            }
+        } else {
         let importeRetInscripto = (+importeNetoNum + +pagosMesNum - 11200) * 0.06 - +retencionesMesNum
         if (importeRetInscripto < 240) {
             $('#importeRet').val("Menor al mínimo")
@@ -24,8 +31,8 @@ function retCalc () {
         $('#alertDatosRetencion').show()
         $('#datosRetencion').text("Datos retención alquileres")
         $('#datosImporteRetencionAlquilere').show()
-
-    } else if ($('#tipoPersona').prop('checked')) {
+        }
+        } else if ($('#tipoPersona').prop('checked')) {
         let importeRetPersona = (+importeNetoNum + +pagosMesNum) * 0.28 - +retencionesMesNum
         if (importeRetPersona < 1020) {
             $('#importeRet').val("Menor al mínimo")
@@ -128,9 +135,10 @@ $('#importeNeto').on('change', function(){
 $('#btnSumaPluralidad').click(function(){
     let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
     for (let sumaPlu of sumaPluralidad) {
-        calculoSumaPlu = parseFloat(sumaPlu.value) + 100 + 200
+        calculoSumaPlu = parseFloat(sumaPlu.value) /100 * 10
         console.log(calculoSumaPlu)
     }
+    
 })
 
 $('#btnPluralidad').click(function(){
@@ -155,7 +163,7 @@ $('#btnPluralidad').click(function(){
         var newDivElementInput = divElement.appendChild(document.createElement("div"))
         newDivElementInput.className = "col-6"
         var input = document.createElement("input");
-        input.type = "number";
+        input.type = "text";
         input.name = "Beneficiario" + (1 + i);
         input.id = "beneficiario" + (1+ i);
         input.className = "form-control text-center mb-3 beneficiariosPluralidad";
