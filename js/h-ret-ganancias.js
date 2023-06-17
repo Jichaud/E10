@@ -30,7 +30,7 @@ function retCalc () {
         $('#datosMNSR').val("11.200,00")
         $('#alertDatosRetencion').show()
         $('#datosRetencion').text("Datos retención alquileres")
-        $('#datosImporteRetencionAlquilere').show()
+        $('#datosImporteRetencionAlquileres').show()
         }
         } else if ($('#tipoPersona').prop('checked')) {
         let importeRetPersona = (+importeNetoNum + +pagosMesNum) * 0.28 - +retencionesMesNum
@@ -43,7 +43,7 @@ function retCalc () {
         $('#datosMNSR').val("-.-")
         $('#alertDatosRetencion').show()
         $('#datosRetencion').text("Datos retención alquileres")
-        $('#datosImporteRetencionAlquilere').show()
+        $('#datosImporteRetencionAlquileres').show()
 
     } else {
         let importeRetResto = (+importeNetoNum + +pagosMesNum) * 0.25 - +retencionesMesNum
@@ -56,7 +56,7 @@ function retCalc () {
         $('#datosMNSR').val("-.-")
         $('#alertDatosRetencion').show()
         $('#datosRetencion').text("Datos retención alquileres")
-        $('#datosImporteRetencionAlquilere').show()
+        $('#datosImporteRetencionAlquileres').show()
 
     }
     
@@ -98,9 +98,16 @@ $('#pluralidadSujetos').click(function(){
         $('#divPluralidad').show()
     } else {
         $('#divPluralidad').hide()
+        $('#pluralidad').val("")
+        $('.beneficiariosPluralidad').val("")
     }
 })
 
+let codigoRetencion = document.getElementById("codigoRetencion");
+let retencion = document.getElementById("retencion");
+let ret = document.getElementById("ret");
+let nuevoCalculo = document.getElementById("nuevoCalculo");
+let btnPluralidad = document.getElementById("btnPluralidad");
 $('#regRet').change(function(){
     switch($(this).val()){
         case "Selecciona régimen...":
@@ -109,16 +116,36 @@ $('#regRet').change(function(){
             $('#datosImporteRetencionAlquilere').hide()
         break;
         case "31":
+            codigoRetencion.innerText = "Alquileres";
+            retencion.className = "alert bg-warning-subtle fs-5";
+            ret.className = "btn btn-outline-warning fs-4 fw-bold";
+            nuevoCalculo.className = "btn btn-outline-warning fs-4 fw-bold";
+            btnPluralidad.className = "btn btn-outline-warning fs-4 fw-bold";
             $('#retencion').show()
         break;
         case "78":
-            $('#retencion').hide()
+            codigoRetencion.innerText = "Enajenación de bienes";
+            retencion.className = "alert bg-primary-subtle fs-5";
+            ret.className = "btn btn-outline-primary fs-4 fw-bold";
+            nuevoCalculo.className = "btn btn-outline-primary fs-4 fw-bold";
+            btnPluralidad.className = "btn btn-outline-primary fs-4 fw-bold";
+            $('#retencion').show()
         break;
         case "94":
-            $('#retencion').hide()
+            codigoRetencion.innerText = "Servicios";
+            retencion.className = "alert bg-success-subtle fs-5";
+            ret.className = "btn btn-outline-success fs-4 fw-bold";
+            nuevoCalculo.className = "btn btn-outline-success fs-4 fw-bold";
+            btnPluralidad.className = "btn btn-outline-success fs-4 fw-bold";
+            $('#retencion').show()
         break;
         case "116":
-            $('#retencion').hide()
+            codigoRetencion.innerText = "Profesiones liberales";
+            retencion.className = "alert bg-danger-subtle fs-5";
+            ret.className = "btn btn-outline-danger fs-4 fw-bold";
+            nuevoCalculo.className = "btn btn-outline-danger fs-4 fw-bold";
+            btnPluralidad.className = "btn btn-outline-danger fs-4 fw-bold";
+            $('#retencion').show()
         break;
     }
 
@@ -149,7 +176,7 @@ $('#btnPluralidad').click(function(){
     }
     for (i=0;i<number;i++){
         var newSpanPorcentaje = divElement.appendChild(document.createElement("span"));
-        newSpanPorcentaje.className = "fw-bold badge bg-warning text-dark mb-3 py-3 text-wrap";
+        newSpanPorcentaje.className = "fw-bold badge bg-secondary text-light mt-3 mb-3 py-3 text-wrap";
         newSpanPorcentaje.textContent = "Indicar porcentaje de participación";
         var newDivElementLabel = divElement.appendChild(document.createElement("div"));
         newDivElementLabel.className = "col-4"
@@ -174,11 +201,11 @@ $('#btnPluralidad').click(function(){
 })
 
 function cargaInicio(){
-   // $('#retencion').hide()
+   $('#retencion').hide()
    $('#tipoPersona').hide()
    $('#labelPersona').hide()
    $('#alertDatosRetencion').hide()
-   $('#datosImporteRetencionAlquilere').hide()
+   $('#datosImporteRetencionAlquileres').hide()
    $('#divPluralidad').hide()
    $('#ret').prop('disabled', true)
 }
