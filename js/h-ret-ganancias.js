@@ -1,6 +1,19 @@
 cargaInicio();
 let html = ''
 
+function retCalcFin () {
+    $('#ret').hide()
+    $('#nuevoCalculo').prop('hidden', false)
+    $('#regRet').prop('disabled', true)
+    $('#importeNeto').prop('disabled', true)
+    $('#inscriptoGanancias').prop('disabled', true)
+    $('#pluralidadSujetos').prop('disabled', true)
+    $('#btnPluralidad').prop('disabled', true)
+    $('#pagosMes').prop('disabled', true)
+    $('#retencionesMes').prop('disabled', true)
+    $('#tipoPersona').prop('disabled', true)
+}
+
 function retCalc () {
 
     let importeNeto = document.getElementById("importeNeto").value;
@@ -9,7 +22,7 @@ function retCalc () {
     let importeNetoNum = importeNeto.replace(/\./g,'').replace(",",".")
     let pagosMesNum = pagosMes.replace(/\./g,'').replace(",",".")
     let retencionesMesNum = retencionesMes.replace(/\./g,'').replace(",",".")
-    const datosAlertPluralidad = document.getElementById("datosImporteRetencionAlquileresPluralidad")
+    const datosAlertPluralidad = document.getElementById("datosImporteRetencionPluralidad")
 
     switch($('#regRet').val()){
         case "31":
@@ -20,6 +33,18 @@ function retCalc () {
             for (let sumaPlu of sumaPluralidad) {
                 calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 11200) * 0.06 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
                 let redondeo = Intl.NumberFormat("es", {style: "currency", currency:"USD", currencySign: "accounting"}).format((calculoSumaPlu*100)/100).replace("US$", "")
+                if (calculoSumaPlu < 240) {
+                    html += `
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">Beneficiario</div>
+                        Menor al mínimo
+                      </div>
+                      <span class="badge bg-secondary rounded-pill">Alquileres</span>
+                    </li>
+                  </ol>
+                    `
+                } else {
                     html += `
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                       <div class="ms-2 me-auto">
@@ -30,6 +55,7 @@ function retCalc () {
                     </li>
                   </ol>
                     `
+                }
             }
             datosAlertPluralidad.innerHTML = html;
             $('#pDatosRetencionPluralidad').text("Retención alquileres");
@@ -39,6 +65,7 @@ function retCalc () {
             $('#datosMNSR').val("11.200,00")
             $('#alertDatosRetencion').show()
             $('#datosRetencion').text("Datos retención alquileres")
+            retCalcFin ();
 
         } else {
         let importeRetInscripto = (+importeNetoNum + +pagosMesNum - 11200) * 0.06 - +retencionesMesNum
@@ -51,7 +78,8 @@ function retCalc () {
         $('#datosMNSR').val("11.200,00")
         $('#alertDatosRetencion').show()
         $('#datosRetencion').text("Datos retención alquileres")
-        $('#datosImporteRetencionAlquileres').show()
+        $('#datosImporteRetencion').show()
+        retCalcFin();
         }
         } else if ($('#tipoPersona').prop('checked')) {
         let importeRetPersona = (+importeNetoNum + +pagosMesNum) * 0.28 - +retencionesMesNum
@@ -64,7 +92,8 @@ function retCalc () {
         $('#datosMNSR').val("-.-")
         $('#alertDatosRetencion').show()
         $('#datosRetencion').text("Datos retención alquileres")
-        $('#datosImporteRetencionAlquileres').show()
+        $('#datosImporteRetencion').show()
+        retCalcFin();
 
     } else {
         let importeRetResto = (+importeNetoNum + +pagosMesNum) * 0.25 - +retencionesMesNum
@@ -77,7 +106,8 @@ function retCalc () {
         $('#datosMNSR').val("-.-")
         $('#alertDatosRetencion').show()
         $('#datosRetencion').text("Datos retención alquileres")
-        $('#datosImporteRetencionAlquileres').show()
+        $('#datosImporteRetencion').show()
+        retCalcFin();
 
     }
     
@@ -134,7 +164,7 @@ $('#regRet').change(function(){
         case "Selecciona régimen...":
             $('#retencion').hide()
             $('#alertDatosRetencion').hide()
-            $('#datosImporteRetencionAlquilere').hide()
+            $('#datosImporteRetencion').hide()
         break;
         case "31":
             codigoRetencion.innerText = "Alquileres";
@@ -217,11 +247,15 @@ function cargaInicio(){
    $('#tipoPersona').hide()
    $('#labelPersona').hide()
    $('#alertDatosRetencion').hide()
-   $('#datosImporteRetencionAlquileres').hide()
+   $('#datosImporteRetencion').hide()
    $('#divPluralidad').hide()
    $('#ret').prop('disabled', true)
    $('#alertRetencionPluralidad').hide()
 }
+
+$('#nuevoCalculo').on("click", function(){
+    location.reload(true);
+})
 
 $(function(){
     $('#importeNeto').mask('000.000.000.000.000,00', {reverse: true});
