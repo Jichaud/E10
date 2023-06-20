@@ -41,7 +41,7 @@ function retCalc() {
                         <div class="fw-bold">Beneficiario</div>
                         Menor al mínimo
                       </div>
-                      <span class="badge bg-secondary rounded-pill">Alquileres</span>
+                      <span class="badge bg-warning text-dark rounded-pill">Alquileres</span>
                     </li>
                   </ol>
                     `
@@ -52,7 +52,7 @@ function retCalc() {
                         <div class="fw-bold">Beneficiario</div>
                         ${redondeo}
                       </div>
-                      <span class="badge bg-secondary rounded-pill">Alquileres</span>
+                      <span class="badge bg-warning text-dark rounded-pill">Alquileres</span>
                     </li>
                   </ol>
                     `
@@ -99,7 +99,7 @@ function retCalc() {
                             <div class="fw-bold">Beneficiario</div>
                             Menor al mínimo
                           </div>
-                          <span class="badge bg-secondary rounded-pill">Alquileres</span>
+                          <span class="badge bg-warning text-dark rounded-pill">Alquileres</span>
                         </li>
                       </ol>
                         `
@@ -110,7 +110,7 @@ function retCalc() {
                             <div class="fw-bold">Beneficiario</div>
                             ${redondeo}
                           </div>
-                          <span class="badge bg-secondary rounded-pill">Alquileres</span>
+                          <span class="badge bg-warning text-dark rounded-pill">Alquileres</span>
                         </li>
                       </ol>
                         `
@@ -155,7 +155,7 @@ function retCalc() {
                         <div class="fw-bold">Beneficiario</div>
                         Menor al mínimo
                       </div>
-                      <span class="badge bg-secondary rounded-pill">Alquileres</span>
+                      <span class="badge bg-warning text-dark rounded-pill">Alquileres</span>
                     </li>
                   </ol>
                     `
@@ -166,7 +166,7 @@ function retCalc() {
                         <div class="fw-bold">Beneficiario</div>
                         ${redondeo}
                       </div>
-                      <span class="badge bg-secondary rounded-pill">Alquileres</span>
+                      <span class="badge bg-warning text-dark rounded-pill">Alquileres</span>
                     </li>
                   </ol>
                     `
@@ -213,7 +213,7 @@ function retCalc() {
                             <div class="fw-bold">Beneficiario</div>
                             Menor al mínimo
                           </div>
-                          <span class="badge bg-secondary rounded-pill">Enajenación de bienes</span>
+                          <span class="badge bg-primary rounded-pill">Enajenación de bienes</span>
                         </li>
                       </ol>
                         `
@@ -224,7 +224,7 @@ function retCalc() {
                             <div class="fw-bold">Beneficiario</div>
                             ${redondeo}
                           </div>
-                          <span class="badge bg-secondary rounded-pill">Enajenación de bienes</span>
+                          <span class="badge bg-primary rounded-pill">Enajenación de bienes</span>
                         </li>
                       </ol>
                         `
@@ -270,7 +270,7 @@ function retCalc() {
                                 <div class="fw-bold">Beneficiario</div>
                                 Menor al mínimo
                               </div>
-                              <span class="badge bg-secondary rounded-pill">Enajenación de bienes</span>
+                              <span class="badge bg-primary rounded-pill">Enajenación de bienes</span>
                             </li>
                           </ol>
                             `
@@ -281,7 +281,7 @@ function retCalc() {
                                 <div class="fw-bold">Beneficiario</div>
                                 ${redondeo}
                               </div>
-                              <span class="badge bg-secondary rounded-pill">Enajenación de bienes</span>
+                              <span class="badge bg-primary rounded-pill">Enajenación de bienes</span>
                             </li>
                           </ol>
                             `
@@ -326,7 +326,7 @@ function retCalc() {
                             <div class="fw-bold">Beneficiario</div>
                             Menor al mínimo
                           </div>
-                          <span class="badge bg-secondary rounded-pill">Enajenación de bienes</span>
+                          <span class="badge bg-primary rounded-pill">Enajenación de bienes</span>
                         </li>
                       </ol>
                         `
@@ -337,7 +337,7 @@ function retCalc() {
                             <div class="fw-bold">Beneficiario</div>
                             ${redondeo}
                           </div>
-                          <span class="badge bg-secondary rounded-pill">Enajenación de bienes</span>
+                          <span class="badge bg-primary rounded-pill">Enajenación de bienes</span>
                         </li>
                       </ol>
                         `
@@ -384,7 +384,7 @@ function retCalc() {
                                 <div class="fw-bold">Beneficiario</div>
                                 Menor al mínimo
                               </div>
-                              <span class="badge bg-secondary rounded-pill">Servicios</span>
+                              <span class="badge bg-success rounded-pill">Servicios</span>
                             </li>
                           </ol>
                             `
@@ -395,7 +395,7 @@ function retCalc() {
                                 <div class="fw-bold">Beneficiario</div>
                                 ${redondeo}
                               </div>
-                              <span class="badge bg-secondary rounded-pill">Servicios</span>
+                              <span class="badge bg-success rounded-pill">Servicios</span>
                             </li>
                           </ol>
                             `
@@ -441,7 +441,7 @@ function retCalc() {
                                     <div class="fw-bold">Beneficiario</div>
                                     Menor al mínimo
                                   </div>
-                                  <span class="badge bg-secondary rounded-pill">Servicios</span>
+                                  <span class="badge bg-success rounded-pill">Servicios</span>
                                 </li>
                               </ol>
                                 `
@@ -452,7 +452,7 @@ function retCalc() {
                                     <div class="fw-bold">Beneficiario</div>
                                     ${redondeo}
                                   </div>
-                                  <span class="badge bg-secondary rounded-pill">Servicios</span>
+                                  <span class="badge bg-success rounded-pill">Servicios</span>
                                 </li>
                               </ol>
                                 `
@@ -497,7 +497,7 @@ function retCalc() {
                                 <div class="fw-bold">Beneficiario</div>
                                 Menor al mínimo
                               </div>
-                              <span class="badge bg-secondary rounded-pill">Servicios</span>
+                              <span class="badge bg-success rounded-pill">Servicios</span>
                             </li>
                           </ol>
                             `
@@ -508,7 +508,7 @@ function retCalc() {
                                 <div class="fw-bold">Beneficiario</div>
                                 ${redondeo}
                               </div>
-                              <span class="badge bg-secondary rounded-pill">Servicios</span>
+                              <span class="badge bg-success rounded-pill">Servicios</span>
                             </li>
                           </ol>
                             `
@@ -539,6 +539,196 @@ function retCalc() {
                             retCalcFin();
                         }
                     }
+                    break;
+                    case "116":
+                        if ($('#inscriptoGanancias').prop('checked') == true) {
+                            if ($('#pluralidadSujetos').prop('checked') == true) {
+                                let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                                let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
+                                for (let sumaPlu of sumaPluralidad) {
+                                    if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 8000) {
+                                      calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) * 0.05 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 16000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 8000) * 0.09 + 400 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 24000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 16000) * 0.12 + 1120 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 32000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 24000) * 0.15 + 2080 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 48000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 32000) * 0.19 + 3280 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 64000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 48000) * 0.23 + 6320 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 96000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 64000) * 0.27 + 10000 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) > 96000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 96000) * 0.31 + 18640 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    }
+                                  
+                                  let redondeo = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format((calculoSumaPlu * 100) / 100).replace("US$", "")
+                                    if (calculoSumaPlu < 240) {
+                                        html += `
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                  <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Beneficiario</div>
+                                    Menor al mínimo
+                                  </div>
+                                  <span class="badge bg-danger rounded-pill">Profesiones liberales</span>
+                                </li>
+                              </ol>
+                                `
+                                    } else {
+                                        html += `
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                  <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Beneficiario</div>
+                                    ${redondeo}
+                                  </div>
+                                  <span class="badge bg-danger rounded-pill">Profesiones liberales</span>
+                                </li>
+                              </ol>
+                                `
+                                    }
+                                }
+                                datosAlertPluralidad.innerHTML = html;
+                                $('#pDatosRetencionPluralidad').text("Retención profesiones liberales");
+                                alertRetencionPluralidad.className = "alert alert-danger";
+                                $('#alertRetencionPluralidad').show()
+                                $('#datosMin').val("240,00")
+                                $('#datosMNSR').val("16.830,00")
+                                $('#alertDatosRetencion').show()
+                                $('#datosRetencion').text("Datos retención profesiones liberales")
+                                retCalcFin();
+            
+                            } else {
+                                let importeRetInscripto = (+importeNetoNum + +pagosMesNum - 67170) * 0.02 - +retencionesMesNum
+                                if (importeRetInscripto < 240) {
+                                    $('#importeRet').val("Menor al mínimo")
+                                } else {
+                                    document.getElementById("importeRet").value = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(importeRetInscripto).replace("US$", "")
+                                }
+                                alertDatosRetencion.className = "alert alert-danger";
+                                $('#pDatosImporteRetencion').text("Retención profesiones liberales")
+                                $('#datosMin').val("240,00")
+                                $('#datosMNSR').val("16.830,00")
+                                $('#alertDatosRetencion').show()
+                                $('#datosRetencion').text("Datos retención profesiones liberales")
+                                $('#datosImporteRetencion').show()
+                                retCalcFin();
+                            }
+                        } else if ($('#tipoPersona').prop('checked')) {
+                            if ($('#pluralidadSujetos').prop('checked') == true) {
+                                let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                                let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
+                                for (let sumaPlu of sumaPluralidad) {
+                                  calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum))) * 0.28 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    let redondeo = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format((calculoSumaPlu * 100) / 100).replace("US$", "")
+                                    if (calculoSumaPlu < 240) {
+                                        html += `
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                      <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Beneficiario</div>
+                                        Menor al mínimo
+                                      </div>
+                                      <span class="badge bg-danger rounded-pill">Profesiones liberales</span>
+                                    </li>
+                                  </ol>
+                                    `
+                                    } else {
+                                        html += `
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                      <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Beneficiario</div>
+                                        ${redondeo}
+                                      </div>
+                                      <span class="badge bg-danger rounded-pill">Profesiones liberales</span>
+                                    </li>
+                                  </ol>
+                                    `
+                                    }
+                                }
+                                datosAlertPluralidad.innerHTML = html;
+                                $('#pDatosRetencionPluralidad').text("Retención profesiones liberales");
+                                alertRetencionPluralidad.className = "alert alert-danger";
+                                $('#alertRetencionPluralidad').show()
+                                $('#datosMin').val("240,00")
+                                $('#datosMNSR').val("-.-")
+                                $('#alertDatosRetencion').show()
+                                $('#datosRetencion').text("Datos retención profesiones liberales")
+                                retCalcFin();
+            
+                            } else {
+                                let importeRetPersona = (+importeNetoNum + +pagosMesNum) * 0.28 - +retencionesMesNum
+                                if (importeRetPersona < 240) {
+                                    $('#importeRet').val("Menor al mínimo")
+                                } else {
+                                    document.getElementById("importeRet").value = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(importeRetPersona).replace("US$", "")
+                                }
+                                alertDatosRetencion.className = "alert alert-danger";
+                                $('#pDatosImporteRetencion').text("Retención profesiones liberales")
+                                $('#datosMin').val("240,00")
+                                $('#datosMNSR').val("-.-")
+                                $('#alertDatosRetencion').show()
+                                $('#datosRetencion').text("Datos retención profesiones liberales")
+                                $('#datosImporteRetencion').show()
+                                retCalcFin();
+                            }
+                        } else {
+                            if ($('#pluralidadSujetos').prop('checked') == true) {
+                                let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                                let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
+                                for (let sumaPlu of sumaPluralidad) {
+                                  calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum))) * 0.28 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    let redondeo = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format((calculoSumaPlu * 100) / 100).replace("US$", "")
+                                    if (calculoSumaPlu < 240) {
+                                        html += `
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                  <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Beneficiario</div>
+                                    Menor al mínimo
+                                  </div>
+                                  <span class="badge bg-danger rounded-pill">Profesiones liberales</span>
+                                </li>
+                              </ol>
+                                `
+                                    } else {
+                                        html += `
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                  <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Beneficiario</div>
+                                    ${redondeo}
+                                  </div>
+                                  <span class="badge bg-danger rounded-pill">Profesiones liberales</span>
+                                </li>
+                              </ol>
+                                `
+                                    }
+                                }
+                                datosAlertPluralidad.innerHTML = html;
+                                $('#pDatosRetencionPluralidad').text("Retención profesiones liberales");
+                                alertRetencionPluralidad.className = "alert alert-danger";
+                                $('#alertRetencionPluralidad').show()
+                                $('#datosMin').val("240,00")
+                                $('#datosMNSR').val("-.-")
+                                $('#alertDatosRetencion').show()
+                                $('#datosRetencion').text("Datos retención profesiones liberales")
+                                retCalcFin();
+                            } else {
+                                let importeRetResto = (+importeNetoNum + +pagosMesNum) * 0.25 - +retencionesMesNum
+                                if (importeRetResto < 240) {
+                                    $('#importeRet').val("Menor al mínimo")
+                                } else {
+                                    document.getElementById("importeRet").value = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(importeRetResto).replace("US$", "")
+                                }
+                                alertDatosRetencion.className = "alert alert-danger";
+                                $('#pDatosImporteRetencion').text("Retención profesiones liberales")
+                                $('#datosMin').val("240,00")
+                                $('#datosMNSR').val("-.-")
+                                $('#alertDatosRetencion').show()
+                                $('#datosRetencion').text("Datos retención profesiones liberales")
+                                $('#datosImporteRetencion').show()
+                                retCalcFin();
+                            }
+                        }
     }
 };
 
