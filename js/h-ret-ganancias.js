@@ -738,6 +738,7 @@ $('#ret').on("click", function(){
     $('#datosPagosAnteriores').val(pagosMes.value)
     $('#datosRetAnteriores').val(retencionesMes.value)
     window.scrollTo(0,120)
+    $('#offcanvasScrolling').hide()
 })
 
 $('#inscriptoGanancias').click(function(){

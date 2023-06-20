@@ -155,7 +155,7 @@
                 <input class="form-check-input" type="checkbox" role="switch" id="tipoPersona" checked value="true">
               </div>
               <div class="form-check form-switch">
-                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelPluralidadSujetos">Pluralidad de sujetos <a type="button" data-bs-toggle="modal" data-bs-target="#pluralidadModal"><i class="bi bi-exclamation-circle-fill text-danger" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-title="¡Importante!" data-bs-content="Leer primero"></i></a></label>
+                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelPluralidadSujetos">Pluralidad de sujetos <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-exclamation-circle-fill text-danger" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-title="¡Importante!" data-bs-content="Leer primero"></i></a></label>
                 <input class="form-check-input mb-3" type="checkbox" role="switch" id="pluralidadSujetos">
               </div>
               <div class="input-group mb-3 mt-3" id="divPluralidad">
@@ -266,35 +266,26 @@
                     <div class="list-group mb-3">
                       <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-success">Índice base</h5>
-                          <small><span class="badge bg-success fs-6">paso nº 1</span></small>
+                          <h5 class="mb-1 text-success">Consideraciones</h5>
+                          <small><span class="badge bg-success fs-6">Alcance</span></small>
                         </div>
-                        <p class="mb-1">Seleccioná el índice base que será el divisor para los coeficientes entre fecha de cierre y fecha de incio.</p>
-                        <small>Por ejemplo: cierre diciembre/2022 tiene un índice de 1134.5875 y dividirá todos los índices desde fecha de cierre a fecha de inicio.</small>
+                        <p class="mb-1">La presente herramienta es de alcance limitado a determinados regímenes de retención que, por experiencia en la labor profesional, son de mayor aplicación en el día a día.</p>
                       </a>
                       <a class="list-group-item list-group-item-action bg-warning-subtle">
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Seleccioná la fecha de cierre</h5>
-                          <small><span class="badge bg-warning fs-6 text-dark">paso nº 2</span></small>
+                          <h5 class="mb-1">Criterio profesional</h5>
+                          <small><span class="badge bg-warning fs-6 text-dark">Cálculos</span></small>
                         </div>
-                        <p class="mb-1">La fecha de cierre marcará el tope de fecha de la tabla final.</p>
-                        <small class="text-body-secondary">Por ejemplo: cierre diciembre/2022 tendrá desde ese mes hasta los meses anteriores según la fecha de inicio del punto siguiente.</small>
+                        <p class="mb-1">La correcta utilización de la herramienta implica tener el conocimiento de determinados conceptos definidos en la RG AFIP 830. Si no está familiarizado con ellos, recomendamos no utilizarla teniendo en cuenta las implicancias fiscales que puedan acarrear a los clientes que asesora.</p>
                       </a>
                       <a class="list-group-item list-group-item-action bg-primary-subtle">
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Seleccioná la fecha de inicio</h5>
-                          <small><span class="badge bg-primary fs-6">paso nº 3</span></small>
+                          <h5 class="mb-1">Criterio profesional</h5>
+                          <small><span class="badge bg-primary fs-6">Expertise</span></small>
                         </div>
-                        <p class="mb-1">Con la fecha de inicio se indicará hasta qué mes llegará el cálculo arrancando de la fecha de cierre indicada anteriormente.</p>
-                        <small class="text-body-secondary">Por ejemplo: diciembre/2021 tendrá los meses desde diciembre/2022 a diciembre/2021.</small>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-danger-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Ver tabla | Cambiar valores</h5>
-                          <small><span class="badge bg-danger fs-6">paso nº 4</span></small>
-                        </div>
-                        <p class="mb-1">Haciendo clic en "Ver tabla" te mostrará la tabla con los datos introducidos y tendrás un botón arriba para exportarla a Excel. También podés modificar los valores introducidos.</p>
-                        <small class="text-body-secondary">Ver tabla: una vez visualizada la tabla tendrás un botón para hacer un nuevo cálculo.</small>
+                        <p class="mb-1">Bajo ningún aspecto esta herramienta reemplaza el criterio profesional, ni los cálculos obtenidos de la herramienta deben ser considerados como exactos. La complejidad de la operación a considerar y los datos cargados en la herramienta, pueden dar resultados inesperados y no ajustados al criterio fiscal. <br><br>
+                        Puede utilizarla como herramienta de verificación de sus propios cálculos y en caso de discrepancia, utilizar el formulario de comentarios mencionado en el siguiente punto para hacernos llegar la inquietud.
+                        </p>
                       </a>
                     </div>
                     <div class="alert alert-dark" role="alert">
@@ -309,68 +300,63 @@
               </div>
             </div> <!-- fin modal ayuda -->
 
-            <!-- Modal Pluralidad de sujetos -->
-            <div class="modal fade" id="pluralidadModal" tabindex="-1" aria-labelledby="pluralidadModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pluralidad de sujetos</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="list-group mb-3">
-                      <a class="list-group-item list-group-item-action bg-primary-subtle" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-primary">Carga de datos</h5>
-                          <small><span class="badge bg-primary fs-6">Datos</span></small>
-                        </div>
-                        <p class="mb-1">Como primer paso deberás indicar la cantidad de contribuyentes que aplican. Por ejemplo: 2, 3, 4, etc. <hr>
-            
-                          A continuación presioná el botón <span class="badge bg-warning text-dark">Cargar beneficiarios</span> <hr>
-            
-                          Por último indicá el porcentaje en que cada uno participa en el importe neto informado. Utilizá el punto "." en lugar de la coma "," como separador decimal. Por ejemplo: 25, 33.33, 73.28, etc.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-success">Pluralidad de sujetos</h5>
-                          <small><span class="badge bg-success fs-6">Artículo 8</span></small>
-                        </div>
-                        <p class="mb-1">En aquellos casos en que se realicen pagos por conceptos comprendidos en el Anexo II de la
-                          presente, a varios beneficiarios en forma global, la retención se practicará individualmente a cada
-                          sujeto, debiendo los beneficiarios entregar al agente de retención una nota suscripta por todos ellos
-                          (8.1.). <br>
-            
-                          Idéntico procedimiento se aplicará cuando se trate de pagos a uniones transitorias de empresas,
-                          agrupamientos de colaboración empresaria, consorcios y asociaciones, sin existencia legal como personas
-                          jurídicas. <br>
-            
-                          Cuando se efectúen cesiones de ingresos u honorarios, no podrá cederse la proporción correspondiente a la
-                          retención practicada. En tales casos, el cesionario emitirá la factura o documento equivalente que
-                          respalde la prestación que realizó al cedente, debiendo éste practicar, si corresponde, la pertinente
-                          retención.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-warning-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-dark">Nota, en la que se consignará por cada beneficiario</h5>
-                          <small><span class="badge bg-warning fs-6 text-dark">8.1</span></small>
-                        </div>
-                        <ol class="list-group list-group-numbered list-group-flush">
-                          <li class="list-group-item list-group-item-warning">Apellido y nombres o denominación.</li>
-                          <li class="list-group-item list-group-item-warning">Domicilio fiscal.</li>
-                          <li class="list-group-item list-group-item-warning">Clave Unica de Identificación Tributaria (C.U.I.T.).
-                          </li>
-                          <li class="list-group-item list-group-item-warning">Proporción de la renta que le corresponde.</li>
-                          <li class="list-group-item list-group-item-warning">Condición en el impuesto a las ganancias.</li>
-                        </ol>
-                      </a>
+            <!-- Offcanvas -->
+            <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+              id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Pluralidad de sujetos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <div class="list-group mb-3">
+                  <a class="list-group-item list-group-item-action bg-primary-subtle" aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1 text-primary">Carga de datos</h5>
+                      <small><span class="badge bg-primary fs-6">Datos</span></small>
                     </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
+                    <p class="mb-1">Como primer paso deberás indicar la cantidad de contribuyentes que aplican. Por ejemplo: 2, 3, 4, etc. <hr>
+        
+                      A continuación presioná el botón <span class="badge bg-warning text-dark">Cargar beneficiarios</span> <hr>
+        
+                      Por último indicá el porcentaje en que cada uno participa en el importe neto informado. Utilizá el punto "." en lugar de la coma "," como separador decimal. Por ejemplo: 25, 33.33, 73.28, etc.</p>
+                  </a>
+                  <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1 text-success">Pluralidad de sujetos</h5>
+                      <small><span class="badge bg-success fs-6">Artículo 8</span></small>
+                    </div>
+                    <p class="mb-1">En aquellos casos en que se realicen pagos por conceptos comprendidos en el Anexo II de la
+                      presente, a varios beneficiarios en forma global, la retención se practicará individualmente a cada
+                      sujeto, debiendo los beneficiarios entregar al agente de retención una nota suscripta por todos ellos
+                      (8.1.). <br>
+        
+                      Idéntico procedimiento se aplicará cuando se trate de pagos a uniones transitorias de empresas,
+                      agrupamientos de colaboración empresaria, consorcios y asociaciones, sin existencia legal como personas
+                      jurídicas. <br>
+        
+                      Cuando se efectúen cesiones de ingresos u honorarios, no podrá cederse la proporción correspondiente a la
+                      retención practicada. En tales casos, el cesionario emitirá la factura o documento equivalente que
+                      respalde la prestación que realizó al cedente, debiendo éste practicar, si corresponde, la pertinente
+                      retención.</p>
+                  </a>
+                  <a class="list-group-item list-group-item-action bg-warning-subtle">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1 text-dark">Nota, en la que se consignará por cada beneficiario</h5>
+                      <small><span class="badge bg-warning fs-6 text-dark">8.1</span></small>
+                    </div>
+                    <ol class="list-group list-group-numbered list-group-flush">
+                      <li class="list-group-item list-group-item-warning">Apellido y nombres o denominación.</li>
+                      <li class="list-group-item list-group-item-warning">Domicilio fiscal.</li>
+                      <li class="list-group-item list-group-item-warning">Clave Unica de Identificación Tributaria (C.U.I.T.).
+                      </li>
+                      <li class="list-group-item list-group-item-warning">Proporción de la renta que le corresponde.</li>
+                      <li class="list-group-item list-group-item-warning">Condición en el impuesto a las ganancias.</li>
+                    </ol>
+                  </a>
                 </div>
               </div>
-            </div> <!-- fin modal pluralidad de sujetos -->
+            </div>
+            <!-- fin Offcanvas -->
   
   <hr>
 
