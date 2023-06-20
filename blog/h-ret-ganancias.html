@@ -72,7 +72,7 @@
 
   <!-- Page Content -->
 
-  <div class="container">
+  <div class="container" id="container">
     <br><br>
     <h1 class="mt-4 mb-3 h1-a">Retención ganancias <span
         class="badge text-bg-primary text-white px-3 py-3">RG AFIP 830</span></h1>
@@ -121,6 +121,9 @@
           <h4 class="card-header bg-primary h4-a text-light text-center border-primary"><i class="bi bi-gear"></i>
             Configuración</h4>
           <div class="card-body">
+            <div class="row mx-3 mb-3">
+              <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo" hidden>Nuevo cálculo <i class="bi bi-arrow-clockwise"></i></button>
+            </div>
             <div class="alert bg-dark-subtle fs-5 text-dark" role="alert">
               <label for="regret" class="form-label">Régimen de retención</label>
               <select class="form-select form-select-lg border-3 border-dark" id="regRet"
@@ -183,7 +186,6 @@
               <div class="d-grid gap-2 mb-3">
                 <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="ret">Calcular retención <i
                     class="bi bi-box-arrow-right"></i></button>
-                <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo" hidden>Nuevo cálculo <i class="bi bi-arrow-clockwise"></i></button>
               </div>
               </div> <!-- fin retención mod -->
 
@@ -201,7 +203,7 @@
         </div>
       </div> <!-- col -->
 
-      <div class="col-lg">
+      <div class="col-lg" id="printReport">
         <div class="row">
           <div class="alert alert-light border border-3" role="alert" id="alertDatosRetencion">
             <p class="fw-bold fs-4 text-center" id="datosRetencion"></p>
@@ -232,7 +234,7 @@
         </div>
         <div class="row">
           <div class="alert alert-warning" role="alert" id="datosImporteRetencion">
-            <p class="fw-bold fs-4 text-center" id="pDatosImporteRetencion">Retención alquileres</p>
+            <p class="fw-bold fs-4 text-center" id="pDatosImporteRetencion"></p>
             <div class="input-group mb-3 mt-3">
               <input type="text" class="form-control border-3 border-secondary text-end fs-4 fw-bold" placeholder="0,00"
                 aria-label="Importe retención" aria-describedby="basic-addon2" id="importeRet" disabled>
