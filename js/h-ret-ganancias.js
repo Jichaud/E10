@@ -601,6 +601,24 @@ function retCalc() {
             
                             } else {
                                 let importeRetInscripto = (+importeNetoNum + +pagosMesNum - 67170) * 0.02 - +retencionesMesNum
+                                if ((+importeNetoNum + +pagosMesNum - 16830) <= 8000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830) * 0.05 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 16830) <= 16000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 8000) * 0.09 + 400 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 16830) <= 24000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 16000) * 0.12 + 1120 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 16830) <= 32000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 24000) * 0.15 + 2080 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 16830) <= 48000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 32000) * 0.19 + 3280 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 16830) <= 64000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 48000) * 0.23 + 6320 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 16830) <= 96000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 64000) * 0.27 + 10000 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 16830) > 96000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 96000) * 0.31 + 18640 - +retencionesMesNum
+                                }
+
                                 if (importeRetInscripto < 240) {
                                     $('#importeRet').val("Menor al mínimo")
                                 } else {
