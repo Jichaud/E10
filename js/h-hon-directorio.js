@@ -883,11 +883,8 @@ function cargaInicio(){
    $('#retencion').hide()
    $('#tipoPersona').hide()
    $('#labelPersona').hide()
-   $('#alertDatosRetencion').hide()
-   $('#datosImporteRetencion').hide()
    $('#divPluralidad').hide()
    $('#ret').prop('disabled', true)
-   $('#alertRetencionPluralidad').hide()
 }
 
 $('#nuevoCalculo').on("click", function(){
