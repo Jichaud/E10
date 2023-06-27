@@ -178,7 +178,7 @@
       </div> <!-- col -->
 
       <div class="col-lg" id="printReport">
-        <div class="row">
+        <div class="row">          
           <div class="list-group list-group-horizontal mb-3">
             <span class="list-group-item list-group-item-action bg-success-subtle">
               <div class="d-flex w-100 justify-content-between">
@@ -213,32 +213,23 @@
             </span>
           </div>
 
-          <div class="alert alert-light border border-3" role="alert" id="alertDatosRetencion">
-            <p class="fw-bold fs-4 text-center" id="datosRetencion"></p>
-            <div class="row d-flex justify-content-center g-2 align-items-center mb-3">
-              <div class="col-lg-3">
-                <label for="datosNeto" class="col-form-label">Importe neto</label>
-                <input type="text" id="datosNeto" class="form-control text-center" disabled>
+          <div class="list-group list-group-horizontal mb-3">
+            <span class="list-group-item list-group-item-action bg-danger-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Resutado EECC</h5>
+                <i class="bi bi-check-circle-fill text-danger fs-4"></i>
               </div>
-              <div class="col-lg-3">
-                <label for="datosPagosAnteriores" class="col-form-label">Pagos anteriores</label>
-                <input type="text" id="datosPagosAnteriores" class="form-control text-center" disabled>
+              <p class="mb-1 fs-3 fw-bold text-center">$ 1.180.800.000,00</p>
+            </span>
+            <span class="list-group-item list-group-item-action bg-info-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Impuesto a las ganancias</h5>
+                <i class="bi bi-check-circle-fill text-info fs-4"></i>
               </div>
-              <div class="col-lg-3">
-                <label for="datosPagosAnteriores" class="col-form-label">Retenciones anteriores</label>
-                <input type="text" id="datosRetAnteriores" class="form-control text-center" disabled>
-              </div>
-              <div class="w-100"></div>
-              <div class="col-lg-3">
-                <label for="datosMin" class="col-form-label">Retención mínima</label>
-                <input type="text" id="datosMin" class="form-control text-center" disabled>
-              </div>
-              <div class="col-lg-3">
-                <label for="datosMNSR" class="col-form-label">Monto no sujeto</label>
-                <input type="text" id="datosMNSR" class="form-control text-center" disabled>
-              </div>
-            </div>
+              <p class="mb-1 fs-3 fw-bold text-center">$ 180.800.000,00</p>
+            </span>
           </div>
+
         </div>
         <div class="row">
           <div class="alert alert-warning" role="alert" id="datosImporteRetencion">
