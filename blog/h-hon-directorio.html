@@ -99,67 +99,36 @@
               <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo" hidden>Nuevo cálculo <i class="bi bi-arrow-clockwise"></i></button>
             </div>
             <div class="alert bg-dark-subtle fs-5 text-dark" role="alert">
-              <label for="regret" class="form-label">Régimen de retención</label>
+              <label for="periodoFiscal" class="form-label">Período fiscal</label>
               <select class="form-select form-select-lg border-3 border-dark" id="regRet"
                 aria-label="régimen de retención">
-                <option selected>Selecciona régimen...</option>
-                <option value="31">Alquileres</option>
-                <option value="78">Enajenación de bienes de cambio</option>
-                <option value="94">Servicios sin relación de dependencia</option>
-                <option value="116">Profesiones liberales</option>
+                <option selected>Selecciona el período fiscal...</option>
+                <option value="2020">2020 y anteriores</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
               </select>
             </div>
 
-            <!-- Retención mod -->
-            <div class="alert bg-warning-subtle fs-5" role="alert" id="retencion">
-              <span class="fs-5 fw-bold text-center d-grid" id="codigoRetencion"></span>
-              <div class="input-group mb-3 mt-3">
-                <span class="input-group-text border-3 border-secondary fw-bold" id="basic-addon1">Importe neto</span>
-                <input type="text" class="form-control border-3 border-secondary text-end" aria-label="Importe neto"
-                  aria-describedby="basic-addon1" id="importeNeto">
-              </div>
-              <hr>
-              <div class="form-check form-switch">
-                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelInscriptoGanancias">Inscripto en
-                  ganancias</label>
-                <input class="form-check-input mb-3" type="checkbox" role="switch" id="inscriptoGanancias" checked value="true">
-              </div>
-              <div class="form-check form-switch">
-                <label class="form-check-label" for="flexSwitchCheckChecked1" id="labelPersona">PH / SI</label>
-                <input class="form-check-input" type="checkbox" role="switch" id="tipoPersona" checked value="true">
-              </div>
-              <div class="form-check form-switch">
-                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelPluralidadSujetos">Pluralidad de sujetos <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-exclamation-circle-fill text-danger" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-title="¡Importante!" data-bs-content="Leer primero"></i></a></label>
-                <input class="form-check-input mb-3" type="checkbox" role="switch" id="pluralidadSujetos">
-              </div>
+            <!-- Carga datos directores -->
+            <div class="alert bg-success-subtle fs-5 text-center" role="alert" id="directores">
+              <span class="fs-4 fw-bold">Datos directores</span>
               <div class="input-group mb-3 mt-3" id="divPluralidad">
                 <div class="row justify-content-center">
                   <div class="col-6">
-                    <span class="fw-bold" id="labelBeneficiarios">Beneficiarios</span>
+                    <span class="fw-bold" id="labelBeneficiarios">Cantidad</span>
                   </div>
                   <div class="col-4">
                     <input type="text" class="form-control text-center" aria-label="Importe neto" aria-describedby="basic-addon2"
-                      id="pluralidad">
+                      id="cantidadDirectores">
                   </div>
                   <small class="text-center mt-2">(Indicá un número)</small>
-                  <button type="button" id="btnPluralidad" class="btn btn-outline-warning btn-sm mt-4 mb-3 fs-5">Cargar beneficiarios <i class="bi bi-person-plus-fill fs-4"></i></button>
-                  <div class="row justify-content-center" id="camposPluralidad">
+                  <div class="col">
+                    <button type="button" id="btnDirectores" class="btn btn-outline-success btn-sm mt-4 mb-3 fs-5">Cargar directores <i class="bi bi-person-plus-fill fs-4"></i></button>
+                  </div>
+                  <div class="row justify-content-center" id="camposDirectores">
                       <!-- vía JS -->
                   </div>
                 </div>
-              </div>
-              <hr>
-              <div class="mb-3">
-                <label for="pagosMes" class="form-label">Pagos en el mismo mes</label>
-                <input type="text" class="form-control text-end border-3 border-secondary" id="pagosMes">
-              </div>
-              <div class="mb-3">
-                <label for="pagosMes" class="form-label">Retenciones en el mismo mes</label>
-                <input type="text" class="form-control text-end border-3 border-secondary" id="retencionesMes">
-              </div>
-              <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="ret">Calcular retención <i
-                    class="bi bi-box-arrow-right"></i></button>
               </div>
               </div> <!-- fin retención mod -->
 
@@ -178,8 +147,12 @@
       </div> <!-- col -->
 
       <div class="col-lg" id="printReport">
-        <div class="row">          
-          <div class="list-group list-group-horizontal mb-3">
+        <div class="alert alert-secondary text-center fs-3 fw-bold" role="alert" id="periodoFiscalDato">
+          Estás calculando para el período fiscal 2022
+        </div>
+        <div class="row">
+          <div class="col">
+          <div class="list-group list-group-horizontal-lg mb-3">
             <span class="list-group-item list-group-item-action bg-success-subtle">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">Nº de directores</h5>
@@ -213,7 +186,7 @@
             </span>
           </div>
 
-          <div class="list-group list-group-horizontal mb-3">
+          <div class="list-group list-group-horizontal-lg mb-3">
             <span class="list-group-item list-group-item-action bg-danger-subtle">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">Resutado EECC</h5>
@@ -229,9 +202,14 @@
               <p class="mb-1 fs-3 fw-bold text-center">$ 180.800.000,00</p>
             </span>
           </div>
+        </div>
+        <div class="d-grid gap-2 mb-3">
+          <button class="btn btn-outline-success fs-4 fw-bold" type="button" id="ret">¡Vamo a darle! <i
+              class="bi bi-box-arrow-right"></i></button>
+        </div>
 
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="alert alert-warning" role="alert" id="datosImporteRetencion">
             <p class="fw-bold fs-4 text-center" id="pDatosImporteRetencion"></p>
             <div class="input-group mb-3 mt-3">
@@ -239,7 +217,7 @@
                 aria-label="Importe retención" aria-describedby="basic-addon2" id="importeRet" disabled>
             </div>
           </div>
-        </div> <!-- row régimen general -->
+        </div> row régimen general
         <div class="row">
           <div class="alert alert-warning" role="alert" id="alertRetencionPluralidad">
             <p class="fw-bold fs-4 text-center" id="pDatosRetencionPluralidad"></p>
@@ -247,7 +225,7 @@
 
             </ol>
           </div>
-        </div> <!-- row pluralidad -->
+        </div> row pluralidad -->
       </div> <!-- col -->
       
     </div> <!-- row -->

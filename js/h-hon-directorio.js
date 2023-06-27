@@ -847,9 +847,9 @@ $('#importeNeto').on('change', function(){
     }
 })
 
-$('#btnPluralidad').click(function(){
-    var number = document.getElementById("pluralidad").value;
-    var divElement = document.getElementById("camposPluralidad");
+$('#btnDirectores').click(function(){
+    var number = document.getElementById("cantidadDirectores").value;
+    var divElement = document.getElementById("camposDirectores");
     while (divElement.hasChildNodes()) {
         divElement.removeChild(divElement.lastChild);
     }
@@ -880,11 +880,11 @@ $('#btnPluralidad').click(function(){
 })
 
 function cargaInicio(){
-   $('#retencion').hide()
+/*    $('#retencion').hide()
    $('#tipoPersona').hide()
    $('#labelPersona').hide()
    $('#divPluralidad').hide()
-   $('#ret').prop('disabled', true)
+   $('#ret').prop('disabled', true) */
 }
 
 $('#nuevoCalculo').on("click", function(){
