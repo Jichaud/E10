@@ -29,7 +29,7 @@ function retCalc() {
         case "31":
             if ($('#inscriptoGanancias').prop('checked') == true) {
                 if ($('#pluralidadSujetos').prop('checked') == true) {
-                    let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                    let sumaPluralidad = document.getElementsByClassName("directoresPluralidad");
                     let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
                     for (let sumaPlu of sumaPluralidad) {
                         calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 11200) * 0.06 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
@@ -87,7 +87,7 @@ function retCalc() {
                 }
             } else if ($('#tipoPersona').prop('checked')) {
                 if ($('#pluralidadSujetos').prop('checked') == true) {
-                    let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                    let sumaPluralidad = document.getElementsByClassName("directoresPluralidad");
                     let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
                     for (let sumaPlu of sumaPluralidad) {
                         calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum))) * 0.28 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
@@ -143,7 +143,7 @@ function retCalc() {
                 }
             } else {
                 if ($('#pluralidadSujetos').prop('checked') == true) {
-                    let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                    let sumaPluralidad = document.getElementsByClassName("directoresPluralidad");
                     let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
                     for (let sumaPlu of sumaPluralidad) {
                         calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum))) * 0.25 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
@@ -201,7 +201,7 @@ function retCalc() {
             case "78":
                 if ($('#inscriptoGanancias').prop('checked') == true) {
                     if ($('#pluralidadSujetos').prop('checked') == true) {
-                        let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                        let sumaPluralidad = document.getElementsByClassName("directoresPluralidad");
                         let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
                         for (let sumaPlu of sumaPluralidad) {
                             calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 224000) * 0.02 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
@@ -258,7 +258,7 @@ function retCalc() {
                     }
                 } else if ($('#tipoPersona').prop('checked')) {
                     if ($('#pluralidadSujetos').prop('checked') == true) {
-                        let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                        let sumaPluralidad = document.getElementsByClassName("directoresPluralidad");
                         let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
                         for (let sumaPlu of sumaPluralidad) {
                             calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum))) * 0.10 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
@@ -314,7 +314,7 @@ function retCalc() {
                     }
                 } else {
                     if ($('#pluralidadSujetos').prop('checked') == true) {
-                        let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                        let sumaPluralidad = document.getElementsByClassName("directoresPluralidad");
                         let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
                         for (let sumaPlu of sumaPluralidad) {
                             calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum))) * 0.10 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
@@ -372,7 +372,7 @@ function retCalc() {
                 case "94":
                     if ($('#inscriptoGanancias').prop('checked') == true) {
                         if ($('#pluralidadSujetos').prop('checked') == true) {
-                            let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                            let sumaPluralidad = document.getElementsByClassName("directoresPluralidad");
                             let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
                             for (let sumaPlu of sumaPluralidad) {
                                 calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 67170) * 0.02 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
@@ -429,7 +429,7 @@ function retCalc() {
                         }
                     } else if ($('#tipoPersona').prop('checked')) {
                         if ($('#pluralidadSujetos').prop('checked') == true) {
-                            let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                            let sumaPluralidad = document.getElementsByClassName("directoresPluralidad");
                             let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
                             for (let sumaPlu of sumaPluralidad) {
                                 calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum))) * 0.28 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
@@ -485,7 +485,7 @@ function retCalc() {
                         }
                     } else {
                         if ($('#pluralidadSujetos').prop('checked') == true) {
-                            let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                            let sumaPluralidad = document.getElementsByClassName("directoresPluralidad");
                             let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
                             for (let sumaPlu of sumaPluralidad) {
                                 calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum))) * 0.25 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
@@ -543,7 +543,7 @@ function retCalc() {
                     case "116":
                         if ($('#inscriptoGanancias').prop('checked') == true) {
                             if ($('#pluralidadSujetos').prop('checked') == true) {
-                                let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                                let sumaPluralidad = document.getElementsByClassName("directoresPluralidad");
                                 let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
                                 for (let sumaPlu of sumaPluralidad) {
                                     if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 8000) {
@@ -635,7 +635,7 @@ function retCalc() {
                             }
                         } else if ($('#tipoPersona').prop('checked')) {
                             if ($('#pluralidadSujetos').prop('checked') == true) {
-                                let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                                let sumaPluralidad = document.getElementsByClassName("directoresPluralidad");
                                 let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
                                 for (let sumaPlu of sumaPluralidad) {
                                   calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum))) * 0.28 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
@@ -692,7 +692,7 @@ function retCalc() {
                             }
                         } else {
                             if ($('#pluralidadSujetos').prop('checked') == true) {
-                                let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
+                                let sumaPluralidad = document.getElementsByClassName("directoresPluralidad");
                                 let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
                                 for (let sumaPlu of sumaPluralidad) {
                                   calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum))) * 0.28 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
@@ -787,7 +787,7 @@ $('#pluralidadSujetos').click(function(){
     } else {
         $('#divPluralidad').hide()
         $('#pluralidad').val("")
-        $('.beneficiariosPluralidad').val("")
+        $('.directoresPluralidad').val("")
     }
 })
 
@@ -854,29 +854,79 @@ $('#btnDirectores').click(function(){
         divElement.removeChild(divElement.lastChild);
     }
     for (i=0;i<number;i++){
-        var newSpanPorcentaje = divElement.appendChild(document.createElement("span"));
-        newSpanPorcentaje.className = "fw-bold badge bg-secondary text-light mt-3 mb-3 py-3 text-wrap";
-        newSpanPorcentaje.textContent = "Indicar porcentaje de participación";
         var newDivElementLabel = divElement.appendChild(document.createElement("div"));
-        newDivElementLabel.className = "col-4"
+        newDivElementLabel.className = "col-3"
         var label = document.createElement("label");
         label.name = "Beneficiario" + (1+i);
-        label.className = "form-check-label fw-bold"
+        label.className = "form-check-label fw-bold mt-3"
         label.htmlFor = "beneficiario" + (1 + i);
         label.textContent = "nº " + (i+1);
         divElement.appendChild(label);
         newDivElementLabel.appendChild(label);
         var newDivElementInput = divElement.appendChild(document.createElement("div"))
-        newDivElementInput.className = "col-6"
+        newDivElementInput.className = "col-9"
         var input = document.createElement("input");
         input.type = "text";
-        input.name = "Beneficiario" + (1 + i);
-        input.id = "beneficiario" + (1+ i);
-        input.className = "form-control text-center mb-3 beneficiariosPluralidad";
+        input.name = "Director" + (1 + i);
+        input.id = "director" + (1+ i);
+        input.className = "form-control text-end mt-3 mb-3 directoresPluralidad";
         divElement.appendChild(input);
-        divElement.appendChild(document.createElement("br"));
+        
+        var checkGeneroDivF = divElement.appendChild(document.createElement("div"));
+        checkGeneroDivF.className = "form-check";
+        var checkGeneroInputF = document.createElement("input");
+        checkGeneroInputF.type = "radio";
+        checkGeneroInputF.className = "form-check-input mb-3";
+        checkGeneroInputF.name = "Genero" + (i+1);
+        checkGeneroInputF.id = "femenino" + (i+1);
+        var checkGeneroInputLabelF = document.createElement("label");
+        checkGeneroInputLabelF.className = "form-check-label";
+        checkGeneroInputLabelF.htmlFor = "femenino" + (i+1);
+        checkGeneroInputLabelF.textContent = "Femenino";
+        divElement.appendChild(checkGeneroInputF);
+        divElement.appendChild(checkGeneroInputLabelF);
+        checkGeneroDivF.appendChild(checkGeneroInputF);
+        checkGeneroDivF.appendChild(checkGeneroInputLabelF);
+
+        var checkGeneroDivM = divElement.appendChild(document.createElement("div"));
+        checkGeneroDivM.className = "form-check";
+        var checkGeneroInputM = document.createElement("input");
+        checkGeneroInputM.type = "radio";
+        checkGeneroInputM.className = "form-check-input mb-3";
+        checkGeneroInputM.name = "Genero" + (i+1);
+        checkGeneroInputM.id = "masculino" + (i+1);
+        var checkGeneroInputLabelM = document.createElement("label");
+        checkGeneroInputLabelM.className = "form-check-label";
+        checkGeneroInputLabelM.htmlFor = "masculino" + (i+1);
+        checkGeneroInputLabelM.textContent = "Masculino";
+        divElement.appendChild(checkGeneroInputM);
+        divElement.appendChild(checkGeneroInputLabelM);
+        checkGeneroDivM.appendChild(checkGeneroInputM);
+        checkGeneroDivM.appendChild(checkGeneroInputLabelM);
+
+        var checkGeneroDivT = divElement.appendChild(document.createElement("div"));
+        checkGeneroDivT.className = "form-check";
+        var checkGeneroInputT = document.createElement("input");
+        checkGeneroInputT.type = "radio";
+        checkGeneroInputT.className = "form-check-input mb-3";
+        checkGeneroInputT.name = "Genero" + (i+1);
+        checkGeneroInputT.id = "transgenero" + (i+1);
+        var checkGeneroInputLabelT = document.createElement("label");
+        checkGeneroInputLabelT.className = "form-check-label";
+        checkGeneroInputLabelT.htmlFor = "transgenero" + (i+1);
+        checkGeneroInputLabelT.textContent = "Transgénero";
+        divElement.appendChild(checkGeneroInputT);
+        divElement.appendChild(checkGeneroInputLabelT);
+        checkGeneroDivT.appendChild(checkGeneroInputT);
+        checkGeneroDivT.appendChild(checkGeneroInputLabelT);
+
         newDivElementInput.appendChild(input);
+        newDivElementInput.appendChild(checkGeneroDivF);
+        newDivElementInput.appendChild(checkGeneroDivM);
+        newDivElementInput.appendChild(checkGeneroDivT);
+        divElement.appendChild(document.createElement("hr"));
     }
+    maskApply();
 })
 
 function cargaInicio(){
@@ -891,8 +941,8 @@ $('#nuevoCalculo').on("click", function(){
     location.reload(true);
 })
 
-$(function(){
-    $('#importeNeto').mask('000.000.000.000.000,00', {reverse: true});
-    $('#pagosMes').mask('000.000.000.000.000,00', {reverse: true});
-    $('#retencionesMes').mask('000.000.000.000.000,00', {reverse: true});
+function maskApply() {
+$(document).ready(function(){
+    $('.directoresPluralidad').mask('000.000.000.000.000,00', {reverse: true});
   });
+}
