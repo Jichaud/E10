@@ -847,6 +847,17 @@ $('#importeNeto').on('change', function(){
     }
 })
 
+$('#btnSiguienteDirectores').click(function(){
+  let cantidadDirectores = document.getElementById("cantidadDirectores").value;
+  $('#cantidadDirectoresList').text(cantidadDirectores)
+  let femeninoSelector = $('input.femeninoSelector:checked')
+  $('#femeninoList').text(femeninoSelector.length)
+  let masculinoSelector = $('input.masculinoSelector:checked')
+  $('#masculinoList').text(masculinoSelector.length)
+  let transgeneroSelector = $('input.transgeneroSelector:checked')
+  $('#transgeneroList').text(transgeneroSelector.length)
+})
+
 $('#btnDirectores').click(function(){
     var number = document.getElementById("cantidadDirectores").value;
     var divElement = document.getElementById("camposDirectores");
@@ -876,7 +887,7 @@ $('#btnDirectores').click(function(){
         checkGeneroDivF.className = "form-check";
         var checkGeneroInputF = document.createElement("input");
         checkGeneroInputF.type = "radio";
-        checkGeneroInputF.className = "form-check-input mb-3";
+        checkGeneroInputF.className = "form-check-input mb-3 femeninoSelector";
         checkGeneroInputF.name = "Genero" + (i+1);
         checkGeneroInputF.id = "femenino" + (i+1);
         var checkGeneroInputLabelF = document.createElement("label");
@@ -892,7 +903,7 @@ $('#btnDirectores').click(function(){
         checkGeneroDivM.className = "form-check";
         var checkGeneroInputM = document.createElement("input");
         checkGeneroInputM.type = "radio";
-        checkGeneroInputM.className = "form-check-input mb-3";
+        checkGeneroInputM.className = "form-check-input mb-3 masculinoSelector";
         checkGeneroInputM.name = "Genero" + (i+1);
         checkGeneroInputM.id = "masculino" + (i+1);
         var checkGeneroInputLabelM = document.createElement("label");
@@ -908,7 +919,7 @@ $('#btnDirectores').click(function(){
         checkGeneroDivT.className = "form-check";
         var checkGeneroInputT = document.createElement("input");
         checkGeneroInputT.type = "radio";
-        checkGeneroInputT.className = "form-check-input mb-3";
+        checkGeneroInputT.className = "form-check-input mb-3 transgeneroSelector";
         checkGeneroInputT.name = "Genero" + (i+1);
         checkGeneroInputT.id = "transgenero" + (i+1);
         var checkGeneroInputLabelT = document.createElement("label");
