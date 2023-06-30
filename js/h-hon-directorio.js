@@ -857,6 +857,16 @@ $('#btnSiguienteDirectores').click(function(){
   let transgeneroSelector = $('input.transgeneroSelector:checked')
   $('#transgeneroList').text(transgeneroSelector.length)
 
+  
+  /* let sumDist = 0;
+  $('.directoresPluralidad').each(function(){
+    $(this).val().replace(/\./g, '').replace(",", ".")
+    sumDist += parseFloat($(this).val())
+  })
+
+  let redondeo = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(sumDist).replace("US$", "")
+  console.log(redondeo)
+  console.log(sumDist) */
 
 })
 
