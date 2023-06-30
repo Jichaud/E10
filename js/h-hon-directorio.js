@@ -856,6 +856,8 @@ $('#btnSiguienteDirectores').click(function(){
   $('#masculinoList').text(masculinoSelector.length)
   let transgeneroSelector = $('input.transgeneroSelector:checked')
   $('#transgeneroList').text(transgeneroSelector.length)
+
+
 })
 
 $('#btnDirectores').click(function(){
