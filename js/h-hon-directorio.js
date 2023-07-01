@@ -849,24 +849,26 @@ $('#importeNeto').on('change', function(){
 
 $('#btnSiguienteDirectores').click(function(){
   let cantidadDirectores = document.getElementById("cantidadDirectores").value;
-  $('#cantidadDirectoresList').text(cantidadDirectores)
+  // $('#cantidadDirectoresList').text(cantidadDirectores)
   let femeninoSelector = $('input.femeninoSelector:checked')
   $('#femeninoList').text(femeninoSelector.length)
   let masculinoSelector = $('input.masculinoSelector:checked')
   $('#masculinoList').text(masculinoSelector.length)
   let transgeneroSelector = $('input.transgeneroSelector:checked')
   $('#transgeneroList').text(transgeneroSelector.length)
-
   
-  /* let sumDist = 0;
-  $('.directoresPluralidad').each(function(){
-    $(this).val().replace(/\./g, '').replace(",", ".")
-    sumDist += parseFloat($(this).val())
-  })
+  let cantidadDirectoresToNum = cantidadDirectores
+  let sumDist = 0;
+  for (var i = 1; i <= cantidadDirectores; i++) {
+    let cantidadDirectoresConcat = "director" + [i]
+    console.log(cantidadDirectoresConcat)
+    let cHono = cantidadDirectoresConcat.value.replace(/\./g, '').replace(",", ".")
+    console.log(cHono)
+    
+  }
 
-  let redondeo = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(sumDist).replace("US$", "")
-  console.log(redondeo)
-  console.log(sumDist) */
+
+  console.log(sumDist)
 
 })
 
