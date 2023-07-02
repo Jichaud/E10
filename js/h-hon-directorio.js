@@ -857,18 +857,28 @@ $('#btnSiguienteDirectores').click(function(){
   let transgeneroSelector = $('input.transgeneroSelector:checked')
   $('#transgeneroList').text(transgeneroSelector.length)
   
-  let cantidadDirectoresToNum = cantidadDirectores
-  let sumDist = 0;
-  for (var i = 1; i <= cantidadDirectores; i++) {
-    let cantidadDirectoresConcat = "director" + [i]
-    console.log(cantidadDirectoresConcat)
-    let cHono = cantidadDirectoresConcat.value.replace(/\./g, '').replace(",", ".")
-    console.log(cHono)
-    
+  let sumaPluralidad = document.getElementsByClassName("directoresPluralidad");
+  // console.log(sumaPluralidad)
+  for (let sumaPlu of sumaPluralidad) {
+      // console.log(sumaPlu.value)
+      let decimals = sumaPlu.value.replace(/\./g, '').replace(",", ".");
+      // console.log(decimals)
+      let suma = 0;
+      
+      // let redondeo = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format((calculoSumaPlu * 100) / 100).replace("US$", "")
+
   }
 
+/*  var priceEls = document.getElementsByClassName("directoresPluralidad");
+  for (var i = 0; i < priceEls.length; i++) {
+  var price = priceEls[i].value.replace(/\./g, '').replace(",", ".");
+  console.log("Price: " + price + price);
 
-  console.log(sumDist)
+  let suma = 0;
+  
+  console.log(suma)
+  
+} */
 
 })
 
