@@ -109,8 +109,29 @@
               </select>
             </div>
 
+            <!-- Carga datos EECC -->
+            <div class="alert bg-warning-subtle border-3 border-warning fs-5 text-center" role="alert" id="EECC">
+              <span class="fs-4 fw-bold">Datos EECC</span>
+              <div class="input-group mb-3 mt-3" id="divPluralidad">
+                <div class="row justify-content-center">
+                  <div class="col-12">
+                    <span class="fw-bold text-warning" id="labelEECC">Resultado EECC</span>
+                  </div>
+                  <div class="col-12">
+                    <input type="text" class="form-control text-end" id="resultadoEECC">
+                  </div>
+                  <div class="col-12 mt-4 text-warning">
+                    <span class="fw-bold" id="labelIIGG">Impuesto a las ganancias</span>
+                  </div>
+                  <div class="col-12">
+                    <input type="text" class="form-control text-end" id="impuestoGanancias">
+                  </div>
+                </div>
+              </div>
+            </div> <!-- fin carga datos directores -->
+
             <!-- Carga datos directores -->
-            <div class="alert bg-success-subtle fs-5 text-center" role="alert" id="directores">
+            <div class="alert bg-success-subtle border-3 border-success fs-5 text-center" role="alert" id="directores">
               <span class="fs-4 fw-bold">Datos directores</span>
               <div class="input-group mb-3 mt-3" id="divPluralidad">
                 <div class="row justify-content-center">
@@ -128,12 +149,14 @@
                   <div class="row justify-content-center camposDirectoresSection" id="camposDirectores">
                       <!-- vía JS -->
                   </div>
-                  <div class="col">
-                    <button type="button" id="btnSiguienteDirectores" class="btn btn-success btn-sm mt-4 mb-3 fs-5">Siguiente <i class="bi bi-arrow-right-circle-fill"></i></button>
-                  </div>
                 </div>
               </div>
-              </div> <!-- fin retención mod -->
+              </div> <!-- fin carga datos directores -->
+
+              <!-- btn carga datos directores - EECC -->
+              <div class="col d-grid">
+                <button type="button" id="btnSiguienteDirectores" class="btn btn-primary btn-sm py-2 mb-3 fs-5 rounded-pill">Siguiente <i class="bi bi-arrow-right-circle-fill"></i></button>
+              </div>
 
             <div class="alert alert-dark mb-3" role="alert">
               <p class="fs-5 fw-bold text-center">¿Necesitás ayuda?</p>
@@ -149,88 +172,72 @@
         </div>
       </div> <!-- col -->
 
-      <div class="col-lg" id="printReport">
+      <div class="col-lg">
         <div class="alert alert-secondary text-center fs-3 fw-bold" role="alert" id="periodoFiscalDato">
           Estás calculando para el período fiscal 2022
         </div>
         <div class="row">
           <div class="col">
-          <div class="list-group list-group-horizontal-lg mb-3">
-            <span class="list-group-item list-group-item-action bg-success-subtle">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Nº de directores</h5>
-                <i class="bi bi-check-circle-fill text-success fs-4"></i>
-              </div>
-              <h1 class="mb-1 display-1 fw-bold text-center" id="cantidadDirectoresList"></h1>
-            </span>
-            <span class="list-group-item list-group-item-action bg-warning-subtle">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Género</h5>
-                <i class="bi bi-check-circle-fill text-warning fs-4"></i>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">Femenino
-                  <span class="badge bg-dark rounded-pill" id="femeninoList"></span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">Masculino
-                  <span class="badge bg-dark rounded-pill" id="masculinoList"></span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">Transgénero
-                  <span class="badge bg-dark rounded-pill" id="transgeneroList"></span>
-                </li>
-              </ul>
-            </span>
-          </div>
-          <div class="list-group list-group-horizontal-lg mb-3">
-            <span class="list-group-item list-group-item-action bg-primary-subtle">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1 totalProvisionadoList">Total provisionado</h5>
-                <i class="bi bi-check-circle-fill text-primary fs-4"></i>
-              </div>
-              <input type="text" class="form-control mb-1 fs-3 bg-primary-subtle border-0 fw-bold text-center text-break" id="totalHonorario" disabled>
-            </span>
-          </div>
-
-          <div class="list-group list-group-horizontal-lg mb-3">
-            <span class="list-group-item list-group-item-action bg-danger-subtle">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Resutado EECC</h5>
-                <i class="bi bi-check-circle-fill text-danger fs-4"></i>
-              </div>
-              <p class="mb-1 fs-3 fw-bold text-center">$ 1.180.800.000,00</p>
-            </span>
-            <span class="list-group-item list-group-item-action bg-info-subtle">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Impuesto a las ganancias</h5>
-                <i class="bi bi-check-circle-fill text-info fs-4"></i>
-              </div>
-              <p class="mb-1 fs-3 fw-bold text-center">$ 180.800.000,00</p>
-            </span>
-          </div>
-        </div>
-        <div class="d-grid gap-2 mb-3">
-          <button class="btn btn-outline-success fs-4 fw-bold" type="button" id="ret">¡Vamo a darle! <i
-              class="bi bi-box-arrow-right"></i></button>
-        </div>
-
-        </div>
-        <!-- <div class="row">
-          <div class="alert alert-warning" role="alert" id="datosImporteRetencion">
-            <p class="fw-bold fs-4 text-center" id="pDatosImporteRetencion"></p>
-            <div class="input-group mb-3 mt-3">
-              <input type="text" class="form-control border-3 border-secondary text-end fs-4 fw-bold" placeholder="0,00"
-                aria-label="Importe retención" aria-describedby="basic-addon2" id="importeRet" disabled>
+            <div class="list-group list-group-horizontal-lg mb-3">
+              <span class="list-group-item list-group-item-action bg-success-subtle">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Nº de directores</h5>
+                  <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                </div>
+                <h1 class="mb-1 display-1 fw-bold text-center" id="cantidadDirectoresList"></h1>
+              </span>
+              <span class="list-group-item list-group-item-action bg-warning-subtle">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Género</h5>
+                  <i class="bi bi-check-circle-fill text-warning fs-4"></i>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">Femenino
+                    <span class="badge bg-dark rounded-pill" id="femeninoList"></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">Masculino
+                    <span class="badge bg-dark rounded-pill" id="masculinoList"></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">Transgénero
+                    <span class="badge bg-dark rounded-pill" id="transgeneroList"></span>
+                  </li>
+                </ul>
+              </span>
+            </div>
+            <div class="list-group list-group-horizontal-lg mb-3">
+              <span class="list-group-item list-group-item-action bg-primary-subtle">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1 totalProvisionadoList">Total provisionado</h5>
+                  <i class="bi bi-check-circle-fill text-primary fs-4"></i>
+                </div>
+                <input type="text" class="form-control mb-1 fs-3 bg-primary-subtle border-0 fw-bold text-center text-break"
+                  id="totalHonorario" disabled>
+              </span>
+            </div>
+            <div class="list-group list-group-horizontal-lg mb-3">
+              <span class="list-group-item list-group-item-action bg-danger-subtle">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Resutado EECC</h5>
+                  <i class="bi bi-check-circle-fill text-danger fs-4"></i>
+                </div>
+                <input type="text" class="form-control mb-1 fs-3 bg-danger-subtle border-0 fw-bold text-center text-break"
+                id="totalEECC" disabled>
+              </span>
+              <span class="list-group-item list-group-item-action bg-info-subtle">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Impuesto a las ganancias</h5>
+                  <i class="bi bi-check-circle-fill text-info fs-4"></i>
+                </div>
+                <input type="text" class="form-control mb-1 fs-3 bg-info-subtle border-0 fw-bold text-center text-break"
+                id="totalIIGG" disabled>
+              </span>
             </div>
           </div>
-        </div> row régimen general
-        <div class="row">
-          <div class="alert alert-warning" role="alert" id="alertRetencionPluralidad">
-            <p class="fw-bold fs-4 text-center" id="pDatosRetencionPluralidad"></p>
-            <ol class="list-group list-group-numbered" id="datosImporteRetencionPluralidad">
-
-            </ol>
+          <div class="d-grid gap-2 mb-3">
+            <button class="btn btn-outline-success fs-4 fw-bold" type="button" id="ret">¡Vamo a darle! <i
+                class="bi bi-box-arrow-right"></i></button>
           </div>
-        </div> row pluralidad -->
+        </div>
       </div> <!-- col -->
       
     </div> <!-- row -->
