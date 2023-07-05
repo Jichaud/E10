@@ -30,6 +30,23 @@ $('#btnSiguienteDirectores').click(function(){
     let impuestoGanancias = document.getElementById("impuestoGanancias").value
     $('#totalIIGG').val(`$${impuestoGanancias}`)
 
+    const datosTope1 = document.getElementById("datosTope1")
+
+    if ($('#femenino1').prop('checked') == true) {
+      html += `
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Beneficiario</div>
+          Menor al mínimo
+        </div>
+        <span class="badge bg-danger rounded-pill">Profesiones liberales</span>
+      </li>
+    </ol>
+      `
+      datosTope1.innerHTML = html;
+
+    }
+
  
 })
 
