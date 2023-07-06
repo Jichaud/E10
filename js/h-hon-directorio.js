@@ -1,7 +1,7 @@
 cargaInicio();
 let html = ''
 
-$('#btnSiguienteDirectores').click(function(){
+$('#btnSiguienteDirectores').click(function () {
   let cantidadDirectores = document.getElementById("cantidadDirectores").value;
   $('#cantidadDirectoresList').text(cantidadDirectores)
   let femeninoSelector = $('input.femeninoSelector:checked')
@@ -11,43 +11,66 @@ $('#btnSiguienteDirectores').click(function(){
   let transgeneroSelector = $('input.transgeneroSelector:checked')
   $('#transgeneroList').text(transgeneroSelector.length)
 
-  let totalHonorarios = function() {
+  let totalHonorarios = function () {
     let sum = 0;
-    $('.directoresPluralidad').each(function(){
+    $('.directoresPluralidad').each(function () {
       let numHono = $(this).val().replace(/\./g, '').replace(",", ".")
       sum += parseFloat(numHono);
     })
 
     $('#totalHonorario').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(sum.toFixed(2)).replace("US$", "")}`)
-    
+
   }
-    
-    totalHonorarios();
 
-    let resultadoEECC = document.getElementById("resultadoEECC").value
-    $('#totalEECC').val(`$${resultadoEECC}`)
+  totalHonorarios();
 
-    let impuestoGanancias = document.getElementById("impuestoGanancias").value
-    $('#totalIIGG').val(`$${impuestoGanancias}`)
+  let resultadoEECC = document.getElementById("resultadoEECC").value
+  $('#totalEECC').val(`$${resultadoEECC}`)
 
-    const datosTope1 = document.getElementById("datosTope1")
+  let impuestoGanancias = document.getElementById("impuestoGanancias").value
+  $('#totalIIGG').val(`$${impuestoGanancias}`)
 
-    if ($('#femenino1').prop('checked') == true) {
+  const datosTope1 = document.getElementById("datosTope1")
+
+  for (i = 1; i <= cantidadDirectores; i++) {
+    if ($('#femenino' + i).prop('checked') == true) {
       html += `
       <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
-          <div class="fw-bold">Beneficiario</div>
-          Menor al mínimo
+          <div class="fw-bold">Director</div>
+          $17.500,00
         </div>
-        <span class="badge bg-danger rounded-pill">Profesiones liberales</span>
+        <span class="badge bg-danger rounded-pill">Género: Mujer</span>
       </li>
     </ol>
       `
       datosTope1.innerHTML = html;
-
+    } else if ($('#masculino' + i).prop('checked') == true) {
+      html += `
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Director</div>
+            $12.500,00
+          </div>
+          <span class="badge bg-danger rounded-pill">Género: Masculino</span>
+        </li>
+      </ol>
+        `
+      datosTope1.innerHTML = html;
+    } else if ($('#transgenero' + i).prop('checked') == true) {
+      html += `
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Director</div>
+          $20.000,00
+        </div>
+        <span class="badge bg-danger rounded-pill">Género: Transgénero</span>
+      </li>
+    </ol>
+      `
+      datosTope1.innerHTML = html;
     }
-
- 
+  }
 })
 
 $('#btnDirectores').click(function(){
@@ -85,7 +108,7 @@ $('#btnDirectores').click(function(){
         var checkGeneroInputLabelF = document.createElement("label");
         checkGeneroInputLabelF.className = "form-check-label";
         checkGeneroInputLabelF.htmlFor = "femenino" + (i+1);
-        checkGeneroInputLabelF.textContent = "Femenino";
+        checkGeneroInputLabelF.textContent = "Mujer";
         divElement.appendChild(checkGeneroInputF);
         divElement.appendChild(checkGeneroInputLabelF);
         checkGeneroDivF.appendChild(checkGeneroInputF);
