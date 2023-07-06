@@ -24,6 +24,8 @@ $('#btnSiguienteDirectores').click(function () {
 
   totalHonorarios();
 
+  html = ""
+
   let resultadoEECC = document.getElementById("resultadoEECC").value
   $('#totalEECC').val(`$${resultadoEECC}`)
 
@@ -37,8 +39,8 @@ $('#btnSiguienteDirectores').click(function () {
       html += `
       <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
-          <div class="fw-bold">Director</div>
-          $17.500,00
+          <div class="fw-bold" id="femeninoVal">Director</div>
+          <p class="femeninoVal">17.500,00</p>
         </div>
         <span class="badge bg-danger rounded-pill">Género: Mujer</span>
       </li>
@@ -50,7 +52,7 @@ $('#btnSiguienteDirectores').click(function () {
         <li class="list-group-item d-flex justify-content-between align-items-start">
           <div class="ms-2 me-auto">
             <div class="fw-bold">Director</div>
-            $12.500,00
+            <p class="masculinoVal">12.500,00</p>
           </div>
           <span class="badge bg-danger rounded-pill">Género: Masculino</span>
         </li>
@@ -61,8 +63,8 @@ $('#btnSiguienteDirectores').click(function () {
       html += `
       <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
-          <div class="fw-bold">Director</div>
-          $20.000,00
+          <div class="fw-bold" id="transgeneroVal">Director</div>
+          <p class="transgeneroVal">20.000,00</p>
         </div>
         <span class="badge bg-danger rounded-pill">Género: Transgénero</span>
       </li>
@@ -71,6 +73,10 @@ $('#btnSiguienteDirectores').click(function () {
       datosTope1.innerHTML = html;
     }
   }
+
+  let masculinoVal = +$('.masculinoVal').text().replace(/\./g, '').replace(",", ".") + +$('.femeninoVal').text().replace(/\./g, '').replace(",", ".") + +$('.transgeneroVal').text().replace(/\./g, '').replace(",", ".")
+  totalTope1Val = parseFloat(masculinoVal)
+  console.log(totalTope1Val)
 })
 
 $('#btnDirectores').click(function(){
