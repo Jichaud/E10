@@ -72,11 +72,33 @@ $('#btnSiguienteDirectores').click(function () {
       `
       datosTope1.innerHTML = html;
     }
+
   }
 
-  let masculinoVal = +$('.masculinoVal').text().replace(/\./g, '').replace(",", ".") + +$('.femeninoVal').text().replace(/\./g, '').replace(",", ".") + +$('.transgeneroVal').text().replace(/\./g, '').replace(",", ".")
-  totalTope1Val = parseFloat(masculinoVal)
-  console.log(totalTope1Val)
+  let totalTope1Val = function () {
+    let sum = 0;
+    $('.masculinoVal').each(function () {
+      let numMasc = $(this).text().replace(/\./g, '').replace(",", ".")
+      sum += parseFloat(numMasc);
+    })
+
+    $('.femeninoVal').each(function () {
+      let numFem = $(this).text().replace(/\./g, '').replace(",", ".")
+      sum += parseFloat(numFem);
+    })
+
+    $('.transgeneroVal').each(function () {
+      let numTrans = $(this).text().replace(/\./g, '').replace(",", ".")
+      sum += parseFloat(numTrans);
+    })
+
+    $('#totalTopeUno').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(sum.toFixed(2)).replace("US$", "")}`)
+
+  }
+
+  totalTope1Val();
+
+
 })
 
 $('#btnDirectores').click(function(){
