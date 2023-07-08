@@ -111,11 +111,11 @@
 
             <!-- Carga datos EECC -->
             <div class="alert bg-warning-subtle border-3 border-warning fs-5 text-center" role="alert" id="EECC">
-              <span class="fs-4 fw-bold">Datos EECC</span>
+              <span class="fs-4 fw-bold">Datos base</span>
               <div class="input-group mb-3 mt-3" id="divPluralidad">
                 <div class="row justify-content-center">
                   <div class="col-12">
-                    <span class="fw-bold text-warning" id="labelEECC">Resultado EECC</span>
+                    <span class="fw-bold text-warning" id="labelEECC">Resultado EECC AxI</span>
                   </div>
                   <div class="col-12">
                     <input type="text" class="form-control text-end" id="resultadoEECC">
@@ -125,6 +125,12 @@
                   </div>
                   <div class="col-12">
                     <input type="text" class="form-control text-end" id="impuestoGanancias">
+                  </div>
+                  <div class="col-12 mt-4 text-warning">
+                    <span class="fw-bold" id="labelUiHono">Utilidad impositiva antes de deducción de honorarios</span>
+                  </div>
+                  <div class="col-12">
+                    <input type="text" class="form-control text-end" id="UiHono">
                   </div>
                 </div>
               </div>
@@ -212,6 +218,14 @@
                 </div>
                 <input type="text" class="form-control mb-1 fs-3 bg-primary-subtle border-0 fw-bold text-center text-break"
                   id="totalHonorario" disabled>
+              </span>
+              <span class="list-group-item list-group-item-action bg-secondary-subtle">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1 totalProvisionadoList">Total UI antes de honorarios</h5>
+                  <i class="bi bi-check-circle-fill text-secondary fs-4"></i>
+                </div>
+                <input type="text" class="form-control mb-1 fs-3 bg-secondary-subtle border-0 fw-bold text-center text-break"
+                  id="totalUiHono" disabled>
               </span>
             </div>
             <div class="list-group list-group-horizontal-lg mb-3">

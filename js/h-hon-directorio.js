@@ -24,13 +24,16 @@ $('#btnSiguienteDirectores').click(function () {
 
   totalHonorarios();
 
-  html = ""
-
   let resultadoEECC = document.getElementById("resultadoEECC").value
   $('#totalEECC').val(`$${resultadoEECC}`)
 
   let impuestoGanancias = document.getElementById("impuestoGanancias").value
   $('#totalIIGG').val(`$${impuestoGanancias}`)
+
+  let UiHono = document.getElementById("UiHono").value
+  $('#totalUiHono').val(`$${UiHono}`)
+
+  html = ""
 
   const datosTope1 = document.getElementById("datosTope1")
 
@@ -208,5 +211,6 @@ $(document).ready(function(){
     $('.directoresPluralidad').mask('000.000.000.000.000,00', {reverse: true});
     $('#resultadoEECC').mask('000.000.000.000.000,00', {reverse: true});
     $('#impuestoGanancias').mask('000.000.000.000.000,00', {reverse: true});
+    $('#UiHono').mask('000.000.000.000.000,00', {reverse: true});
   });
 }
