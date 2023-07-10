@@ -121,43 +121,73 @@ $('#btnSiguienteDirectores').click(function () {
     if (UiHonoTopeDos <= 7604948.57) {
       let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
 
-      let totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
+      if (totalTope2HtmlIIGG < 0) {
 
-      htmlTopeDos +=
-        `
+        totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
+
+        $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+      } else {
+
+        totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
+
+        htmlTopeDos +=
+          `
     <img src="bimages/primerTramo.webp" class="ms-3 img-fluid" alt="Primer tramo">
     `
-      datosTope2.innerHTML = htmlTopeDos;
+        datosTope2.innerHTML = htmlTopeDos;
 
-      $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+        $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+      }
 
     } else if (UiHonoTopeDos <= 76049485.68) {
 
       let totalTope2HtmlIIGG = (1901237.14 + 0.3 * +UiHonoTopeDos - 0.25 * 0.3 * (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (7604948.57 * 0.3)) / (1 - 0.25 * 0.3)
 
-      let totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
+      if (totalTope2HtmlIIGG < 0) {
 
-      htmlTopeDos +=
-        `
+        totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
+
+        $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+      } else {
+
+        totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
+
+        htmlTopeDos +=
+          `
     <img src="bimages/segundoTramo.webp" class="ms-3 img-fluid" alt="Segundo tramo">
     `
-      datosTope2.innerHTML = htmlTopeDos;
+        datosTope2.innerHTML = htmlTopeDos;
 
-      $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+        $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+      }
 
     } else {
 
       let totalTope2HtmlIIGG = (22434598.28 + 0.35 * +UiHonoTopeDos - 0.25 * 0.35 * (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (76049485.68 * 0.35)) / (1 - 0.25 * 0.35)
 
-      let totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
+      if (totalTope2HtmlIIGG < 0) {
 
-      htmlTopeDos +=
-        `
+        let totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
+
+        $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+      } else {
+
+        let totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
+
+        htmlTopeDos +=
+          `
     <img src="bimages/tercerTramo.webp" class="ms-3 img-fluid" alt="Segundo tramo">
     `
-      datosTope2.innerHTML = htmlTopeDos;
+        datosTope2.innerHTML = htmlTopeDos;
 
-      $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+        $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+      }
 
     }
 
