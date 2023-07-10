@@ -120,12 +120,19 @@
                   <div class="col-12">
                     <input type="text" class="form-control text-end" id="resultadoEECC">
                   </div>
+                  <div class="border mt-3 border-3 border-primary rounded">
                   <div class="col-12 mt-4 text-warning">
                     <span class="fw-bold" id="labelIIGG">Impuesto a las ganancias</span>
                   </div>
                   <div class="col-12">
                     <input type="text" class="form-control text-end" id="impuestoGanancias">
+                      <div class="form-check form-switch mt-3">
+                        <input class="form-check-input" type="checkbox" role="switch" id="IIGGdiferido" checked>
+                        <label class="form-check-label" for="IIGGdiferido" id="labelIIGGdiferido">IIGG negativo</label>
+                        <i class="bi bi-exclamation-circle-fill text-danger" type="button" data-bs-toggle="modal" data-bs-target="#ayudaIIGGnegativo"></i>
+                      </div>
                   </div>
+                </div>
                   <div class="col-12 mt-4 text-warning">
                     <span class="fw-bold" id="labelUiHono">Utilidad impositiva antes de deducción de honorarios</span>
                   </div>
@@ -346,6 +353,39 @@
                 </div>
               </div>
             </div> <!-- fin modal ayuda -->
+
+            <!-- Modal IIGG negativo -->
+            <div class="modal fade" id="ayudaIIGGnegativo" tabindex="-1" aria-labelledby="ayudaIIGGnegativoLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">IIGG</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="list-group mb-3">
+                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1 text-success">IIGG negativo</h5>
+                          <small><span class="badge bg-success fs-6">Caso normal</span></small>
+                        </div>
+                        <p class="mb-1">El caso general del impuesto a las ganancias, es que su valor es negativo en los EECC. De esta manera simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se encuentra  a la izquierda.</p>
+                      </a>
+                      <a class="list-group-item list-group-item-action bg-warning-subtle">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">IIGG positivo</h5>
+                          <small><span class="badge bg-warning fs-6 text-dark">Impuesto diferido</span></small>
+                        </div>
+                        <p class="mb-1">Si por aplicación de la técnica contable del impuesto diferido el IIGG es positivo en los EECC, por favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.</p>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- fin IIGG negativo -->
 
             <!-- Offcanvas -->
             <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"

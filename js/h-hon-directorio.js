@@ -119,7 +119,7 @@ $('#btnSiguienteDirectores').click(function () {
 
   let totalTope2Val = function () {
     if (UiHonoTopeDos <= 7604948.57) {
-      let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
+
 
       if (totalTope2HtmlIIGG < 0) {
 
@@ -285,6 +285,14 @@ $('#btnDirectores').click(function(){
     } else {
       $('#btnSiguienteDirectores').prop("hidden", false)
     }
+})
+
+$('#IIGGdiferido').click(function(){
+  if ($(this).prop('checked') == true) {
+      $('#labelIIGGdiferido').text("IIGG negativo");
+  } else {
+    $('#labelIIGGdiferido').text("IIGG positivo");
+  }
 })
 
 function cargaInicio(){
