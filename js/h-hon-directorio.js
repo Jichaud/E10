@@ -275,6 +275,17 @@ $('#btnSiguienteDirectores').click(function () {
 
   totalTope2Val();
   // FINAL Function tope 2
+
+  // INICIO honorario deducible
+  function honorarioDeducible (){
+    let totalTopeDos = document.getElementById("totalTopeDos").value
+    $('#maxTope').text(`$${totalTopeDos}`)
+
+    }
+    
+  
+
+  honorarioDeducible();
   
 })
 
