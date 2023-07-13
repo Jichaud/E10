@@ -274,6 +274,14 @@ $('#btnSiguienteDirectores').click(function () {
   }
 
   totalTope2Val();
+
+  // Evalúa valor negativo de tope 2
+  let totalTopeDosNeg = $('#totalTopeDos').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
+  if (+totalTopeDosNeg < 0) {
+    $('#totalTopeDos').val("Negativo")
+    datosTope2.innerHTML = '';
+  }
+
   // FINAL Function tope 2
 
   // INICIO honorario deducible
