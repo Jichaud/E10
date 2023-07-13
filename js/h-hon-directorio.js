@@ -277,13 +277,27 @@ $('#btnSiguienteDirectores').click(function () {
   // FINAL Function tope 2
 
   // INICIO honorario deducible
-  function honorarioDeducible (){
-    let totalTopeDos = document.getElementById("totalTopeDos").value
-    $('#maxTope').text(`$${totalTopeDos}`)
-
+  function honorarioDeducible() {
+    let totalTopeDosEval = $('#totalTopeDos').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
+    let totalTopeUnoEval = $('#totalTopeUno').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
+    if (+totalTopeDosEval > +totalTopeUnoEval) {
+      $('#maxTope').val($('#totalTopeDos').val())
+    } else {
+      $('#maxTope').val($('#totalTopeUno').val())
     }
-    
-  
+
+    $('#honoAsignado').val($('#totalHonorario').val())
+
+    let maxTopeEval = $('#maxTope').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
+    let honoAsignadoEval = $('#honoAsignado').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
+
+    if (+maxTopeEval > +honoAsignadoEval) {
+      $('#honoDeducible').val($('#honoAsignado').val())
+    } else {
+      $('#honoDeducible').val($('#maxTope').val())
+    }
+
+  }
 
   honorarioDeducible();
   
