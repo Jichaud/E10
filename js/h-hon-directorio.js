@@ -308,6 +308,29 @@ $('#btnSiguienteDirectores').click(function () {
   }
 
   honorarioDeducible();
+
+  // FINAL honorario deducible
+
+  // INICIO function tratamiento perceptores
+  function tratamientoPerceptores() {
+    $('#aprobadoPerceptores').val($('#honoAsignado').val())
+    $('#deducidoPerceptores').val($('#honoDeducible').val())
+    let aprobadoPerceptoresEval = $('#aprobadoPerceptores').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
+    let deducidoPerceptoresEval = $('#deducidoPerceptores').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
+    let excedentePerceptoresEval = +aprobadoPerceptoresEval - +deducidoPerceptoresEval
+    $('#excedentePerceptores').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(excedentePerceptoresEval).replace("US$", "")}`)
+
+    $('#UIPerceptores').val($('#totalUiHono').val())
+    $('#deducidoPerceptoresDos').val($('#honoDeducible').val())
+    let UIPerceptoresEval = $('#UIPerceptores').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
+    let deducidoPerceptoresDosEval = $('#deducidoPerceptoresDos').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
+    let gnsaiEval = +UIPerceptoresEval - +deducidoPerceptoresDosEval
+    $('#gnsaiPerceptores').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(gnsaiEval).replace("US$", "")}`)
+
+  }
+  // FINAL function tratamiento perceptores
+
+  tratamientoPerceptores();
   
 })
 
