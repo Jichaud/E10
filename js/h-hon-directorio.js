@@ -331,6 +331,48 @@ $('#btnSiguienteDirectores').click(function () {
   // FINAL function tratamiento perceptores
 
   tratamientoPerceptores();
+
+  // INICIO retención ganancias
+
+  let htmlRetencion = ''
+
+  for (i = 1; i <= cantidadDirectores; i++) {
+    let directorRete = $('#director' + i).val()
+    let directorReteEval = directorRete.replace(/\./g, '').replace(",", ".")
+    let aprobadoTotal = $('#aprobadoPerceptoresEval').val()
+    let porcentajeEval = +directorReteEval / +aprobadoTotal
+    htmlRetencion += `
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
+      <div class="table-responsive rounded-4 mt-4">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th class="bg-success-subtle border-0 border-bottom" scope="col">Porcentaje</th>
+              <th class="bg-success-subtle border-0 border-bottom" scope="col">Asamblea</th>
+              <th class="bg-success-subtle border-0 border-bottom" scope="col">Gravado</th>
+              <th class="bg-warning border-0 border-bottom" scope="col">No computable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>${porcentajeEval}</td>
+              <td>${directorRete}</td>
+              <td>480.000,00</td>
+              <td class="bg-warning">120.000,00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <span class="badge bg-success rounded-pill">Retención ganancias</span>
+    </li>
+    `
+
+    directorRetencion.innerHTML = htmlRetencion;
+
+  } // final for
   
 })
 
