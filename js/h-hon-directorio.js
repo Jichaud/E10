@@ -334,6 +334,7 @@ $('#btnSiguienteDirectores').click(function () {
 
   // INICIO retención ganancias
 
+  let htmlTratamiento = ''
   let htmlRetencion = ''
 
   for (i = 1; i <= cantidadDirectores; i++) {
@@ -351,9 +352,12 @@ $('#btnSiguienteDirectores').click(function () {
       let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+excedentePerceptoresReteEval * (+directorReteEval / +aprobadoTotal)).replace("US$", "")
       let noComputableReteEval = noComputableRete.replace(/\./g, '').replace(",", ".")
       let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +noComputableReteEval).replace("US$", "")
+      let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
+
+      
     
 
-    htmlRetencion += `
+    htmlTratamiento += `
     <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
@@ -382,7 +386,7 @@ $('#btnSiguienteDirectores').click(function () {
     </li>
     `
 
-    directorRetencion.innerHTML = htmlRetencion;
+    directorRetencion.innerHTML = htmlTratamiento;
 
   } else if(gnsaiReteEval < excedentePerceptoresReteEval) {
 
@@ -391,7 +395,7 @@ $('#btnSiguienteDirectores').click(function () {
     let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +noComputableReteEval).replace("US$", "")
   
 
-  htmlRetencion += `
+  htmlTratamiento += `
   <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
   <div class="ms-2 me-auto">
     <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
@@ -415,21 +419,19 @@ $('#btnSiguienteDirectores').click(function () {
         </tbody>
       </table>
     </div>
-    <div>
-      <div class="alert alert-danger" role="alert">
-        Retención de ganancias
-      </div>
-    </div>
   </div>
-  <span class="badge bg-success rounded-pill">Retención ganancias</span>
+  <span class="badge bg-success rounded-pill">Tratamiento perceptor</span>
   </li>
   `
 
-  directorRetencion.innerHTML = htmlRetencion;
+  directorRetencion.innerHTML = htmlTratamiento;
 
   }
 
   } // final for
+
+  document.getElementById('btnSiguienteDirectores').innerHTML = 'Modificar <i class="bi bi-pencil-square"></i>'
+  document.getElementById('btnSiguienteDirectores').className = 'btn btn-warning btn-sm py-2 mb-3 fs-5 rounded-pill'
   
 })
 
