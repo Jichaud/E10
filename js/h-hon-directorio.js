@@ -339,28 +339,40 @@ $('#btnSiguienteDirectores').click(function () {
   for (i = 1; i <= cantidadDirectores; i++) {
     let directorRete = $('#director' + i).val()
     let directorReteEval = directorRete.replace(/\./g, '').replace(",", ".")
-    let aprobadoTotal = $('#aprobadoPerceptoresEval').val()
-    let porcentajeEval = +directorReteEval / +aprobadoTotal
+    let aprobadoTotal = $('#honoAsignado').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
+    let porcentajeEval = Intl.NumberFormat("en-US", {style: "percent", maximumFractionDigits: 2}).format(+directorReteEval / +aprobadoTotal)
+
+    let gnsaiRete = $('#gnsaiPerceptores').val()
+    let gnsaiReteEval = gnsaiRete.replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
+    let excedentePerceptoresRete = $('#excedentePerceptores').val()
+    let excedentePerceptoresReteEval = excedentePerceptoresRete.replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
+
+    if (gnsaiReteEval > excedentePerceptoresReteEval) {
+      let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+excedentePerceptoresReteEval * (+directorReteEval / +aprobadoTotal)).replace("US$", "")
+      let noComputableReteEval = noComputableRete.replace(/\./g, '').replace(",", ".")
+      let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +noComputableReteEval).replace("US$", "")
+    
+
     htmlRetencion += `
-    <li class="list-group-item d-flex justify-content-between align-items-start">
+    <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
       <div class="table-responsive rounded-4 mt-4">
-        <table class="table table-borderless">
+        <table class="table table-bordered">
           <thead>
             <tr>
-              <th class="bg-success-subtle border-0 border-bottom" scope="col">Porcentaje</th>
-              <th class="bg-success-subtle border-0 border-bottom" scope="col">Asamblea</th>
-              <th class="bg-success-subtle border-0 border-bottom" scope="col">Gravado</th>
-              <th class="bg-warning border-0 border-bottom" scope="col">No computable</th>
+              <th class="bg-success-subtle" scope="col">Porcentaje</th>
+              <th class="bg-success-subtle" scope="col">Asamblea</th>
+              <th class="bg-success-subtle" scope="col">Gravado</th>
+              <th class="bg-warning" scope="col">No computable</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>${porcentajeEval}</td>
               <td>${directorRete}</td>
-              <td>480.000,00</td>
-              <td class="bg-warning">120.000,00</td>
+              <td>${gravadoRete}</td>
+              <td class="bg-warning">${noComputableRete}</td>
             </tr>
           </tbody>
         </table>
@@ -371,6 +383,46 @@ $('#btnSiguienteDirectores').click(function () {
     `
 
     directorRetencion.innerHTML = htmlRetencion;
+
+  } else if(gnsaiReteEval < excedentePerceptoresReteEval) {
+
+    let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+gnsaiReteEval * (+directorReteEval / +aprobadoTotal)).replace("US$", "")
+    let noComputableReteEval = noComputableRete.replace(/\./g, '').replace(",", ".")
+    let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +noComputableReteEval).replace("US$", "")
+  
+
+  htmlRetencion += `
+  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+  <div class="ms-2 me-auto">
+    <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
+    <div class="table-responsive rounded-4 mt-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="bg-success-subtle" scope="col">Porcentaje</th>
+            <th class="bg-success-subtle" scope="col">Asamblea</th>
+            <th class="bg-success-subtle" scope="col">Gravado</th>
+            <th class="bg-warning" scope="col">No computable</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${porcentajeEval}</td>
+            <td>${directorRete}</td>
+            <td>${gravadoRete}</td>
+            <td class="bg-warning">${noComputableRete}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <span class="badge bg-success rounded-pill">Retención ganancias</span>
+  </li>
+  `
+
+  directorRetencion.innerHTML = htmlRetencion;
+
+  }
 
   } // final for
   
