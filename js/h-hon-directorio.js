@@ -415,6 +415,11 @@ $('#btnSiguienteDirectores').click(function () {
         </tbody>
       </table>
     </div>
+    <div>
+      <div class="alert alert-danger" role="alert">
+        Retención de ganancias
+      </div>
+    </div>
   </div>
   <span class="badge bg-success rounded-pill">Retención ganancias</span>
   </li>
