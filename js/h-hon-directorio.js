@@ -355,32 +355,34 @@ $('#btnSiguienteDirectores').click(function () {
       let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
       let retencionGananaciasHono = 0;
 
-      if (+gravadoReteEval <= 67170) {
-        retencionGananaciasHono = 0
-      } else if(+gravadoReteEval <= 8000) {
-        retencionGananaciasHono = +gravadoReteEval * 0.05
-      } else if (+gravadoReteEval <= 16000) {
-        retencionGananaciasHono = 400 + ((+gravadoReteEval - 8000) * 0.09)
-      } else if (+gravadoReteEval <= 24000) {
-        retencionGananaciasHono = 1120 + ((+gravadoReteEval - 16000) * 0.12)
-      } else if (+gravadoReteEval <= 32000) {
-        retencionGananaciasHono = 2080 + ((+gravadoReteEval - 24000) * 0.15)
-      } else if (+gravadoReteEval <= 48000) {
-        retencionGananaciasHono = 3280 + ((+gravadoReteEval - 32000) * 0.19)
-      } else if (+gravadoReteEval <= 64000) {
-        retencionGananaciasHono = 6320 + ((+gravadoReteEval - 48000) * 0.23)
-      } else if (+gravadoReteEval <= 96000) {
-        retencionGananaciasHono = 10000 + ((+gravadoReteEval - 64000) * 0.27)
-      } else if (+gravadoReteEval > 96000) {
-        retencionGananaciasHono = 18640 + ((+gravadoReteEval - 96000) * 0.31)
+      if ((+gravadoReteEval - 67170) <= 0) {
+        retencionGananaciasHono = "sin retención"
+      } else if((+gravadoReteEval - 67170) <= 8000) {
+        retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
+      } else if ((+gravadoReteEval - 67170) <= 16000) {
+        retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
+      } else if ((+gravadoReteEval - 67170) <= 24000) {
+        retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
+      } else if ((+gravadoReteEval - 67170) <= 32000) {
+        retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
+      } else if ((+gravadoReteEval - 67170) <= 48000) {
+        retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
+      } else if ((+gravadoReteEval - 67170) <= 64000) {
+        retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
+      } else if ((+gravadoReteEval - 67170) <= 96000) {
+        retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
+      } else if ((+gravadoReteEval - 67170) > 96000) {
+        retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
       }
+
+      let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
 
     htmlRetencion += `
     <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
     <div class="alert alert-danger mt-3" role="alert">
-      Retención ganancias ${parseFloat(+retencionGananaciasHono).toFixed(2)}
+      Retención ganancias ${retencionGananaciasHonoPrint}
     </div>
     </div>
     <span class="badge bg-danger rounded-pill">Retención ganancias</span>
@@ -427,33 +429,35 @@ $('#btnSiguienteDirectores').click(function () {
     let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +noComputableReteEval).replace("US$", "")
     let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
     let retencionGananaciasHono = 0;
-
-    if (+gravadoReteEval <= 67170) {
-      retencionGananaciasHono = 0
-    } else if(+gravadoReteEval <= 8000) {
-      retencionGananaciasHono = +gravadoReteEval * 0.05
-    } else if (+gravadoReteEval <= 16000) {
-      retencionGananaciasHono = 400 + ((+gravadoReteEval - 8000) * 0.09)
-    } else if (+gravadoReteEval <= 24000) {
-      retencionGananaciasHono = 1120 + ((+gravadoReteEval - 16000) * 0.12)
-    } else if (+gravadoReteEval <= 32000) {
-      retencionGananaciasHono = 2080 + ((+gravadoReteEval - 24000) * 0.15)
-    } else if (+gravadoReteEval <= 48000) {
-      retencionGananaciasHono = 3280 + ((+gravadoReteEval - 32000) * 0.19)
-    } else if (+gravadoReteEval <= 64000) {
-      retencionGananaciasHono = 6320 + ((+gravadoReteEval - 48000) * 0.23)
-    } else if (+gravadoReteEval <= 96000) {
-      retencionGananaciasHono = 10000 + ((+gravadoReteEval - 64000) * 0.27)
-    } else if (+gravadoReteEval > 96000) {
-      retencionGananaciasHono = 18640 + ((+gravadoReteEval - 96000) * 0.31)
+    
+    if ((+gravadoReteEval - 67170) <= 0) {
+      retencionGananaciasHono = "sin retención"
+    } else if((+gravadoReteEval - 67170) <= 8000) {
+      retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
+    } else if ((+gravadoReteEval - 67170) <= 16000) {
+      retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
+    } else if ((+gravadoReteEval - 67170) <= 24000) {
+      retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
+    } else if ((+gravadoReteEval - 67170) <= 32000) {
+      retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
+    } else if ((+gravadoReteEval - 67170) <= 48000) {
+      retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
+    } else if ((+gravadoReteEval - 67170) <= 64000) {
+      retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
+    } else if ((+gravadoReteEval - 67170) <= 96000) {
+      retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
+    } else if ((+gravadoReteEval - 67170) > 96000) {
+      retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
     }
+
+    let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
 
   htmlRetencion += `
   <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
   <div class="ms-2 me-auto">
     <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
   <div class="alert alert-danger mt-3" role="alert">
-  Retención ganancias ${parseFloat(+retencionGananaciasHono).toFixed(2)}
+  Retención ganancias ${retencionGananaciasHonoPrint}
   </div>
   </div>
   <span class="badge bg-danger rounded-pill">Retención ganancias</span>
