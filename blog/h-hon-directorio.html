@@ -95,15 +95,11 @@
           <h4 class="card-header bg-primary h4-a text-light text-center border-primary"><i class="bi bi-gear"></i>
             Configuración</h4>
           <div class="card-body">
-            <div class="row mx-3 mb-3">
-              <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo">Nuevo cálculo <i class="bi bi-arrow-clockwise"></i></button>
-            </div>
             <div class="alert bg-dark-subtle fs-5 text-dark" role="alert">
               <label for="periodoFiscal" class="form-label">Período fiscal</label>
               <select class="form-select form-select-lg border-3 border-dark" id="regRet"
                 aria-label="régimen de retención">
                 <option selected>Selecciona el período fiscal...</option>
-                <option value="2020">2020 y anteriores</option>
                 <option value="2021">2021</option>
                 <option value="2022">2022</option>
               </select>
@@ -185,7 +181,7 @@
 
       <div class="col-lg">
         <div class="alert alert-secondary text-center fs-3 fw-bold" role="alert" id="periodoFiscalDato">
-          Estás calculando para el período fiscal 2022
+          
         </div>
         <div class="row">
           <div class="col">
@@ -396,6 +392,11 @@
             </div>
           </div>
         </div> <!-- row retención ganancias -->
+
+        <div class="d-grid">
+          <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo">Nuevo cálculo <i
+              class="bi bi-arrow-clockwise"></i></button>
+        </div>
 
       </div> <!-- col -->
       
