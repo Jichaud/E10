@@ -356,7 +356,7 @@ $('#btnSiguienteDirectores').click(function () {
       let retencionGananaciasHono = 0;
 
       if ((+gravadoReteEval - 67170) <= 0) {
-        retencionGananaciasHono = "sin retención"
+        retencionGananaciasHono = 0
       } else if((+gravadoReteEval - 67170) <= 8000) {
         retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
       } else if ((+gravadoReteEval - 67170) <= 16000) {
@@ -381,7 +381,7 @@ $('#btnSiguienteDirectores').click(function () {
     <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
-    <div class="alert alert-danger mt-3" role="alert">
+    <div class="alert alert-danger mt-3 fs-5 fw-bold" role="alert">
       Retención ganancias ${retencionGananaciasHonoPrint}
     </div>
     </div>
@@ -431,7 +431,7 @@ $('#btnSiguienteDirectores').click(function () {
     let retencionGananaciasHono = 0;
     
     if ((+gravadoReteEval - 67170) <= 0) {
-      retencionGananaciasHono = "sin retención"
+      retencionGananaciasHono = 0
     } else if((+gravadoReteEval - 67170) <= 8000) {
       retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
     } else if ((+gravadoReteEval - 67170) <= 16000) {
@@ -456,7 +456,7 @@ $('#btnSiguienteDirectores').click(function () {
   <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
   <div class="ms-2 me-auto">
     <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
-  <div class="alert alert-danger mt-3" role="alert">
+  <div class="alert alert-danger mt-3 fs-5 fw-bold" role="alert">
   Retención ganancias ${retencionGananaciasHonoPrint}
   </div>
   </div>
