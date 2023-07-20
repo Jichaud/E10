@@ -275,6 +275,160 @@ $('#btnSiguienteDirectores').click(function () {
         }
 
       }
+
+      // Resultado negativo
+      if ($('#IIGGdiferido').prop('checked') == true) {
+        if (UiHonoTopeDos <= 5000000) {
+
+          let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
+
+          if (totalTope2HtmlIIGG < 0) {
+
+            totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
+
+            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+          } else {
+
+            totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
+
+            htmlTopeDos +=
+              `
+        <img src="bimages/primerTramo2021.webp" class="ms-3 img-fluid" alt="Primer tramo">
+        `
+            datosTope2.innerHTML = htmlTopeDos;
+
+            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+          }
+
+        } else if (UiHonoTopeDos <= 50000000) {
+
+          let totalTope2HtmlIIGG = (1250000 + 0.3 * +UiHonoTopeDos - 0.25 * 0.3 * (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (5000000 * 0.3)) / (1 - 0.25 * 0.3)
+
+          if (totalTope2HtmlIIGG < 0) {
+
+            totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
+
+            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+          } else {
+
+            totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
+
+            htmlTopeDos +=
+              `
+        <img src="bimages/segundoTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `
+            datosTope2.innerHTML = htmlTopeDos;
+
+            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+          }
+
+        } else {
+
+          let totalTope2HtmlIIGG = (14750000 + 0.35 * +UiHonoTopeDos - 0.25 * 0.35 * (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (50000000 * 0.35)) / (1 - 0.25 * 0.35)
+
+          if (totalTope2HtmlIIGG < 0) {
+
+            let totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
+
+            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+          } else {
+
+            let totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
+
+            htmlTopeDos +=
+              `
+        <img src="bimages/tercerTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `
+            datosTope2.innerHTML = htmlTopeDos;
+
+            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+          }
+
+        }
+
+      } else {
+
+        if (UiHonoTopeDos <= 5000000) {
+
+          let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
+
+          if (totalTope2HtmlIIGG < 0) {
+
+            totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
+
+            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+          } else {
+
+            totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
+
+            htmlTopeDos +=
+              `
+        <img src="bimages/primerTramo2021.webp" class="ms-3 img-fluid" alt="Primer tramo">
+        `
+            datosTope2.innerHTML = htmlTopeDos;
+
+            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+          }
+
+        } else if (UiHonoTopeDos <= 50000000) {
+
+          let totalTope2HtmlIIGG = (1250000 + 0.3 * +UiHonoTopeDos - 0.25 * 0.3 * (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (5000000 * 0.3)) / (1 - 0.25 * 0.3)
+
+          if (totalTope2HtmlIIGG < 0) {
+
+            totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
+
+            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+          } else {
+
+            totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
+
+            htmlTopeDos +=
+              `
+        <img src="bimages/segundoTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `
+            datosTope2.innerHTML = htmlTopeDos;
+
+            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+          }
+
+        } else {
+
+          let totalTope2HtmlIIGG = (14750000 + 0.35 * +UiHonoTopeDos - 0.25 * 0.35 * (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (50000000 * 0.35)) / (1 - 0.25 * 0.35)
+
+          if (totalTope2HtmlIIGG < 0) {
+
+            let totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
+
+            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+          } else {
+
+            let totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
+
+            htmlTopeDos +=
+              `
+        <img src="bimages/tercerTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `
+            datosTope2.innerHTML = htmlTopeDos;
+
+            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+
+          }
+
+        }
+
+      }
     }
 
     if ($('#regRet').val() == 2022) {
@@ -504,7 +658,7 @@ $('#btnSiguienteDirectores').click(function () {
     let directorRete = $('#director' + i).val()
     let directorReteEval = directorRete.replace(/\./g, '').replace(",", ".")
     let aprobadoTotal = $('#honoAsignado').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    let porcentajeEval = Intl.NumberFormat("en-US", {style: "percent", maximumFractionDigits: 2}).format(+directorReteEval / +aprobadoTotal)
+    let porcentajeEval = Intl.NumberFormat("en-US", { style: "percent", maximumFractionDigits: 2 }).format(+directorReteEval / +aprobadoTotal)
     let honoTopeUnoVal = $('#honoTopeUnoVal' + i).text()
     let honoTopeUnoValEval = honoTopeUnoVal.replace(/\./g, '').replace(",", ".")
     let totalTopeUno = $('#totalTopeUno').val()
@@ -515,35 +669,34 @@ $('#btnSiguienteDirectores').click(function () {
     let excedentePerceptoresRete = $('#excedentePerceptores').val()
     let excedentePerceptoresReteEval = excedentePerceptoresRete.replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
 
-    if (gnsaiReteEval > excedentePerceptoresReteEval) {
 
-      if ($('#honoDeducible').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".") == totalTopeUnoEval){
-        let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+honoTopeUnoValEval).replace("US$", "")
-        let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
-        let retencionGananaciasHono = 0;
+    if ($('#honoDeducible').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".") == totalTopeUnoEval) {
+      let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+honoTopeUnoValEval).replace("US$", "")
+      let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
+      let retencionGananaciasHono = 0;
 
-        if ((+gravadoReteEval - 67170) <= 0) {
-          retencionGananaciasHono = 0
-        } else if((+gravadoReteEval - 67170) <= 8000) {
-          retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
-        } else if ((+gravadoReteEval - 67170) <= 16000) {
-          retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
-        } else if ((+gravadoReteEval - 67170) <= 24000) {
-          retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
-        } else if ((+gravadoReteEval - 67170) <= 32000) {
-          retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
-        } else if ((+gravadoReteEval - 67170) <= 48000) {
-          retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
-        } else if ((+gravadoReteEval - 67170) <= 64000) {
-          retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
-        } else if ((+gravadoReteEval - 67170) <= 96000) {
-          retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
-        } else if ((+gravadoReteEval - 67170) > 96000) {
-          retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
-        }
-  
-        let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
-  
+      if ((+gravadoReteEval - 67170) <= 0) {
+        retencionGananaciasHono = 0
+      } else if ((+gravadoReteEval - 67170) <= 8000) {
+        retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
+      } else if ((+gravadoReteEval - 67170) <= 16000) {
+        retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
+      } else if ((+gravadoReteEval - 67170) <= 24000) {
+        retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
+      } else if ((+gravadoReteEval - 67170) <= 32000) {
+        retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
+      } else if ((+gravadoReteEval - 67170) <= 48000) {
+        retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
+      } else if ((+gravadoReteEval - 67170) <= 64000) {
+        retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
+      } else if ((+gravadoReteEval - 67170) <= 96000) {
+        retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
+      } else if ((+gravadoReteEval - 67170) > 96000) {
+        retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
+      }
+
+      let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
+
       htmlRetencion += `
       <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
@@ -554,9 +707,9 @@ $('#btnSiguienteDirectores').click(function () {
       </div>
       </li>
         `
-  
+
       importeRetencion.innerHTML = htmlRetencion;
-  
+
       htmlTratamiento += `
         <div class="table-responsive rounded-4 mt-4">
           <table class="table table-bordered">
@@ -578,22 +731,21 @@ $('#btnSiguienteDirectores').click(function () {
           </table>
         </div>
       `
-  
+
       directorRetencion.innerHTML = htmlTratamiento;
 
-      } else {
-
+    } else if (+gnsaiReteEval > +excedentePerceptoresReteEval) {
 
       let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+excedentePerceptoresReteEval * (+directorReteEval / +aprobadoTotal)).replace("US$", "")
       let noComputableReteEval = noComputableRete.replace(/\./g, '').replace(",", ".")
       let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +noComputableReteEval).replace("US$", "")
       let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
       let retencionGananaciasHono = 0;
-      
+
 
       if ((+gravadoReteEval - 67170) <= 0) {
         retencionGananaciasHono = 0
-      } else if((+gravadoReteEval - 67170) <= 8000) {
+      } else if ((+gravadoReteEval - 67170) <= 8000) {
         retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
       } else if ((+gravadoReteEval - 67170) <= 16000) {
         retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
@@ -613,20 +765,20 @@ $('#btnSiguienteDirectores').click(function () {
 
       let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
 
-    htmlRetencion += `
-    <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto">
-      <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
-    <div class="alert alert-danger mt-3 fs-5 fw-bold" role="alert">
-      Retención ganancias ${retencionGananaciasHonoPrint}
-    </div>
-    </div>
-    </li>
-      `
+      htmlRetencion += `
+      <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
+      <div class="alert alert-danger mt-3 fs-5 fw-bold" role="alert">
+        Retención ganancias ${retencionGananaciasHonoPrint}
+      </div>
+      </div>
+      </li>
+        `
 
-    importeRetencion.innerHTML = htmlRetencion;
+      importeRetencion.innerHTML = htmlRetencion;
 
-    htmlTratamiento += `
+      htmlTratamiento += `
       <div class="table-responsive rounded-4 mt-4">
         <table class="table table-bordered">
           <thead>
@@ -652,39 +804,39 @@ $('#btnSiguienteDirectores').click(function () {
       </div>
     `
 
-    directorRetencion.innerHTML = htmlTratamiento;
-  }
-  } else if(gnsaiReteEval < excedentePerceptoresReteEval) {
+      directorRetencion.innerHTML = htmlTratamiento;
 
-    let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+gnsaiReteEval * (+directorReteEval / +aprobadoTotal)).replace("US$", "")
-    let noComputableReteEval = noComputableRete.replace(/\./g, '').replace(",", ".")
-    let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +noComputableReteEval).replace("US$", "")
-    let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
-    let retencionGananaciasHono = 0;
-    
-    if ((+gravadoReteEval - 67170) <= 0) {
-      retencionGananaciasHono = 0
-    } else if((+gravadoReteEval - 67170) <= 8000) {
-      retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
-    } else if ((+gravadoReteEval - 67170) <= 16000) {
-      retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
-    } else if ((+gravadoReteEval - 67170) <= 24000) {
-      retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
-    } else if ((+gravadoReteEval - 67170) <= 32000) {
-      retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
-    } else if ((+gravadoReteEval - 67170) <= 48000) {
-      retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
-    } else if ((+gravadoReteEval - 67170) <= 64000) {
-      retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
-    } else if ((+gravadoReteEval - 67170) <= 96000) {
-      retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
-    } else if ((+gravadoReteEval - 67170) > 96000) {
-      retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
-    }
+    } else {
 
-    let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
+      let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+gnsaiReteEval * (+directorReteEval / +aprobadoTotal)).replace("US$", "")
+      let noComputableReteEval = noComputableRete.replace(/\./g, '').replace(",", ".")
+      let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +noComputableReteEval).replace("US$", "")
+      let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
+      let retencionGananaciasHono = 0;
 
-  htmlRetencion += `
+      if ((+gravadoReteEval - 67170) <= 0) {
+        retencionGananaciasHono = 0
+      } else if ((+gravadoReteEval - 67170) <= 8000) {
+        retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
+      } else if ((+gravadoReteEval - 67170) <= 16000) {
+        retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
+      } else if ((+gravadoReteEval - 67170) <= 24000) {
+        retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
+      } else if ((+gravadoReteEval - 67170) <= 32000) {
+        retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
+      } else if ((+gravadoReteEval - 67170) <= 48000) {
+        retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
+      } else if ((+gravadoReteEval - 67170) <= 64000) {
+        retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
+      } else if ((+gravadoReteEval - 67170) <= 96000) {
+        retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
+      } else if ((+gravadoReteEval - 67170) > 96000) {
+        retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
+      }
+
+      let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
+
+      htmlRetencion += `
   <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
   <div class="ms-2 me-auto">
     <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
@@ -695,37 +847,37 @@ $('#btnSiguienteDirectores').click(function () {
   </li>
   `
 
-  importeRetencion.innerHTML = htmlRetencion;
+      importeRetencion.innerHTML = htmlRetencion;
 
-  htmlTratamiento += `
+      htmlTratamiento += `
   <div class="table-responsive rounded-4 mt-4">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th class="bg-success text-light" scope="col" colspan="4">Director nº ${i}</th>
-      </tr>
-      <tr>
-        <th class="bg-success-subtle" scope="col">Porcentaje</th>
-        <th class="bg-success-subtle" scope="col">Asamblea</th>
-        <th class="bg-success-subtle" scope="col">Gravado</th>
-        <th class="bg-warning" scope="col">No computable</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>${porcentajeEval}</td>
-        <td>${directorRete}</td>
-        <td>${gravadoRete}</td>
-        <td class="bg-warning">${noComputableRete}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="bg-success text-light" scope="col" colspan="4">Director nº ${i}</th>
+        </tr>
+        <tr>
+          <th class="bg-success-subtle" scope="col">Porcentaje</th>
+          <th class="bg-success-subtle" scope="col">Asamblea</th>
+          <th class="bg-success-subtle" scope="col">Gravado</th>
+          <th class="bg-warning" scope="col">No computable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>${porcentajeEval}</td>
+          <td>${directorRete}</td>
+          <td>${gravadoRete}</td>
+          <td class="bg-warning">${noComputableRete}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   `
 
-  directorRetencion.innerHTML = htmlTratamiento;
+      directorRetencion.innerHTML = htmlTratamiento;
 
-  }
+    }
 
   } // final for
 
@@ -828,6 +980,14 @@ $('#IIGGdiferido').click(function(){
       $('#labelIIGGdiferido').text("IIGG negativo");
   } else {
     $('#labelIIGGdiferido').text("IIGG positivo");
+  }
+})
+
+$('#resultadoPositivo').click(function(){
+  if ($(this).prop('checked') == true) {
+      $('#labelresultadoPositivo').text("Resultado positivo");
+  } else {
+    $('#labelresultadoPositivo').text("Resultado negativo");
   }
 })
 
