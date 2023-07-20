@@ -166,9 +166,9 @@
               </div>
 
             <div class="alert alert-dark mb-3" role="alert">
-              <p class="fs-5 fw-bold text-center">¿Necesitás ayuda?</p>
+              <p class="fs-5 fw-bold text-center">Leer primero</p>
               <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-outline-dark fs-5 fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#ayudaModal">Ver ayuda <i class="bi bi-info-circle-fill"></i></button>
+                <button class="btn btn-outline-dark fs-5 fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#ayudaModal">Ver <i class="bi bi-info-circle-fill"></i></button>
               </div>
             </div>
           </div>
@@ -183,7 +183,7 @@
         <div class="alert alert-secondary text-center fs-3 fw-bold" role="alert" id="periodoFiscalDato">
           
         </div>
-        <div class="row">
+        <div class="row" id="resumenCargaDatos">
           <div class="col">
             <div class="list-group list-group-horizontal-lg mb-3">
               <span class="list-group-item list-group-item-action bg-success-subtle">
@@ -253,7 +253,7 @@
                 class="bi bi-box-arrow-right"></i></button>
           </div>
         </div>
-        <div class="row"> <!-- row tope 1 -->
+        <div class="row" id="topeUnoDatos"> <!-- row tope 1 -->
           <div class="col">
             <div class="alert alert-light border border-3" role="alert">
               <div class="col-sm-3">
@@ -275,7 +275,7 @@
           </div>
         </div> <!-- row tope 1 -->
 
-        <div class="row"> <!-- row tope 2 -->
+        <div class="row" id="topeDosDatos"> <!-- row tope 2 -->
           <div class="col">
             <div class="alert alert-light border border-primary border-3" role="alert">
               <div class="col-sm-3">
@@ -297,7 +297,7 @@
           </div>
         </div> <!-- row tope 2 -->
 
-        <div class="row"> <!-- row deducible -->
+        <div class="row" id="deducibleDatos"> <!-- row deducible -->
           <div class="col">
             <div class="alert alert-light border border-5 border-secondary" role="alert">
               <h1 class="fw-bold">Deducible</h1>
@@ -331,7 +331,7 @@
           </div>
         </div> <!-- row deducible -->
 
-        <div class="row"> <!-- row tratamiento en cabeza de los perceptores -->
+        <div class="row" id="tratamientoDatos"> <!-- row tratamiento en cabeza de los perceptores -->
           <div class="col">
             <div class="alert alert-light border border-5 border-success" role="alert">
               <h1 class="fw-bold text-success">Tratamiento para los perceptores</h1>
@@ -377,7 +377,7 @@
           </div>
         </div> <!-- row tratamiento en cabeza de los perceptores -->
 
-        <div class="row"> <!-- row retención ganancias -->
+        <div class="row" id="retencionDatos"> <!-- row retención ganancias -->
           <div class="col">
             <div class="alert alert-light border border-5 border-danger" role="alert">
               <h1 class="fw-bold text-danger">Retención impuesto a las ganancias</h1>
