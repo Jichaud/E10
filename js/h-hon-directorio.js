@@ -199,10 +199,11 @@ $('#btnSiguienteDirectores').click(function () {
 
             }
 
-          }
+          } // FIN Resultado positivo - IIGG negativo
 
         } else {
 
+          // Resultado positivo - IIGG positivo
           if (UiHonoTopeDos <= 5000000) {
 
             let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
@@ -277,8 +278,8 @@ $('#btnSiguienteDirectores').click(function () {
 
           }
 
-        }
-      } // fin resultado positivo - IIGG negativo
+        } // FIN Resultado positivo - IIGG positivo
+      }
 
       // Resultado negativo - IIGG negativo
       if ($('#resultadoPositivo').prop('checked') == false) {
@@ -332,7 +333,7 @@ $('#btnSiguienteDirectores').click(function () {
           }
 
         } else {
-
+          
           let totalTope2HtmlIIGG = (14750000 + 0.35 * +UiHonoTopeDos - 0.25 * 0.35 * (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (50000000 * 0.35)) / (1 - 0.25 * 0.35)
 
           if (totalTope2HtmlIIGG < 0) {
@@ -355,10 +356,11 @@ $('#btnSiguienteDirectores').click(function () {
 
           }
 
-        }
+        } // FIN Resultado negativo - IIGG negativo
 
       } else {
 
+        // Resultado negativo - IIGG positivo
         if (UiHonoTopeDos <= 5000000) {
 
           let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
@@ -433,8 +435,8 @@ $('#btnSiguienteDirectores').click(function () {
 
         }
 
-      }
-    } //fin resultado negativo - IIGG negativo
+      } // FIN Resultado negativo - IIGG positivo
+    }
   } // FINAL PERÍODO FISCAL 2021
 
     if ($('#regRet').val() == 2022) {
