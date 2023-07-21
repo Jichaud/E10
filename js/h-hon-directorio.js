@@ -983,16 +983,20 @@ $('#btnDirectores').click(function(){
 $('#IIGGdiferido').click(function(){
   if ($(this).prop('checked') == true) {
       $('#labelIIGGdiferido').text("IIGG negativo");
+      $('#negativoIG').prop("hidden", true);
   } else {
     $('#labelIIGGdiferido').text("IIGG positivo");
+    $('#negativoIG').prop("hidden", false);
   }
 })
 
 $('#resultadoPositivo').click(function(){
   if ($(this).prop('checked') == true) {
       $('#labelresultadoPositivo').text("Resultado positivo");
+      $('#negativoEECC').prop("hidden", true);
   } else {
     $('#labelresultadoPositivo').text("Resultado negativo");
+    $('#negativoEECC').prop("hidden", false);
   }
 })
 
