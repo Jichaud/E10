@@ -119,6 +119,7 @@ $('#btnSiguienteDirectores').click(function () {
 
   let totalTope2Val = function () {
 
+    // PERÍODO FISCAL 2021
     if ($('#regRet').val() == 2021) {
 
       $('#periodoFiscalDato').text("Estás calculando para el período fiscal 2021")
@@ -433,8 +434,8 @@ $('#btnSiguienteDirectores').click(function () {
         }
 
       }
-    }
-  } // fin resultado negativo - IIGG negativo
+    } //fin resultado negativo - IIGG negativo
+  } // FINAL PERÍODO FISCAL 2021
 
     if ($('#regRet').val() == 2022) {
 
