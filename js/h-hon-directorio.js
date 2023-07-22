@@ -5,6 +5,11 @@ $('#btnSiguienteDirectores').click(function () {
   $('#periodoFiscalDato').show()
   $('#ret').show()
   $('#resumenCargaDatos').show()
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  });
 
 
   let cantidadDirectores = document.getElementById("cantidadDirectores").value;
