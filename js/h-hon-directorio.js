@@ -2,6 +2,11 @@ cargaInicio();
 let html = ''
 
 $('#btnSiguienteDirectores').click(function () {
+  $('#periodoFiscalDato').show()
+  $('#ret').show()
+  $('#resumenCargaDatos').show()
+
+
   let cantidadDirectores = document.getElementById("cantidadDirectores").value;
   $('#cantidadDirectoresList').text(cantidadDirectores)
   let femeninoSelector = $('input.femeninoSelector:checked')
@@ -461,7 +466,7 @@ $('#btnSiguienteDirectores').click(function () {
     // PERÍODO FISCAL 2021
     if ($('#regRet').val() == 2022) {
 
-      $('#periodoFiscalDato').text("Estás calculando para el período fiscal 2021")
+      $('#periodoFiscalDato').text("Estás calculando para el período fiscal 2022")
 
       // Resultado positivo - IIGG negativo
       if ($('#resultadoPositivo').prop('checked') == true) {
@@ -860,7 +865,9 @@ $('#btnSiguienteDirectores').click(function () {
 
 
     if ($('#honoDeducible').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".") == totalTopeUnoEval) {
-      let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+honoTopeUnoValEval).replace("US$", "")
+      if (+gnsaiReteEval < 0) {
+      let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(0).replace("US$", "")
+      let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+aprobadoTotal * (+directorReteEval / +aprobadoTotal)).replace("US$", "")
       let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
       let retencionGananaciasHono = 0;
 
@@ -907,14 +914,18 @@ $('#btnSiguienteDirectores').click(function () {
                 <th class="bg-success text-light" scope="col" colspan="4">Director nº ${i}</th>
               </tr>
               <tr>
+                <th class="bg-success-subtle" scope="col">Porcentaje</th>
                 <th class="bg-success-subtle" scope="col">Asamblea</th>
                 <th class="bg-success-subtle" scope="col">Gravado</th>
+                <th class="bg-warning" scope="col">No computable</th>
               </tr>
             </thead>
             <tbody>
               <tr>
+                <td>${porcentajeEval}</td>
                 <td>${directorRete}</td>
                 <td>${gravadoRete}</td>
+                <td class="bg-warning">${noComputableRete}</td>
               </tr>
             </tbody>
           </table>
@@ -922,6 +933,152 @@ $('#btnSiguienteDirectores').click(function () {
       `
 
       directorRetencion.innerHTML = htmlTratamiento;
+
+    } else if (+gnsaiReteEval > +excedentePerceptoresReteEval) {
+
+      let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +honoTopeUnoValEval).replace("US$", "")
+      let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+honoTopeUnoValEval).replace("US$", "")
+      let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
+      let retencionGananaciasHono = 0;
+
+
+      if ((+gravadoReteEval - 67170) <= 0) {
+        retencionGananaciasHono = 0
+      } else if ((+gravadoReteEval - 67170) <= 8000) {
+        retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
+      } else if ((+gravadoReteEval - 67170) <= 16000) {
+        retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
+      } else if ((+gravadoReteEval - 67170) <= 24000) {
+        retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
+      } else if ((+gravadoReteEval - 67170) <= 32000) {
+        retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
+      } else if ((+gravadoReteEval - 67170) <= 48000) {
+        retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
+      } else if ((+gravadoReteEval - 67170) <= 64000) {
+        retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
+      } else if ((+gravadoReteEval - 67170) <= 96000) {
+        retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
+      } else if ((+gravadoReteEval - 67170) > 96000) {
+        retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
+      }
+
+      let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
+
+      htmlRetencion += `
+      <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
+      <div class="alert alert-danger mt-3 fs-5 fw-bold" role="alert">
+        Retención ganancias ${retencionGananaciasHonoPrint}
+      </div>
+      </div>
+      </li>
+        `
+
+      importeRetencion.innerHTML = htmlRetencion;
+
+      htmlTratamiento += `
+      <div class="table-responsive rounded-4 mt-4">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="bg-success text-light" scope="col" colspan="4">Director nº ${i}</th>
+            </tr>
+            <tr>
+              <th class="bg-success-subtle" scope="col">Porcentaje</th>
+              <th class="bg-success-subtle" scope="col">Asamblea</th>
+              <th class="bg-success-subtle" scope="col">Gravado</th>
+              <th class="bg-warning" scope="col">No computable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>${porcentajeEval}</td>
+              <td>${directorRete}</td>
+              <td>${gravadoRete}</td>
+              <td class="bg-warning">${noComputableRete}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    `
+
+      directorRetencion.innerHTML = htmlTratamiento;
+
+    } else if (+gnsaiReteEval < +excedentePerceptoresReteEval) {
+
+      let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+gnsaiReteEval * (+directorReteEval / +aprobadoTotal)).replace("US$", "")
+      let noComputableReteEval = noComputableRete.replace(/\./g, '').replace(",", ".")
+      let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +noComputableReteEval).replace("US$", "")
+      let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
+      let retencionGananaciasHono = 0;
+
+      if ((+gravadoReteEval - 67170) <= 0) {
+        retencionGananaciasHono = 0
+      } else if ((+gravadoReteEval - 67170) <= 8000) {
+        retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
+      } else if ((+gravadoReteEval - 67170) <= 16000) {
+        retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
+      } else if ((+gravadoReteEval - 67170) <= 24000) {
+        retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
+      } else if ((+gravadoReteEval - 67170) <= 32000) {
+        retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
+      } else if ((+gravadoReteEval - 67170) <= 48000) {
+        retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
+      } else if ((+gravadoReteEval - 67170) <= 64000) {
+        retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
+      } else if ((+gravadoReteEval - 67170) <= 96000) {
+        retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
+      } else if ((+gravadoReteEval - 67170) > 96000) {
+        retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
+      }
+
+      let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
+
+      htmlRetencion += `
+  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+  <div class="ms-2 me-auto">
+    <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
+  <div class="alert alert-danger mt-3 fs-5 fw-bold" role="alert">
+  Retención ganancias ${retencionGananaciasHonoPrint}
+  </div>
+  </div>
+  </li>
+  `
+
+      importeRetencion.innerHTML = htmlRetencion;
+
+      htmlTratamiento += `
+  <div class="table-responsive rounded-4 mt-4">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="bg-success text-light" scope="col" colspan="4">Director nº ${i}</th>
+        </tr>
+        <tr>
+          <th class="bg-success-subtle" scope="col">Porcentaje</th>
+          <th class="bg-success-subtle" scope="col">Asamblea</th>
+          <th class="bg-success-subtle" scope="col">Gravado</th>
+          <th class="bg-warning" scope="col">No computable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>${porcentajeEval}</td>
+          <td>${directorRete}</td>
+          <td>${gravadoRete}</td>
+          <td class="bg-warning">${noComputableRete}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  `
+
+      directorRetencion.innerHTML = htmlTratamiento;
+
+    }
+
+    // evalúa por tope 1
 
     } else if (+gnsaiReteEval < 0) {
 
@@ -1258,9 +1415,8 @@ $('#resultadoPositivo').click(function(){
 })
 
 function cargaInicio(){
-  /* $('#EECC').hide()
+   $('#EECC').hide()
    $('#directores').hide()
-   $('#btnSiguienteDirectores').hide()
    $('#periodoFiscalDato').hide()
    $('#ret').hide()
    $('#resumenCargaDatos').hide()
@@ -1269,10 +1425,43 @@ function cargaInicio(){
    $('#deducibleDatos').hide()
    $('#tratamientoDatos').hide()
    $('#retencionDatos').hide()
-   $('#nuevoCalculo').hide() */
+   $('#nuevoCalculo').hide()
    maskApply();
 
 }
+
+$('#regRet').change(function(){
+  switch($(this).val()){
+    case "Selecciona el período fiscal...":
+      $('#EECC').hide()
+      $('#directores').hide()
+      $('#periodoFiscalDato').hide()
+      $('#ret').hide()
+      $('#resumenCargaDatos').hide()
+      $('#topeUnoDatos').hide()
+      $('#topeDosDatos').hide()
+      $('#deducibleDatos').hide()
+      $('#tratamientoDatos').hide()
+      $('#retencionDatos').hide()
+      $('#nuevoCalculo').hide()
+    break;
+    default:
+      $('#EECC').show()
+      $('#directores').show()
+    break;
+  }
+})
+
+$('#ret').click(function () {
+  $('#resumenCargaDatos').show()
+  $('#topeUnoDatos').show()
+  $('#topeDosDatos').show()
+  $('#deducibleDatos').show()
+  $('#tratamientoDatos').show()
+  $('#retencionDatos').show()
+  $('#nuevoCalculo').show()
+  $('#btnSiguienteDirectores').prop("disabled", true)
+})
 
 $('#nuevoCalculo').on("click", function(){
     location.reload(true);
