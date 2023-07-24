@@ -5,13 +5,20 @@ $('#btnSiguienteDirectores').click(function () {
   $('#periodoFiscalDato').show()
   $('#ret').show()
   $('#resumenCargaDatos').show()
+
+  const periodoGoTo = document.getElementById("footer-card")
+  
+  if ($(window).width() < 992) {
+    periodoGoTo.scrollIntoView()
+ }
+ else {
   window.scroll({
     top: 0,
     left: 0,
     behavior: 'smooth'
   });
-
-
+ }
+  
   let cantidadDirectores = document.getElementById("cantidadDirectores").value;
   $('#cantidadDirectoresList').text(cantidadDirectores)
   let femeninoSelector = $('input.femeninoSelector:checked')
@@ -1469,7 +1476,7 @@ $('#ret').click(function () {
 })
 
 $('#nuevoCalculo').on("click", function(){
-    location.reload(true);
+  window.location.href = '/blog/h-hon-directorio.html'
 })
 
 function maskApply() {
