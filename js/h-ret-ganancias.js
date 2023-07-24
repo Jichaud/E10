@@ -750,12 +750,23 @@ function retCalc() {
     }
 };
 
+const retToGo = document.getElementById("footer-card")
+
 $('#ret').on("click", function(){
     retCalc();
     $('#datosNeto').val(importeNeto.value)
     $('#datosPagosAnteriores').val(pagosMes.value)
     $('#datosRetAnteriores').val(retencionesMes.value)
-    window.scrollTo(0,120)
+    if ($(window).width() < 992) {
+      retToGo.scrollIntoView()
+   }
+   else {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+   }
     $('#offcanvasScrolling').hide()
 })
 
@@ -891,7 +902,7 @@ function cargaInicio(){
 }
 
 $('#nuevoCalculo').on("click", function(){
-    location.reload(true);
+  window.location.href = '/blog/h-ret-ganancias.html'
 })
 
 $(function(){
