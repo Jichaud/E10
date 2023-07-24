@@ -411,7 +411,7 @@ let index = [
     })
 
     $('#nuevoCalculo').on("click", function(){
-        location.reload(true);
+        window.location.href = '/blog/h-axi-contable.html'
     })
 
     function cargaInicio(){
