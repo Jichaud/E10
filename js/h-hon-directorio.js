@@ -1473,6 +1473,8 @@ $('#ret').click(function () {
   $('#retencionDatos').show()
   $('#nuevoCalculo').show()
   $('#btnSiguienteDirectores').prop("disabled", true)
+  $('#regRet').prop("disabled", true)
+  $('#ret').prop("disabled", true)
 })
 
 $('#nuevoCalculo').on("click", function(){
