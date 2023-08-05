@@ -1426,6 +1426,16 @@ $('#resultadoPositivo').click(function(){
   }
 })
 
+$('#UiHonoQuebranto').click(function(){
+  if ($(this).prop('checked') == true) {
+      $('#labelUiHonoQuebranto').text("Utilidad positiva");
+      $('#quebrantoIIGG').prop("hidden", true);
+  } else {
+    $('#labelUiHonoQuebranto').text("Quebranto impositivo");
+    $('#quebrantoIIGG').prop("hidden", false);
+  }
+})
+
 function cargaInicio(){
    $('#EECC').hide()
    $('#directores').hide()
