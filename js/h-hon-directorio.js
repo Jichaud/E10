@@ -1333,6 +1333,13 @@ $('#btnSiguienteDirectores').click(function () {
 
   document.getElementById('btnSiguienteDirectores').innerHTML = 'Modificar <i class="bi bi-pencil-square"></i>'
   document.getElementById('btnSiguienteDirectores').className = 'btn btn-warning btn-sm py-2 mb-3 fs-5 rounded-pill'
+
+    if ($('#UiHonoQuebranto').prop('checked') == true) {
+
+    } else {
+      $('#totalTopeDos').val("Negativo")
+      datosTope2.innerHTML = '';
+    }  
   
 })
 
