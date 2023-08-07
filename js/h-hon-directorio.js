@@ -155,15 +155,6 @@ $('#btnSiguienteDirectores').click(function () {
 
   let totalTope2Val = function () {
 
-    // Asigna valor negativo a UIHono en caso de quebranto
-    $('#UiHonoQuebranto').click(function(){
-      if ($(this).prop('checked') == true) {
-          UiHonoTopeDos = UiHonoTopeDos * 1
-      } else {
-          UiHonoTopeDos = UiHonoTopeDos * -1
-      }
-    })
-
     // PERÍODO FISCAL 2021
     if ($('#regRet').val() == 2021) {
 
@@ -874,6 +865,7 @@ $('#btnSiguienteDirectores').click(function () {
     let deducidoPerceptoresDosEval = $('#deducidoPerceptoresDos').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
     let gnsaiEval = +UIPerceptoresEval * -1 - +deducidoPerceptoresDosEval
     $('#gnsaiPerceptores').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(gnsaiEval).replace("US$", "")}`)
+    document.getElementById("labelUIPerceptores").innerHTML = 'UI antes de honorarios - <small class="text-center rounded-pill bg-danger badge fw-bold fs-6">Quebranto</small>'
   }
 
   }
@@ -1460,6 +1452,8 @@ $('#UiHonoQuebranto').click(function(){
   } else {
     $('#labelUiHonoQuebranto').text("Quebranto impositivo");
     $('#quebrantoIIGG').prop("hidden", false);
+    $('#totalTopeDos').val("Negativo")
+    datosTope2.innerHTML = '';
   }
 })
 
