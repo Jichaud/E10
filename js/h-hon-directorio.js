@@ -1513,6 +1513,9 @@ $('#ret').click(function () {
   $('#btnSiguienteDirectores').prop("disabled", true)
   $('#regRet').prop("disabled", true)
   $('#ret').prop("disabled", true)
+  $('#EECC').hide()
+  $('#directores').hide()
+  $('#btnSiguienteDirectores').hide()
 })
 
 $('#nuevoCalculo').on("click", function(){
