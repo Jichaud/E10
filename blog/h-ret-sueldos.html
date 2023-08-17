@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Estudio Diez - Herramientas">
+  <meta name="author" content="Estudio Diez - Consultores Impositivos">
+
+  <link rel="icon" type="../image/png" href="../images/favicon-32x32.png">
+
+  <title>ED blog - Herramientas - Honorarios al directorio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  
+  <!-- Bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <!-- Custom styles for this template 
+    <link href="css/modern-business.css" rel="stylesheet"> -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <style>
+    .h1-a {
+      font-family: 'Roboto', sans-serif;
+      font-size: calc(100% + 1.7vw + 1.7vh);
+      color: #333;
+      font-weight: 900;
+    }
+
+    .h2-a {
+      font-family: 'Helvetica', sans-serif;
+      font-size: 30px;
+    }
+
+
+    .h3-a {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+    }
+
+    .h4-a {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.5rem;
+      color: #333;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav class="navbar fixed-top navbar-light bg-primary-subtle">
+    <div class="container-fluid">
+      <div class="col">
+        <button type="button" class="btn btn-outline-primary ms-4" onclick="history.back()">Volver</button>
+      </div>
+      <div class="ms-auto me-4">
+        <span class="badge bg-primary fs-6" data-bs-toggle="tooltip" data-bs-placement="bottom"
+          title="Honorarios al directorio">Honorarios al directorio</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+
+  <div class="container-fluid bg-secondary-subtle pt-1 mt-4" id="container">    
+    <div class="row mt-4">
+      <div class="col-lg-2 mb-3 mt-4">
+        <div class="card border-primary">
+          <h4 class="card-header bg-primary h4-a text-light text-center border-primary"><i class="bi bi-gear"></i>
+            Configuración</h4>
+          <div class="card-body">
+            <div class="alert bg-dark-subtle fs-5 text-dark" role="alert">
+              <label for="periodoFiscal" class="form-label">Período fiscal</label>
+              <select class="form-select form-select-lg border-3 border-dark" id="regRet"
+                aria-label="régimen de retención">
+                <option selected>Selecciona el período fiscal...</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+              </select>
+            </div>
+
+            <!-- Carga datos EECC -->
+            <div class="alert bg-warning-subtle border-3 border-warning fs-5 text-center" role="alert" id="EECC">
+              <span class="fs-4 fw-bold">Datos base</span>
+              <div class="input-group mb-3 mt-3" id="divPluralidad">
+                <div class="row justify-content-center">
+                  <div class="col-12">
+                    <span class="fw-bold text-warning" id="labelEECC">Resultado EECC AxI</span>
+                  </div>
+                  <div class="col-12">
+                    <input type="text" class="form-control text-end" id="resultadoEECC">
+                    <div class="form-check form-switch mt-3 text-start">
+                      <input class="form-check-input" type="checkbox" role="switch" id="resultadoPositivo" checked>
+                      <label class="form-check-label" for="resultadoPositivo" id="labelresultadoPositivo">Resultado positivo</label>
+                      <i class="bi bi-exclamation-circle-fill text-danger" type="button" data-bs-toggle="modal" data-bs-target="#ayudaresultadoPositivo"></i>
+                    </div>
+                </div>
+                  <div class="col-12 mt-4 text-warning">
+                    <span class="fw-bold" id="labelIIGG">Impuesto a las ganancias</span>
+                  </div>
+                  <div class="col-12">
+                    <input type="text" class="form-control text-end" id="impuestoGanancias">
+                      <div class="form-check form-switch mt-3 text-start">
+                        <input class="form-check-input" type="checkbox" role="switch" id="IIGGdiferido" checked>
+                        <label class="form-check-label" for="IIGGdiferido" id="labelIIGGdiferido">IIGG negativo</label>
+                        <i class="bi bi-exclamation-circle-fill text-danger" type="button" data-bs-toggle="modal" data-bs-target="#ayudaIIGGnegativo"></i>
+                      </div>
+                  </div>
+                  <div class="col-12 mt-4 text-warning">
+                    <span class="fw-bold" id="labelUiHono">Utilidad impositiva antes de deducción de honorarios</span>
+                  </div>
+                  <div class="col-12">
+                    <input type="text" class="form-control text-end" id="UiHono">
+                    <div class="form-check form-switch mt-3 text-start">
+                      <input class="form-check-input" type="checkbox" role="switch" id="UiHonoQuebranto" checked>
+                      <label class="form-check-label" for="UiHonoQuebranto" id="labelUiHonoQuebranto">Utilidad</label>
+                      <i class="bi bi-exclamation-circle-fill text-danger" type="button" data-bs-toggle="modal" data-bs-target="#ayudaUiHonoQuebranto"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- fin carga datos EECC -->
+
+            <!-- Carga datos directores -->
+            <div class="alert bg-success-subtle border-3 border-success fs-5 text-center" role="alert" id="directores">
+              <span class="fs-4 fw-bold">Datos directores</span>
+              <div class="input-group mb-3 mt-3" id="divPluralidad">
+                <div class="row justify-content-center">
+                  <div class="col-6">
+                    <span class="fw-bold" id="labelBeneficiarios">Cantidad</span>
+                  </div>
+                  <div class="col-4">
+                    <input type="text" class="form-control text-center" aria-label="Cantidad directores" aria-describedby="basic-addon2"
+                      id="cantidadDirectores">
+                  </div>
+                  <small class="text-center mt-2">(Indicá un número)</small>
+                  <div class="col">
+                    <button type="button" id="btnDirectores" class="btn btn-outline-success btn-sm mt-4 mb-3 fs-5">Cargar directores <i class="bi bi-person-plus-fill fs-4"></i></button>
+                  </div>
+                  <div class="row justify-content-center camposDirectoresSection" id="camposDirectores">
+                      <!-- vía JS -->
+                  </div>
+                </div>
+              </div>
+              </div> <!-- fin carga datos directores -->
+
+              <!-- btn carga datos directores - EECC -->
+              <div class="col d-grid">
+                <button type="button" id="btnSiguienteDirectores" class="btn btn-primary btn-sm py-2 mb-3 fs-5 rounded-pill" hidden>Siguiente <i class="bi bi-arrow-right-circle-fill"></i></button>
+              </div>
+
+            <div class="alert alert-dark mb-3" role="alert">
+              <p class="fs-5 fw-bold text-center">Leer primero</p>
+              <div class="d-grid gap-2 mb-3">
+                <button class="btn btn-outline-dark fs-5 fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#ayudaModal">Ver <i class="bi bi-info-circle-fill"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer bg-primary border-primary text-end" id="footer-card">
+            <small class="text-light h3-a">#Herramientas ED | Honorarios al directorio</small>
+          </div>
+        </div>
+      </div> <!-- col -->
+
+      <div class="col-lg bg-light">
+        <div class="alert alert-secondary text-center fs-3 fw-bold" role="alert" id="periodoFiscalDato">
+          
+        </div>
+        <div class="row" id="resumenCargaDatos">
+          <div class="col">
+            <div class="list-group list-group-horizontal-lg mb-3">
+              <span class="list-group-item list-group-item-action bg-success-subtle">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Nº de directores</h5>
+                  <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                </div>
+                <h1 class="mb-1 display-1 fw-bold text-center" id="cantidadDirectoresList"></h1>
+              </span>
+              <span class="list-group-item list-group-item-action bg-warning-subtle">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Género</h5>
+                  <i class="bi bi-check-circle-fill text-warning fs-4"></i>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">Mujer
+                    <span class="badge bg-dark rounded-pill" id="femeninoList"></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">Masculino
+                    <span class="badge bg-dark rounded-pill" id="masculinoList"></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">Transgénero
+                    <span class="badge bg-dark rounded-pill" id="transgeneroList"></span>
+                  </li>
+                </ul>
+              </span>
+            </div>
+            <div class="list-group list-group-horizontal-lg mb-3">
+              <span class="list-group-item list-group-item-action bg-primary-subtle">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1 totalProvisionadoList">Total aprobado</h5>
+                  <i class="bi bi-check-circle-fill text-primary fs-4"></i>
+                </div>
+                <input type="text" class="form-control mb-1 fs-3 bg-primary-subtle border-0 fw-bold text-center text-break"
+                  id="totalHonorario" disabled>
+              </span>
+              <span class="list-group-item list-group-item-action bg-secondary-subtle">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1 totalProvisionadoList">Total UI antes de honorarios</h5>
+                  <i class="bi bi-check-circle-fill text-secondary fs-4"></i>
+                </div>
+                <input type="text" class="form-control mb-1 fs-3 bg-secondary-subtle border-0 fw-bold text-center text-break"
+                  id="totalUiHono" disabled>
+                  <small class="text-center rounded-pill bg-danger badge fw-bold fs-6" id="quebrantoIIGG" hidden>Quebranto</small>
+              </span>
+            </div>
+            <div class="list-group list-group-horizontal-lg mb-3">
+              <span class="list-group-item list-group-item-action bg-danger-subtle">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Resutado EECC</h5>
+                  <i class="bi bi-check-circle-fill text-danger fs-4"></i>
+                </div>
+                <input type="text" class="form-control mb-1 fs-3 bg-danger-subtle border-0 fw-bold text-center text-break"
+                id="totalEECC" disabled>
+                <small class="text-center rounded-pill bg-danger badge fw-bold fs-6" id="negativoEECC" hidden>Negativo</small>
+              </span>
+              <span class="list-group-item list-group-item-action bg-info-subtle">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Impuesto a las ganancias</h5>
+                  <i class="bi bi-check-circle-fill text-info fs-4"></i>
+                </div>
+                <input type="text" class="form-control mb-1 fs-3 bg-info-subtle border-0 fw-bold text-center text-break"
+                id="totalIIGG" disabled>
+                <small class="text-center rounded-pill bg-danger badge fw-bold fs-6" id="negativoIG" hidden>IG diferido - positivo</small>
+              </span>
+            </div>
+          </div>
+          <div class="d-grid gap-2 mb-3">
+            <button class="btn btn-outline-success fs-4 fw-bold" type="button" id="ret">Calcular <i
+                class="bi bi-box-arrow-right"></i></button>
+          </div>
+        </div>
+        <div class="row" id="topeUnoDatos"> <!-- row tope 1 -->
+          <div class="col">
+            <div class="alert alert-light border border-3" role="alert">
+              <div class="col-sm-3">
+                <div class="alert alert-light text-center fs-5 bg-secondary-subtle border border-secondary" role="alert">Tope 1</div>
+              </div>
+              <ol class="list-group list-group-numbered" id="datosTope1">
+                <!-- vía JS -->
+              </ol>
+              <div class="row">
+                <div class="col-4 text-end">
+                  <label for="totalTopeUno" class="form-label fs-4 mt-3 fw-bold">Total tope 1</label>
+                </div>
+                <div class="col">
+              <input type="text" class="form-control mb-1 mt-2 fs-4 bg-secondary-subtle border-0 fw-bold text-center text-break"
+                id="totalTopeUno" disabled>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- row tope 1 -->
+
+        <div class="row" id="topeDosDatos"> <!-- row tope 2 -->
+          <div class="col">
+            <div class="alert alert-light border border-primary border-3" role="alert">
+              <div class="col-sm-3">
+                <div class="alert alert-primary text-center text-primary fs-5 bg-primary-subtle" role="alert">Tope 2</div>
+              </div>
+              <div id="datosTope2">
+                <!-- vía JS -->
+              </div>
+              <div class="row">
+                <div class="col-4 text-end">
+                  <label for="totalTopeDos" class="form-label fs-4 mt-3 fw-bold text-primary">Total tope 2</label>
+                </div>
+                <div class="col">
+              <input type="text" class="form-control mb-1 mt-2 fs-4 bg-primary-subtle border-0 fw-bold text-center text-break"
+                id="totalTopeDos" disabled>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- row tope 2 -->
+
+        <div class="row" id="deducibleDatos"> <!-- row deducible -->
+          <div class="col">
+            <div class="alert alert-light border border-5 border-secondary" role="alert">
+              <h1 class="fw-bold">Deducible</h1>
+              <hr>
+              <div class="row">
+                <div class="col-lg-6 text-center">
+                  <label for="maxTope"
+                    class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-dark px-3 py-2">Máximo tope 1 - tope
+                    2</label>
+                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-dark-subtle border-0 fw-bold text-center text-break"
+                    id="maxTope" disabled>
+                </div>
+                <div class="col-lg-6 text-center">
+                  <label for="honoAsignado"
+                    class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-dark px-3 py-2">Honorario
+                    asignado</label>
+                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-dark-subtle border-0 fw-bold text-center text-break"
+                    id="honoAsignado" disabled>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col text-center">
+                  <label for="honoDeducible" class="form-label mt-3 fw-bold bg-primary text-light rounded-2 px-3 py-2 d-grid">Honorario
+                    deducible</label>
+                  <input type="text"
+                    class="form-control mb-1 mt-2 fs-4 bg-primary-subtle border-0 fw-bold text-center text-break"
+                    id="honoDeducible" disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- row deducible -->
+
+        <div class="row" id="tratamientoDatos"> <!-- row tratamiento en cabeza de los perceptores -->
+          <div class="col">
+            <div class="alert alert-light border border-5 border-success" role="alert">
+              <h1 class="fw-bold text-success">Tratamiento para los perceptores</h1>
+              <hr>
+              <div class="row">
+                <div class="col-lg-6 text-center">
+                  <label for="aprobadoPerceptores"
+                    class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-warning px-3 py-2">Aprobado</label>
+                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-warning-subtle border-0 fw-bold text-center text-break"
+                    id="aprobadoPerceptores" disabled>
+                    <label for="deducidoPerceptores"
+                    class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-warning px-3 py-2">Deducido</label>
+                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-warning-subtle border-0 fw-bold text-center text-break"
+                    id="deducidoPerceptores" disabled>
+                    <label for="excedentePerceptores"
+                    class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-warning px-3 py-2">Excedente</label>
+                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-warning border-0 fw-bold text-center text-break"
+                    id="excedentePerceptores" disabled>
+                </div>
+                <div class="col-lg-6 text-center">
+                  <label for="UIPerceptores"
+                    class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-danger px-3 py-2" id="labelUIPerceptores">UI antes de honorarios</label>
+                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-danger-subtle border-0 fw-bold text-center text-break"
+                    id="UIPerceptores" disabled>
+                    <label for="deducidoPerceptoresDos"
+                    class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-danger px-3 py-2">Deducido</label>
+                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-danger-subtle border-0 fw-bold text-center text-break"
+                    id="deducidoPerceptoresDos" disabled>
+                    <label for="gnsaiPerceptores"
+                    class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-danger px-3 py-2">GNSAI</label>
+                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-danger border-0 fw-bold text-center text-light text-break"
+                    id="gnsaiPerceptores" disabled>
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col text-center">
+                  <ol class="list-group list-group-numbered" id="directorRetencion">
+                    <!-- vía JS -->
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- row tratamiento en cabeza de los perceptores -->
+
+        <div class="row" id="retencionDatos"> <!-- row retención ganancias -->
+          <div class="col">
+            <div class="alert alert-light border border-5 border-danger" role="alert">
+              <h1 class="fw-bold text-danger">Retención impuesto a las ganancias</h1>
+              <hr>
+              <div class="row mt-4">
+                <div class="col text-center">
+                  <ol class="list-group list-group-numbered" id="importeRetencion">
+                    <!-- vía JS -->
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- row retención ganancias -->
+
+        <div class="d-grid">
+          <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo">Nuevo cálculo <i
+              class="bi bi-arrow-clockwise"></i></button>
+        </div>
+
+      </div> <!-- col -->
+      
+    </div> <!-- row -->
+  </div> <!-- container -->
+
+            <!-- Modal Ayuda -->
+            <div class="modal fade" id="ayudaModal" tabindex="-1" aria-labelledby="ayudaModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ayuda</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="list-group mb-3">
+                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1 text-success">Consideraciones</h5>
+                          <small><span class="badge bg-success fs-6">Alcance</span></small>
+                        </div>
+                        <p class="mb-1">La presente herramienta es de alcance limitado. Corresponde al régimen de retención por honorarios al directorio (código 116 de la RG AFIP 830). No se contempla el caso de donaciones o quebrantos de ejercicios anteriores.</p>
+                      </a>
+                      <a class="list-group-item list-group-item-action bg-warning-subtle">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">Utilización de la herramienta</h5>
+                          <small><span class="badge bg-warning fs-6 text-dark">Cálculos</span></small>
+                        </div>
+                        <p class="mb-1">La correcta utilización de la herramienta implica tener el conocimiento de determinados conceptos definidos en la Ley de Impuesto a las ganancias, su decreto reglamentario y la RG AFIP 830. Si no está familiarizado con ellos, recomendamos no utilizarla teniendo en cuenta las implicancias fiscales que puedan acarrear a los clientes que asesora.</p>
+                      </a>
+                      <a class="list-group-item list-group-item-action bg-primary-subtle">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">Criterio profesional</h5>
+                          <small><span class="badge bg-primary fs-6">Expertise</span></small>
+                        </div>
+                        <p class="mb-1">Bajo ningún aspecto esta herramienta reemplaza el criterio profesional, ni los cálculos obtenidos de la herramienta deben ser considerados como exactos. La complejidad de la operación a considerar y los datos cargados en la herramienta, pueden dar resultados inesperados y no ajustados al criterio fiscal. <br><br>
+                        Puede utilizarla como herramienta de verificación de sus propios cálculos y en caso de discrepancia, utilizar el formulario de comentarios mencionado en el siguiente punto para hacernos llegar la inquietud.
+                        </p>
+                      </a>
+                    </div>
+                    <div class="alert alert-dark" role="alert">
+                      Tenés algún comentario, encontraste un error, o querés enviarnos un agradecimiento...
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh8o_HIE6M_OaUEZn81cfg2agxZIjFmtUZjMbP4zbGcO57SQ/viewform" target="_blank"><button type="button" class="btn btn-outline-success mt-3">Enviar comentario <i class="bi bi-arrow-right-circle-fill"></i></button></a>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- fin modal ayuda -->
+
+            <!-- Modal IIGG negativo -->
+            <div class="modal fade" id="ayudaIIGGnegativo" tabindex="-1" aria-labelledby="ayudaIIGGnegativoLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">IIGG</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="list-group mb-3">
+                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1 text-success">IIGG negativo</h5>
+                          <small><span class="badge bg-success fs-6">Caso normal</span></small>
+                        </div>
+                        <p class="mb-1">El caso general del impuesto a las ganancias, es que su valor es negativo en los EECC. De esta manera simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se encuentra  a la izquierda.</p>
+                      </a>
+                      <a class="list-group-item list-group-item-action bg-warning-subtle">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">IIGG positivo</h5>
+                          <small><span class="badge bg-warning fs-6 text-dark">Impuesto diferido</span></small>
+                        </div>
+                        <p class="mb-1">Si por aplicación de la técnica contable del impuesto diferido el IIGG es positivo en los EECC, por favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.</p>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- fin IIGG negativo -->
+
+            <!-- Modal resultado negativo -->
+            <div class="modal fade" id="ayudaresultadoPositivo" tabindex="-1" aria-labelledby="ayudaresultadoPositivoLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Resultado</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="list-group mb-3">
+                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1 text-success">Resultado positivo</h5>
+                          <small><span class="badge bg-success fs-6">EECC</span></small>
+                        </div>
+                        <p class="mb-1">Si el resultado del ejercicio es <span class="text-success fw-bold">positivo</span>, simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se encuentra  a la izquierda.</p>
+                      </a>
+                      <a class="list-group-item list-group-item-action bg-warning-subtle">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">Reultado negativo</h5>
+                          <small><span class="badge bg-warning fs-6 text-dark">EECC</span></small>
+                        </div>
+                        <p class="mb-1">Si el resultado del ejercicio es <span class="text-danger fw-bold">negativo</span>, por favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.</p>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- fin resultado negativo -->
+
+            <!-- Modal quebranto impositivo -->
+            <div class="modal fade" id="ayudaUiHonoQuebranto" tabindex="-1" aria-labelledby="ayudaUiHonoQuebrantoLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Utilidad impositiva</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="list-group mb-3">
+                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1 text-success">Utilidad positiva</h5>
+                          <small><span class="badge bg-success fs-6">DDJJ</span></small>
+                        </div>
+                        <p class="mb-1">Si la utilidad impositiva antes de la deducción de honorarios es <span class="text-success fw-bold">positiva</span>, simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se encuentra  a la izquierda.</p>
+                      </a>
+                      <a class="list-group-item list-group-item-action bg-warning-subtle">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">Quebranto impositivo</h5>
+                          <small><span class="badge bg-warning fs-6 text-dark">DDJJ</span></small>
+                        </div>
+                        <p class="mb-1">Si la utilidad impositiva antes de la deducción de honorarios es <span class="text-danger fw-bold">quebranto</span>, por favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.</p>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- fin quebranto impositivo -->
+    
+  <!-- Footer -->
+  <footer class="py-5 bg-dark h3-a">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 mb-4">
+          <div class="list-group">
+            <a
+              class="list-group-item list-group-item-action list-group-item-primary card-link fw-normal lead px-3 py-3">Estudio</a>
+            <a class="list-group-item list-group-item-action px-3 py-3"
+              href="https://www.estudiodiez.com/perfil.html">Perfil</a>
+            <a class="list-group-item list-group-item-action px-3 py-3"
+              href="https://www.estudiodiez.com/organizacion.html">Organización</a>
+            <a class="list-group-item list-group-item-action px-3 py-3"
+              href="https://www.estudiodiez.com/socios.html">Socios</a>
+            <a class="list-group-item list-group-item-action px-3 py-3"
+              href="https://www.estudiodiez.com/publicaciones.html">Publicaciones</a>
+          </div>
+        </div>
+        <div class="col-lg-3 mb-4">
+          <div class="list-group">
+            <a
+              class="list-group-item list-group-item-action list-group-item-dark card-link fw-normal lead px-3 py-3">Servicios</a>
+            <a class="list-group-item list-group-item-action px-3 py-3"
+              href="https://www.estudiodiez.com/impositivo.html">Impositivos</a>
+            <a class="list-group-item list-group-item-action px-3 py-3"
+              href="https://www.estudiodiez.com/contable.html">Contable</a>
+            <a class="list-group-item list-group-item-action px-3 py-3"
+              href="https://www.estudiodiez.com/juridico.html">Jurídicos</a>
+          </div>
+        </div>
+        <div class="col-lg-3 mb-4">
+          <div class="list-group">
+            <a
+              class="list-group-item list-group-item-action list-group-item-success card-link fw-normal lead px-3 py-3">Capacitación</a>
+            <a class="list-group-item list-group-item-action px-3 py-3"
+              href="https://www.estudiodiez.com/eventos.html">Eventos</a>
+            <a class="list-group-item list-group-item-action px-3 py-3"
+              href="https://www.estudiodiez.com/suscriptores.html">Suscriptores</a>
+          </div>
+        </div>
+        <div class="col-lg-3 mb-4">
+          <div class="list-group">
+            <a class="list-group-item list-group-item-action list-group-item-warning fw-normal lead px-3 py-3">Conecta</a>
+            <a class="list-group-item list-group-item-action px-3 py-3"
+              href="https://www.estudiodiez.com/contact.html">Contacto</a>
+            <a class="list-group-item list-group-item-action px-3 py-3"
+              href="https://www.estudiodiez.com/sitios-de-interes.html">Link's de interés</a>
+            <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.facebook.com/diezestudio"
+              target="_blank">Facebook</a>
+            <a class="list-group-item list-group-item-action px-3 py-3" href="https://www.youtube.com/@diezestudio"
+              target="_blank">Youtube</a>
+            <a class="list-group-item list-group-item-action px-3 py-3" href="https://twitter.com/diez_estudio"
+              target="_blank">Twitter</a>
+          </div>
+        </div>
+      </div>
+      <hr class="text-white">
+      <p class="m-0 text-end text-secondary">Copyright &copy;
+        <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos
+        Aires.
+        Argentina
+      </p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Jquery and mask form-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+
+  <!-- Mask -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+  </script>
+
+  <!-- Popovers -->
+  <script>const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+  </script>
+
+  <!-- JS -->
+  <script src="../js/h-hon-directorio.js"></script>
+
+  <!-- toast -->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".toast").toast("hide");
+    });
+  </script>
+  
+</body>
+
+</html>
