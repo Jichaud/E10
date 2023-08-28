@@ -13,8 +13,9 @@
   <title>ED blog - Herramientas - Honorarios al directorio</title>
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
   <!-- Bootstrap icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
@@ -65,7 +66,7 @@
       </div>
       <div class="ms-auto me-4">
         <span class="badge bg-primary fs-6" data-bs-toggle="tooltip" data-bs-placement="bottom"
-          title="Honorarios al directorio">Honorarios al directorio</span>
+          title="Retención sueldos RG AFIP 4003">Retención sueldos</span>
       </div>
     </div>
   </nav>
@@ -75,12 +76,9 @@
   <div class="container-fluid pt-1 mt-4" id="container">
     <div class="row mt-4">
       <div class="col-lg-2 mb-3 mt-4">
-        <div class="row bg-success-subtle border-start border-success border-4 rounded-end me-2 ms-1 pt-2 mb-4">
+        <div class="row bg-success-subtle border-start border-success border-4 rounded-end me-2 ms-1 py-2 mb-4">
           <div class="col-9">
-            <p class="fw-bold h4-a">Legajo personal</p>
-          </div>
-          <div class="col text-end">
-            <span><i class="bi bi-arrow-down-circle-fill h4-a"></i></span>
+            <span class="fw-bold h4-a">Legajo personal</span>
           </div>
         </div>
         <div class="row">
@@ -100,286 +98,294 @@
           </div>
         </div>
         <hr>
-        <div class="row">
+        <div class="row bg-primary-subtle border-start border-primary border-4 rounded-end me-2 ms-1 py-2 mb-4">
           <div class="col ms-2">
-            <p class="fw-bold bg-primary-subtle px-2 py-2 border-start border-primary border-4 rounded-end h4-a">Remuneración
-              <span><i class="bi bi-arrow-down-circle-fill"></i></span> </p>
-            </p>
+            <span class="fw-bold h4-a">
+              Detalle mes
+            </span>
           </div>
         </div>
-        <div class="row overflow-auto">
-          <div class="col-1">
-            <span><i class="bi bi-check-circle-fill h4-a text-success"></i></span>
-          </div>
-          <div class="col ms-2">
-            <p class="h4-a">Enero</p>
-          </div>
+        <div class="form-check h4-a mb-2">
+          <input class="form-check-input" type="radio" name="detalleMes" id="eneroMes">
+          <label class="form-check-label" for="eneroMes">
+            Enero
+          </label>
         </div>
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-check-circle-fill h4-a text-success"></i></span>
-          </div>
-          <div class="col ms-2">
-            <p class="h4-a">Febrero</p>
-          </div>
+        <div class="form-check h4-a mb-2">
+          <input class="form-check-input" type="radio" name="detalleMes" id="febreroMes">
+          <label class="form-check-label" for="febreroMes">
+            Febrero
+          </label>
         </div>
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-check-circle-fill h4-a text-success"></i></span>
-          </div>
-          <div class="col ms-2">
-            <p class="h4-a">Marzo</p>
-          </div>
+        <div class="form-check h4-a mb-2">
+          <input class="form-check-input" type="radio" name="detalleMes" id="marzoMes">
+          <label class="form-check-label" for="marzoMes">
+            Marzo
+          </label>
         </div>
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-check-circle-fill h4-a text-success"></i></span>
-          </div>
-          <div class="col ms-2">
-            <p class="h4-a">Abril</p>
-          </div>
+        <div class="form-check h4-a mb-2">
+          <input class="form-check-input" type="radio" name="detalleMes" id="abrilMes">
+          <label class="form-check-label" for="abrilMes">
+            Abril
+          </label>
         </div>
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-check-circle-fill h4-a text-success"></i></span>
-          </div>
-          <div class="col ms-2">
-            <p class="h4-a">Mayo</p>
-          </div>
+        <div class="form-check h4-a mb-2">
+          <input class="form-check-input" type="radio" name="detalleMes" id="mayoMes">
+          <label class="form-check-label" for="mayoMes">
+            Mayo
+          </label>
         </div>
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-check-circle-fill h4-a text-success"></i></span>
-          </div>
-          <div class="col ms-2">
-            <p class="h4-a">Junio</p>
-          </div>
+        <div class="form-check h4-a mb-2">
+          <input class="form-check-input" type="radio" name="detalleMes" id="junioMes">
+          <label class="form-check-label" for="junioMes">
+            Junio
+          </label>
         </div>
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-check-circle-fill h4-a text-success"></i></span>
-          </div>
-          <div class="col ms-2">
-            <p class="h4-a">Julio</p>
-          </div>
+        <div class="form-check h4-a mb-2">
+          <input class="form-check-input" type="radio" name="detalleMes" id="julioMes">
+          <label class="form-check-label" for="julioMes">
+            Julio
+          </label>
         </div>
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-check-circle-fill h4-a text-success"></i></span>
-          </div>
-          <div class="col ms-2">
-            <p class="h4-a">Agosto</p>
-          </div>
+        <div class="form-check h4-a mb-2">
+          <input class="form-check-input" type="radio" name="detalleMes" id="agostoMes">
+          <label class="form-check-label" for="agostoMes">
+            Agosto
+          </label>
         </div>
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-check-circle-fill h4-a text-success"></i></span>
-          </div>
-          <div class="col ms-2">
-            <p class="h4-a">Septiembre</p>
-          </div>
+        <div class="form-check h4-a mb-2">
+          <input class="form-check-input" type="radio" name="detalleMes" id="septiembreMes">
+          <label class="form-check-label" for="septiembreMes">
+            Septiembre
+          </label>
         </div>
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-check-circle-fill h4-a text-success"></i></span>
-          </div>
-          <div class="col ms-2">
-            <p class="h4-a">Octubre</p>
-          </div>
+        <div class="form-check h4-a mb-2">
+          <input class="form-check-input" type="radio" name="detalleMes" id="octubreMes">
+          <label class="form-check-label" for="octubreMes">
+            Octubre
+          </label>
         </div>
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-check-circle-fill h4-a text-success"></i></span>
-          </div>
-          <div class="col ms-2">
-            <p class="h4-a">Noviembre</p>
-          </div>
+        <div class="form-check h4-a mb-2">
+          <input class="form-check-input" type="radio" name="detalleMes" id="noviembreMes">
+          <label class="form-check-label" for="noviembreMes">
+            Noviembre
+          </label>
         </div>
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-check-circle-fill h4-a text-success"></i></span>
-          </div>
-          <div class="col ms-2">
-            <p class="h4-a">Diciembre</p>
-          </div>
+        <div class="form-check h4-a mb-2">
+          <input class="form-check-input" type="radio" name="detalleMes" id="diciembreMes">
+          <label class="form-check-label" for="diciembreMes">
+            Diciembre
+          </label>
         </div>
+
       </div> <!-- col barra lateral -->
 
-      <div class="col-lg bg-light">
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-inbox-fill text-primary h4-a"></i></span>
+      <div class="col-lg-5">
+        <div class="row px-3 py-3 mx-4 my-4 border border-subtle-secondary rounded-2 bg-secondary-subtle">
+          <div class="alert alert-secondary h4-a mt-4" role="alert">
+            Remuneración enero
           </div>
-          <div class="col ms-2">
-            <p class="h4-a">Legajo personal</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-person text-success h4-a"></i></span>
-          </div>
-          <div class="col ms-2">
-            <p class="h4-a">Nombre y apellido</p>
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              <label for="remEnero" class="col-form-label">Importe bruto</label>
+            </div>
+            <div class="col-auto">
+              <input type="text" id="remEnero" class="form-control text-end">
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-1">
-            <span><i class="bi bi-person-vcard text-warning h4-a"></i></span>
+      </div> <!-- col pantalla -->
+      <div class="col-lg-5">
+        <div class="row px-3 py-3 mx-4 my-4 border border-danger rounded-2 bg-danger-subtle">
+          <div class="alert alert-danger h4-a mt-4" role="alert">
+            Descuentos enero
           </div>
-          <div class="col ms-2">
-            <p class="h4-a">Nº C.U.I.L.</p>
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              <label for="remEnero" class="col-form-label">Importe bruto</label>
+            </div>
+            <div class="col-auto">
+              <input type="text" id="remEnero" class="form-control text-end">
+            </div>
           </div>
         </div>
-      </div> <!-- col -->
-      
+      </div> <!-- col pantalla -->
+
     </div> <!-- row -->
   </div> <!-- container -->
 
-            <!-- Modal Ayuda -->
-            <div class="modal fade" id="ayudaModal" tabindex="-1" aria-labelledby="ayudaModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ayuda</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="list-group mb-3">
-                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-success">Consideraciones</h5>
-                          <small><span class="badge bg-success fs-6">Alcance</span></small>
-                        </div>
-                        <p class="mb-1">La presente herramienta es de alcance limitado. Corresponde al régimen de retención por honorarios al directorio (código 116 de la RG AFIP 830). No se contempla el caso de donaciones o quebrantos de ejercicios anteriores.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-warning-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Utilización de la herramienta</h5>
-                          <small><span class="badge bg-warning fs-6 text-dark">Cálculos</span></small>
-                        </div>
-                        <p class="mb-1">La correcta utilización de la herramienta implica tener el conocimiento de determinados conceptos definidos en la Ley de Impuesto a las ganancias, su decreto reglamentario y la RG AFIP 830. Si no está familiarizado con ellos, recomendamos no utilizarla teniendo en cuenta las implicancias fiscales que puedan acarrear a los clientes que asesora.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-primary-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Criterio profesional</h5>
-                          <small><span class="badge bg-primary fs-6">Expertise</span></small>
-                        </div>
-                        <p class="mb-1">Bajo ningún aspecto esta herramienta reemplaza el criterio profesional, ni los cálculos obtenidos de la herramienta deben ser considerados como exactos. La complejidad de la operación a considerar y los datos cargados en la herramienta, pueden dar resultados inesperados y no ajustados al criterio fiscal. <br><br>
-                        Puede utilizarla como herramienta de verificación de sus propios cálculos y en caso de discrepancia, utilizar el formulario de comentarios mencionado en el siguiente punto para hacernos llegar la inquietud.
-                        </p>
-                      </a>
-                    </div>
-                    <div class="alert alert-dark" role="alert">
-                      Tenés algún comentario, encontraste un error, o querés enviarnos un agradecimiento...
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh8o_HIE6M_OaUEZn81cfg2agxZIjFmtUZjMbP4zbGcO57SQ/viewform" target="_blank"><button type="button" class="btn btn-outline-success mt-3">Enviar comentario <i class="bi bi-arrow-right-circle-fill"></i></button></a>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-                </div>
+  <!-- Modal Ayuda -->
+  <div class="modal fade" id="ayudaModal" tabindex="-1" aria-labelledby="ayudaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Ayuda</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">Consideraciones</h5>
+                <small><span class="badge bg-success fs-6">Alcance</span></small>
               </div>
-            </div> <!-- fin modal ayuda -->
+              <p class="mb-1">La presente herramienta es de alcance limitado. Corresponde al régimen de retención por
+                honorarios al directorio (código 116 de la RG AFIP 830). No se contempla el caso de donaciones o
+                quebrantos de ejercicios anteriores.</p>
+            </a>
+            <a class="list-group-item list-group-item-action bg-warning-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Utilización de la herramienta</h5>
+                <small><span class="badge bg-warning fs-6 text-dark">Cálculos</span></small>
+              </div>
+              <p class="mb-1">La correcta utilización de la herramienta implica tener el conocimiento de determinados
+                conceptos definidos en la Ley de Impuesto a las ganancias, su decreto reglamentario y la RG AFIP 830. Si
+                no está familiarizado con ellos, recomendamos no utilizarla teniendo en cuenta las implicancias fiscales
+                que puedan acarrear a los clientes que asesora.</p>
+            </a>
+            <a class="list-group-item list-group-item-action bg-primary-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Criterio profesional</h5>
+                <small><span class="badge bg-primary fs-6">Expertise</span></small>
+              </div>
+              <p class="mb-1">Bajo ningún aspecto esta herramienta reemplaza el criterio profesional, ni los cálculos
+                obtenidos de la herramienta deben ser considerados como exactos. La complejidad de la operación a
+                considerar y los datos cargados en la herramienta, pueden dar resultados inesperados y no ajustados al
+                criterio fiscal. <br><br>
+                Puede utilizarla como herramienta de verificación de sus propios cálculos y en caso de discrepancia,
+                utilizar el formulario de comentarios mencionado en el siguiente punto para hacernos llegar la
+                inquietud.
+              </p>
+            </a>
+          </div>
+          <div class="alert alert-dark" role="alert">
+            Tenés algún comentario, encontraste un error, o querés enviarnos un agradecimiento...
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh8o_HIE6M_OaUEZn81cfg2agxZIjFmtUZjMbP4zbGcO57SQ/viewform"
+              target="_blank"><button type="button" class="btn btn-outline-success mt-3">Enviar comentario <i
+                  class="bi bi-arrow-right-circle-fill"></i></button></a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin modal ayuda -->
 
-            <!-- Modal IIGG negativo -->
-            <div class="modal fade" id="ayudaIIGGnegativo" tabindex="-1" aria-labelledby="ayudaIIGGnegativoLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">IIGG</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="list-group mb-3">
-                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-success">IIGG negativo</h5>
-                          <small><span class="badge bg-success fs-6">Caso normal</span></small>
-                        </div>
-                        <p class="mb-1">El caso general del impuesto a las ganancias, es que su valor es negativo en los EECC. De esta manera simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se encuentra  a la izquierda.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-warning-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">IIGG positivo</h5>
-                          <small><span class="badge bg-warning fs-6 text-dark">Impuesto diferido</span></small>
-                        </div>
-                        <p class="mb-1">Si por aplicación de la técnica contable del impuesto diferido el IIGG es positivo en los EECC, por favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.</p>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-                </div>
+  <!-- Modal IIGG negativo -->
+  <div class="modal fade" id="ayudaIIGGnegativo" tabindex="-1" aria-labelledby="ayudaIIGGnegativoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">IIGG</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">IIGG negativo</h5>
+                <small><span class="badge bg-success fs-6">Caso normal</span></small>
               </div>
-            </div> <!-- fin IIGG negativo -->
+              <p class="mb-1">El caso general del impuesto a las ganancias, es que su valor es negativo en los EECC. De
+                esta manera simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se
+                encuentra a la izquierda.</p>
+            </a>
+            <a class="list-group-item list-group-item-action bg-warning-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">IIGG positivo</h5>
+                <small><span class="badge bg-warning fs-6 text-dark">Impuesto diferido</span></small>
+              </div>
+              <p class="mb-1">Si por aplicación de la técnica contable del impuesto diferido el IIGG es positivo en los
+                EECC, por favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la
+                izquierda.</p>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin IIGG negativo -->
 
-            <!-- Modal resultado negativo -->
-            <div class="modal fade" id="ayudaresultadoPositivo" tabindex="-1" aria-labelledby="ayudaresultadoPositivoLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Resultado</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="list-group mb-3">
-                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-success">Resultado positivo</h5>
-                          <small><span class="badge bg-success fs-6">EECC</span></small>
-                        </div>
-                        <p class="mb-1">Si el resultado del ejercicio es <span class="text-success fw-bold">positivo</span>, simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se encuentra  a la izquierda.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-warning-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Reultado negativo</h5>
-                          <small><span class="badge bg-warning fs-6 text-dark">EECC</span></small>
-                        </div>
-                        <p class="mb-1">Si el resultado del ejercicio es <span class="text-danger fw-bold">negativo</span>, por favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.</p>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-                </div>
+  <!-- Modal resultado negativo -->
+  <div class="modal fade" id="ayudaresultadoPositivo" tabindex="-1" aria-labelledby="ayudaresultadoPositivoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Resultado</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">Resultado positivo</h5>
+                <small><span class="badge bg-success fs-6">EECC</span></small>
               </div>
-            </div> <!-- fin resultado negativo -->
+              <p class="mb-1">Si el resultado del ejercicio es <span class="text-success fw-bold">positivo</span>,
+                simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se encuentra a la
+                izquierda.</p>
+            </a>
+            <a class="list-group-item list-group-item-action bg-warning-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Reultado negativo</h5>
+                <small><span class="badge bg-warning fs-6 text-dark">EECC</span></small>
+              </div>
+              <p class="mb-1">Si el resultado del ejercicio es <span class="text-danger fw-bold">negativo</span>, por
+                favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.
+              </p>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin resultado negativo -->
 
-            <!-- Modal quebranto impositivo -->
-            <div class="modal fade" id="ayudaUiHonoQuebranto" tabindex="-1" aria-labelledby="ayudaUiHonoQuebrantoLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Utilidad impositiva</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="list-group mb-3">
-                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-success">Utilidad positiva</h5>
-                          <small><span class="badge bg-success fs-6">DDJJ</span></small>
-                        </div>
-                        <p class="mb-1">Si la utilidad impositiva antes de la deducción de honorarios es <span class="text-success fw-bold">positiva</span>, simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se encuentra  a la izquierda.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-warning-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Quebranto impositivo</h5>
-                          <small><span class="badge bg-warning fs-6 text-dark">DDJJ</span></small>
-                        </div>
-                        <p class="mb-1">Si la utilidad impositiva antes de la deducción de honorarios es <span class="text-danger fw-bold">quebranto</span>, por favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.</p>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-                </div>
+  <!-- Modal quebranto impositivo -->
+  <div class="modal fade" id="ayudaUiHonoQuebranto" tabindex="-1" aria-labelledby="ayudaUiHonoQuebrantoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Utilidad impositiva</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">Utilidad positiva</h5>
+                <small><span class="badge bg-success fs-6">DDJJ</span></small>
               </div>
-            </div> <!-- fin quebranto impositivo -->
-    
+              <p class="mb-1">Si la utilidad impositiva antes de la deducción de honorarios es <span
+                  class="text-success fw-bold">positiva</span>, simplemente cargá el dato <span
+                  class="fw-bold">SIN</span> desactivar la opción que se encuentra a la izquierda.</p>
+            </a>
+            <a class="list-group-item list-group-item-action bg-warning-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Quebranto impositivo</h5>
+                <small><span class="badge bg-warning fs-6 text-dark">DDJJ</span></small>
+              </div>
+              <p class="mb-1">Si la utilidad impositiva antes de la deducción de honorarios es <span
+                  class="text-danger fw-bold">quebranto</span>, por favor cargá el dato y <span
+                  class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.</p>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin quebranto impositivo -->
+
   <!-- Footer -->
   <footer class="py-5 bg-dark h3-a">
     <div class="container">
@@ -422,7 +428,8 @@
         </div>
         <div class="col-lg-3 mb-4">
           <div class="list-group">
-            <a class="list-group-item list-group-item-action list-group-item-warning fw-normal lead px-3 py-3">Conecta</a>
+            <a
+              class="list-group-item list-group-item-action list-group-item-warning fw-normal lead px-3 py-3">Conecta</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
               href="https://www.estudiodiez.com/contact.html">Contacto</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
@@ -452,11 +459,17 @@
     crossorigin="anonymous"></script>
 
   <!-- Mask -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+    integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <!-- Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+    crossorigin="anonymous"></script>
 
   <script type="text/javascript">
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -471,15 +484,15 @@
   </script>
 
   <!-- JS -->
-  <script src="../js/h-hon-directorio.js"></script>
+  <script src="../js/h-ret-sueldos.js"></script>
 
   <!-- toast -->
   <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
       $(".toast").toast("hide");
     });
   </script>
-  
+
 </body>
 
 </html>
