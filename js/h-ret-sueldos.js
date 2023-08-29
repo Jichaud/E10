@@ -1,65 +1,107 @@
-cargaInicio();
-let html = ''
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-analytics.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, getDocs, getDoc, doc, setDoc, onSnapshot, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-$('#btnSiguienteDirectores').click(function () {
-  $('#periodoFiscalDato').show()
-  $('#ret').show()
-  $('#resumenCargaDatos').show()
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCYpNpDAKv69LYI1V_2rT-gG25W-LMLm3Q",
+  authDomain: "herramientasediez.firebaseapp.com",
+  projectId: "herramientasediez",
+  storageBucket: "herramientasediez.appspot.com",
+  messagingSenderId: "839875197403",
+  appId: "1:839875197403:web:7269dace7be72d3b540ffe",
+  measurementId: "G-19EHB6HWTY",
+};
 
-  const periodoGoTo = document.getElementById("footer-card")
-  
-  if ($(window).width() < 992) {
-    periodoGoTo.scrollIntoView()
- }
- else {
-  window.scroll({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
-  });
- }
-  
-  let cantidadDirectores = document.getElementById("cantidadDirectores").value;
-  $('#cantidadDirectoresList').text(cantidadDirectores)
-  let femeninoSelector = $('input.femeninoSelector:checked')
-  $('#femeninoList').text(femeninoSelector.length)
-  let masculinoSelector = $('input.masculinoSelector:checked')
-  $('#masculinoList').text(masculinoSelector.length)
-  let transgeneroSelector = $('input.transgeneroSelector:checked')
-  $('#transgeneroList').text(transgeneroSelector.length)
+// Initialize Firebase
+export const app = initializeApp(firebaseConfig);
+export const analytics = getAnalytics(app);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
 
-  let totalHonorarios = function () {
-    let sum = 0;
-    $('.directoresPluralidad').each(function () {
-      let numHono = $(this).val().replace(/\./g, '').replace(",", ".")
-      sum += parseFloat(numHono);
-    })
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    const email = user.email;
+    console.log(user.uid);
+    console.log(user.email);
 
-    $('#totalHonorario').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(sum.toFixed(2)).replace("US$", "")}`)
+    cargaInicio();
+    let html = "";
 
-  }
+    $("#btnSiguienteDirectores").click(function () {
+      $("#periodoFiscalDato").show();
+      $("#ret").show();
+      $("#resumenCargaDatos").show();
 
-  totalHonorarios();
+      const periodoGoTo = document.getElementById("footer-card");
 
-  let resultadoEECC = document.getElementById("resultadoEECC").value
-  $('#totalEECC').val(`$${resultadoEECC}`)
+      if ($(window).width() < 992) {
+        periodoGoTo.scrollIntoView();
+      } else {
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+      }
 
-  let impuestoGanancias = document.getElementById("impuestoGanancias").value
-  $('#totalIIGG').val(`$${impuestoGanancias}`)
+      let cantidadDirectores =
+        document.getElementById("cantidadDirectores").value;
+      $("#cantidadDirectoresList").text(cantidadDirectores);
+      let femeninoSelector = $("input.femeninoSelector:checked");
+      $("#femeninoList").text(femeninoSelector.length);
+      let masculinoSelector = $("input.masculinoSelector:checked");
+      $("#masculinoList").text(masculinoSelector.length);
+      let transgeneroSelector = $("input.transgeneroSelector:checked");
+      $("#transgeneroList").text(transgeneroSelector.length);
 
-  let UiHono = document.getElementById("UiHono").value
-  $('#totalUiHono').val(`$${UiHono}`)
+      let totalHonorarios = function () {
+        let sum = 0;
+        $(".directoresPluralidad").each(function () {
+          let numHono = $(this).val().replace(/\./g, "").replace(",", ".");
+          sum += parseFloat(numHono);
+        });
 
+        $("#totalHonorario").val(
+          `$${Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(sum.toFixed(2))
+            .replace("US$", "")}`
+        );
+      };
 
-  // Function tope 1
+      totalHonorarios();
 
-  let htmlTopeUno = ''
+      let resultadoEECC = document.getElementById("resultadoEECC").value;
+      $("#totalEECC").val(`$${resultadoEECC}`);
 
-  const datosTope1 = document.getElementById("datosTope1")
+      let impuestoGanancias =
+        document.getElementById("impuestoGanancias").value;
+      $("#totalIIGG").val(`$${impuestoGanancias}`);
 
-  for (i = 1; i <= cantidadDirectores; i++) {
-    if ($('#femenino' + i).prop('checked') == true) {
-      htmlTopeUno += `
+      let UiHono = document.getElementById("UiHono").value;
+      $("#totalUiHono").val(`$${UiHono}`);
+
+      // Function tope 1
+
+      let htmlTopeUno = "";
+
+      const datosTope1 = document.getElementById("datosTope1");
+
+      for (i = 1; i <= cantidadDirectores; i++) {
+        if ($("#femenino" + i).prop("checked") == true) {
+          htmlTopeUno += `
       <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
           <div class="fw-bold" id="femeninoVal">Director</div>
@@ -68,10 +110,10 @@ $('#btnSiguienteDirectores').click(function () {
         <span class="badge bg-danger rounded-pill">Género: Mujer</span>
       </li>
     </ol>
-      `
-      datosTope1.innerHTML = htmlTopeUno;
-    } else if ($('#masculino' + i).prop('checked') == true) {
-      htmlTopeUno += `
+      `;
+          datosTope1.innerHTML = htmlTopeUno;
+        } else if ($("#masculino" + i).prop("checked") == true) {
+          htmlTopeUno += `
         <li class="list-group-item d-flex justify-content-between align-items-start">
           <div class="ms-2 me-auto">
             <div class="fw-bold" id="masculinoVal">Director</div>
@@ -80,10 +122,10 @@ $('#btnSiguienteDirectores').click(function () {
           <span class="badge bg-danger rounded-pill">Género: Masculino</span>
         </li>
       </ol>
-        `
-      datosTope1.innerHTML = htmlTopeUno;
-    } else if ($('#transgenero' + i).prop('checked') == true) {
-      htmlTopeUno += `
+        `;
+          datosTope1.innerHTML = htmlTopeUno;
+        } else if ($("#transgenero" + i).prop("checked") == true) {
+          htmlTopeUno += `
       <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
           <div class="fw-bold" id="transgeneroVal">Director</div>
@@ -92,839 +134,1607 @@ $('#btnSiguienteDirectores').click(function () {
         <span class="badge bg-danger rounded-pill">Género: Transgénero</span>
       </li>
     </ol>
-      `
-      datosTope1.innerHTML = htmlTopeUno;
-    }
-
-  }
-
-  let totalTope1Val = function () {
-    let sum = 0;
-    $('.masculinoVal').each(function () {
-      let numMasc = $(this).text().replace(/\./g, '').replace(",", ".")
-      sum += parseFloat(numMasc);
-    })
-
-    $('.femeninoVal').each(function () {
-      let numFem = $(this).text().replace(/\./g, '').replace(",", ".")
-      sum += parseFloat(numFem);
-    })
-
-    $('.transgeneroVal').each(function () {
-      let numTrans = $(this).text().replace(/\./g, '').replace(",", ".")
-      sum += parseFloat(numTrans);
-    })
-
-    $('#totalTopeUno').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(sum.toFixed(2)).replace("US$", "")}`)
-
-  }
-
-  totalTope1Val();
-  // FINAL Function tope 1
-
-  
-  // Function tope 2
-
-  let resultadoEECCTopeDos = resultadoEECC.replace(/\./g, '').replace(",", ".")
-  let impuestoGananciasTopeDos = impuestoGanancias.replace(/\./g, '').replace(",", ".")
-  let totalHonorario = $('#totalHonorario').val()
-  let totalHonorarioTopeDos = totalHonorario.replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-  let UiHonoTopeDos = UiHono.replace(/\./g, '').replace(",", ".")
-  let htmlTopeDos = ''
-  const datosTope2 = document.getElementById("datosTope2")
-  
-  if ($('#regRet').val() == 2021) {
-      primerTramoHasta = 5000000;
-      segundoTramoDesde = 5000000;
-      segundoTramoHasta = 50000000;
-      segundoTramoFijo = 1250000;
-      segundoTramoExcedente = 5000000;
-      tercerTramoDesde = 50000000;
-      tercerTramoFijo = 14750000;
-      tercerTamoExcedente = 50000000;
-  } else if ($('#regRet').val() == 2022) {
-      primerTramoHasta = 7604948.57;
-      segundoTramoDesde = 7604948.57;
-      segundoTramoHasta = 76049485.68;
-      segundoTramoFijo = 1901237.14;
-      segundoTramoExcedente = 7604948.57;
-      tercerTramoDesde = 76049485.68;
-      tercerTramoFijo = 22434598.28;
-      tercerTamoExcedente = 76049485.68;
-    }
-
-  let totalTope2Val = function () {
-
-    // PERÍODO FISCAL 2021
-    if ($('#regRet').val() == 2021) {
-
-      $('#periodoFiscalDato').text("Estás calculando para el período fiscal 2021")
-
-      // Resultado positivo - IIGG negativo
-      if ($('#resultadoPositivo').prop('checked') == true) {
-        if ($('#IIGGdiferido').prop('checked') == true) {
-          if (UiHonoTopeDos <= primerTramoHasta) {
-
-            let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
-
-            if (totalTope2HtmlIIGG < 0) {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            } else {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-              htmlTopeDos +=
-                `
-        <img src="bimages/primerTramo2021.webp" class="ms-3 img-fluid" alt="Primer tramo">
-        `
-              datosTope2.innerHTML = htmlTopeDos;
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            }
-
-          } else if (UiHonoTopeDos <= segundoTramoHasta) {
-
-            let totalTope2HtmlIIGG = (segundoTramoFijo + 0.3 * +UiHonoTopeDos - 0.25 * 0.3 * (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (segundoTramoDesde * 0.3)) / (1 - 0.25 * 0.3)
-
-            if (totalTope2HtmlIIGG < 0) {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            } else {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-              htmlTopeDos +=
-                `
-        <img src="bimages/segundoTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-              datosTope2.innerHTML = htmlTopeDos;
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            }
-
-          } else {
-
-            let totalTope2HtmlIIGG = (tercerTramoFijo + 0.35 * +UiHonoTopeDos - 0.25 * 0.35 * (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (tercerTamoExcedente * 0.35)) / (1 - 0.25 * 0.35)
-
-            if (totalTope2HtmlIIGG < 0) {
-
-              let totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            } else {
-
-              let totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-              htmlTopeDos +=
-                `
-        <img src="bimages/tercerTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-              datosTope2.innerHTML = htmlTopeDos;
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            }
-
-          } // FIN Resultado positivo - IIGG negativo
-
-        } else {
-
-          // Resultado positivo - IIGG positivo
-          if (UiHonoTopeDos <= primerTramoHasta) {
-
-            let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
-
-            if (totalTope2HtmlIIGG < 0) {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            } else {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-              htmlTopeDos +=
-                `
-        <img src="bimages/primerTramo2021.webp" class="ms-3 img-fluid" alt="Primer tramo">
-        `
-              datosTope2.innerHTML = htmlTopeDos;
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            }
-
-          } else if (UiHonoTopeDos <= segundoTramoHasta) {
-
-            let totalTope2HtmlIIGG = (segundoTramoFijo + 0.3 * +UiHonoTopeDos - 0.25 * 0.3 * (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (segundoTramoDesde * 0.3)) / (1 - 0.25 * 0.3)
-
-            if (totalTope2HtmlIIGG < 0) {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            } else {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-              htmlTopeDos +=
-                `
-        <img src="bimages/segundoTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-              datosTope2.innerHTML = htmlTopeDos;
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            }
-
-          } else {
-
-            let totalTope2HtmlIIGG = (tercerTramoFijo + 0.35 * +UiHonoTopeDos - 0.25 * 0.35 * (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (tercerTamoExcedente * 0.35)) / (1 - 0.25 * 0.35)
-
-            if (totalTope2HtmlIIGG < 0) {
-
-              let totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            } else {
-
-              let totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-              htmlTopeDos +=
-                `
-        <img src="bimages/tercerTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-              datosTope2.innerHTML = htmlTopeDos;
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            }
-
-          }
-
-        } // FIN Resultado positivo - IIGG positivo
+      `;
+          datosTope1.innerHTML = htmlTopeUno;
+        }
       }
 
-      // Resultado negativo - IIGG negativo
-      if ($('#resultadoPositivo').prop('checked') == false) {
-      if ($('#IIGGdiferido').prop('checked') == true) {
-        if (UiHonoTopeDos <= primerTramoHasta) {
+      let totalTope1Val = function () {
+        let sum = 0;
+        $(".masculinoVal").each(function () {
+          let numMasc = $(this).text().replace(/\./g, "").replace(",", ".");
+          sum += parseFloat(numMasc);
+        });
 
-          let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
+        $(".femeninoVal").each(function () {
+          let numFem = $(this).text().replace(/\./g, "").replace(",", ".");
+          sum += parseFloat(numFem);
+        });
 
-          if (totalTope2HtmlIIGG < 0) {
+        $(".transgeneroVal").each(function () {
+          let numTrans = $(this).text().replace(/\./g, "").replace(",", ".");
+          sum += parseFloat(numTrans);
+        });
 
-            totalTope2Html = (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
+        $("#totalTopeUno").val(
+          `$${Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(sum.toFixed(2))
+            .replace("US$", "")}`
+        );
+      };
 
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+      totalTope1Val();
+      // FINAL Function tope 1
 
-          } else {
+      // Function tope 2
 
-            totalTope2Html = (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
+      let resultadoEECCTopeDos = resultadoEECC
+        .replace(/\./g, "")
+        .replace(",", ".");
+      let impuestoGananciasTopeDos = impuestoGanancias
+        .replace(/\./g, "")
+        .replace(",", ".");
+      let totalHonorario = $("#totalHonorario").val();
+      let totalHonorarioTopeDos = totalHonorario
+        .replace(/\$/g, "")
+        .replace(/\./g, "")
+        .replace(",", ".");
+      let UiHonoTopeDos = UiHono.replace(/\./g, "").replace(",", ".");
+      let htmlTopeDos = "";
+      const datosTope2 = document.getElementById("datosTope2");
 
-            htmlTopeDos +=
-              `
+      if ($("#regRet").val() == 2021) {
+        primerTramoHasta = 5000000;
+        segundoTramoDesde = 5000000;
+        segundoTramoHasta = 50000000;
+        segundoTramoFijo = 1250000;
+        segundoTramoExcedente = 5000000;
+        tercerTramoDesde = 50000000;
+        tercerTramoFijo = 14750000;
+        tercerTamoExcedente = 50000000;
+      } else if ($("#regRet").val() == 2022) {
+        primerTramoHasta = 7604948.57;
+        segundoTramoDesde = 7604948.57;
+        segundoTramoHasta = 76049485.68;
+        segundoTramoFijo = 1901237.14;
+        segundoTramoExcedente = 7604948.57;
+        tercerTramoDesde = 76049485.68;
+        tercerTramoFijo = 22434598.28;
+        tercerTamoExcedente = 76049485.68;
+      }
+
+      let totalTope2Val = function () {
+        // PERÍODO FISCAL 2021
+        if ($("#regRet").val() == 2021) {
+          $("#periodoFiscalDato").text(
+            "Estás calculando para el período fiscal 2021"
+          );
+
+          // Resultado positivo - IIGG negativo
+          if ($("#resultadoPositivo").prop("checked") == true) {
+            if ($("#IIGGdiferido").prop("checked") == true) {
+              if (UiHonoTopeDos <= primerTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (0.25 * +UiHonoTopeDos -
+                    0.25 *
+                      0.25 *
+                      (+resultadoEECCTopeDos +
+                        +impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos)) /
+                  (1 - 0.25 * 0.25);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
         <img src="bimages/primerTramo2021.webp" class="ms-3 img-fluid" alt="Primer tramo">
-        `
-            datosTope2.innerHTML = htmlTopeDos;
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
 
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else if (UiHonoTopeDos <= segundoTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (segundoTramoFijo +
+                    0.3 * +UiHonoTopeDos -
+                    0.25 *
+                      0.3 *
+                      (+resultadoEECCTopeDos +
+                        +impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    segundoTramoDesde * 0.3) /
+                  (1 - 0.25 * 0.3);
 
-          }
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
 
-        } else if (UiHonoTopeDos <= segundoTramoHasta) {
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
 
-          let totalTope2HtmlIIGG = (segundoTramoFijo + 0.3 * +UiHonoTopeDos - 0.25 * 0.3 * (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (segundoTramoExcedente * 0.3)) / (1 - 0.25 * 0.3)
-
-          if (totalTope2HtmlIIGG < 0) {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          } else {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-            htmlTopeDos +=
-              `
+                  htmlTopeDos += `
         <img src="bimages/segundoTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-            datosTope2.innerHTML = htmlTopeDos;
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
 
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else {
+                let totalTope2HtmlIIGG =
+                  (tercerTramoFijo +
+                    0.35 * +UiHonoTopeDos -
+                    0.25 *
+                      0.35 *
+                      (+resultadoEECCTopeDos +
+                        +impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    tercerTamoExcedente * 0.35) /
+                  (1 - 0.25 * 0.35);
 
-          }
+                if (totalTope2HtmlIIGG < 0) {
+                  let totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
 
-        } else {
-          
-          let totalTope2HtmlIIGG = (tercerTramoFijo + 0.35 * +UiHonoTopeDos - 0.25 * 0.35 * (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (tercerTamoExcedente * 0.35)) / (1 - 0.25 * 0.35)
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  let totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
 
-          if (totalTope2HtmlIIGG < 0) {
-
-            let totalTope2Html = (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          } else {
-
-            let totalTope2Html = (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-            htmlTopeDos +=
-              `
+                  htmlTopeDos += `
         <img src="bimages/tercerTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-            datosTope2.innerHTML = htmlTopeDos;
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
 
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } // FIN Resultado positivo - IIGG negativo
+            } else {
+              // Resultado positivo - IIGG positivo
+              if (UiHonoTopeDos <= primerTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (0.25 * +UiHonoTopeDos -
+                    0.25 *
+                      0.25 *
+                      (+resultadoEECCTopeDos +
+                        +-impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos)) /
+                  (1 - 0.25 * 0.25);
 
-          }
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
 
-        } // FIN Resultado negativo - IIGG negativo
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
 
-      } else {
-
-        // Resultado negativo - IIGG positivo
-        if (UiHonoTopeDos <= primerTramoHasta) {
-
-          let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
-
-          if (totalTope2HtmlIIGG < 0) {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          } else {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-            htmlTopeDos +=
-              `
+                  htmlTopeDos += `
         <img src="bimages/primerTramo2021.webp" class="ms-3 img-fluid" alt="Primer tramo">
-        `
-            datosTope2.innerHTML = htmlTopeDos;
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
 
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else if (UiHonoTopeDos <= segundoTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (segundoTramoFijo +
+                    0.3 * +UiHonoTopeDos -
+                    0.25 *
+                      0.3 *
+                      (+resultadoEECCTopeDos +
+                        +-impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    segundoTramoDesde * 0.3) /
+                  (1 - 0.25 * 0.3);
 
-          }
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
 
-        } else if (UiHonoTopeDos <= segundoTramoHasta) {
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
 
-          let totalTope2HtmlIIGG = (segundoTramoFijo + 0.3 * +UiHonoTopeDos - 0.25 * 0.3 * (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (segundoTramoExcedente * 0.3)) / (1 - 0.25 * 0.3)
-
-          if (totalTope2HtmlIIGG < 0) {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          } else {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-            htmlTopeDos +=
-              `
+                  htmlTopeDos += `
         <img src="bimages/segundoTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-            datosTope2.innerHTML = htmlTopeDos;
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
 
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else {
+                let totalTope2HtmlIIGG =
+                  (tercerTramoFijo +
+                    0.35 * +UiHonoTopeDos -
+                    0.25 *
+                      0.35 *
+                      (+resultadoEECCTopeDos +
+                        +-impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    tercerTamoExcedente * 0.35) /
+                  (1 - 0.25 * 0.35);
 
-          }
+                if (totalTope2HtmlIIGG < 0) {
+                  let totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
 
-        } else {
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  let totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
 
-          let totalTope2HtmlIIGG = (tercerTramoFijo + 0.35 * +UiHonoTopeDos - 0.25 * 0.35 * (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (tercerTamoExcedente * 0.35)) / (1 - 0.25 * 0.35)
-
-          if (totalTope2HtmlIIGG < 0) {
-
-            let totalTope2Html = (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          } else {
-
-            let totalTope2Html = (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-            htmlTopeDos +=
-              `
+                  htmlTopeDos += `
         <img src="bimages/tercerTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-            datosTope2.innerHTML = htmlTopeDos;
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
 
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              }
+            } // FIN Resultado positivo - IIGG positivo
           }
 
+          // Resultado negativo - IIGG negativo
+          if ($("#resultadoPositivo").prop("checked") == false) {
+            if ($("#IIGGdiferido").prop("checked") == true) {
+              if (UiHonoTopeDos <= primerTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (0.25 * +UiHonoTopeDos -
+                    0.25 *
+                      0.25 *
+                      (+-resultadoEECCTopeDos +
+                        +impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos)) /
+                  (1 - 0.25 * 0.25);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/primerTramo2021.webp" class="ms-3 img-fluid" alt="Primer tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else if (UiHonoTopeDos <= segundoTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (segundoTramoFijo +
+                    0.3 * +UiHonoTopeDos -
+                    0.25 *
+                      0.3 *
+                      (+-resultadoEECCTopeDos +
+                        +impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    segundoTramoExcedente * 0.3) /
+                  (1 - 0.25 * 0.3);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/segundoTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else {
+                let totalTope2HtmlIIGG =
+                  (tercerTramoFijo +
+                    0.35 * +UiHonoTopeDos -
+                    0.25 *
+                      0.35 *
+                      (+-resultadoEECCTopeDos +
+                        +impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    tercerTamoExcedente * 0.35) /
+                  (1 - 0.25 * 0.35);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  let totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  let totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/tercerTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } // FIN Resultado negativo - IIGG negativo
+            } else {
+              // Resultado negativo - IIGG positivo
+              if (UiHonoTopeDos <= primerTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (0.25 * +UiHonoTopeDos -
+                    0.25 *
+                      0.25 *
+                      (+-resultadoEECCTopeDos +
+                        +-impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos)) /
+                  (1 - 0.25 * 0.25);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/primerTramo2021.webp" class="ms-3 img-fluid" alt="Primer tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else if (UiHonoTopeDos <= segundoTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (segundoTramoFijo +
+                    0.3 * +UiHonoTopeDos -
+                    0.25 *
+                      0.3 *
+                      (+-resultadoEECCTopeDos +
+                        +-impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    segundoTramoExcedente * 0.3) /
+                  (1 - 0.25 * 0.3);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/segundoTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else {
+                let totalTope2HtmlIIGG =
+                  (tercerTramoFijo +
+                    0.35 * +UiHonoTopeDos -
+                    0.25 *
+                      0.35 *
+                      (+-resultadoEECCTopeDos +
+                        +-impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    tercerTamoExcedente * 0.35) /
+                  (1 - 0.25 * 0.35);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  let totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  let totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/tercerTramo2021.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              }
+            } // FIN Resultado negativo - IIGG positivo
+          }
+        } // FINAL PERÍODO FISCAL 2021
+
+        // PERÍODO FISCAL 2021
+        if ($("#regRet").val() == 2022) {
+          $("#periodoFiscalDato").text(
+            "Estás calculando para el período fiscal 2022"
+          );
+
+          // Resultado positivo - IIGG negativo
+          if ($("#resultadoPositivo").prop("checked") == true) {
+            if ($("#IIGGdiferido").prop("checked") == true) {
+              if (UiHonoTopeDos <= primerTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (0.25 * +UiHonoTopeDos -
+                    0.25 *
+                      0.25 *
+                      (+resultadoEECCTopeDos +
+                        +impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos)) /
+                  (1 - 0.25 * 0.25);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else if (UiHonoTopeDos <= segundoTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (segundoTramoFijo +
+                    0.3 * +UiHonoTopeDos -
+                    0.25 *
+                      0.3 *
+                      (+resultadoEECCTopeDos +
+                        +impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    segundoTramoDesde * 0.3) /
+                  (1 - 0.25 * 0.3);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else {
+                let totalTope2HtmlIIGG =
+                  (tercerTramoFijo +
+                    0.35 * +UiHonoTopeDos -
+                    0.25 *
+                      0.35 *
+                      (+resultadoEECCTopeDos +
+                        +impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    tercerTamoExcedente * 0.35) /
+                  (1 - 0.25 * 0.35);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  let totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  let totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } // FIN Resultado positivo - IIGG negativo
+            } else {
+              // Resultado positivo - IIGG positivo
+              if (UiHonoTopeDos <= primerTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (0.25 * +UiHonoTopeDos -
+                    0.25 *
+                      0.25 *
+                      (+resultadoEECCTopeDos +
+                        +-impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos)) /
+                  (1 - 0.25 * 0.25);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else if (UiHonoTopeDos <= segundoTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (segundoTramoFijo +
+                    0.3 * +UiHonoTopeDos -
+                    0.25 *
+                      0.3 *
+                      (+resultadoEECCTopeDos +
+                        +-impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    segundoTramoDesde * 0.3) /
+                  (1 - 0.25 * 0.3);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else {
+                let totalTope2HtmlIIGG =
+                  (tercerTramoFijo +
+                    0.35 * +UiHonoTopeDos -
+                    0.25 *
+                      0.35 *
+                      (+resultadoEECCTopeDos +
+                        +-impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    tercerTamoExcedente * 0.35) /
+                  (1 - 0.25 * 0.35);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  let totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  let totalTope2Html =
+                    (+resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              }
+            } // FIN Resultado positivo - IIGG positivo
+          }
+
+          // Resultado negativo - IIGG negativo
+          if ($("#resultadoPositivo").prop("checked") == false) {
+            if ($("#IIGGdiferido").prop("checked") == true) {
+              if (UiHonoTopeDos <= primerTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (0.25 * +UiHonoTopeDos -
+                    0.25 *
+                      0.25 *
+                      (+-resultadoEECCTopeDos +
+                        +impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos)) /
+                  (1 - 0.25 * 0.25);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else if (UiHonoTopeDos <= segundoTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (segundoTramoFijo +
+                    0.3 * +UiHonoTopeDos -
+                    0.25 *
+                      0.3 *
+                      (+-resultadoEECCTopeDos +
+                        +impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    segundoTramoExcedente * 0.3) /
+                  (1 - 0.25 * 0.3);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else {
+                let totalTope2HtmlIIGG =
+                  (tercerTramoFijo +
+                    0.35 * +UiHonoTopeDos -
+                    0.25 *
+                      0.35 *
+                      (+-resultadoEECCTopeDos +
+                        +impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    tercerTamoExcedente * 0.35) /
+                  (1 - 0.25 * 0.35);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  let totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  let totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } // FIN Resultado negativo - IIGG negativo
+            } else {
+              // Resultado negativo - IIGG positivo
+              if (UiHonoTopeDos <= primerTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (0.25 * +UiHonoTopeDos -
+                    0.25 *
+                      0.25 *
+                      (+-resultadoEECCTopeDos +
+                        +-impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos)) /
+                  (1 - 0.25 * 0.25);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else if (UiHonoTopeDos <= segundoTramoHasta) {
+                let totalTope2HtmlIIGG =
+                  (segundoTramoFijo +
+                    0.3 * +UiHonoTopeDos -
+                    0.25 *
+                      0.3 *
+                      (+-resultadoEECCTopeDos +
+                        +-impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    segundoTramoExcedente * 0.3) /
+                  (1 - 0.25 * 0.3);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              } else {
+                let totalTope2HtmlIIGG =
+                  (tercerTramoFijo +
+                    0.35 * +UiHonoTopeDos -
+                    0.25 *
+                      0.35 *
+                      (+-resultadoEECCTopeDos +
+                        +-impuestoGananciasTopeDos +
+                        +totalHonorarioTopeDos) -
+                    tercerTamoExcedente * 0.35) /
+                  (1 - 0.25 * 0.35);
+
+                if (totalTope2HtmlIIGG < 0) {
+                  let totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos) *
+                    0.25;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                } else {
+                  let totalTope2Html =
+                    (+-resultadoEECCTopeDos +
+                      +-impuestoGananciasTopeDos +
+                      +totalHonorarioTopeDos -
+                      totalTope2HtmlIIGG) *
+                    0.25;
+
+                  htmlTopeDos += `
+        <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+        `;
+                  datosTope2.innerHTML = htmlTopeDos;
+
+                  $("#totalTopeDos").val(
+                    `$${Intl.NumberFormat("es", {
+                      style: "currency",
+                      currency: "USD",
+                      currencySign: "accounting",
+                    })
+                      .format(totalTope2Html)
+                      .replace("US$", "")}`
+                  );
+                }
+              }
+            } // FIN Resultado negativo - IIGG positivo
+          }
+        } // FINAL PERÍODO FISCAL 2022
+      };
+
+      totalTope2Val();
+
+      // Evalúa valor negativo de tope 2
+      let totalTopeDosNeg = $("#totalTopeDos")
+        .val()
+        .replace(/\$/g, "")
+        .replace(/\./g, "")
+        .replace(",", ".");
+      if (+totalTopeDosNeg < 0) {
+        $("#totalTopeDos").val("Negativo");
+        datosTope2.innerHTML = "";
+      }
+
+      // FINAL Function tope 2
+
+      // INICIO honorario deducible
+      function honorarioDeducible() {
+        let totalTopeDosEval = $("#totalTopeDos")
+          .val()
+          .replace(/\$/g, "")
+          .replace(/\./g, "")
+          .replace(",", ".");
+        let totalTopeUnoEval = $("#totalTopeUno")
+          .val()
+          .replace(/\$/g, "")
+          .replace(/\./g, "")
+          .replace(",", ".");
+        if (+totalTopeDosEval > +totalTopeUnoEval) {
+          $("#maxTope").val($("#totalTopeDos").val());
+        } else {
+          $("#maxTope").val($("#totalTopeUno").val());
         }
 
-      } // FIN Resultado negativo - IIGG positivo
-    }
-  } // FINAL PERÍODO FISCAL 2021
+        $("#honoAsignado").val($("#totalHonorario").val());
 
-    // PERÍODO FISCAL 2021
-    if ($('#regRet').val() == 2022) {
+        let maxTopeEval = $("#maxTope")
+          .val()
+          .replace(/\$/g, "")
+          .replace(/\./g, "")
+          .replace(",", ".");
+        let honoAsignadoEval = $("#honoAsignado")
+          .val()
+          .replace(/\$/g, "")
+          .replace(/\./g, "")
+          .replace(",", ".");
 
-      $('#periodoFiscalDato').text("Estás calculando para el período fiscal 2022")
-
-      // Resultado positivo - IIGG negativo
-      if ($('#resultadoPositivo').prop('checked') == true) {
-        if ($('#IIGGdiferido').prop('checked') == true) {
-          if (UiHonoTopeDos <= primerTramoHasta) {
-
-            let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
-
-            if (totalTope2HtmlIIGG < 0) {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            } else {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-              htmlTopeDos +=
-                `
-        <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
-        `
-              datosTope2.innerHTML = htmlTopeDos;
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            }
-
-          } else if (UiHonoTopeDos <= segundoTramoHasta) {
-
-            let totalTope2HtmlIIGG = (segundoTramoFijo + 0.3 * +UiHonoTopeDos - 0.25 * 0.3 * (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (segundoTramoDesde * 0.3)) / (1 - 0.25 * 0.3)
-
-            if (totalTope2HtmlIIGG < 0) {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            } else {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-              htmlTopeDos +=
-                `
-        <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-              datosTope2.innerHTML = htmlTopeDos;
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            }
-
-          } else {
-
-            let totalTope2HtmlIIGG = (tercerTramoFijo + 0.35 * +UiHonoTopeDos - 0.25 * 0.35 * (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (tercerTamoExcedente * 0.35)) / (1 - 0.25 * 0.35)
-
-            if (totalTope2HtmlIIGG < 0) {
-
-              let totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            } else {
-
-              let totalTope2Html = (+resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-              htmlTopeDos +=
-                `
-        <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-              datosTope2.innerHTML = htmlTopeDos;
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            }
-
-          } // FIN Resultado positivo - IIGG negativo
-
+        if (+maxTopeEval > +honoAsignadoEval) {
+          $("#honoDeducible").val($("#honoAsignado").val());
         } else {
-
-          // Resultado positivo - IIGG positivo
-          if (UiHonoTopeDos <= primerTramoHasta) {
-
-            let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
-
-            if (totalTope2HtmlIIGG < 0) {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            } else {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-              htmlTopeDos +=
-                `
-        <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
-        `
-              datosTope2.innerHTML = htmlTopeDos;
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            }
-
-          } else if (UiHonoTopeDos <= segundoTramoHasta) {
-
-            let totalTope2HtmlIIGG = (segundoTramoFijo + 0.3 * +UiHonoTopeDos - 0.25 * 0.3 * (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (segundoTramoDesde * 0.3)) / (1 - 0.25 * 0.3)
-
-            if (totalTope2HtmlIIGG < 0) {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            } else {
-
-              totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-              htmlTopeDos +=
-                `
-        <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-              datosTope2.innerHTML = htmlTopeDos;
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            }
-
-          } else {
-
-            let totalTope2HtmlIIGG = (tercerTramoFijo + 0.35 * +UiHonoTopeDos - 0.25 * 0.35 * (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (tercerTamoExcedente * 0.35)) / (1 - 0.25 * 0.35)
-
-            if (totalTope2HtmlIIGG < 0) {
-
-              let totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            } else {
-
-              let totalTope2Html = (+resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-              htmlTopeDos +=
-                `
-        <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-              datosTope2.innerHTML = htmlTopeDos;
-
-              $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-            }
-
-          }
-
-        } // FIN Resultado positivo - IIGG positivo
-      }
-
-      // Resultado negativo - IIGG negativo
-      if ($('#resultadoPositivo').prop('checked') == false) {
-      if ($('#IIGGdiferido').prop('checked') == true) {
-        if (UiHonoTopeDos <= primerTramoHasta) {
-
-          let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
-
-          if (totalTope2HtmlIIGG < 0) {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          } else {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-            htmlTopeDos +=
-              `
-        <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
-        `
-            datosTope2.innerHTML = htmlTopeDos;
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          }
-
-        } else if (UiHonoTopeDos <= segundoTramoHasta) {
-
-          let totalTope2HtmlIIGG = (segundoTramoFijo + 0.3 * +UiHonoTopeDos - 0.25 * 0.3 * (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (segundoTramoExcedente * 0.3)) / (1 - 0.25 * 0.3)
-
-          if (totalTope2HtmlIIGG < 0) {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          } else {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-            htmlTopeDos +=
-              `
-        <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-            datosTope2.innerHTML = htmlTopeDos;
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          }
-
-        } else {
-          
-          let totalTope2HtmlIIGG = (tercerTramoFijo + 0.35 * +UiHonoTopeDos - 0.25 * 0.35 * (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (tercerTamoExcedente * 0.35)) / (1 - 0.25 * 0.35)
-
-          if (totalTope2HtmlIIGG < 0) {
-
-            let totalTope2Html = (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          } else {
-
-            let totalTope2Html = (+-resultadoEECCTopeDos + +impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-            htmlTopeDos +=
-              `
-        <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-            datosTope2.innerHTML = htmlTopeDos;
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          }
-
-        } // FIN Resultado negativo - IIGG negativo
-
-      } else {
-
-        // Resultado negativo - IIGG positivo
-        if (UiHonoTopeDos <= primerTramoHasta) {
-
-          let totalTope2HtmlIIGG = (0.25 * +UiHonoTopeDos - 0.25 * 0.25 * (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos)) / (1 - 0.25 * 0.25)
-
-          if (totalTope2HtmlIIGG < 0) {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          } else {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-            htmlTopeDos +=
-              `
-        <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
-        `
-            datosTope2.innerHTML = htmlTopeDos;
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          }
-
-        } else if (UiHonoTopeDos <= segundoTramoHasta) {
-
-          let totalTope2HtmlIIGG = (segundoTramoFijo + 0.3 * +UiHonoTopeDos - 0.25 * 0.3 * (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (segundoTramoExcedente * 0.3)) / (1 - 0.25 * 0.3)
-
-          if (totalTope2HtmlIIGG < 0) {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          } else {
-
-            totalTope2Html = (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-            htmlTopeDos +=
-              `
-        <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-            datosTope2.innerHTML = htmlTopeDos;
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          }
-
-        } else {
-
-          let totalTope2HtmlIIGG = (tercerTramoFijo + 0.35 * +UiHonoTopeDos - 0.25 * 0.35 * (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) - (tercerTamoExcedente * 0.35)) / (1 - 0.25 * 0.35)
-
-          if (totalTope2HtmlIIGG < 0) {
-
-            let totalTope2Html = (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos) * 0.25
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          } else {
-
-            let totalTope2Html = (+-resultadoEECCTopeDos + +-impuestoGananciasTopeDos + +totalHonorarioTopeDos - totalTope2HtmlIIGG) * 0.25
-
-            htmlTopeDos +=
-              `
-        <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
-        `
-            datosTope2.innerHTML = htmlTopeDos;
-
-            $('#totalTopeDos').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(totalTope2Html).replace("US$", "")}`)
-
-          }
-
+          $("#honoDeducible").val($("#maxTope").val());
         }
-
-      } // FIN Resultado negativo - IIGG positivo
-    }
-  } // FINAL PERÍODO FISCAL 2022
-  }
-
-  totalTope2Val();
-
-  // Evalúa valor negativo de tope 2
-  let totalTopeDosNeg = $('#totalTopeDos').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-  if (+totalTopeDosNeg < 0) {
-    $('#totalTopeDos').val("Negativo")
-    datosTope2.innerHTML = '';
-  }
-
-  // FINAL Function tope 2
-
-  // INICIO honorario deducible
-  function honorarioDeducible() {
-    let totalTopeDosEval = $('#totalTopeDos').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    let totalTopeUnoEval = $('#totalTopeUno').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    if (+totalTopeDosEval > +totalTopeUnoEval) {
-      $('#maxTope').val($('#totalTopeDos').val())
-    } else {
-      $('#maxTope').val($('#totalTopeUno').val())
-    }
-
-    $('#honoAsignado').val($('#totalHonorario').val())
-
-    let maxTopeEval = $('#maxTope').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    let honoAsignadoEval = $('#honoAsignado').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-
-    if (+maxTopeEval > +honoAsignadoEval) {
-      $('#honoDeducible').val($('#honoAsignado').val())
-    } else {
-      $('#honoDeducible').val($('#maxTope').val())
-    }
-
-  }
-
-  honorarioDeducible();
-
-  // FINAL honorario deducible
-
-  // INICIO function tratamiento perceptores
-  function tratamientoPerceptores() {
-
-      if ($('#UiHonoQuebranto').prop('checked') == true) {
-    $('#aprobadoPerceptores').val($('#honoAsignado').val())
-    $('#deducidoPerceptores').val($('#honoDeducible').val())
-    let aprobadoPerceptoresEval = $('#aprobadoPerceptores').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    let deducidoPerceptoresEval = $('#deducidoPerceptores').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    let excedentePerceptoresEval = +aprobadoPerceptoresEval - +deducidoPerceptoresEval
-    $('#excedentePerceptores').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(excedentePerceptoresEval).replace("US$", "")}`)
-
-    $('#UIPerceptores').val($('#totalUiHono').val())
-    $('#deducidoPerceptoresDos').val($('#honoDeducible').val())
-    let UIPerceptoresEval = $('#UIPerceptores').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    let deducidoPerceptoresDosEval = $('#deducidoPerceptoresDos').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    let gnsaiEval = +UIPerceptoresEval - +deducidoPerceptoresDosEval
-    $('#gnsaiPerceptores').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(gnsaiEval).replace("US$", "")}`)
-      } else {
-    $('#aprobadoPerceptores').val($('#honoAsignado').val())
-    $('#deducidoPerceptores').val($('#honoDeducible').val())
-    let aprobadoPerceptoresEval = $('#aprobadoPerceptores').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    let deducidoPerceptoresEval = $('#deducidoPerceptores').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    let excedentePerceptoresEval = +aprobadoPerceptoresEval - +deducidoPerceptoresEval
-    $('#excedentePerceptores').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(excedentePerceptoresEval).replace("US$", "")}`)
-
-    $('#UIPerceptores').val($('#totalUiHono').val())
-    $('#deducidoPerceptoresDos').val($('#honoDeducible').val())
-    let UIPerceptoresEval = $('#UIPerceptores').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    let deducidoPerceptoresDosEval = $('#deducidoPerceptoresDos').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    let gnsaiEval = +UIPerceptoresEval * -1 - +deducidoPerceptoresDosEval
-    $('#gnsaiPerceptores').val(`$${Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(gnsaiEval).replace("US$", "")}`)
-    document.getElementById("labelUIPerceptores").innerHTML = 'UI antes de honorarios - <small class="text-center rounded-pill bg-danger badge fw-bold fs-6">Quebranto</small>'
-  }
-
-  }
-  // FINAL function tratamiento perceptores
-
-  tratamientoPerceptores();
-
-
-  // INICIO retención ganancias
-
-  let htmlTratamiento = ''
-  let htmlRetencion = ''
-
-  for (i = 1; i <= cantidadDirectores; i++) {
-    let directorRete = $('#director' + i).val()
-    let directorReteEval = directorRete.replace(/\./g, '').replace(",", ".")
-    let aprobadoTotal = $('#honoAsignado').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    let porcentajeEval = Intl.NumberFormat("en-US", { style: "percent", maximumFractionDigits: 2 }).format(+directorReteEval / +aprobadoTotal)
-    let honoTopeUnoVal = $('#honoTopeUnoVal' + i).text()
-    let honoTopeUnoValEval = honoTopeUnoVal.replace(/\./g, '').replace(",", ".")
-    let totalTopeUno = $('#totalTopeUno').val()
-    let totalTopeUnoEval = totalTopeUno.replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-
-    let gnsaiRete = $('#gnsaiPerceptores').val()
-    let gnsaiReteEval = gnsaiRete.replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-    let excedentePerceptoresRete = $('#excedentePerceptores').val()
-    let excedentePerceptoresReteEval = excedentePerceptoresRete.replace(/\$/g, '').replace(/\./g, '').replace(",", ".")
-
-
-    if ($('#honoDeducible').val().replace(/\$/g, '').replace(/\./g, '').replace(",", ".") == totalTopeUnoEval) {
-      if (+gnsaiReteEval < 0) {
-      let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(0).replace("US$", "")
-      let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+aprobadoTotal * (+directorReteEval / +aprobadoTotal)).replace("US$", "")
-      let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
-      let retencionGananaciasHono = 0;
-
-      if ((+gravadoReteEval - 67170) <= 0) {
-        retencionGananaciasHono = 0
-      } else if ((+gravadoReteEval - 67170) <= 8000) {
-        retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
-      } else if ((+gravadoReteEval - 67170) <= 16000) {
-        retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
-      } else if ((+gravadoReteEval - 67170) <= 24000) {
-        retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
-      } else if ((+gravadoReteEval - 67170) <= 32000) {
-        retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
-      } else if ((+gravadoReteEval - 67170) <= 48000) {
-        retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
-      } else if ((+gravadoReteEval - 67170) <= 64000) {
-        retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
-      } else if ((+gravadoReteEval - 67170) <= 96000) {
-        retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
-      } else if ((+gravadoReteEval - 67170) > 96000) {
-        retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
       }
 
-      let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
+      honorarioDeducible();
 
-      htmlRetencion += `
+      // FINAL honorario deducible
+
+      // INICIO function tratamiento perceptores
+      function tratamientoPerceptores() {
+        if ($("#UiHonoQuebranto").prop("checked") == true) {
+          $("#aprobadoPerceptores").val($("#honoAsignado").val());
+          $("#deducidoPerceptores").val($("#honoDeducible").val());
+          let aprobadoPerceptoresEval = $("#aprobadoPerceptores")
+            .val()
+            .replace(/\$/g, "")
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let deducidoPerceptoresEval = $("#deducidoPerceptores")
+            .val()
+            .replace(/\$/g, "")
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let excedentePerceptoresEval =
+            +aprobadoPerceptoresEval - +deducidoPerceptoresEval;
+          $("#excedentePerceptores").val(
+            `$${Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(excedentePerceptoresEval)
+              .replace("US$", "")}`
+          );
+
+          $("#UIPerceptores").val($("#totalUiHono").val());
+          $("#deducidoPerceptoresDos").val($("#honoDeducible").val());
+          let UIPerceptoresEval = $("#UIPerceptores")
+            .val()
+            .replace(/\$/g, "")
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let deducidoPerceptoresDosEval = $("#deducidoPerceptoresDos")
+            .val()
+            .replace(/\$/g, "")
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let gnsaiEval = +UIPerceptoresEval - +deducidoPerceptoresDosEval;
+          $("#gnsaiPerceptores").val(
+            `$${Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(gnsaiEval)
+              .replace("US$", "")}`
+          );
+        } else {
+          $("#aprobadoPerceptores").val($("#honoAsignado").val());
+          $("#deducidoPerceptores").val($("#honoDeducible").val());
+          let aprobadoPerceptoresEval = $("#aprobadoPerceptores")
+            .val()
+            .replace(/\$/g, "")
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let deducidoPerceptoresEval = $("#deducidoPerceptores")
+            .val()
+            .replace(/\$/g, "")
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let excedentePerceptoresEval =
+            +aprobadoPerceptoresEval - +deducidoPerceptoresEval;
+          $("#excedentePerceptores").val(
+            `$${Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(excedentePerceptoresEval)
+              .replace("US$", "")}`
+          );
+
+          $("#UIPerceptores").val($("#totalUiHono").val());
+          $("#deducidoPerceptoresDos").val($("#honoDeducible").val());
+          let UIPerceptoresEval = $("#UIPerceptores")
+            .val()
+            .replace(/\$/g, "")
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let deducidoPerceptoresDosEval = $("#deducidoPerceptoresDos")
+            .val()
+            .replace(/\$/g, "")
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let gnsaiEval = +UIPerceptoresEval * -1 - +deducidoPerceptoresDosEval;
+          $("#gnsaiPerceptores").val(
+            `$${Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(gnsaiEval)
+              .replace("US$", "")}`
+          );
+          document.getElementById("labelUIPerceptores").innerHTML =
+            'UI antes de honorarios - <small class="text-center rounded-pill bg-danger badge fw-bold fs-6">Quebranto</small>';
+        }
+      }
+      // FINAL function tratamiento perceptores
+
+      tratamientoPerceptores();
+
+      // INICIO retención ganancias
+
+      let htmlTratamiento = "";
+      let htmlRetencion = "";
+
+      for (i = 1; i <= cantidadDirectores; i++) {
+        let directorRete = $("#director" + i).val();
+        let directorReteEval = directorRete
+          .replace(/\./g, "")
+          .replace(",", ".");
+        let aprobadoTotal = $("#honoAsignado")
+          .val()
+          .replace(/\$/g, "")
+          .replace(/\./g, "")
+          .replace(",", ".");
+        let porcentajeEval = Intl.NumberFormat("en-US", {
+          style: "percent",
+          maximumFractionDigits: 2,
+        }).format(+directorReteEval / +aprobadoTotal);
+        let honoTopeUnoVal = $("#honoTopeUnoVal" + i).text();
+        let honoTopeUnoValEval = honoTopeUnoVal
+          .replace(/\./g, "")
+          .replace(",", ".");
+        let totalTopeUno = $("#totalTopeUno").val();
+        let totalTopeUnoEval = totalTopeUno
+          .replace(/\$/g, "")
+          .replace(/\./g, "")
+          .replace(",", ".");
+
+        let gnsaiRete = $("#gnsaiPerceptores").val();
+        let gnsaiReteEval = gnsaiRete
+          .replace(/\$/g, "")
+          .replace(/\./g, "")
+          .replace(",", ".");
+        let excedentePerceptoresRete = $("#excedentePerceptores").val();
+        let excedentePerceptoresReteEval = excedentePerceptoresRete
+          .replace(/\$/g, "")
+          .replace(/\./g, "")
+          .replace(",", ".");
+
+        if (
+          $("#honoDeducible")
+            .val()
+            .replace(/\$/g, "")
+            .replace(/\./g, "")
+            .replace(",", ".") == totalTopeUnoEval
+        ) {
+          if (+gnsaiReteEval < 0) {
+            let noComputableRete = Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(0)
+              .replace("US$", "");
+            let gravadoRete = Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(+aprobadoTotal * (+directorReteEval / +aprobadoTotal))
+              .replace("US$", "");
+            let gravadoReteEval = gravadoRete
+              .replace(/\./g, "")
+              .replace(",", ".");
+            let retencionGananaciasHono = 0;
+
+            if (+gravadoReteEval - 67170 <= 0) {
+              retencionGananaciasHono = 0;
+            } else if (+gravadoReteEval - 67170 <= 8000) {
+              retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05;
+            } else if (+gravadoReteEval - 67170 <= 16000) {
+              retencionGananaciasHono =
+                400 + (+gravadoReteEval - 67170 - 8000) * 0.09;
+            } else if (+gravadoReteEval - 67170 <= 24000) {
+              retencionGananaciasHono =
+                1120 + (+gravadoReteEval - 67170 - 16000) * 0.12;
+            } else if (+gravadoReteEval - 67170 <= 32000) {
+              retencionGananaciasHono =
+                2080 + (+gravadoReteEval - 67170 - 24000) * 0.15;
+            } else if (+gravadoReteEval - 67170 <= 48000) {
+              retencionGananaciasHono =
+                3280 + (+gravadoReteEval - 67170 - 32000) * 0.19;
+            } else if (+gravadoReteEval - 67170 <= 64000) {
+              retencionGananaciasHono =
+                6320 + (+gravadoReteEval - 67170 - 48000) * 0.23;
+            } else if (+gravadoReteEval - 67170 <= 96000) {
+              retencionGananaciasHono =
+                10000 + (+gravadoReteEval - 67170 - 64000) * 0.27;
+            } else if (+gravadoReteEval - 67170 > 96000) {
+              retencionGananaciasHono =
+                18640 + (+gravadoReteEval - 67170 - 96000) * 0.31;
+            }
+
+            let retencionGananaciasHonoPrint = Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(+retencionGananaciasHono)
+              .replace("US$", "");
+
+            htmlRetencion += `
       <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
         <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
@@ -933,11 +1743,11 @@ $('#btnSiguienteDirectores').click(function () {
       </div>
       </div>
       </li>
-        `
+        `;
 
-      importeRetencion.innerHTML = htmlRetencion;
+            importeRetencion.innerHTML = htmlRetencion;
 
-      htmlTratamiento += `
+            htmlTratamiento += `
         <div class="table-responsive rounded-4 mt-4">
           <table class="table table-bordered">
             <thead>
@@ -961,41 +1771,65 @@ $('#btnSiguienteDirectores').click(function () {
             </tbody>
           </table>
         </div>
-      `
+      `;
 
-      directorRetencion.innerHTML = htmlTratamiento;
+            directorRetencion.innerHTML = htmlTratamiento;
+          } else if (+gnsaiReteEval > +excedentePerceptoresReteEval) {
+            let noComputableRete = Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(+directorReteEval - +honoTopeUnoValEval)
+              .replace("US$", "");
+            let gravadoRete = Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(+honoTopeUnoValEval)
+              .replace("US$", "");
+            let gravadoReteEval = gravadoRete
+              .replace(/\./g, "")
+              .replace(",", ".");
+            let retencionGananaciasHono = 0;
 
-    } else if (+gnsaiReteEval > +excedentePerceptoresReteEval) {
+            if (+gravadoReteEval - 67170 <= 0) {
+              retencionGananaciasHono = 0;
+            } else if (+gravadoReteEval - 67170 <= 8000) {
+              retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05;
+            } else if (+gravadoReteEval - 67170 <= 16000) {
+              retencionGananaciasHono =
+                400 + (+gravadoReteEval - 67170 - 8000) * 0.09;
+            } else if (+gravadoReteEval - 67170 <= 24000) {
+              retencionGananaciasHono =
+                1120 + (+gravadoReteEval - 67170 - 16000) * 0.12;
+            } else if (+gravadoReteEval - 67170 <= 32000) {
+              retencionGananaciasHono =
+                2080 + (+gravadoReteEval - 67170 - 24000) * 0.15;
+            } else if (+gravadoReteEval - 67170 <= 48000) {
+              retencionGananaciasHono =
+                3280 + (+gravadoReteEval - 67170 - 32000) * 0.19;
+            } else if (+gravadoReteEval - 67170 <= 64000) {
+              retencionGananaciasHono =
+                6320 + (+gravadoReteEval - 67170 - 48000) * 0.23;
+            } else if (+gravadoReteEval - 67170 <= 96000) {
+              retencionGananaciasHono =
+                10000 + (+gravadoReteEval - 67170 - 64000) * 0.27;
+            } else if (+gravadoReteEval - 67170 > 96000) {
+              retencionGananaciasHono =
+                18640 + (+gravadoReteEval - 67170 - 96000) * 0.31;
+            }
 
-      let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +honoTopeUnoValEval).replace("US$", "")
-      let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+honoTopeUnoValEval).replace("US$", "")
-      let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
-      let retencionGananaciasHono = 0;
+            let retencionGananaciasHonoPrint = Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(+retencionGananaciasHono)
+              .replace("US$", "");
 
-
-      if ((+gravadoReteEval - 67170) <= 0) {
-        retencionGananaciasHono = 0
-      } else if ((+gravadoReteEval - 67170) <= 8000) {
-        retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
-      } else if ((+gravadoReteEval - 67170) <= 16000) {
-        retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
-      } else if ((+gravadoReteEval - 67170) <= 24000) {
-        retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
-      } else if ((+gravadoReteEval - 67170) <= 32000) {
-        retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
-      } else if ((+gravadoReteEval - 67170) <= 48000) {
-        retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
-      } else if ((+gravadoReteEval - 67170) <= 64000) {
-        retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
-      } else if ((+gravadoReteEval - 67170) <= 96000) {
-        retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
-      } else if ((+gravadoReteEval - 67170) > 96000) {
-        retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
-      }
-
-      let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
-
-      htmlRetencion += `
+            htmlRetencion += `
       <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
         <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
@@ -1004,11 +1838,11 @@ $('#btnSiguienteDirectores').click(function () {
       </div>
       </div>
       </li>
-        `
+        `;
 
-      importeRetencion.innerHTML = htmlRetencion;
+            importeRetencion.innerHTML = htmlRetencion;
 
-      htmlTratamiento += `
+            htmlTratamiento += `
       <div class="table-responsive rounded-4 mt-4">
         <table class="table table-bordered">
           <thead>
@@ -1032,41 +1866,68 @@ $('#btnSiguienteDirectores').click(function () {
           </tbody>
         </table>
       </div>
-    `
+    `;
 
-      directorRetencion.innerHTML = htmlTratamiento;
+            directorRetencion.innerHTML = htmlTratamiento;
+          } else if (+gnsaiReteEval < +excedentePerceptoresReteEval) {
+            let noComputableRete = Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(+gnsaiReteEval * (+directorReteEval / +aprobadoTotal))
+              .replace("US$", "");
+            let noComputableReteEval = noComputableRete
+              .replace(/\./g, "")
+              .replace(",", ".");
+            let gravadoRete = Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(+directorReteEval - +noComputableReteEval)
+              .replace("US$", "");
+            let gravadoReteEval = gravadoRete
+              .replace(/\./g, "")
+              .replace(",", ".");
+            let retencionGananaciasHono = 0;
 
-    } else if (+gnsaiReteEval < +excedentePerceptoresReteEval) {
+            if (+gravadoReteEval - 67170 <= 0) {
+              retencionGananaciasHono = 0;
+            } else if (+gravadoReteEval - 67170 <= 8000) {
+              retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05;
+            } else if (+gravadoReteEval - 67170 <= 16000) {
+              retencionGananaciasHono =
+                400 + (+gravadoReteEval - 67170 - 8000) * 0.09;
+            } else if (+gravadoReteEval - 67170 <= 24000) {
+              retencionGananaciasHono =
+                1120 + (+gravadoReteEval - 67170 - 16000) * 0.12;
+            } else if (+gravadoReteEval - 67170 <= 32000) {
+              retencionGananaciasHono =
+                2080 + (+gravadoReteEval - 67170 - 24000) * 0.15;
+            } else if (+gravadoReteEval - 67170 <= 48000) {
+              retencionGananaciasHono =
+                3280 + (+gravadoReteEval - 67170 - 32000) * 0.19;
+            } else if (+gravadoReteEval - 67170 <= 64000) {
+              retencionGananaciasHono =
+                6320 + (+gravadoReteEval - 67170 - 48000) * 0.23;
+            } else if (+gravadoReteEval - 67170 <= 96000) {
+              retencionGananaciasHono =
+                10000 + (+gravadoReteEval - 67170 - 64000) * 0.27;
+            } else if (+gravadoReteEval - 67170 > 96000) {
+              retencionGananaciasHono =
+                18640 + (+gravadoReteEval - 67170 - 96000) * 0.31;
+            }
 
-      let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+gnsaiReteEval * (+directorReteEval / +aprobadoTotal)).replace("US$", "")
-      let noComputableReteEval = noComputableRete.replace(/\./g, '').replace(",", ".")
-      let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +noComputableReteEval).replace("US$", "")
-      let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
-      let retencionGananaciasHono = 0;
+            let retencionGananaciasHonoPrint = Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(+retencionGananaciasHono)
+              .replace("US$", "");
 
-      if ((+gravadoReteEval - 67170) <= 0) {
-        retencionGananaciasHono = 0
-      } else if ((+gravadoReteEval - 67170) <= 8000) {
-        retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
-      } else if ((+gravadoReteEval - 67170) <= 16000) {
-        retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
-      } else if ((+gravadoReteEval - 67170) <= 24000) {
-        retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
-      } else if ((+gravadoReteEval - 67170) <= 32000) {
-        retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
-      } else if ((+gravadoReteEval - 67170) <= 48000) {
-        retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
-      } else if ((+gravadoReteEval - 67170) <= 64000) {
-        retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
-      } else if ((+gravadoReteEval - 67170) <= 96000) {
-        retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
-      } else if ((+gravadoReteEval - 67170) > 96000) {
-        retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
-      }
-
-      let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
-
-      htmlRetencion += `
+            htmlRetencion += `
   <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
   <div class="ms-2 me-auto">
     <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
@@ -1075,11 +1936,11 @@ $('#btnSiguienteDirectores').click(function () {
   </div>
   </div>
   </li>
-  `
+  `;
 
-      importeRetencion.innerHTML = htmlRetencion;
+            importeRetencion.innerHTML = htmlRetencion;
 
-      htmlTratamiento += `
+            htmlTratamiento += `
   <div class="table-responsive rounded-4 mt-4">
     <table class="table table-bordered">
       <thead>
@@ -1103,46 +1964,71 @@ $('#btnSiguienteDirectores').click(function () {
       </tbody>
     </table>
   </div>
-  `
+  `;
 
-      directorRetencion.innerHTML = htmlTratamiento;
+            directorRetencion.innerHTML = htmlTratamiento;
+          }
 
-    }
+          // evalúa por tope 1
+        } else if (+gnsaiReteEval < 0) {
+          let noComputableRete = Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(0)
+            .replace("US$", "");
+          let noComputableReteEval = noComputableRete
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let gravadoRete = Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(+directorReteEval - +noComputableReteEval)
+            .replace("US$", "");
+          let gravadoReteEval = gravadoRete
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let retencionGananaciasHono = 0;
 
-    // evalúa por tope 1
+          if (+gravadoReteEval - 67170 <= 0) {
+            retencionGananaciasHono = 0;
+          } else if (+gravadoReteEval - 67170 <= 8000) {
+            retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05;
+          } else if (+gravadoReteEval - 67170 <= 16000) {
+            retencionGananaciasHono =
+              400 + (+gravadoReteEval - 67170 - 8000) * 0.09;
+          } else if (+gravadoReteEval - 67170 <= 24000) {
+            retencionGananaciasHono =
+              1120 + (+gravadoReteEval - 67170 - 16000) * 0.12;
+          } else if (+gravadoReteEval - 67170 <= 32000) {
+            retencionGananaciasHono =
+              2080 + (+gravadoReteEval - 67170 - 24000) * 0.15;
+          } else if (+gravadoReteEval - 67170 <= 48000) {
+            retencionGananaciasHono =
+              3280 + (+gravadoReteEval - 67170 - 32000) * 0.19;
+          } else if (+gravadoReteEval - 67170 <= 64000) {
+            retencionGananaciasHono =
+              6320 + (+gravadoReteEval - 67170 - 48000) * 0.23;
+          } else if (+gravadoReteEval - 67170 <= 96000) {
+            retencionGananaciasHono =
+              10000 + (+gravadoReteEval - 67170 - 64000) * 0.27;
+          } else if (+gravadoReteEval - 67170 > 96000) {
+            retencionGananaciasHono =
+              18640 + (+gravadoReteEval - 67170 - 96000) * 0.31;
+          }
 
-    } else if (+gnsaiReteEval < 0) {
+          let retencionGananaciasHonoPrint = Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(+retencionGananaciasHono)
+            .replace("US$", "");
 
-      let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(0).replace("US$", "")
-      let noComputableReteEval = noComputableRete.replace(/\./g, '').replace(",", ".")
-      let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +noComputableReteEval).replace("US$", "")
-      let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
-      let retencionGananaciasHono = 0;
-
-
-      if ((+gravadoReteEval - 67170) <= 0) {
-        retencionGananaciasHono = 0
-      } else if ((+gravadoReteEval - 67170) <= 8000) {
-        retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
-      } else if ((+gravadoReteEval - 67170) <= 16000) {
-        retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
-      } else if ((+gravadoReteEval - 67170) <= 24000) {
-        retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
-      } else if ((+gravadoReteEval - 67170) <= 32000) {
-        retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
-      } else if ((+gravadoReteEval - 67170) <= 48000) {
-        retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
-      } else if ((+gravadoReteEval - 67170) <= 64000) {
-        retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
-      } else if ((+gravadoReteEval - 67170) <= 96000) {
-        retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
-      } else if ((+gravadoReteEval - 67170) > 96000) {
-        retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
-      }
-
-      let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
-
-      htmlRetencion += `
+          htmlRetencion += `
       <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
         <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
@@ -1151,11 +2037,11 @@ $('#btnSiguienteDirectores').click(function () {
       </div>
       </div>
       </li>
-        `
+        `;
 
-      importeRetencion.innerHTML = htmlRetencion;
+          importeRetencion.innerHTML = htmlRetencion;
 
-      htmlTratamiento += `
+          htmlTratamiento += `
       <div class="table-responsive rounded-4 mt-4">
         <table class="table table-bordered">
           <thead>
@@ -1179,43 +2065,71 @@ $('#btnSiguienteDirectores').click(function () {
           </tbody>
         </table>
       </div>
-    `
+    `;
 
-      directorRetencion.innerHTML = htmlTratamiento;
-    
+          directorRetencion.innerHTML = htmlTratamiento;
+        } else if (+gnsaiReteEval > +excedentePerceptoresReteEval) {
+          let noComputableRete = Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(
+              +excedentePerceptoresReteEval *
+                (+directorReteEval / +aprobadoTotal)
+            )
+            .replace("US$", "");
+          let noComputableReteEval = noComputableRete
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let gravadoRete = Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(+directorReteEval - +noComputableReteEval)
+            .replace("US$", "");
+          let gravadoReteEval = gravadoRete
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let retencionGananaciasHono = 0;
 
-    } else if (+gnsaiReteEval > +excedentePerceptoresReteEval) {
+          if (+gravadoReteEval - 67170 <= 0) {
+            retencionGananaciasHono = 0;
+          } else if (+gravadoReteEval - 67170 <= 8000) {
+            retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05;
+          } else if (+gravadoReteEval - 67170 <= 16000) {
+            retencionGananaciasHono =
+              400 + (+gravadoReteEval - 67170 - 8000) * 0.09;
+          } else if (+gravadoReteEval - 67170 <= 24000) {
+            retencionGananaciasHono =
+              1120 + (+gravadoReteEval - 67170 - 16000) * 0.12;
+          } else if (+gravadoReteEval - 67170 <= 32000) {
+            retencionGananaciasHono =
+              2080 + (+gravadoReteEval - 67170 - 24000) * 0.15;
+          } else if (+gravadoReteEval - 67170 <= 48000) {
+            retencionGananaciasHono =
+              3280 + (+gravadoReteEval - 67170 - 32000) * 0.19;
+          } else if (+gravadoReteEval - 67170 <= 64000) {
+            retencionGananaciasHono =
+              6320 + (+gravadoReteEval - 67170 - 48000) * 0.23;
+          } else if (+gravadoReteEval - 67170 <= 96000) {
+            retencionGananaciasHono =
+              10000 + (+gravadoReteEval - 67170 - 64000) * 0.27;
+          } else if (+gravadoReteEval - 67170 > 96000) {
+            retencionGananaciasHono =
+              18640 + (+gravadoReteEval - 67170 - 96000) * 0.31;
+          }
 
-      let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+excedentePerceptoresReteEval * (+directorReteEval / +aprobadoTotal)).replace("US$", "")
-      let noComputableReteEval = noComputableRete.replace(/\./g, '').replace(",", ".")
-      let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +noComputableReteEval).replace("US$", "")
-      let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
-      let retencionGananaciasHono = 0;
+          let retencionGananaciasHonoPrint = Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(+retencionGananaciasHono)
+            .replace("US$", "");
 
-
-      if ((+gravadoReteEval - 67170) <= 0) {
-        retencionGananaciasHono = 0
-      } else if ((+gravadoReteEval - 67170) <= 8000) {
-        retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
-      } else if ((+gravadoReteEval - 67170) <= 16000) {
-        retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
-      } else if ((+gravadoReteEval - 67170) <= 24000) {
-        retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
-      } else if ((+gravadoReteEval - 67170) <= 32000) {
-        retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
-      } else if ((+gravadoReteEval - 67170) <= 48000) {
-        retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
-      } else if ((+gravadoReteEval - 67170) <= 64000) {
-        retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
-      } else if ((+gravadoReteEval - 67170) <= 96000) {
-        retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
-      } else if ((+gravadoReteEval - 67170) > 96000) {
-        retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
-      }
-
-      let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
-
-      htmlRetencion += `
+          htmlRetencion += `
       <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
         <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
@@ -1224,11 +2138,11 @@ $('#btnSiguienteDirectores').click(function () {
       </div>
       </div>
       </li>
-        `
+        `;
 
-      importeRetencion.innerHTML = htmlRetencion;
+          importeRetencion.innerHTML = htmlRetencion;
 
-      htmlTratamiento += `
+          htmlTratamiento += `
       <div class="table-responsive rounded-4 mt-4">
         <table class="table table-bordered">
           <thead>
@@ -1252,41 +2166,68 @@ $('#btnSiguienteDirectores').click(function () {
           </tbody>
         </table>
       </div>
-    `
+    `;
 
-      directorRetencion.innerHTML = htmlTratamiento;
+          directorRetencion.innerHTML = htmlTratamiento;
+        } else {
+          let noComputableRete = Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(+gnsaiReteEval * (+directorReteEval / +aprobadoTotal))
+            .replace("US$", "");
+          let noComputableReteEval = noComputableRete
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let gravadoRete = Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(+directorReteEval - +noComputableReteEval)
+            .replace("US$", "");
+          let gravadoReteEval = gravadoRete
+            .replace(/\./g, "")
+            .replace(",", ".");
+          let retencionGananaciasHono = 0;
 
-    } else {
+          if (+gravadoReteEval - 67170 <= 0) {
+            retencionGananaciasHono = 0;
+          } else if (+gravadoReteEval - 67170 <= 8000) {
+            retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05;
+          } else if (+gravadoReteEval - 67170 <= 16000) {
+            retencionGananaciasHono =
+              400 + (+gravadoReteEval - 67170 - 8000) * 0.09;
+          } else if (+gravadoReteEval - 67170 <= 24000) {
+            retencionGananaciasHono =
+              1120 + (+gravadoReteEval - 67170 - 16000) * 0.12;
+          } else if (+gravadoReteEval - 67170 <= 32000) {
+            retencionGananaciasHono =
+              2080 + (+gravadoReteEval - 67170 - 24000) * 0.15;
+          } else if (+gravadoReteEval - 67170 <= 48000) {
+            retencionGananaciasHono =
+              3280 + (+gravadoReteEval - 67170 - 32000) * 0.19;
+          } else if (+gravadoReteEval - 67170 <= 64000) {
+            retencionGananaciasHono =
+              6320 + (+gravadoReteEval - 67170 - 48000) * 0.23;
+          } else if (+gravadoReteEval - 67170 <= 96000) {
+            retencionGananaciasHono =
+              10000 + (+gravadoReteEval - 67170 - 64000) * 0.27;
+          } else if (+gravadoReteEval - 67170 > 96000) {
+            retencionGananaciasHono =
+              18640 + (+gravadoReteEval - 67170 - 96000) * 0.31;
+          }
 
-      let noComputableRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+gnsaiReteEval * (+directorReteEval / +aprobadoTotal)).replace("US$", "")
-      let noComputableReteEval = noComputableRete.replace(/\./g, '').replace(",", ".")
-      let gravadoRete = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+directorReteEval - +noComputableReteEval).replace("US$", "")
-      let gravadoReteEval = gravadoRete.replace(/\./g, '').replace(",", ".")
-      let retencionGananaciasHono = 0;
+          let retencionGananaciasHonoPrint = Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(+retencionGananaciasHono)
+            .replace("US$", "");
 
-      if ((+gravadoReteEval - 67170) <= 0) {
-        retencionGananaciasHono = 0
-      } else if ((+gravadoReteEval - 67170) <= 8000) {
-        retencionGananaciasHono = (+gravadoReteEval - 67170) * 0.05
-      } else if ((+gravadoReteEval - 67170) <= 16000) {
-        retencionGananaciasHono = 400 + (((+gravadoReteEval - 67170) - 8000) * 0.09)
-      } else if ((+gravadoReteEval - 67170) <= 24000) {
-        retencionGananaciasHono = 1120 + (((+gravadoReteEval - 67170) - 16000) * 0.12)
-      } else if ((+gravadoReteEval - 67170) <= 32000) {
-        retencionGananaciasHono = 2080 + (((+gravadoReteEval - 67170) - 24000) * 0.15)
-      } else if ((+gravadoReteEval - 67170) <= 48000) {
-        retencionGananaciasHono = 3280 + (((+gravadoReteEval - 67170) - 32000) * 0.19)
-      } else if ((+gravadoReteEval - 67170) <= 64000) {
-        retencionGananaciasHono = 6320 + (((+gravadoReteEval - 67170) - 48000) * 0.23)
-      } else if ((+gravadoReteEval - 67170) <= 96000) {
-        retencionGananaciasHono = 10000 + (((+gravadoReteEval - 67170) - 64000) * 0.27)
-      } else if ((+gravadoReteEval - 67170) > 96000) {
-        retencionGananaciasHono = 18640 + (((+gravadoReteEval - 67170) - 96000) * 0.31)
-      }
-
-      let retencionGananaciasHonoPrint = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(+retencionGananaciasHono).replace("US$", "")
-
-      htmlRetencion += `
+          htmlRetencion += `
   <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
   <div class="ms-2 me-auto">
     <div class="fw-bold border rounded-2 border-2 bg-secondary-subtle">Director</div>
@@ -1295,11 +2236,11 @@ $('#btnSiguienteDirectores').click(function () {
   </div>
   </div>
   </li>
-  `
+  `;
 
-      importeRetencion.innerHTML = htmlRetencion;
+          importeRetencion.innerHTML = htmlRetencion;
 
-      htmlTratamiento += `
+          htmlTratamiento += `
   <div class="table-responsive rounded-4 mt-4">
     <table class="table table-bordered">
       <thead>
@@ -1323,93 +2264,103 @@ $('#btnSiguienteDirectores').click(function () {
       </tbody>
     </table>
   </div>
-  `
+  `;
 
-      directorRetencion.innerHTML = htmlTratamiento;
+          directorRetencion.innerHTML = htmlTratamiento;
+        }
+      } // final for
 
-    }
+      document.getElementById("btnSiguienteDirectores").innerHTML =
+        'Modificar <i class="bi bi-pencil-square"></i>';
+      document.getElementById("btnSiguienteDirectores").className =
+        "btn btn-warning btn-sm py-2 mb-3 fs-5 rounded-pill";
 
-  } // final for
+      if ($("#UiHonoQuebranto").prop("checked") == true) {
+      } else {
+        $("#totalTopeDos").val("Negativo");
+        datosTope2.innerHTML = "";
+      }
+    });
 
-  document.getElementById('btnSiguienteDirectores').innerHTML = 'Modificar <i class="bi bi-pencil-square"></i>'
-  document.getElementById('btnSiguienteDirectores').className = 'btn btn-warning btn-sm py-2 mb-3 fs-5 rounded-pill'
-
-    if ($('#UiHonoQuebranto').prop('checked') == true) {
-
-    } else {
-      $('#totalTopeDos').val("Negativo")
-      datosTope2.innerHTML = '';
-    }  
-  
-})
-
-$('#btnDirectores').click(function(){
-    var number = document.getElementById("cantidadDirectores").value;
-    var divElement = document.getElementById("camposDirectores");
-    while (divElement.hasChildNodes()) {
+    $("#btnDirectores").click(function () {
+      var number = document.getElementById("cantidadDirectores").value;
+      var divElement = document.getElementById("camposDirectores");
+      while (divElement.hasChildNodes()) {
         divElement.removeChild(divElement.lastChild);
-    }
-    for (i=0;i<number;i++){
-        var newDivElementLabel = divElement.appendChild(document.createElement("div"));
-        newDivElementLabel.className = "col-3"
+      }
+      for (i = 0; i < number; i++) {
+        var newDivElementLabel = divElement.appendChild(
+          document.createElement("div")
+        );
+        newDivElementLabel.className = "col-3";
         var label = document.createElement("label");
-        label.name = "Beneficiario" + (1+i);
-        label.className = "form-check-label fw-bold mt-3"
+        label.name = "Beneficiario" + (1 + i);
+        label.className = "form-check-label fw-bold mt-3";
         label.htmlFor = "beneficiario" + (1 + i);
-        label.textContent = "nº " + (i+1);
+        label.textContent = "nº " + (i + 1);
         divElement.appendChild(label);
         newDivElementLabel.appendChild(label);
-        var newDivElementInput = divElement.appendChild(document.createElement("div"))
-        newDivElementInput.className = "col-9"
+        var newDivElementInput = divElement.appendChild(
+          document.createElement("div")
+        );
+        newDivElementInput.className = "col-9";
         var input = document.createElement("input");
         input.type = "text";
         input.name = "Director" + (1 + i);
-        input.id = "director" + (1+ i);
-        input.className = "form-control text-end mt-3 mb-3 directoresPluralidad";
+        input.id = "director" + (1 + i);
+        input.className =
+          "form-control text-end mt-3 mb-3 directoresPluralidad";
         divElement.appendChild(input);
-        
-        var checkGeneroDivF = divElement.appendChild(document.createElement("div"));
+
+        var checkGeneroDivF = divElement.appendChild(
+          document.createElement("div")
+        );
         checkGeneroDivF.className = "form-check";
         var checkGeneroInputF = document.createElement("input");
         checkGeneroInputF.type = "radio";
         checkGeneroInputF.className = "form-check-input mb-3 femeninoSelector";
-        checkGeneroInputF.name = "Genero" + (i+1);
-        checkGeneroInputF.id = "femenino" + (i+1);
+        checkGeneroInputF.name = "Genero" + (i + 1);
+        checkGeneroInputF.id = "femenino" + (i + 1);
         var checkGeneroInputLabelF = document.createElement("label");
         checkGeneroInputLabelF.className = "form-check-label";
-        checkGeneroInputLabelF.htmlFor = "femenino" + (i+1);
+        checkGeneroInputLabelF.htmlFor = "femenino" + (i + 1);
         checkGeneroInputLabelF.textContent = "Mujer";
         divElement.appendChild(checkGeneroInputF);
         divElement.appendChild(checkGeneroInputLabelF);
         checkGeneroDivF.appendChild(checkGeneroInputF);
         checkGeneroDivF.appendChild(checkGeneroInputLabelF);
 
-        var checkGeneroDivM = divElement.appendChild(document.createElement("div"));
+        var checkGeneroDivM = divElement.appendChild(
+          document.createElement("div")
+        );
         checkGeneroDivM.className = "form-check";
         var checkGeneroInputM = document.createElement("input");
         checkGeneroInputM.type = "radio";
         checkGeneroInputM.className = "form-check-input mb-3 masculinoSelector";
-        checkGeneroInputM.name = "Genero" + (i+1);
-        checkGeneroInputM.id = "masculino" + (i+1);
+        checkGeneroInputM.name = "Genero" + (i + 1);
+        checkGeneroInputM.id = "masculino" + (i + 1);
         var checkGeneroInputLabelM = document.createElement("label");
         checkGeneroInputLabelM.className = "form-check-label";
-        checkGeneroInputLabelM.htmlFor = "masculino" + (i+1);
+        checkGeneroInputLabelM.htmlFor = "masculino" + (i + 1);
         checkGeneroInputLabelM.textContent = "Masculino";
         divElement.appendChild(checkGeneroInputM);
         divElement.appendChild(checkGeneroInputLabelM);
         checkGeneroDivM.appendChild(checkGeneroInputM);
         checkGeneroDivM.appendChild(checkGeneroInputLabelM);
 
-        var checkGeneroDivT = divElement.appendChild(document.createElement("div"));
+        var checkGeneroDivT = divElement.appendChild(
+          document.createElement("div")
+        );
         checkGeneroDivT.className = "form-check";
         var checkGeneroInputT = document.createElement("input");
         checkGeneroInputT.type = "radio";
-        checkGeneroInputT.className = "form-check-input mb-3 transgeneroSelector";
-        checkGeneroInputT.name = "Genero" + (i+1);
-        checkGeneroInputT.id = "transgenero" + (i+1);
+        checkGeneroInputT.className =
+          "form-check-input mb-3 transgeneroSelector";
+        checkGeneroInputT.name = "Genero" + (i + 1);
+        checkGeneroInputT.id = "transgenero" + (i + 1);
         var checkGeneroInputLabelT = document.createElement("label");
         checkGeneroInputLabelT.className = "form-check-label";
-        checkGeneroInputLabelT.htmlFor = "transgenero" + (i+1);
+        checkGeneroInputLabelT.htmlFor = "transgenero" + (i + 1);
         checkGeneroInputLabelT.textContent = "Transgénero";
         divElement.appendChild(checkGeneroInputT);
         divElement.appendChild(checkGeneroInputLabelT);
@@ -1421,112 +2372,132 @@ $('#btnDirectores').click(function(){
         newDivElementInput.appendChild(checkGeneroDivM);
         newDivElementInput.appendChild(checkGeneroDivT);
         divElement.appendChild(document.createElement("hr"));
+      }
+
+      maskApply();
+
+      if (number <= 0) {
+        $("#btnSiguienteDirectores").prop("hidden", true);
+      } else {
+        $("#btnSiguienteDirectores").prop("hidden", false);
+      }
+    });
+
+    $("#IIGGdiferido").click(function () {
+      if ($(this).prop("checked") == true) {
+        $("#labelIIGGdiferido").text("IIGG negativo");
+        $("#negativoIG").prop("hidden", true);
+      } else {
+        $("#labelIIGGdiferido").text("IIGG positivo");
+        $("#negativoIG").prop("hidden", false);
+      }
+    });
+
+    $("#resultadoPositivo").click(function () {
+      if ($(this).prop("checked") == true) {
+        $("#labelresultadoPositivo").text("Resultado positivo");
+        $("#negativoEECC").prop("hidden", true);
+      } else {
+        $("#labelresultadoPositivo").text("Resultado negativo");
+        $("#negativoEECC").prop("hidden", false);
+      }
+    });
+
+    $("#UiHonoQuebranto").click(function () {
+      if ($(this).prop("checked") == true) {
+        $("#labelUiHonoQuebranto").text("Utilidad positiva");
+        $("#quebrantoIIGG").prop("hidden", true);
+      } else {
+        $("#labelUiHonoQuebranto").text("Quebranto impositivo");
+        $("#quebrantoIIGG").prop("hidden", false);
+        $("#totalTopeDos").val("Negativo");
+        datosTope2.innerHTML = "";
+      }
+    });
+
+    function cargaInicio() {
+      $("#EECC").hide();
+      $("#directores").hide();
+      $("#periodoFiscalDato").hide();
+      $("#ret").hide();
+      $("#resumenCargaDatos").hide();
+      $("#topeUnoDatos").hide();
+      $("#topeDosDatos").hide();
+      $("#deducibleDatos").hide();
+      $("#tratamientoDatos").hide();
+      $("#retencionDatos").hide();
+      $("#nuevoCalculo").hide();
+      maskApply();
     }
 
-    maskApply();
+    $("#regRet").change(function () {
+      switch ($(this).val()) {
+        case "Selecciona el período fiscal...":
+          $("#EECC").hide();
+          $("#directores").hide();
+          $("#periodoFiscalDato").hide();
+          $("#ret").hide();
+          $("#resumenCargaDatos").hide();
+          $("#topeUnoDatos").hide();
+          $("#topeDosDatos").hide();
+          $("#deducibleDatos").hide();
+          $("#tratamientoDatos").hide();
+          $("#retencionDatos").hide();
+          $("#nuevoCalculo").hide();
+          break;
+        default:
+          $("#EECC").show();
+          $("#directores").show();
+          break;
+      }
+    });
 
-    if (number <= 0) {
-      $('#btnSiguienteDirectores').prop("hidden", true)
-    } else {
-      $('#btnSiguienteDirectores').prop("hidden", false)
-    }
-})
+    $("#ret").click(function () {
+      $("#resumenCargaDatos").show();
+      $("#topeUnoDatos").show();
+      $("#topeDosDatos").show();
+      $("#deducibleDatos").show();
+      $("#tratamientoDatos").show();
+      $("#retencionDatos").show();
+      $("#nuevoCalculo").show();
+      $("#btnSiguienteDirectores").prop("disabled", true);
+      $("#regRet").prop("disabled", true);
+      $("#ret").prop("disabled", true);
+      $("#EECC").hide();
+      $("#directores").hide();
+      $("#btnSiguienteDirectores").hide();
+    });
 
-$('#IIGGdiferido').click(function(){
-  if ($(this).prop('checked') == true) {
-      $('#labelIIGGdiferido').text("IIGG negativo");
-      $('#negativoIG').prop("hidden", true);
+    $("#nuevoCalculo").on("click", function () {
+      window.location.href = "/blog/h-hon-directorio.html";
+    });
+
+    // signout process
+    const singOutBtn = document.querySelectorAll(".signOut");
+    singOutBtn.forEach((singleBtn) => {
+      singleBtn.addEventListener("click", function (event) {
+        const auth = getAuth();
+        signOut(auth)
+          .then(() => {
+            // Sign-out successful.
+          })
+          .catch((error) => {
+            // An error happened.
+          });
+      });
+    });
   } else {
-    $('#labelIIGGdiferido').text("IIGG positivo");
-    $('#negativoIG').prop("hidden", false);
+    window.location.href = "h-ret-sueldos-login.html";
+    // User is signed out
   }
-})
-
-$('#resultadoPositivo').click(function(){
-  if ($(this).prop('checked') == true) {
-      $('#labelresultadoPositivo').text("Resultado positivo");
-      $('#negativoEECC').prop("hidden", true);
-  } else {
-    $('#labelresultadoPositivo').text("Resultado negativo");
-    $('#negativoEECC').prop("hidden", false);
-  }
-})
-
-$('#UiHonoQuebranto').click(function(){
-  if ($(this).prop('checked') == true) {
-      $('#labelUiHonoQuebranto').text("Utilidad positiva");
-      $('#quebrantoIIGG').prop("hidden", true);
-  } else {
-    $('#labelUiHonoQuebranto').text("Quebranto impositivo");
-    $('#quebrantoIIGG').prop("hidden", false);
-    $('#totalTopeDos').val("Negativo")
-    datosTope2.innerHTML = '';
-  }
-})
-
-function cargaInicio(){
-   $('#EECC').hide()
-   $('#directores').hide()
-   $('#periodoFiscalDato').hide()
-   $('#ret').hide()
-   $('#resumenCargaDatos').hide()
-   $('#topeUnoDatos').hide()
-   $('#topeDosDatos').hide()
-   $('#deducibleDatos').hide()
-   $('#tratamientoDatos').hide()
-   $('#retencionDatos').hide()
-   $('#nuevoCalculo').hide()
-   maskApply();
-
-}
-
-$('#regRet').change(function(){
-  switch($(this).val()){
-    case "Selecciona el período fiscal...":
-      $('#EECC').hide()
-      $('#directores').hide()
-      $('#periodoFiscalDato').hide()
-      $('#ret').hide()
-      $('#resumenCargaDatos').hide()
-      $('#topeUnoDatos').hide()
-      $('#topeDosDatos').hide()
-      $('#deducibleDatos').hide()
-      $('#tratamientoDatos').hide()
-      $('#retencionDatos').hide()
-      $('#nuevoCalculo').hide()
-    break;
-    default:
-      $('#EECC').show()
-      $('#directores').show()
-    break;
-  }
-})
-
-$('#ret').click(function () {
-  $('#resumenCargaDatos').show()
-  $('#topeUnoDatos').show()
-  $('#topeDosDatos').show()
-  $('#deducibleDatos').show()
-  $('#tratamientoDatos').show()
-  $('#retencionDatos').show()
-  $('#nuevoCalculo').show()
-  $('#btnSiguienteDirectores').prop("disabled", true)
-  $('#regRet').prop("disabled", true)
-  $('#ret').prop("disabled", true)
-  $('#EECC').hide()
-  $('#directores').hide()
-  $('#btnSiguienteDirectores').hide()
-})
-
-$('#nuevoCalculo').on("click", function(){
-  window.location.href = '/blog/h-hon-directorio.html'
-})
+});
 
 function maskApply() {
-$(document).ready(function(){
-    $('#remEnero').mask('000.000.000.000.000,00', {reverse: true});
-    $('#resultadoEECC').mask('000.000.000.000.000,00', {reverse: true});
-    $('#impuestoGanancias').mask('000.000.000.000.000,00', {reverse: true});
-    $('#UiHono').mask('000.000.000.000.000,00', {reverse: true});
+  $(document).ready(function () {
+    $("#remEnero").mask("000.000.000.000.000,00", { reverse: true });
+    $("#desEnero").mask("000.000.000.000.000,00", { reverse: true });
+    $("#resultadoEECC").mask("000.000.000.000.000,00", { reverse: true });
+    $("#impuestoGanancias").mask("000.000.000.000.000,00", { reverse: true });
+    $("#UiHono").mask("000.000.000.000.000,00", { reverse: true });
   });
 }

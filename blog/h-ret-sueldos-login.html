@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Estudio Diez - Blog">
+  <meta name="author" content="Estudio Diez - Consultores Impositivos">
+
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+  <title>Estudio Diez - herramienta retención de sueldos</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <!-- Bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <!-- Custom styles for this template
+  <link href="css/modern-business.css" rel="stylesheet"> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+  <style>
+    .h2-a {
+      font-family: 'Helvetica', sans-serif;
+      font-size: 20px;
+    }
+
+
+    .h3-a {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      color: dimgrey;
+    }
+
+    .h4-a {
+      font-family: 'Helvetica', sans-serif;
+      font-size: 3rem;
+      color: white;
+    }
+  </style>
+
+</head>
+
+<style>
+  body {
+    background-color: #ffff00;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ff8000'/%3E%3Cstop offset='1' stop-color='%23ff8000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2300ff19'/%3E%3Cstop offset='1' stop-color='%2300ff19' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%239900ff'/%3E%3Cstop offset='1' stop-color='%239900ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ffff00'/%3E%3Cstop offset='1' stop-color='%23ffff00' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FF0000'/%3E%3Cstop offset='1' stop-color='%23FF0000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%230CF'/%3E%3Cstop offset='1' stop-color='%230CF' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+  }
+</style>
+
+<header>
+  <!-- toast error message -->
+  <div aria-atomic="true" aria-live="polite"
+    class="position-relative toast text-bg-white top-0 start-50 translate-middle-x" data-bs-autohide="true"
+    data-bs-animation="true" data-bs-delay="5000">
+    <div class="toast-header text-bg-warning">
+      <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <rect width="100%" height="100%" fill="#ff0000"></rect>
+      </svg>
+      <strong class="me-auto">&nbsp; Algo salió mal...</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div id="toast-msg-error" class="toast-body h3-a text-dark">
+      <!-- texto clientes.js -->
+    </div>
+  </div>
+
+</header>
+
+<body>
+
+  <!-- Page Content -->
+  <div class="container-fluid px-4 pt-4">
+    <div class="text-center">
+      <a href="/blog.html" class="card-link">
+        <img src="/images/logo-ed-siglas.png" data-bs-toggle="tooltip" data-bs-placement="top" title="Volver al blog"
+          class="bg-white bg-opacity-50 rounded-4 px-4 py-4 img-fluid" style="max-width:8rem" alt="logo Estudio Diez">
+      </a>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-2">
+        <ul class="nav nav-pills justify-content-center mt-4 bg-white bg-opacity-50 rounded-3 py-2" id="pills-tab"
+          role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#userActive"
+              type="button" role="tab" aria-controls="pills-home" aria-selected="true">Ya tengo cuenta</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#newUser"
+              type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Crear cuenta</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="userActive" role="tabpanel" aria-labelledby="pills-home-tab"
+        tabindex="0">
+        <div class="row pt-4">
+          <div class="card-body">
+            <div class="card bg-lightbg-opacity-50 mb-3 rounded-4"
+              style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
+              <div class="card-header text-center h2-a"><span class="badge bg-primary text-white mb-2">Herramientas
+                  Estudio
+                  Diez</span> <br> Retención de sueldos</div>
+              <div class="card-body">
+                <!-- LogIn Herramienta-->
+                <form id="loginHretSueldos" class="text-center">
+                  <span class="mb-3 badge bg-success fs-6">Ingreso de usuarios registrados</span>
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control rounded-3" id="email" placeholder="name@ejemplo.com">
+                    <label for="email">Correo electrónico</label>
+                  </div>
+                  <div class="form-floating rounded-3 mb-3">
+                    <input type="password" class="form-control" id="password" placeholder="contraseña">
+                    <label for="password">Contraseña</label>
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button class="btn btn-outline-success mb-3 rounded-5" id="ingresar" type="submit">Ingresar</button>
+                  </div>
+                </form> <!-- LogIn Herramienta -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="newUser" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+        <div class="row pt-4" id="newUser"> <!-- Create new user -->
+          <div class="card-body">
+            <div class="card bg-lightbg-opacity-50 mb-3 rounded-4"
+              style="opacity: 1; max-width: 25rem;display: block;margin-left: auto;margin-right: auto">
+              <div class="card-header text-center h2-a"><span class="badge bg-primary text-white mb-2">Herramientas
+                  Estudio
+                  Diez</span> <br> Retención de sueldos</div>
+              <div class="card-body">
+                <form id="newHretSueldos" class="text-center">
+                  <span class="mb-3 badge bg-warning text-dark fs-6">Registro de nuevos usuarios</span>
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control rounded-3" id="newUserEmail" placeholder="name@ejemplo.com">
+                    <label for="newUserEmail">Correo electrónico</label>
+                  </div>
+                  <div class="form-floating rounded-3 mb-3">
+                    <input type="password" class="form-control" id="newUserPassword" placeholder="contraseña">
+                    <label for="newUserPassword">Contraseña</label>
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button class="btn btn-outline-warning mb-3 rounded-5" id="newUser" type="submit">Crear
+                      cuenta</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div> <!-- Create new user -->
+      </div>
+    </div>
+    <p class="m-0 text-center text-white">Copyright &copy;
+      <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos
+      Aires. Argentina
+    </p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+    crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(".toast").toast("hide");
+    });
+  </script>
+
+  <!-- Fb modules -->
+  <script src="../js/h-ret-sueldos-login.js" type="module"></script>
+
+</body>
+
+</html>

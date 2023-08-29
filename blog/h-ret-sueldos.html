@@ -10,7 +10,7 @@
 
   <link rel="icon" type="../image/png" href="../images/favicon-32x32.png">
 
-  <title>ED blog - Herramientas - Honorarios al directorio</title>
+  <title>ED blog - Herramientas - Retención de sueldos</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -62,7 +62,7 @@
   <nav class="navbar fixed-top navbar-light bg-primary-subtle">
     <div class="container-fluid">
       <div class="col-2 d-grid gap-2">
-        <button type="button" class="btn btn-danger ms-4" onclick="history.back()">Salir</button>
+        <button type="submit" class="btn btn-danger ms-4 signOut">Salir</button>
       </div>
       <div class="ms-auto me-4">
         <span class="badge bg-primary fs-6" data-bs-toggle="tooltip" data-bs-placement="bottom"
@@ -181,7 +181,7 @@
       </div> <!-- col barra lateral -->
 
       <div class="col-lg-5">
-        <div class="row px-3 py-3 mx-4 my-4 border border-subtle-secondary rounded-2 bg-secondary-subtle">
+        <div class="row px-3 py-3 mx-4 my-4 border border-secondary rounded-2 bg-secondary-subtle">
           <div class="alert alert-secondary h4-a mt-4" role="alert">
             Remuneración enero
           </div>
@@ -202,10 +202,10 @@
           </div>
           <div class="row g-3 align-items-center">
             <div class="col-auto">
-              <label for="remEnero" class="col-form-label">Importe bruto</label>
+              <label for="desEnero" class="col-form-label">Importe bruto</label>
             </div>
             <div class="col-auto">
-              <input type="text" id="remEnero" class="form-control text-end">
+              <input type="text" id="desEnero" class="form-control text-end">
             </div>
           </div>
         </div>
@@ -484,7 +484,7 @@
   </script>
 
   <!-- JS -->
-  <script src="../js/h-ret-sueldos.js"></script>
+  <script src="../js/h-ret-sueldos.js" type="module"></script>
 
   <!-- toast -->
   <script type="text/javascript">
