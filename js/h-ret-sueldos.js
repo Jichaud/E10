@@ -40,7 +40,7 @@ onAuthStateChanged(auth, async (user) => {
     let detalleMes = ""
     const saveData = document.getElementById("saveData");
     const dataBase = doc(db, "retSueldos", uid);
-    const remEnero = document.getElementById("remEnero");
+    // const remEnero = document.getElementById("remEnero").value;
 
     cargaInicio();
     function cargaInicio() {
@@ -55,13 +55,19 @@ onAuthStateChanged(auth, async (user) => {
       remuneracion.innerHTML = "Remuneración enero";
       descuento.innerHTML = "Descuentos enero";
       detalleMes = document.getElementById("eneroMes").id
-      saveData.addEventListener("submit", async(e) => {
-        e.preventDefault();
-        addDoc(collection(dataBase, detalleMes), {
-          remMensual: remEnero.value
-        })
-      })
+      
     })
+
+    // saveData.addEventListener("click", cargaMes())
+    
+    async function cargaMes(){
+      const remEnero = document.getElementById("remEnero").value;
+        const docRef = await addDoc(collection(dataBase, "Enero"), {
+          prueba: "Prueba"
+        
+      })
+
+    }
 
     $("#febreroMes").click(function(){
       $("#detalleFirstCol").show();
