@@ -37,7 +37,6 @@ onAuthStateChanged(auth, async (user) => {
     let remMensual = 0;
     let remuneracion = document.getElementById("remuneracion");
     let descuento = document.getElementById("descuento");
-    let detalleMes = ""
     const saveData = document.getElementById("saveData");
     const dataBase = doc(db, "retSueldos", uid);
     // const remEnero = document.getElementById("remEnero").value;
@@ -54,26 +53,35 @@ onAuthStateChanged(auth, async (user) => {
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración enero";
       descuento.innerHTML = "Descuentos enero";
-      detalleMes = document.getElementById("eneroMes").id
+      let detalleMes = document.getElementById("eneroMes").id
       
     })
 
-    // saveData.addEventListener("click", cargaMes())
-    
-    async function cargaMes(){
-      const remEnero = document.getElementById("remEnero").value;
-        const docRef = await addDoc(collection(dataBase, "Enero"), {
-          prueba: "Prueba"
-        
-      })
+    $("#cargaDatosRem").click(function(){
+      let detalleMes = document.getElementById("febreroMes").id
+      $("#inputIdRem").val(detalleMes);
 
-    }
+    })
+
+    $("#enviaDatosRem").click(function(){
+        const inputIdRem = remForm["inputIdRem"];
+        const remMensual = remForm["remMensual"];
+
+        const dataRemuneracion = {
+          agregaCollection: addDoc(collection(dataBase, "Remuneraciones"), {
+            inputIdRem: inputIdRem.value,
+            remMensual: remMensual.value
+          })
+        }
+
+    })
 
     $("#febreroMes").click(function(){
       $("#detalleFirstCol").show();
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración febrero";
       descuento.innerHTML = "Descuentos febrero";
+      let detalleMes = document.getElementById("febreroMes").id
     })
 
     // signout process
@@ -100,8 +108,6 @@ function maskApply() {
   $(document).ready(function () {
     $("#remEnero").mask("000.000.000.000.000,00", { reverse: true });
     $("#desEnero").mask("000.000.000.000.000,00", { reverse: true });
-    $("#resultadoEECC").mask("000.000.000.000.000,00", { reverse: true });
-    $("#impuestoGanancias").mask("000.000.000.000.000,00", { reverse: true });
-    $("#UiHono").mask("000.000.000.000.000,00", { reverse: true });
+    $("#remMensual").mask("000.000.000.000.000,00", { reverse: true });
   });
 }

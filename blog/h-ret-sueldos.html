@@ -194,7 +194,8 @@
           </div>
         </div>
         <div class="row px-3 py-3 mx-2 my-4">
-          <button class="btn btn-outline-success" type="submit" id="saveData">Guardar</button>
+          <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#cargaRem"
+            id="cargaDatosRem">Cargar <i class="bi bi-upload"></i></button>
         </div>
       </div> <!-- col pantalla -->
       <div class="col-lg-4" id="detalleSecondCol">
@@ -211,10 +212,51 @@
             </div>
           </div>
         </div>
+        <div class="row px-3 py-3 mx-2 my-4">
+          <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#cargaDes"
+            id="cargaDatosDes">Cargar <i class="bi bi-upload"></i></button>
+        </div>
       </div> <!-- col pantalla -->
 
     </div> <!-- row -->
   </div> <!-- container -->
+
+  <!-- Modal Carga Remuneración -->
+  <div class="modal fade" id="cargaRem" tabindex="-1" aria-labelledby="cargaRemLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Carga remuneración</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="remForm">
+            <div class="row g-3 align-items-center mb-3">
+              <div class="col-auto">
+                <label for="inputIdRem" class="col-form-label">Id</label>
+              </div>
+              <div class="col-auto">
+                <input type="text" id="inputIdRem" class="form-control" aria-describedby="idRem" disabled>
+              </div>
+              <div class="col-auto">
+                <span id="idRem" class="form-text">
+                  Generado automáticamente
+                </span>
+              </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="remMensual">
+              <label for="remMensual">Remuneración bruta</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" data-bs-dismiss="modal" id="enviaDatosRem">Guardar <i class="bi bi-arrow-right-circle-fill"></i></button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin modal ayuda -->
+
 
   <!-- Footer -->
   <footer class="py-5 bg-dark h3-a">
