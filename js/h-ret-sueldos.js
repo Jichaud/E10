@@ -36,7 +36,7 @@ onAuthStateChanged(auth, async (user) => {
     // Declaración de variables globales
     let remuneracion = document.getElementById("remuneracion");
     let descuento = document.getElementById("descuento");
-    const saveData = document.getElementById("saveData");
+    let dbEmpleado = "";
     const dataBase = doc(db, "retSueldos", uid);
 
     cargaInicio();
@@ -185,7 +185,7 @@ onAuthStateChanged(auth, async (user) => {
         const remMensual = remForm["remMensual"];
 
         const dataRemuneracion = {
-          agregaCollection: addDoc(collection(dataBase, "Remuneraciones"), {
+          agregaCollection: addDoc(collection(dataBase, "Empleados", dbEmpleado), {
             inputIdRem: inputIdRem.value,
             remMensual: remMensual.value
           })
@@ -196,11 +196,13 @@ onAuthStateChanged(auth, async (user) => {
     $('#enviaDatosEmp').click(function(){
       const inputNombreEmp = nuevoEmpForm["inputNombreEmp"];
 
+      dbEmpleado = inputNombreEmp.value
+
       const dataEmpleado = {
-        agregaCollection: addDoc(collection(dataBase, "nombreEmp"), {
-          inputNombreEmp: inputNombreEmp.value
-        })
+        agregaCollection: addDoc(collection(dataBase, "Empleados"), {
+        dbEmpleado: dbEmpleado
       }
+    )}
 
     })
 
