@@ -76,6 +76,10 @@
   <div class="container-fluid pt-1 mt-4" id="container">
     <div class="row mt-4">
       <div class="col-lg-2 mb-3 mt-4">
+        <select class="form-select mb-3 border border-primary border-4" aria-label="Empleados" id="empleadoOption">
+          <option selected>Elige una opción</option>
+          <option value="1">Nuevo empleado...</option>
+        </select>
         <div class="row bg-success-subtle border-start border-success border-4 rounded-end me-2 ms-1 py-2 mb-4">
           <div class="col-9">
             <span class="fw-bold h4-a">Legajo personal</span>
@@ -221,6 +225,34 @@
     </div> <!-- row -->
   </div> <!-- container -->
 
+  <!-- Modal Carga nuevo empleado -->
+  <div class="modal fade" id="nuevoEmp" tabindex="-1" aria-labelledby="nuevoEmpLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo empleado</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="nuevoEmpForm">
+            <div class="form-floating mb-3">
+              <input type="text" id="inputNombreEmp" class="form-control" aria-describedby="nombreEmp">
+              <label for="inputNombreEmp" class="col-form-label">Nombre</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="cuilEmp">
+              <label for="cuilEmp">Nº de C.U.I.L.</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" data-bs-dismiss="modal" id="enviaDatosEmp">Guardar <i
+              class="bi bi-arrow-right-circle-fill"></i></button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin modal carga nuevo empleado -->
+
   <!-- Modal Carga Remuneración -->
   <div class="modal fade" id="cargaRem" tabindex="-1" aria-labelledby="cargaRemLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -251,12 +283,12 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success" data-bs-dismiss="modal" id="enviaDatosRem">Guardar <i class="bi bi-arrow-right-circle-fill"></i></button>
+          <button type="submit" class="btn btn-success" data-bs-dismiss="modal" id="enviaDatosRem">Guardar <i
+              class="bi bi-arrow-right-circle-fill"></i></button>
         </div>
       </div>
     </div>
-  </div> <!-- fin modal ayuda -->
-
+  </div> <!-- fin modal carga remuneración -->
 
   <!-- Footer -->
   <footer class="py-5 bg-dark h3-a">
