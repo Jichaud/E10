@@ -1,8 +1,24 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-analytics.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs, getDoc, doc, setDoc, onSnapshot, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore.js";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  getDoc,
+  doc,
+  setDoc,
+  onSnapshot,
+  deleteDoc,
+  updateDoc,
+} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -38,175 +54,194 @@ onAuthStateChanged(auth, async (user) => {
     let descuento = document.getElementById("descuento");
     let dbEmpleado = "";
     const dataBase = doc(db, "retSueldos", uid);
+    let html = "";
 
     cargaInicio();
     function cargaInicio() {
       $("#detalleFirstCol").hide();
       $("#detalleSecondCol").hide();
       maskApply();
+      // leeDatosEmpleados();
     }
 
-    $('#empleadoOption').on("change",function(){
-      let valorOptionEmpleado = $('#empleadoOption').val()
-      if (valorOptionEmpleado === "1") {
-        $('#nuevoEmp').modal('show'); 
-        
-      }
-    })
+    // Leer datos para lista de empleados
+    async function leeDatosEmpleados() {
+      const leeEmpleadoOption = document.getElementById("empleadoOption");
+      const querySnapshot = doc(db, "retSueldos", uid);
+      const docSnap = await getDoc(querySnapshot);
+        if (docSnap.exists()) {
+          console.log(docSnap.data())
+        };
 
-    $("#eneroMes").click(function(){
+        
+      };
+    
+
+    $("#empleadoOption").on("change", function () {
+      let valorOptionEmpleado = $("#empleadoOption").val();
+      if (valorOptionEmpleado === "1") {
+        $("#nuevoEmp").modal("show");
+      }
+    });
+
+    $("#eneroMes").click(function () {
       $("#detalleFirstCol").show();
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración enero";
       descuento.innerHTML = "Descuentos enero";
-      
-    })
+    });
 
-    $("#febreroMes").click(function(){
+    $("#febreroMes").click(function () {
       $("#detalleFirstCol").show();
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración febrero";
       descuento.innerHTML = "Descuentos febrero";
-    })
+    });
 
-    $("#marzoMes").click(function(){
+    $("#marzoMes").click(function () {
       $("#detalleFirstCol").show();
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración marzo";
       descuento.innerHTML = "Descuentos marzo";
-    })
+    });
 
-    $("#abrilMes").click(function(){
+    $("#abrilMes").click(function () {
       $("#detalleFirstCol").show();
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración abril";
       descuento.innerHTML = "Descuentos abril";
-    })
+    });
 
-    $("#mayoMes").click(function(){
+    $("#mayoMes").click(function () {
       $("#detalleFirstCol").show();
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración mayo";
       descuento.innerHTML = "Descuentos mayo";
-    })
+    });
 
-    $("#junioMes").click(function(){
+    $("#junioMes").click(function () {
       $("#detalleFirstCol").show();
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración junio";
       descuento.innerHTML = "Descuentos junio";
-    })
+    });
 
-    $("#julioMes").click(function(){
+    $("#julioMes").click(function () {
       $("#detalleFirstCol").show();
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración julio";
       descuento.innerHTML = "Descuentos julio";
-    })
+    });
 
-    $("#agostoMes").click(function(){
+    $("#agostoMes").click(function () {
       $("#detalleFirstCol").show();
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración agosto";
       descuento.innerHTML = "Descuentos agosto";
-    })
+    });
 
-    $("#septiembreMes").click(function(){
+    $("#septiembreMes").click(function () {
       $("#detalleFirstCol").show();
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración septiembre";
       descuento.innerHTML = "Descuentos septiembre";
-    })
+    });
 
-    $("#octubreMes").click(function(){
+    $("#octubreMes").click(function () {
       $("#detalleFirstCol").show();
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración octubre";
       descuento.innerHTML = "Descuentos octubre";
-    })
+    });
 
-    $("#noviembreMes").click(function(){
+    $("#noviembreMes").click(function () {
       $("#detalleFirstCol").show();
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración noviembre";
       descuento.innerHTML = "Descuentos noviembre";
-    })
+    });
 
-    $("#diciembreMes").click(function(){
+    $("#diciembreMes").click(function () {
       $("#detalleFirstCol").show();
       $("#detalleSecondCol").show();
       remuneracion.innerHTML = "Remuneración diciembre";
       descuento.innerHTML = "Descuentos diciembre";
-    })
+    });
 
-    $("#cargaDatosRem").click(function(){
-      if ($('#eneroMes').prop('checked') == true) {
-        let detalleMes = document.getElementById("eneroMes").id
+    $("#cargaDatosRem").click(function () {
+      if ($("#eneroMes").prop("checked") == true) {
+        let detalleMes = document.getElementById("eneroMes").id;
         $("#inputIdRem").val(detalleMes + "Rem");
-      } else if ($('#febreroMes').prop('checked') == true) {
-        let detalleMes = document.getElementById("febreroMes").id
+      } else if ($("#febreroMes").prop("checked") == true) {
+        let detalleMes = document.getElementById("febreroMes").id;
         $("#inputIdRem").val(detalleMes + "Rem");
-      } else if ($('#marzoMes').prop('checked') == true) {
-        let detalleMes = document.getElementById("marzoMes").id
+      } else if ($("#marzoMes").prop("checked") == true) {
+        let detalleMes = document.getElementById("marzoMes").id;
         $("#inputIdRem").val(detalleMes + "Rem");
-      } else if ($('#abrilMes').prop('checked') == true) {
-        let detalleMes = document.getElementById("abrilMes").id
+      } else if ($("#abrilMes").prop("checked") == true) {
+        let detalleMes = document.getElementById("abrilMes").id;
         $("#inputIdRem").val(detalleMes + "Rem");
-      } else if ($('#mayoMes').prop('checked') == true) {
-        let detalleMes = document.getElementById("mayoMes").id
+      } else if ($("#mayoMes").prop("checked") == true) {
+        let detalleMes = document.getElementById("mayoMes").id;
         $("#inputIdRem").val(detalleMes + "Rem");
-      } else if ($('#junioMes').prop('checked') == true) {
-        let detalleMes = document.getElementById("junioMes").id
+      } else if ($("#junioMes").prop("checked") == true) {
+        let detalleMes = document.getElementById("junioMes").id;
         $("#inputIdRem").val(detalleMes + "Rem");
-      } else if ($('#julioMes').prop('checked') == true) {
-        let detalleMes = document.getElementById("julioMes").id
+      } else if ($("#julioMes").prop("checked") == true) {
+        let detalleMes = document.getElementById("julioMes").id;
         $("#inputIdRem").val(detalleMes + "Rem");
-      } else if ($('#agostoMes').prop('checked') == true) {
-        let detalleMes = document.getElementById("agostoMes").id
+      } else if ($("#agostoMes").prop("checked") == true) {
+        let detalleMes = document.getElementById("agostoMes").id;
         $("#inputIdRem").val(detalleMes + "Rem");
-      } else if ($('#septiembreMes').prop('checked') == true) {
-        let detalleMes = document.getElementById("septiembreMes").id
+      } else if ($("#septiembreMes").prop("checked") == true) {
+        let detalleMes = document.getElementById("septiembreMes").id;
         $("#inputIdRem").val(detalleMes + "Rem");
-      } else if ($('#octubreMes').prop('checked') == true) {
-        let detalleMes = document.getElementById("octubreMes").id
+      } else if ($("#octubreMes").prop("checked") == true) {
+        let detalleMes = document.getElementById("octubreMes").id;
         $("#inputIdRem").val(detalleMes + "Rem");
-      } else if ($('#noviembreMes').prop('checked') == true) {
-        let detalleMes = document.getElementById("noviembreMes").id
+      } else if ($("#noviembreMes").prop("checked") == true) {
+        let detalleMes = document.getElementById("noviembreMes").id;
         $("#inputIdRem").val(detalleMes + "Rem");
-      } else if ($('#diciembreMes').prop('checked') == true) {
-        let detalleMes = document.getElementById("diciembreMes").id
+      } else if ($("#diciembreMes").prop("checked") == true) {
+        let detalleMes = document.getElementById("diciembreMes").id;
         $("#inputIdRem").val(detalleMes + "Rem");
       }
+    });
 
-    })
+    $("#enviaDatosRem").click(function () {
+      const inputIdRem = remForm["inputIdRem"];
+      const remMensual = remForm["remMensual"];
 
-    $("#enviaDatosRem").click(function(){
-        const inputIdRem = remForm["inputIdRem"];
-        const remMensual = remForm["remMensual"];
-
-        const dataRemuneracion = {
-          agregaCollection: addDoc(collection(dataBase, "Empleados", dbEmpleado), {
+      const dataRemuneracion = {
+        agregaCollection: addDoc(
+          collection(dataBase, "Empleados", dbEmpleado),
+          {
             inputIdRem: inputIdRem.value,
-            remMensual: remMensual.value
-          })
-        }
+            remMensual: remMensual.value,
+          }
+        ),
+      };
+    });
 
-    })
-
-    $('#enviaDatosEmp').click(function(){
+    $("#enviaDatosEmp").click(function () {
       const inputNombreEmp = nuevoEmpForm["inputNombreEmp"];
       const cuilEmp = nuevoEmpForm["cuilEmp"];
 
-      dbEmpleado = inputNombreEmp.value
+      dbEmpleado = inputNombreEmp.value;
 
       const dataEmpleado = {
         agregaCollection: addDoc(collection(dataBase, dbEmpleado), {
           inputNombreEmp: inputNombreEmp.value,
-          cuilEmp: cuilEmp.value
-      }
-    )}
+          cuilEmp: cuilEmp.value,
+        }),
+      };
 
-    })
+      const empleadoOption = document.getElementById("empleadoOption");
+      var insertOption = document.createElement("option");
+      insertOption.value = dbEmpleado;
+      insertOption.innerText = dbEmpleado;
+      empleadoOption.appendChild(insertOption);
+    });
 
     // signout process
     const singOutBtn = document.querySelectorAll(".signOut");
@@ -233,5 +268,6 @@ function maskApply() {
     $("#remEnero").mask("000.000.000.000.000,00", { reverse: true });
     $("#desEnero").mask("000.000.000.000.000,00", { reverse: true });
     $("#remMensual").mask("000.000.000.000.000,00", { reverse: true });
+    $("#cuilEmp").mask("00-00000000-0", { reverse: true });
   });
 }
