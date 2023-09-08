@@ -195,12 +195,14 @@ onAuthStateChanged(auth, async (user) => {
 
     $('#enviaDatosEmp').click(function(){
       const inputNombreEmp = nuevoEmpForm["inputNombreEmp"];
+      const cuilEmp = nuevoEmpForm["cuilEmp"];
 
       dbEmpleado = inputNombreEmp.value
 
       const dataEmpleado = {
-        agregaCollection: addDoc(collection(dataBase, "Empleados"), {
-        dbEmpleado: dbEmpleado
+        agregaCollection: addDoc(collection(dataBase, dbEmpleado), {
+          inputNombreEmp: inputNombreEmp.value,
+          cuilEmp: cuilEmp.value
       }
     )}
 
