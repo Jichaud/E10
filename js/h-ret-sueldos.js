@@ -61,7 +61,7 @@ onAuthStateChanged(auth, async (user) => {
       $("#detalleFirstCol").hide();
       $("#detalleSecondCol").hide();
       maskApply();
-      // leeDatosEmpleados();
+      leeDatosEmpleados();
     }
 
     // Leer datos para lista de empleados
@@ -70,7 +70,10 @@ onAuthStateChanged(auth, async (user) => {
       const querySnapshot = doc(db, "retSueldos", uid);
       const docSnap = await getDoc(querySnapshot);
         if (docSnap.exists()) {
-          console.log(docSnap.data())
+          const empleadoOption = document.getElementById("empleadoOption");
+          var insertOption = document.createElement("option");
+          insertOption.innerText = docSnap.data().inputNombreEmp;
+          empleadoOption.appendChild(insertOption);    
         };
 
         
@@ -223,7 +226,7 @@ onAuthStateChanged(auth, async (user) => {
       };
     });
 
-    $("#enviaDatosEmp").click(function () {
+    $("#enviaDatosEmp").click(async function () {
       const inputNombreEmp = nuevoEmpForm["inputNombreEmp"];
       const cuilEmp = nuevoEmpForm["cuilEmp"];
 
@@ -235,6 +238,11 @@ onAuthStateChanged(auth, async (user) => {
           cuilEmp: cuilEmp.value,
         }),
       };
+
+        await setDoc(doc(db, "retSueldos", uid), {
+          inputNombreEmp: inputNombreEmp.value
+        });
+
 
       const empleadoOption = document.getElementById("empleadoOption");
       var insertOption = document.createElement("option");
