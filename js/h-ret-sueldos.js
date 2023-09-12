@@ -55,6 +55,7 @@ onAuthStateChanged(auth, async (user) => {
     let dbEmpleado = "";
     const dataBase = doc(db, "retSueldos", uid);
     let html = "";
+    let arrEmp = [];
 
     cargaInicio();
     function cargaInicio() {
@@ -239,10 +240,11 @@ onAuthStateChanged(auth, async (user) => {
         }),
       };
 
-        await setDoc(doc(db, "retSueldos", uid), {
-          inputNombreEmp: inputNombreEmp.value
-        });
+        arrEmp.push(dbEmpleado)
 
+        await setDoc(doc(db, "retSueldos", uid), {
+          arrEmp
+        });
 
       const empleadoOption = document.getElementById("empleadoOption");
       var insertOption = document.createElement("option");
