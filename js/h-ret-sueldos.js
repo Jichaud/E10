@@ -18,6 +18,7 @@ import {
   onSnapshot,
   deleteDoc,
   updateDoc,
+  query,
 } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -67,24 +68,36 @@ onAuthStateChanged(auth, async (user) => {
 
     // Leer datos para lista de empleados
     async function leeDatosEmpleados() {
-      const leeEmpleadoOption = document.getElementById("empleadoOption");
-      const querySnapshot = doc(db, "retSueldos", uid);
-      const docSnap = await getDoc(querySnapshot);
-        if (docSnap.exists()) {
-          const empleadoOption = document.getElementById("empleadoOption");
-          var insertOption = document.createElement("option");
-          insertOption.innerText = docSnap.data().inputNombreEmp;
-          empleadoOption.appendChild(insertOption);    
-        };
+      const empleadoOption = document.getElementById("empleadoOption");
+      const querySnapshot = query(collection(db, "retSueldos"));
+      const docSnap = await getDocs(querySnapshot);
+      docSnap.forEach((doc) => {
+        try {
+          const dataArr = doc.data().arrEmp;
+          arrEmp = dataArr;
 
-        
-      };
-    
+          for (let i = 0; i < dataArr.length; i++) {
+            const element = dataArr[i];
+            var insertOption = document.createElement("option");
+            insertOption.innerText = element;
+            empleadoOption.appendChild(insertOption);
+          }
+        } catch (error) {}
+      });
+    }
 
     $("#empleadoOption").on("change", function () {
       let valorOptionEmpleado = $("#empleadoOption").val();
       if (valorOptionEmpleado === "1") {
         $("#nuevoEmp").modal("show");
+      }
+      if (valorOptionEmpleado > "1") {
+        dbEmpleado = valorOptionEmpleado;
+        $("#alertEmp").prop("hidden", false);
+        let alertEmp = document.getElementById("alertEmp");
+        alertEmp.innerHTML = "Estás trabajando con " + dbEmpleado;
+      } else {
+        $("#alertEmp").prop("hidden", true);
       }
     });
 
@@ -217,13 +230,10 @@ onAuthStateChanged(auth, async (user) => {
       const remMensual = remForm["remMensual"];
 
       const dataRemuneracion = {
-        agregaCollection: addDoc(
-          collection(dataBase, "Empleados", dbEmpleado),
-          {
-            inputIdRem: inputIdRem.value,
-            remMensual: remMensual.value,
-          }
-        ),
+        agregaCollection: addDoc(collection(dataBase, dbEmpleado), {
+          inputIdRem: inputIdRem.value,
+          remMensual: remMensual.value,
+        }),
       };
     });
 
@@ -240,17 +250,19 @@ onAuthStateChanged(auth, async (user) => {
         }),
       };
 
-        arrEmp.push(dbEmpleado)
+      arrEmp.push(dbEmpleado);
 
-        await setDoc(doc(db, "retSueldos", uid), {
-          arrEmp
-        });
+      await setDoc(doc(db, "retSueldos", uid), {
+        arrEmp,
+      });
 
       const empleadoOption = document.getElementById("empleadoOption");
       var insertOption = document.createElement("option");
       insertOption.value = dbEmpleado;
       insertOption.innerText = dbEmpleado;
       empleadoOption.appendChild(insertOption);
+
+      $("#empleadoOption").val("0");
     });
 
     // signout process

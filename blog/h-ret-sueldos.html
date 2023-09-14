@@ -77,7 +77,7 @@
     <div class="row mt-4">
       <div class="col-lg-2 mb-3 mt-4">
         <select class="form-select mb-3 border border-primary border-4" aria-label="Empleados" id="empleadoOption">
-          <option selected>Elige una opción</option>
+          <option selected value="0">Elige una opción</option>
           <option value="1" id="valueOption">Nuevo empleado...</option>
         </select>
         <div class="row bg-success-subtle border-start border-success border-4 rounded-end me-2 ms-1 py-2 mb-4">
@@ -183,44 +183,53 @@
         </div>
 
       </div> <!-- col barra lateral -->
-      <div class="col-lg-4" id="detalleFirstCol">
-        <div class="row px-3 py-3 mx-4 my-4 border border-secondary rounded-2 bg-secondary-subtle">
-          <div class="alert alert-secondary h4-a mt-4" role="alert" id="remuneracion">
-            <!-- texto vía js -->
-          </div>
-          <div class="row g-3 align-items-center">
-            <div class="col-auto">
-              <label class="col-form-label">Importe bruto</label>
-            </div>
-            <div class="col-auto">
-              <input type="text" id="remEnero" class="form-control text-end">
-            </div>
+      <div class="col-lg-10">
+        <div class="col mt-4 text-center fs-3 fw-bold">
+          <div class="alert alert-primary" role="alert" id="alertEmp" hidden>
+            <!-- vía js -->
           </div>
         </div>
-        <div class="row px-3 py-3 mx-2 my-4">
-          <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#cargaRem"
-            id="cargaDatosRem">Cargar <i class="bi bi-upload"></i></button>
-        </div>
-      </div> <!-- col pantalla -->
-      <div class="col-lg-4" id="detalleSecondCol">
-        <div class="row px-3 py-3 mx-4 my-4 border border-danger rounded-2 bg-danger-subtle">
-          <div class="alert alert-danger h4-a mt-4" role="alert" id="descuento">
-            <!-- texto vía js -->
-          </div>
-          <div class="row g-3 align-items-center">
-            <div class="col-auto">
-              <label for="desEnero" class="col-form-label">Importe bruto</label>
+        <div class="row">
+          <div class="col-lg-6" id="detalleFirstCol">
+            <div class="row px-3 py-3 mx-4 my-4 border border-secondary rounded-2 bg-secondary-subtle">
+              <div class="alert alert-secondary h4-a mt-4" role="alert" id="remuneracion">
+                <!-- texto vía js -->
+              </div>
+              <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label class="col-form-label">Importe bruto</label>
+                </div>
+                <div class="col-auto">
+                  <input type="text" id="remEnero" class="form-control text-end">
+                </div>
+              </div>
             </div>
-            <div class="col-auto">
-              <input type="text" id="desEnero" class="form-control text-end">
+            <div class="row px-3 py-3 mx-2 my-4">
+              <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#cargaRem"
+                id="cargaDatosRem">Cargar <i class="bi bi-upload"></i></button>
             </div>
-          </div>
+          </div> <!-- col pantalla -->
+          <div class="col-lg-6" id="detalleSecondCol">
+            <div class="row px-3 py-3 mx-4 my-4 border border-danger rounded-2 bg-danger-subtle">
+              <div class="alert alert-danger h4-a mt-4" role="alert" id="descuento">
+                <!-- texto vía js -->
+              </div>
+              <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label for="desEnero" class="col-form-label">Importe bruto</label>
+                </div>
+                <div class="col-auto">
+                  <input type="text" id="desEnero" class="form-control text-end">
+                </div>
+              </div>
+            </div>
+            <div class="row px-3 py-3 mx-2 my-4">
+              <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#cargaDes"
+                id="cargaDatosDes">Cargar <i class="bi bi-upload"></i></button>
+            </div>
+          </div> <!-- col pantalla -->
         </div>
-        <div class="row px-3 py-3 mx-2 my-4">
-          <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#cargaDes"
-            id="cargaDatosDes">Cargar <i class="bi bi-upload"></i></button>
-        </div>
-      </div> <!-- col pantalla -->
+      </div>
 
     </div> <!-- row -->
   </div> <!-- container -->
