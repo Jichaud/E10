@@ -230,8 +230,7 @@ onAuthStateChanged(auth, async (user) => {
       const remMensual = remForm["remMensual"];
 
       const dataRemuneracion = {
-        agregaCollection: addDoc(collection(dataBase, dbEmpleado), {
-          inputIdRem: inputIdRem.value,
+        agregaCollection: setDoc(doc(dataBase, dbEmpleado, inputIdRem.value), {
           remMensual: remMensual.value,
         }),
       };
