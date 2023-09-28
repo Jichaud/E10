@@ -540,28 +540,28 @@ function retCalc() {
                         }
                     }
                     break;
-                    case "116":
+                    case "119":
                         if ($('#inscriptoGanancias').prop('checked') == true) {
                             if ($('#pluralidadSujetos').prop('checked') == true) {
                                 let sumaPluralidad = document.getElementsByClassName("beneficiariosPluralidad");
                                 let alertRetencionPluralidad = document.getElementById("alertRetencionPluralidad");
                                 for (let sumaPlu of sumaPluralidad) {
-                                    if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 8000) {
-                                      calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) * 0.05 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
-                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 16000) {
-                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 8000) * 0.09 + 400 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
-                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 24000) {
-                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 16000) * 0.12 + 1120 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
-                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 32000) {
-                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 24000) * 0.15 + 2080 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
-                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 48000) {
-                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 32000) * 0.19 + 3280 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
-                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 64000) {
-                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 48000) * 0.23 + 6320 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
-                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) <= 96000) {
-                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 64000) * 0.27 + 10000 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
-                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) > 96000) {
-                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 16830) - 96000) * 0.31 + 18640 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) <= 71000) {
+                                      calculoSumaPlu = ((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) * 0.05 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) <= 142000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) - 71000) * 0.09 + 3550 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) <= 213000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) - 142000) * 0.12 + 9940 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) <= 284000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) - 213000) * 0.15 + 18640 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) <= 426000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) - 284000) * 0.19 + 29110 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) <= 568000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) - 426000) * 0.23 + 56090 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) <= 852000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) - 568000) * 0.27 + 88750 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                    } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) > 852000) {
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) - 852000) * 0.31 + 165430 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
                                     }
                                   
                                   let redondeo = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format((calculoSumaPlu * 100) / 100).replace("US$", "")
@@ -594,29 +594,29 @@ function retCalc() {
                                 alertRetencionPluralidad.className = "alert alert-danger";
                                 $('#alertRetencionPluralidad').show()
                                 $('#datosMin').val("240,00")
-                                $('#datosMNSR').val("16.830,00")
+                                $('#datosMNSR').val("160.000,00")
                                 $('#alertDatosRetencion').show()
                                 $('#datosRetencion').text("Datos retención profesiones liberales")
                                 retCalcFin();
             
                             } else {
                                 let importeRetInscripto = (+importeNetoNum + +pagosMesNum - 67170) * 0.02 - +retencionesMesNum
-                                if ((+importeNetoNum + +pagosMesNum - 16830) <= 8000) {
-                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830) * 0.05 - +retencionesMesNum
-                                } else if ((+importeNetoNum + +pagosMesNum - 16830) <= 16000) {
-                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 8000) * 0.09 + 400 - +retencionesMesNum
-                                } else if ((+importeNetoNum + +pagosMesNum - 16830) <= 24000) {
-                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 16000) * 0.12 + 1120 - +retencionesMesNum
-                                } else if ((+importeNetoNum + +pagosMesNum - 16830) <= 32000) {
-                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 24000) * 0.15 + 2080 - +retencionesMesNum
-                                } else if ((+importeNetoNum + +pagosMesNum - 16830) <= 48000) {
-                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 32000) * 0.19 + 3280 - +retencionesMesNum
-                                } else if ((+importeNetoNum + +pagosMesNum - 16830) <= 64000) {
-                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 48000) * 0.23 + 6320 - +retencionesMesNum
-                                } else if ((+importeNetoNum + +pagosMesNum - 16830) <= 96000) {
-                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 64000) * 0.27 + 10000 - +retencionesMesNum
-                                } else if ((+importeNetoNum + +pagosMesNum - 16830) > 96000) {
-                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 16830 - 96000) * 0.31 + 18640 - +retencionesMesNum
+                                if ((+importeNetoNum + +pagosMesNum - 160000) <= 71000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000) * 0.05 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 160000) <= 142000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 71000) * 0.09 + 3550 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 160000) <= 213000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 142000) * 0.12 + 9940 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 160000) <= 284000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 213000) * 0.15 + 18640 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 160000) <= 426000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 284000) * 0.19 + 29110 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 160000) <= 568000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 426000) * 0.23 + 56090 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 160000) <= 852000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 568000) * 0.27 + 88750 - +retencionesMesNum
+                                } else if ((+importeNetoNum + +pagosMesNum - 160000) > 852000) {
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 852000) * 0.31 + 165340 - +retencionesMesNum
                                 }
 
                                 if (importeRetInscripto < 240) {
@@ -627,7 +627,7 @@ function retCalc() {
                                 alertDatosRetencion.className = "alert alert-danger";
                                 $('#pDatosImporteRetencion').text("Retención profesiones liberales")
                                 $('#datosMin').val("240,00")
-                                $('#datosMNSR').val("16.830,00")
+                                $('#datosMNSR').val("160.000,00")
                                 $('#alertDatosRetencion').show()
                                 $('#datosRetencion').text("Datos retención profesiones liberales")
                                 $('#datosImporteRetencion').show()
@@ -731,7 +731,7 @@ function retCalc() {
                                 $('#datosRetencion').text("Datos retención profesiones liberales")
                                 retCalcFin();
                             } else {
-                                let importeRetResto = (+importeNetoNum + +pagosMesNum) * 0.25 - +retencionesMesNum
+                                let importeRetResto = (+importeNetoNum + +pagosMesNum) * 0.28 - +retencionesMesNum
                                 if (importeRetResto < 240) {
                                     $('#importeRet').val("Menor al mínimo")
                                 } else {
@@ -838,7 +838,7 @@ $('#regRet').change(function(){
             btnPluralidad.className = "btn btn-outline-success fs-4 fw-bold";
             $('#retencion').show()
         break;
-        case "116":
+        case "119":
             codigoRetencion.innerText = "Profesiones liberales";
             retencion.className = "alert bg-danger-subtle fs-5";
             ret.className = "btn btn-outline-danger fs-4 fw-bold";

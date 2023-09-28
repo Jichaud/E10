@@ -81,7 +81,7 @@
           <a class="btn btn-warning" data-bs-toggle="collapse" data-bs-target="#codigo31" type="button" aria-expanded="false" aria-controls="codigo31">Código 31</a>
           <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#codigo78" aria-expanded="false" aria-controls="codigo78">Código 78</button>
           <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#codigo94" aria-expanded="false" aria-controls="codigo94">Código 94</button>
-          <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#codigo116" aria-expanded="false" aria-controls="codigo116">Código 116</button>
+          <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#codigo119" aria-expanded="false" aria-controls="codigo119">Código 119</button>
       </div>
         <div class="row">
           <div class="collapse multi-collapse mt-3" id="codigo31" style="max-width: 500px;">
@@ -107,11 +107,11 @@
               expresamente en otros incisos.
             </div>
           </div>
-          <div class="collapse multi-collapse mt-3" id="codigo116" style="max-width: 500px;">
+          <div class="collapse multi-collapse mt-3" id="codigo119" style="max-width: 500px;">
             <div class="card card-body bg-danger-subtle">
-              <span class="fs-5 fw-bold">Código 116</span>
+              <span class="fs-5 fw-bold">Código 119</span>
               <hr>
-              Anexo ll, inc. k) | Profesionales liberales, oficios, albacea, mandatario, gestor de negocio.
+              Anexo ll, inc. k) | Profesionales liberales, oficios.
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@
                 <option value="31">Alquileres</option>
                 <option value="78">Enajenación de bienes de cambio</option>
                 <option value="94">Servicios sin relación de dependencia</option>
-                <option value="116">Profesiones liberales</option>
+                <option value="119">Profesiones liberales</option>
               </select>
             </div>
 
@@ -190,6 +190,12 @@
               <p class="fs-5 fw-bold text-center">¿Necesitás ayuda?</p>
               <div class="d-grid gap-2 mb-3">
                 <button class="btn btn-outline-dark fs-5 fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#ayudaModal">Ver ayuda <i class="bi bi-info-circle-fill"></i></button>
+              </div>
+            </div>
+            <div class="alert alert-info mb-3" role="alert">
+              <p class="fs-5 fw-bold text-center">Actualizaciones</p>
+              <div class="d-grid gap-2 mb-3">
+                <button class="btn btn-outline-info fs-5 fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#actualizacionesModal">Ver <i class="bi bi-asterisk"></i></button>
               </div>
             </div>
           </div>
@@ -306,6 +312,32 @@
                 </div>
               </div>
             </div> <!-- fin modal ayuda -->
+
+            <!-- Modal Actualizaciones -->
+            <div class="modal fade" id="actualizacionesModal" tabindex="-1" aria-labelledby="actualizacionesModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizaciones</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="list-group mb-3">
+                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1 text-success">Novedades</h5>
+                          <small><span class="badge bg-success fs-6">Profesiones liberales</span></small>
+                        </div>
+                        <p class="mt-4">Desde el 01/octubre/2023 incluye las modificaciones de la <button class="btn btn-success btn-sm fs-6 text-white" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver RG AFIP 5423" onclick="window.open('27092023-1.html', '_self')"> <small class="fw-bold">RG AFIP 5423</small> &nbsp; <i class="bi bi-arrow-right-circle-fill"></i></button></p>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- fin modal actualizaciones -->
 
             <!-- Offcanvas -->
             <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
