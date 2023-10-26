@@ -830,11 +830,23 @@ $('#tipoActividad').change(function(){
 
 })
 
-$('#importeNeto').on('change', function(){
-    if ($('#importeNeto').val() <= 0 ) {
+$('#ingresosBrutos').on('change', function(){
+    if ($('#ingresosBrutos').val() <= 0 ) {
         $('#ret').prop('disabled', true)
     } else {
         $('#ret').prop('disabled', false)
+        // de aquí en adelante, cambiar a una sección de cálculo general luego de cargar todos los parámetros para tomar el índice más alto
+        let ingresosBrutosJS = $('#ingresosBrutos').val().replace(/\./g, '').replace(",", ".")
+        if ($('#tipoActividad').val() === "1") {
+          if (ingresosBrutosJS <= 1414762.58) {
+            console.log(categoriaServicios.catAs.impuesto)
+            console.log(categoriaServicios.catAs.indice)
+          } else if (ingresosBrutosJS <= 2103025.45) {
+            console.log(categoriaServicios.catBs.impuesto)
+            console.log(categoriaServicios.catBs.indice)
+          }
+            
+        }
     }
 })
 
