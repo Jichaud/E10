@@ -106,38 +106,23 @@
               </div>
               <hr>
               <div class="form-check form-switch">
-                <label class="form-check-label" for="flexSwitchCheckChecked1" id="labelPersona">PH / SI</label>
-                <input class="form-check-input" type="checkbox" role="switch" id="tipoPersona" checked value="true">
+                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelAdherentes">Adherentes <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-exclamation-circle-fill text-danger" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-title="¡Importante!" data-bs-content="Leer primero"></i></a></label>
+                <input class="form-check-input mb-3" type="checkbox" role="switch" id="adherentes">
               </div>
-              <div class="form-check form-switch">
-                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelPluralidadSujetos">Pluralidad de sujetos <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-exclamation-circle-fill text-danger" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-title="¡Importante!" data-bs-content="Leer primero"></i></a></label>
-                <input class="form-check-input mb-3" type="checkbox" role="switch" id="pluralidadSujetos">
-              </div>
-              <div class="input-group mb-3 mt-3" id="divPluralidad">
+              <div class="input-group mb-3 mt-3" id="divAdherentes">
                 <div class="row justify-content-center">
                   <div class="col-6">
                     <span class="fw-bold" id="labelBeneficiarios">Beneficiarios</span>
                   </div>
                   <div class="col-4">
                     <input type="text" class="form-control text-center" aria-label="Importe neto" aria-describedby="basic-addon2"
-                      id="pluralidad">
+                      id="adherentesVal">
                   </div>
                   <small class="text-center mt-2">(Indicá un número)</small>
-                  <button type="button" id="btnPluralidad" class="btn btn-outline-warning btn-sm mt-4 mb-3 fs-5">Cargar beneficiarios <i class="bi bi-person-plus-fill fs-4"></i></button>
-                  <div class="row justify-content-center" id="camposPluralidad">
-                      <!-- vía JS -->
-                  </div>
+                  <button type="button" id="btnAdherentes" class="btn btn-outline-warning btn-sm mt-4 mb-3 fs-5">Confirmar <i class="bi bi-person-plus-fill fs-4"></i></button>
                 </div>
               </div>
               <hr>
-              <div class="mb-3">
-                <label for="pagosMes" class="form-label">Pagos en el mismo mes</label>
-                <input type="text" class="form-control text-end border-3 border-secondary" id="pagosMes">
-              </div>
-              <div class="mb-3">
-                <label for="pagosMes" class="form-label">Retenciones en el mismo mes</label>
-                <input type="text" class="form-control text-end border-3 border-secondary" id="retencionesMes">
-              </div>
               <div class="d-grid gap-2 mb-3">
                 <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="ret">Calcular retención <i
                     class="bi bi-box-arrow-right"></i></button>
