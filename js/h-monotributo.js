@@ -46,10 +46,12 @@ $('#ingresosAnuales').click(function(){
 
 $('#adherentes').click(function(){
     if ($(this).prop('checked') == true) {
-        $('#divAdherentes').show()
+        $('#adherentesVal').show()
+        $('#btnAdherentes').show()
     } else {
-        $('#divAdherentes').hide()
+        $('#adherentesVal').hide()
         $('#adherentesVal').val("")
+        $('#btnAdherentes').hide()
     }
 })
 
@@ -70,7 +72,7 @@ $('#tipoActividad').change(function(){
             retencion.className = "alert bg-danger-subtle fs-5";
             ret.className = "btn btn-outline-danger fs-4 fw-bold";
             nuevoCalculo.className = "btn btn-outline-danger fs-4 fw-bold";
-            btnAdherentes.className = "btn btn-outline-danger fs-4 fw-bold";
+            btnAdherentes.className = "btn btn-outline-danger btn-sm mt-4 mb-3 fs-5";
             $('#retencion').show()
         break;
         case "2":
@@ -78,7 +80,7 @@ $('#tipoActividad').change(function(){
             retencion.className = "alert bg-primary-subtle fs-5";
             ret.className = "btn btn-outline-primary fs-4 fw-bold";
             nuevoCalculo.className = "btn btn-outline-primary fs-4 fw-bold";
-            btnAdherentes.className = "btn btn-outline-primary fs-4 fw-bold";
+            btnAdherentes.className = "btn btn-outline-primary btn-sm mt-4 mb-3 fs-5";
             $('#retencion').show()
         break;
     }

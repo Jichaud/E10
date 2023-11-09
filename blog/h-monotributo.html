@@ -13,8 +13,9 @@
   <title>ED blog - Herramientas - Monotributo - Categorización</title>
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
   <!-- Bootstrap icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
@@ -64,7 +65,7 @@
         <button type="button" class="btn btn-outline-primary ms-4" onclick="history.back()">Volver</button>
       </div>
       <div class="ms-auto me-4">
-        <span class="badge bg-primary fs-6" >Monotributo</span>
+        <span class="badge bg-primary fs-6">Monotributo</span>
       </div>
     </div>
   </nav>
@@ -75,7 +76,8 @@
     <br><br>
     <h1 class="mt-4 mb-3 h1-a">Monotributo <span
         class="badge text-bg-primary text-white px-3 py-3">Categorización</span></h1>
-          <a href="16062023-3.html"> <span class="badge bg-primary fs-4">Ver tablas <i class="bi bi-arrow-right-circle-fill"></i></span> </a>
+    <a href="16062023-3.html"> <span class="badge bg-primary fs-4">Ver tablas <i
+          class="bi bi-arrow-right-circle-fill"></i></span> </a>
     <div class="row mt-4">
       <div class="col-lg-4 mb-3">
         <div class="card border-primary">
@@ -92,34 +94,77 @@
               </select>
             </div>
 
-            <!-- Retención mod -->
+            <!-- Datos mod -->
             <div class="alert bg-warning-subtle fs-5" role="alert" id="retencion">
               <span class="fs-5 fw-bold text-center d-grid" id="codigoRetencion"></span>
               <div class="input-group mb-3 mt-3">
-                <span class="input-group-text border-3 border-secondary fw-bold" id="basic-addon1">Ingresos brutos</span>
+                <span class="input-group-text border-3 border-secondary fw-bold" id="basic-addon1">Ingresos
+                  brutos</span>
                 <input type="text" class="form-control border-3 border-secondary text-end" aria-label="Ingresos brutos"
                   aria-describedby="basic-addon1" id="ingresosBrutos">
               </div>
               <div class="form-check form-switch">
-                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelIngresosAnuales">Ingresos anuales</label>
-                <input class="form-check-input mb-3" type="checkbox" role="switch" id="ingresosAnuales" checked value="true">
+                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelIngresosAnuales">Ingresos
+                  anuales</label>
+                <input class="form-check-input mb-3" type="checkbox" role="switch" id="ingresosAnuales" checked
+                  value="true">
               </div>
               <hr>
-              <div class="form-check form-switch">
-                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelAdherentes">Adherentes <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-exclamation-circle-fill text-danger" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-title="¡Importante!" data-bs-content="Leer primero"></i></a></label>
-                <input class="form-check-input mb-3" type="checkbox" role="switch" id="adherentes">
-              </div>
-              <div class="input-group mb-3 mt-3" id="divAdherentes">
-                <div class="row justify-content-center">
-                  <div class="col-6">
-                    <span class="fw-bold" id="labelBeneficiarios">Beneficiarios</span>
+              <label for="regret" class="form-label">Superficie afectada</label>
+              <select class="form-select form-select-lg border-3 border-dark" id="superficieAfectada"
+                aria-label="régimen de retención">
+                <option selected>Selecciona...</option>
+                <option value="1">Hasta 30 m<sup>2</sup></option>
+                <option value="2">Hasta 45 m<sup>2</sup></option>
+                <option value="3">Hasta 60 m<sup>2</sup></option>
+                <option value="4">Hasta 85 m<sup>2</sup></option>
+                <option value="5">Hasta 110 m<sup>2</sup></option>
+                <option value="6">Hasta 150 m<sup>2</sup></option>
+                <option value="7">Hasta 200 m<sup>2</sup></option>
+              </select>
+              <hr>
+              <label for="regret" class="form-label">Energía eléctrica consumida anualmente</label>
+              <select class="form-select form-select-lg border-3 border-dark" id="energiaConsumida"
+                aria-label="régimen de retención">
+                <option selected>Selecciona...</option>
+                <option value="1">Hasta 3.330 Kw</option>
+                <option value="2">Hasta 5.000 Kw</option>
+                <option value="3">Hasta 6.700 Kw</option>
+                <option value="4">Hasta 10.000 Kw</option>
+                <option value="5">Hasta 13.000 Kw</option>
+                <option value="6">Hasta 16.500 Kw</option>
+                <option value="7">Hasta 20.000 Kw</option>
+              </select>
+              <hr>
+              <label for="regret" class="form-label">Alquileres devengados anualmente</label>
+              <select class="form-select form-select-lg border-3 border-dark" id="energiaConsumida"
+                aria-label="régimen de retención">
+                <option selected>Selecciona...</option>
+                <option value="1">$ 230.178,48</option>
+                <option value="2">$ 460.356,93</option>
+                <option value="3">$ 573.619,32</option>
+                <option value="4">$ 575.446,12</option>
+                <option value="5">$ 690.535,39</option>
+                <option value="6">$ 920.713,84</option>
+              </select>
+              <hr>
+              <div class="row justify-content-between">
+                <div class="col-9">
+                  <div class="form-check form-switch">
+                    <label class="form-check-label" for="flexSwitchCheckChecked" id="labelAdherentes">Adherentes <a
+                        type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+                        aria-controls="offcanvasScrolling"><i class="bi bi-exclamation-circle-fill text-danger"
+                          data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus"
+                          data-bs-title="¡Importante!" data-bs-content="Leer primero"></i></a></label>
+                    <input class="form-check-input mb-3" type="checkbox" role="switch" id="adherentes">
+                    <button type="button" id="btnAdherentes"
+                      class="btn btn-outline-warning btn-sm mt-4 mb-3 fs-5">Confirmar
+                      <i class="bi bi-person-plus-fill fs-4"></i></button>
                   </div>
-                  <div class="col-4">
-                    <input type="text" class="form-control text-center" aria-label="Importe neto" aria-describedby="basic-addon2"
-                      id="adherentesVal">
-                  </div>
-                  <small class="text-center mt-2">(Indicá un número)</small>
-                  <button type="button" id="btnAdherentes" class="btn btn-outline-warning btn-sm mt-4 mb-3 fs-5">Confirmar <i class="bi bi-person-plus-fill fs-4"></i></button>
+                </div>
+                <div class="col-3">
+                  <input type="text" class="form-control text-center" aria-label="Adherentes"
+                    aria-describedby="basic-addon2" id="adherentesVal">
                 </div>
               </div>
               <hr>
@@ -127,12 +172,13 @@
                 <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="ret">Calcular retención <i
                     class="bi bi-box-arrow-right"></i></button>
               </div>
-              </div> <!-- fin retención mod -->
+            </div> <!-- fin datos mod -->
 
             <div class="alert alert-dark mb-3" role="alert">
               <p class="fs-5 fw-bold text-center">¿Necesitás ayuda?</p>
               <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-outline-dark fs-5 fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#ayudaModal">Ver ayuda <i class="bi bi-info-circle-fill"></i></button>
+                <button class="btn btn-outline-dark fs-5 fw-bold" type="button" data-bs-toggle="modal"
+                  data-bs-target="#ayudaModal">Ver ayuda <i class="bi bi-info-circle-fill"></i></button>
               </div>
             </div>
           </div>
@@ -179,161 +225,143 @@
             <div class="alert alert-warning" role="alert" id="datosImporteRetencion">
               <p class="fw-bold fs-4 text-center" id="pDatosImporteRetencion"></p>
               <div class="input-group mb-3 mt-3">
-                <input type="text" class="form-control border-3 border-secondary text-end fs-4 fw-bold" placeholder="0,00"
-                  aria-label="Importe retención" aria-describedby="basic-addon2" id="importeRet" disabled>
+                <input type="text" class="form-control border-3 border-secondary text-end fs-4 fw-bold"
+                  placeholder="0,00" aria-label="Importe retención" aria-describedby="basic-addon2" id="importeRet"
+                  disabled>
               </div>
             </div>
           </div>
         </div> <!-- row régimen general -->
         <div class="row">
-          <div class="col">
-            <div class="alert alert-warning" role="alert" id="alertRetencionPluralidad">
-              <p class="fw-bold fs-4 text-center" id="pDatosRetencionPluralidad"></p>
-              <ol class="list-group list-group-numbered" id="datosImporteRetencionPluralidad">
-      
-              </ol>
-            </div>
-          </div>
           <div class="d-grid gap-2">
             <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo" hidden>Nuevo cálculo <i
                 class="bi bi-arrow-clockwise"></i></button>
           </div>
         </div> <!-- row pluralidad -->
       </div> <!-- col -->
-      
+
     </div> <!-- row -->
   </div> <!-- container -->
 
-            <!-- Modal Ayuda -->
-            <div class="modal fade" id="ayudaModal" tabindex="-1" aria-labelledby="ayudaModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ayuda</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="list-group mb-3">
-                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-success">Consideraciones</h5>
-                          <small><span class="badge bg-success fs-6">Alcance</span></small>
-                        </div>
-                        <p class="mb-1">La presente herramienta es de alcance limitado a determinados regímenes de retención que, por experiencia en la labor profesional, son de mayor aplicación en el día a día.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-warning-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Utilización de la herramienta</h5>
-                          <small><span class="badge bg-warning fs-6 text-dark">Cálculos</span></small>
-                        </div>
-                        <p class="mb-1">La correcta utilización de la herramienta implica tener el conocimiento de determinados conceptos definidos en la RG AFIP 830. Si no está familiarizado con ellos, recomendamos no utilizarla teniendo en cuenta las implicancias fiscales que puedan acarrear a los clientes que asesora.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-primary-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Criterio profesional</h5>
-                          <small><span class="badge bg-primary fs-6">Expertise</span></small>
-                        </div>
-                        <p class="mb-1">Bajo ningún aspecto esta herramienta reemplaza el criterio profesional, ni los cálculos obtenidos de la herramienta deben ser considerados como exactos. La complejidad de la operación a considerar y los datos cargados en la herramienta, pueden dar resultados inesperados y no ajustados al criterio fiscal. <br><br>
-                        Puede utilizarla como herramienta de verificación de sus propios cálculos y en caso de discrepancia, utilizar el formulario de comentarios mencionado en el siguiente punto para hacernos llegar la inquietud.
-                        </p>
-                      </a>
-                    </div>
-                    <div class="alert alert-dark" role="alert">
-                      Tenés algún comentario, encontraste un error, o querés enviarnos un agradecimiento...
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh8o_HIE6M_OaUEZn81cfg2agxZIjFmtUZjMbP4zbGcO57SQ/viewform" target="_blank"><button type="button" class="btn btn-outline-success mt-3">Enviar comentario <i class="bi bi-arrow-right-circle-fill"></i></button></a>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-                </div>
+  <!-- Modal Ayuda -->
+  <div class="modal fade" id="ayudaModal" tabindex="-1" aria-labelledby="ayudaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Ayuda</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">Consideraciones</h5>
+                <small><span class="badge bg-success fs-6">Alcance</span></small>
               </div>
-            </div> <!-- fin modal ayuda -->
+              <p class="mb-1">La presente herramienta es de alcance limitado a determinados regímenes de retención que,
+                por experiencia en la labor profesional, son de mayor aplicación en el día a día.</p>
+            </a>
+            <a class="list-group-item list-group-item-action bg-warning-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Utilización de la herramienta</h5>
+                <small><span class="badge bg-warning fs-6 text-dark">Cálculos</span></small>
+              </div>
+              <p class="mb-1">La correcta utilización de la herramienta implica tener el conocimiento de determinados
+                conceptos definidos en la RG AFIP 830. Si no está familiarizado con ellos, recomendamos no utilizarla
+                teniendo en cuenta las implicancias fiscales que puedan acarrear a los clientes que asesora.</p>
+            </a>
+            <a class="list-group-item list-group-item-action bg-primary-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Criterio profesional</h5>
+                <small><span class="badge bg-primary fs-6">Expertise</span></small>
+              </div>
+              <p class="mb-1">Bajo ningún aspecto esta herramienta reemplaza el criterio profesional, ni los cálculos
+                obtenidos de la herramienta deben ser considerados como exactos. La complejidad de la operación a
+                considerar y los datos cargados en la herramienta, pueden dar resultados inesperados y no ajustados al
+                criterio fiscal. <br><br>
+                Puede utilizarla como herramienta de verificación de sus propios cálculos y en caso de discrepancia,
+                utilizar el formulario de comentarios mencionado en el siguiente punto para hacernos llegar la
+                inquietud.
+              </p>
+            </a>
+          </div>
+          <div class="alert alert-dark" role="alert">
+            Tenés algún comentario, encontraste un error, o querés enviarnos un agradecimiento...
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh8o_HIE6M_OaUEZn81cfg2agxZIjFmtUZjMbP4zbGcO57SQ/viewform"
+              target="_blank"><button type="button" class="btn btn-outline-success mt-3">Enviar comentario <i
+                  class="bi bi-arrow-right-circle-fill"></i></button></a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin modal ayuda -->
 
-            <!-- Modal Actualizaciones -->
-            <div class="modal fade" id="actualizacionesModal" tabindex="-1" aria-labelledby="actualizacionesModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizaciones</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="list-group mb-3">
-                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-success">Novedades</h5>
-                          <small><span class="badge bg-success fs-6">Profesiones liberales</span></small>
-                        </div>
-                        <p class="mt-4">Desde el 01/octubre/2023 incluye las modificaciones de la <button class="btn btn-success btn-sm fs-6 text-white" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver RG AFIP 5423" onclick="window.open('27092023-1.html', '_self')"> <small class="fw-bold">RG AFIP 5423</small> &nbsp; <i class="bi bi-arrow-right-circle-fill"></i></button></p>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-                </div>
-              </div>
-            </div> <!-- fin modal actualizaciones -->
+  <!-- Offcanvas -->
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Pluralidad de sujetos</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="list-group mb-3">
+        <a class="list-group-item list-group-item-action bg-primary-subtle" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1 text-primary">Carga de datos</h5>
+            <small><span class="badge bg-primary fs-6">Datos</span></small>
+          </div>
+          <p class="mb-1">Como primer paso deberás indicar la cantidad de contribuyentes que aplican. Por ejemplo: 2, 3,
+            4, etc.
+            <hr>
 
-            <!-- Offcanvas -->
-            <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-              id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Pluralidad de sujetos</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-                <div class="list-group mb-3">
-                  <a class="list-group-item list-group-item-action bg-primary-subtle" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1 text-primary">Carga de datos</h5>
-                      <small><span class="badge bg-primary fs-6">Datos</span></small>
-                    </div>
-                    <p class="mb-1">Como primer paso deberás indicar la cantidad de contribuyentes que aplican. Por ejemplo: 2, 3, 4, etc. <hr>
-        
-                      A continuación presioná el botón <span class="badge bg-warning text-dark">Cargar beneficiarios</span> <hr>
-        
-                      Por último indicá el porcentaje en que cada uno participa en el importe neto informado. Utilizá el punto "." en lugar de la coma "," como separador decimal. Por ejemplo: 25, 33.33, 73.28, etc.</p>
-                  </a>
-                  <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1 text-success">Pluralidad de sujetos</h5>
-                      <small><span class="badge bg-success fs-6">Artículo 8</span></small>
-                    </div>
-                    <p class="mb-1">En aquellos casos en que se realicen pagos por conceptos comprendidos en el Anexo II de la
-                      presente, a varios beneficiarios en forma global, la retención se practicará individualmente a cada
-                      sujeto, debiendo los beneficiarios entregar al agente de retención una nota suscripta por todos ellos
-                      (8.1.). <br>
-        
-                      Idéntico procedimiento se aplicará cuando se trate de pagos a uniones transitorias de empresas,
-                      agrupamientos de colaboración empresaria, consorcios y asociaciones, sin existencia legal como personas
-                      jurídicas. <br>
-        
-                      Cuando se efectúen cesiones de ingresos u honorarios, no podrá cederse la proporción correspondiente a la
-                      retención practicada. En tales casos, el cesionario emitirá la factura o documento equivalente que
-                      respalde la prestación que realizó al cedente, debiendo éste practicar, si corresponde, la pertinente
-                      retención.</p>
-                  </a>
-                  <a class="list-group-item list-group-item-action bg-warning-subtle">
-                    <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1 text-dark">Nota, en la que se consignará por cada beneficiario</h5>
-                      <small><span class="badge bg-warning fs-6 text-dark">8.1</span></small>
-                    </div>
-                    <ol class="list-group list-group-numbered list-group-flush">
-                      <li class="list-group-item list-group-item-warning">Apellido y nombres o denominación.</li>
-                      <li class="list-group-item list-group-item-warning">Domicilio fiscal.</li>
-                      <li class="list-group-item list-group-item-warning">Clave Unica de Identificación Tributaria (C.U.I.T.).
-                      </li>
-                      <li class="list-group-item list-group-item-warning">Proporción de la renta que le corresponde.</li>
-                      <li class="list-group-item list-group-item-warning">Condición en el impuesto a las ganancias.</li>
-                    </ol>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <!-- fin Offcanvas -->
-  
+            A continuación presioná el botón <span class="badge bg-warning text-dark">Cargar beneficiarios</span>
+            <hr>
+
+            Por último indicá el porcentaje en que cada uno participa en el importe neto informado. Utilizá el punto "."
+            en lugar de la coma "," como separador decimal. Por ejemplo: 25, 33.33, 73.28, etc.
+          </p>
+        </a>
+        <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1 text-success">Pluralidad de sujetos</h5>
+            <small><span class="badge bg-success fs-6">Artículo 8</span></small>
+          </div>
+          <p class="mb-1">En aquellos casos en que se realicen pagos por conceptos comprendidos en el Anexo II de la
+            presente, a varios beneficiarios en forma global, la retención se practicará individualmente a cada
+            sujeto, debiendo los beneficiarios entregar al agente de retención una nota suscripta por todos ellos
+            (8.1.). <br>
+
+            Idéntico procedimiento se aplicará cuando se trate de pagos a uniones transitorias de empresas,
+            agrupamientos de colaboración empresaria, consorcios y asociaciones, sin existencia legal como personas
+            jurídicas. <br>
+
+            Cuando se efectúen cesiones de ingresos u honorarios, no podrá cederse la proporción correspondiente a la
+            retención practicada. En tales casos, el cesionario emitirá la factura o documento equivalente que
+            respalde la prestación que realizó al cedente, debiendo éste practicar, si corresponde, la pertinente
+            retención.</p>
+        </a>
+        <a class="list-group-item list-group-item-action bg-warning-subtle">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1 text-dark">Nota, en la que se consignará por cada beneficiario</h5>
+            <small><span class="badge bg-warning fs-6 text-dark">8.1</span></small>
+          </div>
+          <ol class="list-group list-group-numbered list-group-flush">
+            <li class="list-group-item list-group-item-warning">Apellido y nombres o denominación.</li>
+            <li class="list-group-item list-group-item-warning">Domicilio fiscal.</li>
+            <li class="list-group-item list-group-item-warning">Clave Unica de Identificación Tributaria (C.U.I.T.).
+            </li>
+            <li class="list-group-item list-group-item-warning">Proporción de la renta que le corresponde.</li>
+            <li class="list-group-item list-group-item-warning">Condición en el impuesto a las ganancias.</li>
+          </ol>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- fin Offcanvas -->
+
   <hr>
 
   <!-- Footer -->
@@ -378,7 +406,8 @@
         </div>
         <div class="col-lg-3 mb-4">
           <div class="list-group">
-            <a class="list-group-item list-group-item-action list-group-item-warning fw-normal lead px-3 py-3">Conecta</a>
+            <a
+              class="list-group-item list-group-item-action list-group-item-warning fw-normal lead px-3 py-3">Conecta</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
               href="https://www.estudiodiez.com/contact.html">Contacto</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
@@ -408,11 +437,17 @@
     crossorigin="anonymous"></script>
 
   <!-- Mask -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+    integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
 
   <script type="text/javascript">
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -431,11 +466,11 @@
 
   <!-- toast -->
   <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
       $(".toast").toast("hide");
     });
   </script>
-  
+
 </body>
 
 </html>
