@@ -87,7 +87,7 @@
             <div class="alert bg-dark-subtle fs-5 text-dark" role="alert">
               <label for="regret" class="form-label">Tipo de actividad</label>
               <select class="form-select form-select-lg border-3 border-dark" id="tipoActividad"
-                aria-label="régimen de retención">
+                aria-label="tipo de actividad">
                 <option selected>Selecciona...</option>
                 <option value="1">Servicios</option>
                 <option value="2">Venta de bienes</option>
@@ -95,8 +95,8 @@
             </div>
 
             <!-- Datos mod -->
-            <div class="alert bg-warning-subtle fs-5" role="alert" id="retencion">
-              <span class="fs-5 fw-bold text-center d-grid" id="codigoRetencion"></span>
+            <div class="alert bg-warning-subtle fs-5" role="alert" id="actividad">
+              <span class="fs-5 fw-bold text-center d-grid" id="codigoActividad"></span>
               <div class="input-group mb-3 mt-3">
                 <span class="input-group-text border-3 border-secondary fw-bold" id="basic-addon1">Ingresos
                   brutos</span>
@@ -169,7 +169,7 @@
               </div>
               <hr>
               <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="ret">Calcular retención <i
+                <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="categoria">Calcular categoría <i
                     class="bi bi-box-arrow-right"></i></button>
               </div>
             </div> <!-- fin datos mod -->
@@ -298,6 +298,32 @@
       </div>
     </div>
   </div> <!-- fin modal ayuda -->
+
+  <!-- Modal Ingresos brutos -->
+  <div class="modal fade" id="ingresosModal" tabindex="-1" aria-labelledby="ingresosModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title text-danger fw-bold fs-5" id="exampleModalLabel">Excluido del monotributo</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">Consideraciones</h5>
+                <small><span class="badge bg-success fs-6">Tope</span></small>
+              </div>
+              <p class="mb-1">El tope para quedar dentro del régimen de monotributo para locaciones y/o prestaciones de servicios es de <span class="fw-bold text-danger" id="topeModal"></span> </p>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin modal supera ingresos brutos -->
 
   <!-- Offcanvas -->
   <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"

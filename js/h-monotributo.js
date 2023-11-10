@@ -2,6 +2,7 @@
 let html = ''
 let ingresosBrutosJS = ''
 let numeroAdherentes = ''
+let ingresosBrutosIndice = ''
 
 function retCalcFin () {
     $('#ret').hide()
@@ -18,7 +19,7 @@ function retCalcFin () {
 
 const monoToGo = document.getElementById("footer-card")
 
-$('#ret').on("click", function(){
+$('#categoria').on("click", function(){
     retCalc();
     $('#datosNeto').val(importeNeto.value)
     $('#datosPagosAnteriores').val(pagosMes.value)
@@ -55,56 +56,72 @@ $('#adherentes').click(function(){
     }
 })
 
-let codigoRetencion = document.getElementById("codigoRetencion");
-let retencion = document.getElementById("retencion");
-let ret = document.getElementById("ret");
+let codigoActividad = document.getElementById("codigoActividad");
+let actividad = document.getElementById("actividad");
+let categoria = document.getElementById("categoria");
 let nuevoCalculo = document.getElementById("nuevoCalculo");
 let btnAdherentes = document.getElementById("btnAdherentes");
 $('#tipoActividad').change(function(){
     switch($(this).val()){
         case "Selecciona...":
-            $('#retencion').hide()
+            $('#actividad').hide()
             $('#alertDatosRetencion').hide()
             $('#datosImporteRetencion').hide()
         break;
         case "1":
-            codigoRetencion.innerText = "Locaciones y/o Prestaciones de Servicios";
-            retencion.className = "alert bg-danger-subtle fs-5";
-            ret.className = "btn btn-outline-danger fs-4 fw-bold";
+            codigoActividad.innerText = "Locaciones y/o Prestaciones de Servicios";
+            actividad.className = "alert bg-danger-subtle fs-5";
+            categoria.className = "btn btn-outline-danger fs-4 fw-bold";
             nuevoCalculo.className = "btn btn-outline-danger fs-4 fw-bold";
             btnAdherentes.className = "btn btn-outline-danger btn-sm mt-4 mb-3 fs-5";
-            $('#retencion').show()
+            $('#actividad').show()
         break;
         case "2":
-            codigoRetencion.innerText = "Venta de cosas muebles";
-            retencion.className = "alert bg-primary-subtle fs-5";
-            ret.className = "btn btn-outline-primary fs-4 fw-bold";
+            codigoActividad.innerText = "Venta de cosas muebles";
+            actividad.className = "alert bg-primary-subtle fs-5";
+            categoria.className = "btn btn-outline-primary fs-4 fw-bold";
             nuevoCalculo.className = "btn btn-outline-primary fs-4 fw-bold";
             btnAdherentes.className = "btn btn-outline-primary btn-sm mt-4 mb-3 fs-5";
-            $('#retencion').show()
+            $('#actividad').show()
         break;
     }
 
 })
 
-$('#ingresosBrutos').on('change', function(){
-    if ($('#ingresosBrutos').val() <= 0 ) {
-        $('#ret').prop('disabled', true)
-    } else {
-        $('#ret').prop('disabled', false)
-        ingresosBrutosJS = $('#ingresosBrutos').val().replace(/\./g, '').replace(",", ".")
-        // de aquí en adelante, cambiar a una sección de cálculo general luego de cargar todos los parámetros para tomar el índice más alto
-        if ($('#tipoActividad').val() === "1") {
-          if (ingresosBrutosJS <= 1414762.58) {
-            console.log(categoriaServicios.catAs.impuesto)
-            console.log(categoriaServicios.catAs.indice)
-          } else if (ingresosBrutosJS <= 2103025.45) {
-            console.log(categoriaServicios.catBs.impuesto)
-            console.log(categoriaServicios.catBs.indice)
-          }
-            
-        }
+function calcIngresos (){
+  ingresosBrutosJS = $('#ingresosBrutos').val().replace(/\./g, '').replace(",", ".")
+  let topeModal = document.getElementById("topeModal")
+  let topeIngresos = categoriaServicios.catHs.ingresosBrutos
+  if ($('#tipoActividad').val() === "1") {
+    if (ingresosBrutosJS <= categoriaServicios.catAs.ingresosBrutos) {
+      ingresosBrutosIndice = categoriaServicios.catAs.indice
+    } else if (ingresosBrutosJS <= categoriaServicios.catBs.ingresosBrutos) {
+      ingresosBrutosIndice = categoriaServicios.catBs.indice
+    } else if (ingresosBrutosJS <= categoriaServicios.catCs.ingresosBrutos) {
+      ingresosBrutosIndice = categoriaServicios.catCs.indice
+    } else if (ingresosBrutosJS <= categoriaServicios.catDs.ingresosBrutos) {
+      ingresosBrutosIndice = categoriaServicios.catDs.indice
+    } else if (ingresosBrutosJS <= categoriaServicios.catEs.ingresosBrutos) {
+      ingresosBrutosIndice = categoriaServicios.catEs.indice
+    } else if (ingresosBrutosJS <= categoriaServicios.catFs.ingresosBrutos) {
+      ingresosBrutosIndice = categoriaServicios.catFs.indice
+    } else if (ingresosBrutosJS <= categoriaServicios.catGs.ingresosBrutos) {
+      ingresosBrutosIndice = categoriaServicios.catGs.indice
+    } else if (ingresosBrutosJS <= categoriaServicios.catHs.ingresosBrutos) {
+      ingresosBrutosIndice = categoriaServicios.catHs.indice
+    } else if (ingresosBrutosJS > categoriaServicios.catHs.ingresosBrutos) {
+      $('#ingresosBrutos').val(0)
+      topeModal.innerText = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(topeIngresos).replace("US$", "")
+      $('#ingresosModal').modal('show');
     }
+      
+  }
+
+}
+
+$('#ingresosBrutos').on('change', function(){
+  calcIngresos()
+  console.log(ingresosBrutosIndice)
 })
 
 $('#btnAdherentes').click(function(){
