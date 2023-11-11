@@ -1,152 +1,254 @@
 // cargaInicio();
-let html = ''
-let ingresosBrutosJS = ''
-let numeroAdherentes = ''
-let ingresosBrutosIndice = ''
+let html = "";
+let ingresosBrutosJS = "";
+let numeroAdherentes = "";
+let ingresosBrutosIndice = "";
+let tipoActividadValue = "";
 
-function retCalcFin () {
-    $('#ret').hide()
-    $('#nuevoCalculo').prop('hidden', false)
-    $('#regRet').prop('disabled', true)
-    $('#importeNeto').prop('disabled', true)
-    $('#inscriptoGanancias').prop('disabled', true)
-    $('#pluralidadSujetos').prop('disabled', true)
-    $('#btnAdherentes').prop('disabled', true)
-    $('#pagosMes').prop('disabled', true)
-    $('#retencionesMes').prop('disabled', true)
-    $('#tipoPersona').prop('disabled', true)
+
+function retCalcFin() {
+  $("#ret").hide();
+  $("#nuevoCalculo").prop("hidden", false);
+  $("#regRet").prop("disabled", true);
+  $("#importeNeto").prop("disabled", true);
+  $("#inscriptoGanancias").prop("disabled", true);
+  $("#pluralidadSujetos").prop("disabled", true);
+  $("#btnAdherentes").prop("disabled", true);
+  $("#pagosMes").prop("disabled", true);
+  $("#retencionesMes").prop("disabled", true);
+  $("#tipoPersona").prop("disabled", true);
 }
 
-const monoToGo = document.getElementById("footer-card")
+const monoToGo = document.getElementById("footer-card");
 
-$('#categoria').on("click", function(){
-    retCalc();
-    $('#datosNeto').val(importeNeto.value)
-    $('#datosPagosAnteriores').val(pagosMes.value)
-    $('#datosRetAnteriores').val(retencionesMes.value)
-    if ($(window).width() < 992) {
-      monoToGo.scrollIntoView()
-   }
-   else {
+$("#categoria").on("click", function () {
+  retCalc();
+  $("#datosNeto").val(importeNeto.value);
+  $("#datosPagosAnteriores").val(pagosMes.value);
+  $("#datosRetAnteriores").val(retencionesMes.value);
+  if ($(window).width() < 992) {
+    monoToGo.scrollIntoView();
+  } else {
     window.scroll({
       top: 0,
       left: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
-   }
-    $('#offcanvasScrolling').hide()
-})
+  }
+  $("#offcanvasScrolling").hide();
+});
 
-$('#ingresosAnuales').click(function(){
-    if ($(this).prop('checked') == true) {
-        $('#labelIngresosAnuales').text("Ingresos anuales");
-    } else {
-        $('#labelIngresosAnuales').text("Ingresos mensuales");
-    }
-})
+$("#ingresosAnuales").click(function () {
+  if ($(this).prop("checked") == true) {
+    $("#labelIngresosAnuales").text("Ingresos anuales");
+  } else {
+    $("#labelIngresosAnuales").text("Ingresos mensuales");
+  }
+});
 
-$('#adherentes').click(function(){
-    if ($(this).prop('checked') == true) {
-        $('#adherentesVal').show()
-        $('#btnAdherentes').show()
-    } else {
-        $('#adherentesVal').hide()
-        $('#adherentesVal').val("")
-        $('#btnAdherentes').hide()
-    }
-})
+$("#adherentes").click(function () {
+  if ($(this).prop("checked") == true) {
+    $("#adherentesVal").show();
+    $("#btnAdherentes").show();
+  } else {
+    $("#adherentesVal").hide();
+    $("#adherentesVal").val("");
+    $("#btnAdherentes").hide();
+  }
+});
 
 let codigoActividad = document.getElementById("codigoActividad");
 let actividad = document.getElementById("actividad");
 let categoria = document.getElementById("categoria");
 let nuevoCalculo = document.getElementById("nuevoCalculo");
 let btnAdherentes = document.getElementById("btnAdherentes");
-$('#tipoActividad').change(function(){
-    switch($(this).val()){
-        case "Selecciona...":
-            $('#actividad').hide()
-            $('#alertDatosRetencion').hide()
-            $('#datosImporteRetencion').hide()
-        break;
-        case "1":
-            codigoActividad.innerText = "Locaciones y/o Prestaciones de Servicios";
-            actividad.className = "alert bg-danger-subtle fs-5";
-            categoria.className = "btn btn-outline-danger fs-4 fw-bold";
-            nuevoCalculo.className = "btn btn-outline-danger fs-4 fw-bold";
-            btnAdherentes.className = "btn btn-outline-danger btn-sm mt-4 mb-3 fs-5";
-            $('#actividad').show()
-        break;
-        case "2":
-            codigoActividad.innerText = "Venta de cosas muebles";
-            actividad.className = "alert bg-primary-subtle fs-5";
-            categoria.className = "btn btn-outline-primary fs-4 fw-bold";
-            nuevoCalculo.className = "btn btn-outline-primary fs-4 fw-bold";
-            btnAdherentes.className = "btn btn-outline-primary btn-sm mt-4 mb-3 fs-5";
-            $('#actividad').show()
-        break;
-    }
-
-})
-
-function calcIngresos (){
-  ingresosBrutosJS = $('#ingresosBrutos').val().replace(/\./g, '').replace(",", ".")
-  let topeModal = document.getElementById("topeModal")
-  let topeIngresos = categoriaServicios.catHs.ingresosBrutos
-  if ($('#tipoActividad').val() === "1") {
-    if (ingresosBrutosJS <= categoriaServicios.catAs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catAs.indice
-    } else if (ingresosBrutosJS <= categoriaServicios.catBs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catBs.indice
-    } else if (ingresosBrutosJS <= categoriaServicios.catCs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catCs.indice
-    } else if (ingresosBrutosJS <= categoriaServicios.catDs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catDs.indice
-    } else if (ingresosBrutosJS <= categoriaServicios.catEs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catEs.indice
-    } else if (ingresosBrutosJS <= categoriaServicios.catFs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catFs.indice
-    } else if (ingresosBrutosJS <= categoriaServicios.catGs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catGs.indice
-    } else if (ingresosBrutosJS <= categoriaServicios.catHs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catHs.indice
-    } else if (ingresosBrutosJS > categoriaServicios.catHs.ingresosBrutos) {
-      $('#ingresosBrutos').val(0)
-      topeModal.innerText = Intl.NumberFormat("es", { style: "currency", currency: "USD", currencySign: "accounting" }).format(topeIngresos).replace("US$", "")
-      $('#ingresosModal').modal('show');
-    }
-      
+$("#tipoActividad").change(function () {
+  switch ($(this).val()) {
+    case "Selecciona...":
+      $("#actividad").hide();
+      $("#alertDatosRetencion").hide();
+      $("#datosImporteRetencion").hide();
+      tipoActividadValue = "Selecciona..."
+      break;
+    case "1":
+      codigoActividad.innerText = "Locaciones y/o Prestaciones de Servicios";
+      actividad.className = "alert bg-danger-subtle fs-5";
+      categoria.className = "btn btn-outline-danger fs-4 fw-bold";
+      nuevoCalculo.className = "btn btn-outline-danger fs-4 fw-bold";
+      btnAdherentes.className = "btn btn-outline-danger btn-sm mt-4 mb-3 fs-5";
+      $("#actividad").show();
+      tipoActividadValue = "1";
+      break;
+    case "2":
+      codigoActividad.innerText = "Venta de cosas muebles";
+      actividad.className = "alert bg-primary-subtle fs-5";
+      categoria.className = "btn btn-outline-primary fs-4 fw-bold";
+      nuevoCalculo.className = "btn btn-outline-primary fs-4 fw-bold";
+      btnAdherentes.className = "btn btn-outline-primary btn-sm mt-4 mb-3 fs-5";
+      $("#actividad").show();
+      tipoActividadValue = "2";
+      break;
   }
+});
 
+function calcIngresosServicios() {
+  if ($('#ingresosAnuales').prop('checked') == true) {
+    ingresosBrutosJS = $("#ingresosBrutos")
+      .val()
+      .replace(/\./g, "")
+      .replace(",", ".");
+    } else {
+      ingresosBrutosJS = $("#ingresosBrutos")
+      .val()
+      .replace(/\./g, "")
+      .replace(",", ".")*12;
+    }
+    let topeModal = document.getElementById("topeModal");
+    let pTopeModal = document.getElementById("pTopeModal");
+    let topeIngresosSer = categoriaServicios.catHs.ingresosBrutos;
+    let topeIngresosV = categoriaVentas.catKv.ingresosBrutos;
+      if (tipoActividadValue === "1") {
+      if (ingresosBrutosJS <= categoriaServicios.catAs.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaServicios.catAs.indice;
+      } else if (ingresosBrutosJS <= categoriaServicios.catBs.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaServicios.catBs.indice;
+      } else if (ingresosBrutosJS <= categoriaServicios.catCs.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaServicios.catCs.indice;
+      } else if (ingresosBrutosJS <= categoriaServicios.catDs.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaServicios.catDs.indice;
+      } else if (ingresosBrutosJS <= categoriaServicios.catEs.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaServicios.catEs.indice;
+      } else if (ingresosBrutosJS <= categoriaServicios.catFs.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaServicios.catFs.indice;
+      } else if (ingresosBrutosJS <= categoriaServicios.catGs.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaServicios.catGs.indice;
+      } else if (ingresosBrutosJS <= categoriaServicios.catHs.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaServicios.catHs.indice;
+      } else if (ingresosBrutosJS > categoriaServicios.catHs.ingresosBrutos) {
+        $("#ingresosBrutos").val("0,00");
+        ingresosBrutosJS = 0
+        pTopeModal.innerText = 'Superás el tope para quedar dentro del régimen de monotributo para locaciones y/o prestaciones de servicios.'
+        topeModal.innerText = 'Tope ' + Intl.NumberFormat("es", {
+          style: "currency",
+          currency: "USD",
+          currencySign: "accounting",
+        })
+          .format(topeIngresosSer)
+          .replace("US$", "");
+        $("#ingresosModal").modal("show");
+      } 
+    } else {
+      if (ingresosBrutosJS <= categoriaVentas.catAv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catAv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catBv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catBv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catCv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catCv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catDv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catDv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catEv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catEv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catFv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catFv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catGv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catGv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catHv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catHv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catIv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catIv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catJv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catJv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catKv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catKv.indice;
+      } else if (ingresosBrutosJS > categoriaVentas.catKv.ingresosBrutos) {
+        $("#ingresosBrutos").val("0,00");
+        ingresosBrutosJS = 0
+        pTopeModal.innerText = 'Superás el tope para quedar dentro del régimen de monotributo para venta de cosas muebles.'
+        topeModal.innerText = 'Tope ' + Intl.NumberFormat("es", {
+          style: "currency",
+          currency: "USD",
+          currencySign: "accounting",
+        })
+          .format(topeIngresosV)
+          .replace("US$", "");
+        $("#ingresosModal").modal("show");
+      }    
+    }
 }
 
-$('#ingresosBrutos').on('change', function(){
-  calcIngresos()
+/* function calcIngresosVentas() {
+  if ($('#ingresosAnuales').prop('checked') == true) {
+    ingresosBrutosJS = $("#ingresosBrutos")
+      .val()
+      .replace(/\./g, "")
+      .replace(",", ".");
+    } else {
+      ingresosBrutosJS = $("#ingresosBrutos")
+      .val()
+      .replace(/\./g, "")
+      .replace(",", ".")*12;
+    }
+    let topeModal = document.getElementById("topeModal");
+    let topeIngresos = categoriaVentas.catHv.ingresosBrutos;
+    if ($("#tipoActividad").val() === "2") {
+      if (ingresosBrutosJS <= categoriaVentas.catAv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catAv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catBv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catBv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catCv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catCv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catDv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catDv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catEv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catEv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catFv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catFv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catGv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catGv.indice;
+      } else if (ingresosBrutosJS <= categoriaVentas.catHv.ingresosBrutos) {
+        ingresosBrutosIndice = categoriaVentas.catHv.indice;
+      } else if (ingresosBrutosJS > categoriaVentas.catHv.ingresosBrutos) {
+        $("#ingresosBrutos").val("0,00");
+        ingresosBrutosJS = 0
+        topeModal.innerText = Intl.NumberFormat("es", {
+          style: "currency",
+          currency: "USD",
+          currencySign: "accounting",
+        })
+          .format(topeIngresos)
+          .replace("US$", "");
+        $("#ingresosModal").modal("show");
+      }
+    }
+} */
+
+$("#ingresosBrutos").on("change", function () {
+  calcIngresosServicios();
   console.log(ingresosBrutosIndice)
-})
+  console.log(ingresosBrutosJS)
+});
 
-$('#btnAdherentes').click(function(){
-  numeroAdherentes = document.getElementById("adherentesVal").value
-})
+$("#btnAdherentes").click(function () {
+  numeroAdherentes = document.getElementById("adherentesVal").value;
+});
 
-
-function cargaInicio(){
-   $('#retencion').hide()
-   $('#tipoPersona').hide()
-   $('#labelPersona').hide()
-   $('#alertDatosRetencion').hide()
-   $('#datosImporteRetencion').hide()
-   $('#divPluralidad').hide()
-   $('#ret').prop('disabled', true)
-   $('#alertRetencionPluralidad').hide()
+function cargaInicio() {
+  $("#retencion").hide();
+  $("#tipoPersona").hide();
+  $("#labelPersona").hide();
+  $("#alertDatosRetencion").hide();
+  $("#datosImporteRetencion").hide();
+  $("#divPluralidad").hide();
+  $("#ret").prop("disabled", true);
+  $("#alertRetencionPluralidad").hide();
 }
 
-$('#nuevoCalculo').on("click", function(){
-  window.location.href = '/blog/h-ret-ganancias.html'
-})
+$("#nuevoCalculo").on("click", function () {
+  window.location.href = "/blog/h-ret-ganancias.html";
+});
 
 let categoriaServicios = {
-  catAs:
-  {
+  catAs: {
     indice: 1,
     categoria: "A",
     ingresosBrutos: 1414762.58,
@@ -157,8 +259,7 @@ let categoriaServicios = {
     sipa: 2192.15,
     obra: 3061.75,
   },
-  catBs:
-  {
+  catBs: {
     indice: 2,
     categoria: "B",
     ingresosBrutos: 2103025.45,
@@ -169,11 +270,10 @@ let categoriaServicios = {
     sipa: 2411.36,
     obra: 3061.75,
   },
-  catCs:
-  {
+  catCs: {
     indice: 3,
     categoria: "C",
-    ingresosBrutos: 2944235.60,
+    ingresosBrutos: 2944235.6,
     superficie: 60,
     energia: 6700,
     alquileres: 460356.93,
@@ -181,8 +281,7 @@ let categoriaServicios = {
     sipa: 2652.52,
     obra: 3061.75,
   },
-  catDs:
-  {
+  catDs: {
     indice: 4,
     categoria: "D",
     ingresosBrutos: 3656604.33,
@@ -193,8 +292,7 @@ let categoriaServicios = {
     sipa: 2917.75,
     obra: 3638.26,
   },
-  catEs:
-  {
+  catEs: {
     indice: 5,
     categoria: "E",
     ingresosBrutos: 4305799.15,
@@ -205,8 +303,7 @@ let categoriaServicios = {
     sipa: 3209.55,
     obra: 4452.02,
   },
-  catFs:
-  {
+  catFs: {
     indice: 6,
     categoria: "F",
     ingresosBrutos: 5382248.94,
@@ -217,8 +314,7 @@ let categoriaServicios = {
     sipa: 3530.49,
     obra: 5145.02,
   },
-  catGs:
-  {
+  catGs: {
     indice: 7,
     categoria: "G",
     ingresosBrutos: 6458698.71,
@@ -229,8 +325,7 @@ let categoriaServicios = {
     sipa: 3883.53,
     obra: 5512.52,
   },
-  catHs:
-  {
+  catHs: {
     indice: 8,
     categoria: "H",
     ingresosBrutos: 7996484.12,
@@ -241,12 +336,10 @@ let categoriaServicios = {
     sipa: 4271.88,
     obra: 6615.02,
   },
-
-}
+};
 
 let categoriaVentas = {
-  catAv:
-  {
+  catAv: {
     indice: 1,
     categoria: "A",
     ingresosBrutos: 1414762.58,
@@ -258,8 +351,7 @@ let categoriaVentas = {
     obra: 3061.75,
     pUnitario: 85627.66,
   },
-  catBv:
-  {
+  catBv: {
     indice: 2,
     categoria: "B",
     ingresosBrutos: 2103025.45,
@@ -271,11 +363,10 @@ let categoriaVentas = {
     obra: 3061.75,
     pUnitario: 85627.66,
   },
-  catCv:
-  {
+  catCv: {
     indice: 3,
     categoria: "C",
-    ingresosBrutos: 2944235.60,
+    ingresosBrutos: 2944235.6,
     superficie: 60,
     energia: 6700,
     alquileres: 460356.93,
@@ -284,8 +375,7 @@ let categoriaVentas = {
     obra: 3061.75,
     pUnitario: 85627.66,
   },
-  catDv:
-  {
+  catDv: {
     indice: 4,
     categoria: "D",
     ingresosBrutos: 3656604.33,
@@ -297,21 +387,19 @@ let categoriaVentas = {
     obra: 3638.26,
     pUnitario: 85627.66,
   },
-  catEv:
-  {
+  catEv: {
     indice: 5,
     categoria: "E",
     ingresosBrutos: 4305799.15,
     superficie: 110,
     energia: 13000,
     alquileres: 573619.32,
-    impuesto: 3967.80,
+    impuesto: 3967.8,
     sipa: 3209.55,
     obra: 4452.02,
     pUnitario: 85627.66,
   },
-  catFv:
-  {
+  catFv: {
     indice: 6,
     categoria: "F",
     ingresosBrutos: 5382248.94,
@@ -323,8 +411,7 @@ let categoriaVentas = {
     obra: 5145.02,
     pUnitario: 85627.66,
   },
-  catGv:
-  {
+  catGv: {
     indice: 7,
     categoria: "G",
     ingresosBrutos: 6458698.71,
@@ -336,8 +423,7 @@ let categoriaVentas = {
     obra: 5512.52,
     pUnitario: 85627.66,
   },
-  catHv:
-  {
+  catHv: {
     indice: 8,
     categoria: "H",
     ingresosBrutos: 7996484.12,
@@ -349,8 +435,7 @@ let categoriaVentas = {
     obra: 6615.02,
     pUnitario: 85627.66,
   },
-  catIv:
-  {
+  catIv: {
     indice: 9,
     categoria: "I",
     ingresosBrutos: 8949911.06,
@@ -362,8 +447,7 @@ let categoriaVentas = {
     obra: 8190.03,
     pUnitario: 85627.66,
   },
-  catJv:
-  {
+  catJv: {
     indice: 10,
     categoria: "J",
     ingresosBrutos: 10257028.68,
@@ -375,8 +459,7 @@ let categoriaVentas = {
     obra: 9166.53,
     pUnitario: 85627.66,
   },
-  catKv:
-  {
+  catKv: {
     indice: 11,
     categoria: "K",
     ingresosBrutos: 11379612.01,
@@ -388,11 +471,10 @@ let categoriaVentas = {
     obra: 10505.29,
     pUnitario: 85627.66,
   },
+};
 
-}
-
-$(function(){
-    $('#ingresosBrutos').mask('000.000.000.000.000,00', {reverse: true});
-    $('#pagosMes').mask('000.000.000.000.000,00', {reverse: true});
-    $('#retencionesMes').mask('000.000.000.000.000,00', {reverse: true});
-  });
+$(function () {
+  $("#ingresosBrutos").mask("000.000.000.000.000,00", { reverse: true });
+  $("#pagosMes").mask("000.000.000.000.000,00", { reverse: true });
+  $("#retencionesMes").mask("000.000.000.000.000,00", { reverse: true });
+});
