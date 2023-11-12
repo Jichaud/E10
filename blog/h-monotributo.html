@@ -112,7 +112,7 @@
               <hr>
               <label for="regret" class="form-label">Superficie afectada</label>
               <select class="form-select form-select-lg border-3 border-dark" id="superficieAfectada"
-                aria-label="régimen de retención">
+                aria-label="superficie afectada">
                 <option selected>Selecciona...</option>
                 <option value="1">Hasta 30 m<sup>2</sup></option>
                 <option value="2">Hasta 45 m<sup>2</sup></option>
@@ -125,7 +125,7 @@
               <hr>
               <label for="regret" class="form-label">Energía eléctrica consumida anualmente</label>
               <select class="form-select form-select-lg border-3 border-dark" id="energiaConsumida"
-                aria-label="régimen de retención">
+                aria-label="energía eléctrica consumida anualmente">
                 <option selected>Selecciona...</option>
                 <option value="1">Hasta 3.330 Kw</option>
                 <option value="2">Hasta 5.000 Kw</option>
@@ -137,8 +137,8 @@
               </select>
               <hr>
               <label for="regret" class="form-label">Alquileres devengados anualmente</label>
-              <select class="form-select form-select-lg border-3 border-dark" id="energiaConsumida"
-                aria-label="régimen de retención">
+              <select class="form-select form-select-lg border-3 border-dark" id="alquieresDevengados"
+                aria-label="alquileres devengados anualmente">
                 <option selected>Selecciona...</option>
                 <option value="1">$ 230.178,48</option>
                 <option value="2">$ 460.356,93</option>
@@ -151,14 +151,13 @@
               <div class="row justify-content-between">
                 <div class="col-9">
                   <div class="form-check form-switch">
-                    <label class="form-check-label" for="flexSwitchCheckChecked" id="labelAdherentes">Adherentes <a
-                        type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
-                        aria-controls="offcanvasScrolling"><i class="bi bi-exclamation-circle-fill text-danger"
-                          data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus"
-                          data-bs-title="¡Importante!" data-bs-content="Leer primero"></i></a></label>
+                    <label class="form-check-label" for="flexSwitchCheckChecked" id="labelAdherentes">Adherentes <i
+                        class="bi bi-exclamation-circle-fill text-danger text-center" data-bs-toggle="popover"
+                        data-bs-placement="top" data-bs-trigger="hover focus" data-bs-title="Información"
+                        data-bs-content="Indicar un número" hidden id="iconoAdherentes"></i></label>
                     <input class="form-check-input mb-3" type="checkbox" role="switch" id="adherentes">
                     <button type="button" id="btnAdherentes"
-                      class="btn btn-outline-warning btn-sm mt-4 mb-3 fs-5">Confirmar
+                      class="btn btn-outline-warning btn-sm mt-4 mb-3 fs-5 rounded-3">Confirmar
                       <i class="bi bi-person-plus-fill fs-4"></i></button>
                   </div>
                 </div>
@@ -192,29 +191,30 @@
       <div class="col" id="printReport">
         <div class="row">
           <div class="col">
-            <div class="alert alert-light border border-3" role="alert" id="alertDatosRetencion">
-              <p class="fw-bold fs-4 text-center" id="datosRetencion"></p>
+            <div class="alert alert-light border border-3" role="alert" id="alertDatosCategoria">
+              <h1 class="fw-bold">Tus datos</h1>
+              <p class="fw-bold fs-4 text-center" id="datosCategoria"></p>
               <div class="row d-flex justify-content-center g-2 align-items-center mb-3">
                 <div class="col-lg-3">
-                  <label for="datosNeto" class="col-form-label">Importe neto</label>
-                  <input type="text" id="datosNeto" class="form-control text-center" disabled>
+                  <label for="datosNeto" class="col-form-label">Ingresos brutos anuales</label>
+                  <input type="text" id="datosIngresosBrutos" class="form-control text-center" disabled>
                 </div>
                 <div class="col-lg-3">
-                  <label for="datosPagosAnteriores" class="col-form-label">Pagos anteriores</label>
-                  <input type="text" id="datosPagosAnteriores" class="form-control text-center" disabled>
+                  <label for="datosPagosAnteriores" class="col-form-label">Superficie afectada</label>
+                  <input type="text" id="datosSuperficieAfectada" class="form-control text-center" disabled>
                 </div>
                 <div class="col-lg-3">
-                  <label for="datosPagosAnteriores" class="col-form-label">Retenciones anteriores</label>
-                  <input type="text" id="datosRetAnteriores" class="form-control text-center" disabled>
+                  <label for="datosPagosAnteriores" class="col-form-label">Energía eléctrica</label>
+                  <input type="text" id="datosEnergiaConsumida" class="form-control text-center" disabled>
                 </div>
                 <div class="w-100"></div>
                 <div class="col-lg-3">
-                  <label for="datosMin" class="col-form-label">Retención mínima</label>
-                  <input type="text" id="datosMin" class="form-control text-center" disabled>
+                  <label for="datosMin" class="col-form-label">Alquileres devengados</label>
+                  <input type="text" id="datosAlquieresDevengados" class="form-control text-center" disabled>
                 </div>
                 <div class="col-lg-3">
-                  <label for="datosMNSR" class="col-form-label">Monto no sujeto</label>
-                  <input type="text" id="datosMNSR" class="form-control text-center" disabled>
+                  <label for="datosMNSR" class="col-form-label">Adherentes</label>
+                  <input type="text" id="datosAdherentes" class="form-control text-center" disabled>
                 </div>
               </div>
             </div>
@@ -315,8 +315,8 @@
                 <small><span id="topeModal" class="fw-bold text-light bg-danger badge fs-6"></span></small>
               </div>
               <div class="d-flex justify-content-start align-items-start">
-              <p class="mb-1" id="pTopeModal"> </p>
-            </div>
+                <p class="mb-1" id="pTopeModal"> </p>
+              </div>
             </a>
           </div>
         </div>
@@ -326,69 +326,6 @@
       </div>
     </div>
   </div> <!-- fin modal supera ingresos brutos -->
-
-  <!-- Offcanvas -->
-  <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Pluralidad de sujetos</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="list-group mb-3">
-        <a class="list-group-item list-group-item-action bg-primary-subtle" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1 text-primary">Carga de datos</h5>
-            <small><span class="badge bg-primary fs-6">Datos</span></small>
-          </div>
-          <p class="mb-1">Como primer paso deberás indicar la cantidad de contribuyentes que aplican. Por ejemplo: 2, 3,
-            4, etc.
-            <hr>
-
-            A continuación presioná el botón <span class="badge bg-warning text-dark">Cargar beneficiarios</span>
-            <hr>
-
-            Por último indicá el porcentaje en que cada uno participa en el importe neto informado. Utilizá el punto "."
-            en lugar de la coma "," como separador decimal. Por ejemplo: 25, 33.33, 73.28, etc.
-          </p>
-        </a>
-        <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1 text-success">Pluralidad de sujetos</h5>
-            <small><span class="badge bg-success fs-6">Artículo 8</span></small>
-          </div>
-          <p class="mb-1">En aquellos casos en que se realicen pagos por conceptos comprendidos en el Anexo II de la
-            presente, a varios beneficiarios en forma global, la retención se practicará individualmente a cada
-            sujeto, debiendo los beneficiarios entregar al agente de retención una nota suscripta por todos ellos
-            (8.1.). <br>
-
-            Idéntico procedimiento se aplicará cuando se trate de pagos a uniones transitorias de empresas,
-            agrupamientos de colaboración empresaria, consorcios y asociaciones, sin existencia legal como personas
-            jurídicas. <br>
-
-            Cuando se efectúen cesiones de ingresos u honorarios, no podrá cederse la proporción correspondiente a la
-            retención practicada. En tales casos, el cesionario emitirá la factura o documento equivalente que
-            respalde la prestación que realizó al cedente, debiendo éste practicar, si corresponde, la pertinente
-            retención.</p>
-        </a>
-        <a class="list-group-item list-group-item-action bg-warning-subtle">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1 text-dark">Nota, en la que se consignará por cada beneficiario</h5>
-            <small><span class="badge bg-warning fs-6 text-dark">8.1</span></small>
-          </div>
-          <ol class="list-group list-group-numbered list-group-flush">
-            <li class="list-group-item list-group-item-warning">Apellido y nombres o denominación.</li>
-            <li class="list-group-item list-group-item-warning">Domicilio fiscal.</li>
-            <li class="list-group-item list-group-item-warning">Clave Unica de Identificación Tributaria (C.U.I.T.).
-            </li>
-            <li class="list-group-item list-group-item-warning">Proporción de la renta que le corresponde.</li>
-            <li class="list-group-item list-group-item-warning">Condición en el impuesto a las ganancias.</li>
-          </ol>
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- fin Offcanvas -->
 
   <hr>
 
