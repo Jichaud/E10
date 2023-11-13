@@ -1,7 +1,7 @@
 // cargaInicio();
 let html = "";
-let ingresosBrutosJS = "";
-let numeroAdherentes = "";
+let ingresosBrutosJS = 0;
+let numeroAdherentes = 0;
 let ingresosBrutosIndice = "";
 let tipoActividadValue = "";
 let superficieAfectadaIndice = "";
@@ -24,11 +24,33 @@ function retCalcFin() {
 const monoToGo = document.getElementById("footer-card");
 
 $("#categoria").on("click", function () {
-  $("#datosIngresosBrutos").val(Intl.NumberFormat("es", {style: "currency", currency: "USD", currencySign: "accounting",}).format(ingresosBrutosJS).replace("US$", ""))
-  $("#datosSuperficieAfectada").val($("#superficieAfectada option:selected").text())
-  $("#datosEnergiaConsumida").val($("#energiaConsumida option:selected").text())
-  $("#datosAlquieresDevengados").val($("#alquieresDevengados option:selected").text())
-  $("#datosAdherentes").val(numeroAdherentes)
+  let arrCategoria = [
+    ingresosBrutosIndice,
+    superficieAfectadaIndice,
+    energiaConsumidaIndice,
+    alquieresDevengadosIndice,
+  ];
+  arrCategoria.sort();
+  $("#datosIngresosBrutos").val(
+    Intl.NumberFormat("es", {
+      style: "currency",
+      currency: "USD",
+      currencySign: "accounting",
+    })
+      .format(ingresosBrutosJS)
+      .replace("US$", "")
+  );
+  $("#datosSuperficieAfectada").val(
+    $("#superficieAfectada option:selected").text()
+  );
+  $("#datosEnergiaConsumida").val(
+    $("#energiaConsumida option:selected").text()
+  );
+  $("#datosAlquieresDevengados").val(
+    $("#alquieresDevengados option:selected").text()
+  );
+  $("#datosAdherentes").val(numeroAdherentes);
+  console.log(arrCategoria[3]);
   if ($(window).width() < 992) {
     monoToGo.scrollIntoView();
   } else {
@@ -53,13 +75,13 @@ $("#adherentes").click(function () {
   if ($(this).prop("checked") == true) {
     $("#adherentesVal").show();
     $("#btnAdherentes").show();
-    $('#iconoAdherentes').prop('hidden', false)
+    $("#iconoAdherentes").prop("hidden", false);
   } else {
     $("#adherentesVal").hide();
     $("#adherentesVal").val("");
-    numeroAdherentes = 0
+    numeroAdherentes = 0;
     $("#btnAdherentes").hide();
-    $('#iconoAdherentes').prop('hidden', true)
+    $("#iconoAdherentes").prop("hidden", true);
   }
 });
 
@@ -100,25 +122,25 @@ $("#tipoActividad").change(function () {
 function superficieAfectada() {
   switch ($("#superficieAfectada").val()) {
     case "1":
-      superficieAfectadaIndice = 1;
+      superficieAfectadaIndice = "A";
       break;
     case "2":
-      superficieAfectadaIndice = 2;
+      superficieAfectadaIndice = "B";
       break;
     case "3":
-      superficieAfectadaIndice = 3;
+      superficieAfectadaIndice = "C";
       break;
     case "4":
-      superficieAfectadaIndice = 4;
+      superficieAfectadaIndice = "D";
       break;
     case "5":
-      superficieAfectadaIndice = 5;
+      superficieAfectadaIndice = "E";
       break;
     case "6":
-      superficieAfectadaIndice = 6;
+      superficieAfectadaIndice = "F";
       break;
     case "7":
-      superficieAfectadaIndice = 7;
+      superficieAfectadaIndice = "G";
       break;
   }
 }
@@ -126,25 +148,25 @@ function superficieAfectada() {
 function energiaConsumida() {
   switch ($("#energiaConsumida").val()) {
     case "1":
-      energiaConsumidaIndice = 1;
+      energiaConsumidaIndice = "A";
       break;
     case "2":
-      energiaConsumidaIndice = 2;
+      energiaConsumidaIndice = "B";
       break;
     case "3":
-      energiaConsumidaIndice = 3;
+      energiaConsumidaIndice = "C";
       break;
     case "4":
-      energiaConsumidaIndice = 4;
+      energiaConsumidaIndice = "D";
       break;
     case "5":
-      energiaConsumidaIndice = 5;
+      energiaConsumidaIndice = "E";
       break;
     case "6":
-      energiaConsumidaIndice = 6;
+      energiaConsumidaIndice = "F";
       break;
     case "7":
-      energiaConsumidaIndice = 7;
+      energiaConsumidaIndice = "G";
       break;
   }
 }
@@ -152,22 +174,22 @@ function energiaConsumida() {
 function alquieresDevengados() {
   switch ($("#alquieresDevengados").val()) {
     case "1":
-      alquieresDevengadosIndice = 1;
+      alquieresDevengadosIndice = "A";
       break;
     case "2":
-      alquieresDevengadosIndice = 2;
+      alquieresDevengadosIndice = "B";
       break;
     case "3":
-      alquieresDevengadosIndice = 3;
+      alquieresDevengadosIndice = "C";
       break;
     case "4":
-      alquieresDevengadosIndice = 4;
+      alquieresDevengadosIndice = "D";
       break;
     case "5":
-      alquieresDevengadosIndice = 5;
+      alquieresDevengadosIndice = "E";
       break;
     case "6":
-      alquieresDevengadosIndice = 6;
+      alquieresDevengadosIndice = "F";
       break;
   }
 }
@@ -184,26 +206,26 @@ function calcIngresos() {
   }
   let topeModal = document.getElementById("topeModal");
   let pTopeModal = document.getElementById("pTopeModal");
-  let topeIngresosSer = categoriaServicios.catHs.ingresosBrutos;
-  let topeIngresosV = categoriaVentas.catKv.ingresosBrutos;
+  let topeIngresosSer = categoriaServicios.H.ingresosBrutos;
+  let topeIngresosV = categoriaVentas.K.ingresosBrutos;
   if (tipoActividadValue === "1") {
-    if (ingresosBrutosJS <= categoriaServicios.catAs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catAs.indice;
-    } else if (ingresosBrutosJS <= categoriaServicios.catBs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catBs.indice;
-    } else if (ingresosBrutosJS <= categoriaServicios.catCs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catCs.indice;
-    } else if (ingresosBrutosJS <= categoriaServicios.catDs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catDs.indice;
-    } else if (ingresosBrutosJS <= categoriaServicios.catEs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catEs.indice;
-    } else if (ingresosBrutosJS <= categoriaServicios.catFs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catFs.indice;
-    } else if (ingresosBrutosJS <= categoriaServicios.catGs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catGs.indice;
-    } else if (ingresosBrutosJS <= categoriaServicios.catHs.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaServicios.catHs.indice;
-    } else if (ingresosBrutosJS > categoriaServicios.catHs.ingresosBrutos) {
+    if (ingresosBrutosJS <= categoriaServicios.A.ingresosBrutos) {
+      ingresosBrutosIndice = "A";
+    } else if (ingresosBrutosJS <= categoriaServicios.B.ingresosBrutos) {
+      ingresosBrutosIndice = "B";
+    } else if (ingresosBrutosJS <= categoriaServicios.C.ingresosBrutos) {
+      ingresosBrutosIndice = "C";
+    } else if (ingresosBrutosJS <= categoriaServicios.D.ingresosBrutos) {
+      ingresosBrutosIndice = "D";
+    } else if (ingresosBrutosJS <= categoriaServicios.E.ingresosBrutos) {
+      ingresosBrutosIndice = "E";
+    } else if (ingresosBrutosJS <= categoriaServicios.F.ingresosBrutos) {
+      ingresosBrutosIndice = "F";
+    } else if (ingresosBrutosJS <= categoriaServicios.G.ingresosBrutos) {
+      ingresosBrutosIndice = "G";
+    } else if (ingresosBrutosJS <= categoriaServicios.H.ingresosBrutos) {
+      ingresosBrutosIndice = "H";
+    } else if (ingresosBrutosJS > categoriaServicios.H.ingresosBrutos) {
       $("#ingresosBrutos").val("0,00");
       ingresosBrutosJS = 0;
       pTopeModal.innerText =
@@ -220,29 +242,29 @@ function calcIngresos() {
       $("#ingresosModal").modal("show");
     }
   } else {
-    if (ingresosBrutosJS <= categoriaVentas.catAv.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaVentas.catAv.indice;
-    } else if (ingresosBrutosJS <= categoriaVentas.catBv.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaVentas.catBv.indice;
-    } else if (ingresosBrutosJS <= categoriaVentas.catCv.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaVentas.catCv.indice;
-    } else if (ingresosBrutosJS <= categoriaVentas.catDv.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaVentas.catDv.indice;
-    } else if (ingresosBrutosJS <= categoriaVentas.catEv.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaVentas.catEv.indice;
-    } else if (ingresosBrutosJS <= categoriaVentas.catFv.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaVentas.catFv.indice;
-    } else if (ingresosBrutosJS <= categoriaVentas.catGv.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaVentas.catGv.indice;
-    } else if (ingresosBrutosJS <= categoriaVentas.catHv.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaVentas.catHv.indice;
-    } else if (ingresosBrutosJS <= categoriaVentas.catIv.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaVentas.catIv.indice;
-    } else if (ingresosBrutosJS <= categoriaVentas.catJv.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaVentas.catJv.indice;
-    } else if (ingresosBrutosJS <= categoriaVentas.catKv.ingresosBrutos) {
-      ingresosBrutosIndice = categoriaVentas.catKv.indice;
-    } else if (ingresosBrutosJS > categoriaVentas.catKv.ingresosBrutos) {
+    if (ingresosBrutosJS <= categoriaVentas.A.ingresosBrutos) {
+      ingresosBrutosIndice = "A";
+    } else if (ingresosBrutosJS <= categoriaVentas.B.ingresosBrutos) {
+      ingresosBrutosIndice = "B";
+    } else if (ingresosBrutosJS <= categoriaVentas.C.ingresosBrutos) {
+      ingresosBrutosIndice = "C";
+    } else if (ingresosBrutosJS <= categoriaVentas.D.ingresosBrutos) {
+      ingresosBrutosIndice = "D";
+    } else if (ingresosBrutosJS <= categoriaVentas.E.ingresosBrutos) {
+      ingresosBrutosIndice = "E";
+    } else if (ingresosBrutosJS <= categoriaVentas.F.ingresosBrutos) {
+      ingresosBrutosIndice = "F";
+    } else if (ingresosBrutosJS <= categoriaVentas.G.ingresosBrutos) {
+      ingresosBrutosIndice = "G";
+    } else if (ingresosBrutosJS <= categoriaVentas.H.ingresosBrutos) {
+      ingresosBrutosIndice = "H";
+    } else if (ingresosBrutosJS <= categoriaVentas.I.ingresosBrutos) {
+      ingresosBrutosIndice = "I";
+    } else if (ingresosBrutosJS <= categoriaVentas.J.ingresosBrutos) {
+      ingresosBrutosIndice = "J";
+    } else if (ingresosBrutosJS <= categoriaVentas.K.ingresosBrutos) {
+      ingresosBrutosIndice = "K";
+    } else if (ingresosBrutosJS > categoriaVentas.K.ingresosBrutos) {
       $("#ingresosBrutos").val("0,00");
       ingresosBrutosJS = 0;
       pTopeModal.innerText =
@@ -302,7 +324,7 @@ $("#nuevoCalculo").on("click", function () {
 });
 
 let categoriaServicios = {
-  catAs: {
+  A: {
     indice: 1,
     categoria: "A",
     ingresosBrutos: 1414762.58,
@@ -313,7 +335,7 @@ let categoriaServicios = {
     sipa: 2192.15,
     obra: 3061.75,
   },
-  catBs: {
+  B: {
     indice: 2,
     categoria: "B",
     ingresosBrutos: 2103025.45,
@@ -324,7 +346,7 @@ let categoriaServicios = {
     sipa: 2411.36,
     obra: 3061.75,
   },
-  catCs: {
+  C: {
     indice: 3,
     categoria: "C",
     ingresosBrutos: 2944235.6,
@@ -335,7 +357,7 @@ let categoriaServicios = {
     sipa: 2652.52,
     obra: 3061.75,
   },
-  catDs: {
+  D: {
     indice: 4,
     categoria: "D",
     ingresosBrutos: 3656604.33,
@@ -346,7 +368,7 @@ let categoriaServicios = {
     sipa: 2917.75,
     obra: 3638.26,
   },
-  catEs: {
+  E: {
     indice: 5,
     categoria: "E",
     ingresosBrutos: 4305799.15,
@@ -357,7 +379,7 @@ let categoriaServicios = {
     sipa: 3209.55,
     obra: 4452.02,
   },
-  catFs: {
+  F: {
     indice: 6,
     categoria: "F",
     ingresosBrutos: 5382248.94,
@@ -368,7 +390,7 @@ let categoriaServicios = {
     sipa: 3530.49,
     obra: 5145.02,
   },
-  catGs: {
+  G: {
     indice: 7,
     categoria: "G",
     ingresosBrutos: 6458698.71,
@@ -379,7 +401,7 @@ let categoriaServicios = {
     sipa: 3883.53,
     obra: 5512.52,
   },
-  catHs: {
+  H: {
     indice: 8,
     categoria: "H",
     ingresosBrutos: 7996484.12,
@@ -393,7 +415,7 @@ let categoriaServicios = {
 };
 
 let categoriaVentas = {
-  catAv: {
+  A: {
     indice: 1,
     categoria: "A",
     ingresosBrutos: 1414762.58,
@@ -405,7 +427,7 @@ let categoriaVentas = {
     obra: 3061.75,
     pUnitario: 85627.66,
   },
-  catBv: {
+  B: {
     indice: 2,
     categoria: "B",
     ingresosBrutos: 2103025.45,
@@ -417,7 +439,7 @@ let categoriaVentas = {
     obra: 3061.75,
     pUnitario: 85627.66,
   },
-  catCv: {
+  C: {
     indice: 3,
     categoria: "C",
     ingresosBrutos: 2944235.6,
@@ -429,7 +451,7 @@ let categoriaVentas = {
     obra: 3061.75,
     pUnitario: 85627.66,
   },
-  catDv: {
+  D: {
     indice: 4,
     categoria: "D",
     ingresosBrutos: 3656604.33,
@@ -441,7 +463,7 @@ let categoriaVentas = {
     obra: 3638.26,
     pUnitario: 85627.66,
   },
-  catEv: {
+  E: {
     indice: 5,
     categoria: "E",
     ingresosBrutos: 4305799.15,
@@ -453,7 +475,7 @@ let categoriaVentas = {
     obra: 4452.02,
     pUnitario: 85627.66,
   },
-  catFv: {
+  F: {
     indice: 6,
     categoria: "F",
     ingresosBrutos: 5382248.94,
@@ -465,7 +487,7 @@ let categoriaVentas = {
     obra: 5145.02,
     pUnitario: 85627.66,
   },
-  catGv: {
+  G: {
     indice: 7,
     categoria: "G",
     ingresosBrutos: 6458698.71,
@@ -477,7 +499,7 @@ let categoriaVentas = {
     obra: 5512.52,
     pUnitario: 85627.66,
   },
-  catHv: {
+  H: {
     indice: 8,
     categoria: "H",
     ingresosBrutos: 7996484.12,
@@ -489,7 +511,7 @@ let categoriaVentas = {
     obra: 6615.02,
     pUnitario: 85627.66,
   },
-  catIv: {
+  I: {
     indice: 9,
     categoria: "I",
     ingresosBrutos: 8949911.06,
@@ -501,7 +523,7 @@ let categoriaVentas = {
     obra: 8190.03,
     pUnitario: 85627.66,
   },
-  catJv: {
+  J: {
     indice: 10,
     categoria: "J",
     ingresosBrutos: 10257028.68,
@@ -513,7 +535,7 @@ let categoriaVentas = {
     obra: 9166.53,
     pUnitario: 85627.66,
   },
-  catKv: {
+  K: {
     indice: 11,
     categoria: "K",
     ingresosBrutos: 11379612.01,
