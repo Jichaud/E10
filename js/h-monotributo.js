@@ -50,7 +50,9 @@ $("#categoria").on("click", function () {
     $("#alquieresDevengados option:selected").text()
   );
   $("#datosAdherentes").val(numeroAdherentes);
-  console.log(arrCategoria[3]);
+  
+  console.log(categoriaServicios[arrCategoria[3]])
+  
   if ($(window).width() < 992) {
     monoToGo.scrollIntoView();
   } else {
@@ -95,7 +97,7 @@ $("#tipoActividad").change(function () {
     case "Selecciona...":
       $("#actividad").hide();
       $("#alertDatosCategoria").hide();
-      $("#datosImporteRetencion").hide();
+      $("#datosCategoriaAsignada").hide();
       tipoActividadValue = "Selecciona...";
       break;
     case "1":
@@ -313,7 +315,7 @@ function cargaInicio() {
   $("#tipoPersona").hide();
   $("#labelPersona").hide();
   $("#alertDatosCategoria").hide();
-  $("#datosImporteRetencion").hide();
+  $("#datosCategoriaAsignada").hide();
   $("#divPluralidad").hide();
   $("#ret").prop("disabled", true);
   $("#alertRetencionPluralidad").hide();
