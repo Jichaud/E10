@@ -50,6 +50,8 @@ $("#categoria").on("click", function () {
     $("#alquieresDevengados option:selected").text()
   );
   $("#datosAdherentes").val(numeroAdherentes);
+
+  $('#catAsignadaEscala').text(categoriaServicios[arrCategoria[3]].categoria)
   
   console.log(categoriaServicios[arrCategoria[3]])
   

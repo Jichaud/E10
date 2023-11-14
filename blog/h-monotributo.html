@@ -154,7 +154,7 @@
                     <label class="form-check-label" for="flexSwitchCheckChecked" id="labelAdherentes">Adherentes <i
                         class="bi bi-exclamation-circle-fill text-danger text-center" data-bs-toggle="popover"
                         data-bs-placement="top" data-bs-trigger="hover focus" data-bs-title="Información"
-                        data-bs-content="Indicar un número" hidden id="iconoAdherentes"></i></label>
+                        data-bs-content="Indicar un número y hacer clic en Confirmar" hidden id="iconoAdherentes"></i></label>
                     <input class="form-check-input mb-3" type="checkbox" role="switch" id="adherentes">
                     <button type="button" id="btnAdherentes"
                       class="btn btn-outline-warning btn-sm mt-4 mb-3 fs-5 rounded-3">Confirmar
@@ -223,14 +223,9 @@
         <div class="row">
           <div class="col">
             <div class="alert alert-danger" role="alert" id="datosCategoriaAsignada">
-              <div class="row d-flex justify-content-between g-2 align-items-center mb-3">
-                <div class="col-lg-6">
-                  <h1 class="fw-bold">Categoría</h1>
+                <div class="col-lg mb-3">
+                  <h1 class="fw-bold">Categoría <span class="badge bg-danger rounded fs-1 me-4 text-light" id="catAsignadaEscala"></span></h1>
                 </div>
-                <div class="col-lg-6 text-end">
-                  <span class="badge bg-danger rounded fs-1 me-4 text-light">A</span>
-                </div>
-              </div>
               <div class="row d-flex justify-content-center g-2 align-items-center mb-3">
                 <div class="col-lg-6">
                   <label for="catAsignadaIngresos" class="col-form-label fs-5">Ingresos brutos anuales</label>
@@ -240,14 +235,15 @@
                   <label for="catAsignadaSuperficie" class="col-form-label fs-5">Superficie afectada</label>
                   <input type="text" id="catAsignadaSuperficie" class="form-control text-center" disabled>
                 </div>
-                <div class="col-lg-6 mt-4">
+                <div class="col-lg-6 mt-4 mb-4">
                   <label for="catAsignadaEnergía" class="col-form-label fs-5">Energía eléctrica</label>
                   <input type="text" id="catAsignadaEnergía" class="form-control text-center" disabled>
                 </div>
-                <div class="col-lg-6 mt-4">
+                <div class="col-lg-6 mt-4 mb-4">
                   <label for="catAsignadaAlquileres" class="col-form-label fs-5">Alquileres devengados</label>
                   <input type="text" id="catAsignadaAlquileres" class="form-control text-center" disabled>
                 </div>
+                <hr>
                 <div class="col-lg-6 mt-4">
                   <label for="catAsignadaJubilacion" class="col-form-label fs-5">Jubilación</label>
                   <input type="text" id="catAsignadaJubilacion" class="form-control text-center" disabled>
