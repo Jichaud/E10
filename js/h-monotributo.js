@@ -192,6 +192,16 @@ $("#categoria").on("click", function () {
             .replace("US$", "")
         );
 
+        $("#totalPorMesSM").val(
+          Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(totalPorMesVal)
+            .replace("US$", "")
+        );
+
         datosCategoriaAsignada.className = "alert alert-danger";
         catAsignadaEscala.className =
           "badge bg-danger rounded fs-1 me-4 text-light";
@@ -296,6 +306,16 @@ $("#categoria").on("click", function () {
             currencySign: "accounting",
           })
             .format(totalPorMesValV)
+            .replace("US$", "")
+        );
+
+        $("#totalPorMesSM").val(
+          Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(totalPorMesVal)
             .replace("US$", "")
         );
 
