@@ -25,6 +25,9 @@ const monoToGo = document.getElementById("footer-card");
 
 $("#categoria").on("click", function () {
   // Verifica carga algún dato
+  if (superficieAfectadaIndice === "" || energiaConsumidaIndice === "") {
+    window.alert("Hola")
+  }
 
   let datosCategoriaAsignada = document.getElementById(
     "datosCategoriaAsignada"
@@ -567,7 +570,15 @@ $("#alquieresDevengados").on("change", function () {
 });
 
 $("#btnAdherentes").click(function () {
-  numeroAdherentes = document.getElementById("adherentesVal").value;
+  let adherentesVal = document.getElementById("adherentesVal").value;
+  if (adherentesVal < 1) {
+    $("#adherentes").prop("checked", false);
+    $("#iconoAdherentes").prop("hidden", true);
+    $("#adherentesVal").hide();
+    window.alert("Debe indicar un número mayor a 0");
+  } else {
+    numeroAdherentes = document.getElementById("adherentesVal").value;
+  }
 });
 
 function cargaInicio() {
