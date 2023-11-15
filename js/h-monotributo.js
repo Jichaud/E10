@@ -299,6 +299,9 @@ $("#categoria").on("click", function () {
             .replace("US$", "")
         );
 
+        $('#catAsignadaPrecio').prop("hidden", false)
+        $('#catAsignadaPrecioLabel').prop("hidden", false)
+
         datosCategoriaAsignada.className = "alert alert-primary";
         catAsignadaEscala.className =
           "badge bg-primary rounded fs-1 me-4 text-light";
