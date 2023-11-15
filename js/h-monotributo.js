@@ -1,4 +1,4 @@
-// cargaInicio();
+cargaInicio();
 let html = "";
 let ingresosBrutosJS = 0;
 let numeroAdherentes = 0;
@@ -8,25 +8,22 @@ let superficieAfectadaIndice = "";
 let energiaConsumidaIndice = "";
 let alquieresDevengadosIndice = "";
 
-function retCalcFin() {
-  $("#ret").hide();
-  $("#nuevoCalculo").prop("hidden", false);
-  $("#regRet").prop("disabled", true);
-  $("#importeNeto").prop("disabled", true);
-  $("#inscriptoGanancias").prop("disabled", true);
-  $("#pluralidadSujetos").prop("disabled", true);
-  $("#btnAdherentes").prop("disabled", true);
-  $("#pagosMes").prop("disabled", true);
-  $("#retencionesMes").prop("disabled", true);
-  $("#tipoPersona").prop("disabled", true);
-}
-
 const monoToGo = document.getElementById("footer-card");
 
 $("#categoria").on("click", function () {
   // Verifica carga algún dato
-  if (superficieAfectadaIndice === "" || energiaConsumidaIndice === "") {
-    window.alert("Hola")
+  if (
+    superficieAfectadaIndice === "" &&
+    energiaConsumidaIndice === "" &&
+    ingresosBrutosIndice === "" &&
+    alquieresDevengadosIndice === ""
+  ) {
+    $("#parametroModal").modal("show");
+  } else {
+    $("#printReport").show();
+    $("#actividad").hide();
+    $("#nuevoCalculo").show();
+    $('#tipoActividad').prop("disabled", true)
   }
 
   let datosCategoriaAsignada = document.getElementById(
@@ -575,21 +572,20 @@ $("#btnAdherentes").click(function () {
     $("#adherentes").prop("checked", false);
     $("#iconoAdherentes").prop("hidden", true);
     $("#adherentesVal").hide();
-    window.alert("Debe indicar un número mayor a 0");
+    $("#btnAdherentes").hide();
+    $("#adherenteModal").modal("show");
   } else {
     numeroAdherentes = document.getElementById("adherentesVal").value;
   }
 });
 
 function cargaInicio() {
-  $("#retencion").hide();
-  $("#tipoPersona").hide();
-  $("#labelPersona").hide();
-  $("#alertDatosCategoria").hide();
-  $("#datosCategoriaAsignada").hide();
-  $("#divPluralidad").hide();
-  $("#ret").prop("disabled", true);
-  $("#alertRetencionPluralidad").hide();
+  $("#actividad").hide();
+  $("#adherentesVal").hide();
+  $("#printReport").hide();
+  $("#iconoAdherentes").prop("hidden", true);
+  $("#btnAdherentes").hide();
+  $("#nuevoCalculo").hide();
 }
 
 $("#nuevoCalculo").on("click", function () {

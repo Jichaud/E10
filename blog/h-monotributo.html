@@ -154,7 +154,8 @@
                     <label class="form-check-label" for="flexSwitchCheckChecked" id="labelAdherentes">Adherentes <i
                         class="bi bi-exclamation-circle-fill text-danger text-center" data-bs-toggle="popover"
                         data-bs-placement="top" data-bs-trigger="hover focus" data-bs-title="Información"
-                        data-bs-content="Indicar un número y hacer clic en Confirmar" hidden id="iconoAdherentes"></i></label>
+                        data-bs-content="Indicar un número y hacer clic en Confirmar" hidden
+                        id="iconoAdherentes"></i></label>
                     <input class="form-check-input mb-3" type="checkbox" role="switch" id="adherentes">
                     <button type="button" id="btnAdherentes"
                       class="btn btn-outline-warning btn-sm mt-4 mb-3 fs-5 rounded-3">Confirmar
@@ -168,8 +169,8 @@
               </div>
               <hr>
               <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-outline-warning fs-4 fw-bold" hidden type="button" id="categoria">Calcular categoría <i
-                    class="bi bi-box-arrow-right"></i></button>
+                <button class="btn btn-outline-warning fs-4 fw-bold" hidden type="button" id="categoria">Calcular
+                  categoría <i class="bi bi-box-arrow-right"></i></button>
               </div>
             </div> <!-- fin datos mod -->
 
@@ -223,9 +224,10 @@
         <div class="row">
           <div class="col">
             <div class="alert alert-danger" role="alert" id="datosCategoriaAsignada">
-                <div class="col-lg mb-3">
-                  <h1 class="fw-bold">Categoría <span class="badge bg-danger rounded fs-1 me-4 text-light" id="catAsignadaEscala"></span></h1>
-                </div>
+              <div class="col-lg mb-3">
+                <h1 class="fw-bold">Categoría <span class="badge bg-danger rounded fs-1 me-4 text-light"
+                    id="catAsignadaEscala"></span></h1>
+              </div>
               <div class="row d-flex justify-content-center g-2 align-items-center mb-3">
                 <div class="col-lg-6">
                   <label for="catAsignadaIngresos" class="col-form-label fs-5">Ingresos brutos anuales</label>
@@ -249,7 +251,8 @@
                   <input type="text" id="catAsignadaJubilacion" class="form-control text-center" disabled>
                 </div>
                 <div class="col-lg-6 mt-4">
-                  <label for="catAsignadaObraSocial" class="col-form-label fs-5" id="catAsignadaObraSocialLabel"></label>
+                  <label for="catAsignadaObraSocial" class="col-form-label fs-5"
+                    id="catAsignadaObraSocialLabel"></label>
                   <input type="text" id="catAsignadaObraSocial" class="form-control text-center" disabled>
                 </div>
                 <div class="col-lg-6 mt-4">
@@ -259,18 +262,19 @@
               </div>
               <div class="input-group input-group-lg mt-5">
                 <span class="input-group-text fs-1 fw-bold" id="inputGroup-sizing-lg">TOTAL por mes </span>
-                <input type="text" class="form-control fs-1 fw-bold text-center" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" id="totalPorMes" disabled>
+                <input type="text" class="form-control fs-1 fw-bold text-center" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-lg" id="totalPorMes" disabled>
+              </div>
+            </div>
+            <div class="row">
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-dark fs-4 fw-bold" type="button" id="nuevoCalculo">Nuevo cálculo <i
+                    class="bi bi-arrow-clockwise"></i></button>
               </div>
             </div>
           </div>
         </div>
-      </div> <!-- row régimen general -->
-      <div class="row">
-        <div class="d-grid gap-2">
-          <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo" hidden>Nuevo cálculo <i
-              class="bi bi-arrow-clockwise"></i></button>
-        </div>
-      </div> <!-- row pluralidad -->
+      </div>
     </div> <!-- col -->
 
   </div> <!-- row -->
@@ -291,8 +295,7 @@
                 <h5 class="mb-1 text-success">Consideraciones</h5>
                 <small><span class="badge bg-success fs-6">Alcance</span></small>
               </div>
-              <p class="mb-1">La presente herramienta es de alcance limitado a determinados regímenes de retención que,
-                por experiencia en la labor profesional, son de mayor aplicación en el día a día.</p>
+              <p class="mb-1">La presente herramienta es de alcance limitado para la categorización en el régimen simplificado para pequeños contribuyentes (Monotributo) de persona humana. No se contemplan el monotributo promovido, el monotributo social.</p>
             </a>
             <a class="list-group-item list-group-item-action bg-warning-subtle">
               <div class="d-flex w-100 justify-content-between">
@@ -300,7 +303,7 @@
                 <small><span class="badge bg-warning fs-6 text-dark">Cálculos</span></small>
               </div>
               <p class="mb-1">La correcta utilización de la herramienta implica tener el conocimiento de determinados
-                conceptos definidos en la RG AFIP 830. Si no está familiarizado con ellos, recomendamos no utilizarla
+                conceptos definidos en la normativa del régimen de Monotributo. Si no está familiarizado con ellos, recomendamos no utilizarla
                 teniendo en cuenta las implicancias fiscales que puedan acarrear a los clientes que asesora.</p>
             </a>
             <a class="list-group-item list-group-item-action bg-primary-subtle">
@@ -309,9 +312,7 @@
                 <small><span class="badge bg-primary fs-6">Expertise</span></small>
               </div>
               <p class="mb-1">Bajo ningún aspecto esta herramienta reemplaza el criterio profesional, ni los cálculos
-                obtenidos de la herramienta deben ser considerados como exactos. La complejidad de la operación a
-                considerar y los datos cargados en la herramienta, pueden dar resultados inesperados y no ajustados al
-                criterio fiscal. <br><br>
+                obtenidos de la herramienta deben ser considerados como exactos. <br><br>
                 Puede utilizarla como herramienta de verificación de sus propios cálculos y en caso de discrepancia,
                 utilizar el formulario de comentarios mencionado en el siguiente punto para hacernos llegar la
                 inquietud.
@@ -359,6 +360,74 @@
       </div>
     </div>
   </div> <!-- fin modal supera ingresos brutos -->
+
+  <!-- Modal Informar un parámetro -->
+  <div class="modal fade" id="parametroModal" tabindex="-1" aria-labelledby="parametroModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title text-danger fw-bold fs-5" id="exampleModalLabel">Categorización</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">Consideraciones</h5>
+                <small><span class="fw-bold text-light bg-danger badge fs-6">Parámetros</span></small>
+              </div>
+              <div class="d-flex justify-content-start align-items-start">
+                <span class="mb-1"> Para poder indicarte una categoría de monotributo, por favor completá
+                  alguno de los siguientes parámetros
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-success"><i
+                        class="bi bi-check-circle-fill text-success"></i> Ingresos brutos</li>
+                    <li class="list-group-item list-group-item-success"><i
+                        class="bi bi-check-circle-fill text-success"></i> Superficie afectada</li>
+                    <li class="list-group-item list-group-item-success"><i
+                        class="bi bi-check-circle-fill text-success"></i> Energía eléctrica consumida</li>
+                    <li class="list-group-item list-group-item-success"><i
+                        class="bi bi-check-circle-fill text-success"></i> Alquileres devengados</li>
+                  </ul>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin modal informar parámetros -->
+
+  <!-- Modal Informar adherente -->
+  <div class="modal fade" id="adherenteModal" tabindex="-1" aria-labelledby="adherenteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title text-danger fw-bold fs-5" id="exampleModalLabel">Adherentes</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">Consideraciones</h5>
+                <small><span class="fw-bold text-light bg-danger badge fs-6">Obra social</span></small>
+              </div>
+              <div class="d-flex justify-content-start align-items-start">
+                <span class="mb-1"> Para agregar un adherente, indicá un número superior a 0 y luego presioná el botón de "Confirmar" </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin modal informar adherente -->
 
   <hr>
 
