@@ -64,6 +64,22 @@
       <div class="col">
         <button type="button" class="btn btn-outline-primary ms-4" onclick="history.back()">Volver</button>
       </div>
+      <div class="col d-none d-lg-block">
+        <div class="btn-group">
+          <button type="button"
+            class="btn btn-outline-white border border-primary text-primary bg-primary-subtle dropdown-toggle rounded-5 border-5 me-3"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Otras Herramientas ED
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="h-hon-directorio.html">Honorarios al directorio</a></li>
+            <hr class="dropdown-divider">
+            <li><a class="dropdown-item" href="h-monotributo.html">Monotributo | Categorización</a></li>
+            <hr class="dropdown-divider">
+            <li><a class="dropdown-item" href="h-ret-ganancias.html">Retención ganancias | RG AFIP 830</a></li>
+          </ul>
+        </div>
+      </div>
       <div class="ms-auto me-4">
         <span class="badge bg-primary fs-6" data-bs-toggle="tooltip" data-bs-placement="bottom"
           title="Ajuste por inflación contable - coeficientes">AxI contable</span>
@@ -107,14 +123,18 @@
               <input type="text" class="form-control text-center fs-4" id="selectIndexStart" disabled>
             </div>
             <div class="d-grid gap-2 mb-3">
-              <button class="btn btn-outline-danger fs-4 fw-bold" type="button" id="verTabla">Ver tabla <i class="bi bi-box-arrow-right"></i></button>
-              <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo">Nuevo cálculo <i class="bi bi-arrow-clockwise"></i></button>
-              <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="cambiarValores">Cambiar <i class="bi bi-pencil-square"></i></button>
+              <button class="btn btn-outline-danger fs-4 fw-bold" type="button" id="verTabla">Ver tabla <i
+                  class="bi bi-box-arrow-right"></i></button>
+              <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="nuevoCalculo">Nuevo cálculo <i
+                  class="bi bi-arrow-clockwise"></i></button>
+              <button class="btn btn-outline-warning fs-4 fw-bold" type="button" id="cambiarValores">Cambiar <i
+                  class="bi bi-pencil-square"></i></button>
             </div>
             <div class="alert alert-dark mb-3" role="alert">
               <p class="fs-5 fw-bold text-center">¿Necesitás ayuda?</p>
               <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-outline-dark fs-5 fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#ayudaModal">Ver ayuda <i class="bi bi-info-circle-fill"></i></button>
+                <button class="btn btn-outline-dark fs-5 fw-bold" type="button" data-bs-toggle="modal"
+                  data-bs-target="#ayudaModal">Ver ayuda <i class="bi bi-info-circle-fill"></i></button>
               </div>
             </div>
           </div>
@@ -134,8 +154,10 @@
                         <h5 class="mb-1 text-success">Índice base</h5>
                         <small><span class="badge bg-success fs-6">paso nº 1</span></small>
                       </div>
-                      <p class="mb-1">Seleccioná el índice base que será el divisor para los coeficientes entre fecha de cierre y fecha de incio.</p>
-                      <small>Por ejemplo: cierre diciembre/2022 tiene un índice de 1134.5875 y dividirá todos los índices desde fecha de cierre a fecha de inicio.</small>
+                      <p class="mb-1">Seleccioná el índice base que será el divisor para los coeficientes entre fecha de
+                        cierre y fecha de incio.</p>
+                      <small>Por ejemplo: cierre diciembre/2022 tiene un índice de 1134.5875 y dividirá todos los
+                        índices desde fecha de cierre a fecha de inicio.</small>
                     </a>
                     <a class="list-group-item list-group-item-action bg-warning-subtle">
                       <div class="d-flex w-100 justify-content-between">
@@ -143,28 +165,36 @@
                         <small><span class="badge bg-warning fs-6 text-dark">paso nº 2</span></small>
                       </div>
                       <p class="mb-1">La fecha de cierre marcará el tope de fecha de la tabla final.</p>
-                      <small class="text-body-secondary">Por ejemplo: cierre diciembre/2022 tendrá desde ese mes hasta los meses anteriores según la fecha de inicio del punto siguiente.</small>
+                      <small class="text-body-secondary">Por ejemplo: cierre diciembre/2022 tendrá desde ese mes hasta
+                        los meses anteriores según la fecha de inicio del punto siguiente.</small>
                     </a>
                     <a class="list-group-item list-group-item-action bg-primary-subtle">
                       <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">Seleccioná la fecha de inicio</h5>
                         <small><span class="badge bg-primary fs-6">paso nº 3</span></small>
                       </div>
-                      <p class="mb-1">Con la fecha de inicio se indicará hasta qué mes llegará el cálculo arrancando de la fecha de cierre indicada anteriormente.</p>
-                      <small class="text-body-secondary">Por ejemplo: diciembre/2021 tendrá los meses desde diciembre/2022 a diciembre/2021.</small>
+                      <p class="mb-1">Con la fecha de inicio se indicará hasta qué mes llegará el cálculo arrancando de
+                        la fecha de cierre indicada anteriormente.</p>
+                      <small class="text-body-secondary">Por ejemplo: diciembre/2021 tendrá los meses desde
+                        diciembre/2022 a diciembre/2021.</small>
                     </a>
                     <a class="list-group-item list-group-item-action bg-danger-subtle">
                       <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">Ver tabla | Cambiar valores</h5>
                         <small><span class="badge bg-danger fs-6">paso nº 4</span></small>
                       </div>
-                      <p class="mb-1">Haciendo clic en "Ver tabla" te mostrará la tabla con los datos introducidos y tendrás un botón arriba para exportarla a Excel. También podés modificar los valores introducidos.</p>
-                      <small class="text-body-secondary">Ver tabla: una vez visualizada la tabla tendrás un botón para hacer un nuevo cálculo.</small>
+                      <p class="mb-1">Haciendo clic en "Ver tabla" te mostrará la tabla con los datos introducidos y
+                        tendrás un botón arriba para exportarla a Excel. También podés modificar los valores
+                        introducidos.</p>
+                      <small class="text-body-secondary">Ver tabla: una vez visualizada la tabla tendrás un botón para
+                        hacer un nuevo cálculo.</small>
                     </a>
                   </div>
                   <div class="alert alert-dark" role="alert">
                     Tenés algún comentario, encontraste un error, o querés enviarnos un agradecimiento...
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh8o_HIE6M_OaUEZn81cfg2agxZIjFmtUZjMbP4zbGcO57SQ/viewform" target="_blank"><button type="button" class="btn btn-outline-success mt-3">Enviar comentario <i class="bi bi-arrow-right-circle-fill"></i></button></a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh8o_HIE6M_OaUEZn81cfg2agxZIjFmtUZjMbP4zbGcO57SQ/viewform"
+                      target="_blank"><button type="button" class="btn btn-outline-success mt-3">Enviar comentario <i
+                          class="bi bi-arrow-right-circle-fill"></i></button></a>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -182,14 +212,15 @@
 
       <div class="col-lg">
         <div class="col-lg-6">
-        <div class="input-group input-group-lg mb-3">
-          <span class="input-group-text bg-primary-subtle text-primary border-3 border-primary">Índice base</span>
-          <input type="text" class="form-control text-center fs-4 " id="selectIndex" disabled>
+          <div class="input-group input-group-lg mb-3">
+            <span class="input-group-text bg-primary-subtle text-primary border-3 border-primary">Índice base</span>
+            <input type="text" class="form-control text-center fs-4 " id="selectIndex" disabled>
+          </div>
         </div>
-      </div>
-      <div class="d-grid gap-2">
-        <button class="btn btn-outline-success mb-3 fs-4 fw-bold" type="button" id="exportarTabla">Exportar tabla <i class="bi bi-grid-3x3"></i></button>
-      </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-outline-success mb-3 fs-4 fw-bold" type="button" id="exportarTabla">Exportar tabla <i
+              class="bi bi-grid-3x3"></i></button>
+        </div>
         <div class="table-responsive fs-6 text-center col-lg" id="tableVisIndex">
           <div class="alert alert-success fw-bold" role="alert" id="rangoFechas">
             <!-- text from h-axi-contable.js -->
@@ -257,7 +288,8 @@
         </div>
         <div class="col-lg-3 mb-4">
           <div class="list-group">
-            <a class="list-group-item list-group-item-action list-group-item-warning fw-normal lead px-3 py-3">Conecta</a>
+            <a
+              class="list-group-item list-group-item-action list-group-item-warning fw-normal lead px-3 py-3">Conecta</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
               href="https://www.estudiodiez.com/contact.html">Contacto</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
@@ -310,11 +342,11 @@
 
   <!-- toast -->
   <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
       $(".toast").toast("hide");
     });
   </script>
-  
+
 </body>
 
 </html>
