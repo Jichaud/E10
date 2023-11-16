@@ -126,6 +126,26 @@
                   value="true">
               </div>
               <hr>
+              <div class="form-check form-switch">
+                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelexSipaObra">¿Exceptuado SIPA y obra
+                  social? <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+                    aria-controls="offcanvasScrolling"> <i class="bi bi-exclamation-circle-fill text-danger text-center"
+                      data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus"
+                      data-bs-title="Información"
+                      data-bs-content="Hacer clic para información"></i></a></label>
+                <input class="form-check-input mb-3" type="checkbox" role="switch" id="exSipaObra">
+              </div>
+              <hr>
+              <div class="form-check form-switch">
+                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelexObra">¿Exceptuado obra
+                  social? <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrollingObra"
+                    aria-controls="offcanvasScrolling"> <i class="bi bi-exclamation-circle-fill text-danger text-center"
+                      data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus"
+                      data-bs-title="Información"
+                      data-bs-content="Hacer clic para información"></i></a></label>
+                <input class="form-check-input mb-3" type="checkbox" role="switch" id="exObra">
+              </div>
+              <hr>
               <label for="regret" class="form-label">Superficie afectada</label>
               <select class="form-select form-select-lg border-3 border-dark" id="superficieAfectada"
                 aria-label="superficie afectada">
@@ -460,6 +480,65 @@
       </div>
     </div>
   </div> <!-- fin modal informar adherente -->
+
+  <!-- Offcanvas ex Sipa y Obra social -->
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Exento SIPA y obra social</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="list-group mb-3">
+        <a class="list-group-item list-group-item-action bg-primary-subtle" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1 text-primary">¿Quiénes?</h5>
+            <small><span class="badge bg-primary fs-6">SIPA y obra social</span></small>
+          </div>
+          <p class="mb-1">Quedan exceptuados de ingresar cotizaciones al régimen de la seguridad social y a obras
+            sociales, los siguientes sujetos:</p>
+          <div class="d-flex justify-content-start align-items-start">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
+                Quienes se encuentran obligados por otros regímenes previsionales.</li>
+              <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
+                Los menores de 18 años.</li>
+              <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
+                Los contribuyentes que adhirieron al monotributo por locación de bienes muebles y/o inmuebles.</li>
+              <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
+                Las sucesiones indivisas continuadoras de los sujetos adheridos al régimen que opten por la
+                permanencia en el mismo.</li>
+              <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
+                Quienes se jubilaron por leyes anteriores al 07/1994 (Nº 18.037 y Nº 18.038), es decir jubilados hasta
+                el 06/1994.</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- fin Offcanvas ex Sipa y Obra social -->
+
+  <!-- Offcanvas ex Obra social -->
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+    id="offcanvasScrollingObra" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Exento Obra social</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="list-group mb-3">
+        <a class="list-group-item list-group-item-action bg-primary-subtle" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1 text-primary">¿Quiénes?</h5>
+            <small><span class="badge bg-primary fs-6">Obra social</span></small>
+          </div>
+          <p class="mb-1">Los jubilados (por leyes anteriores o ley actual) quedan exceptuados de ingresar aportes a la obra social.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- fin Offcanvas ex Obra social -->
 
   <hr>
 

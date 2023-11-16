@@ -1,4 +1,4 @@
-cargaInicio();
+// cargaInicio();
 let html = "";
 let ingresosBrutosJS = 0;
 let numeroAdherentes = 0;
@@ -7,6 +7,8 @@ let tipoActividadValue = "";
 let superficieAfectadaIndice = "";
 let energiaConsumidaIndice = "";
 let alquieresDevengadosIndice = "";
+let exSipaObraVal = 0;
+let exObraVal = 0;
 
 const monoToGo = document.getElementById("footer-card");
 
@@ -341,6 +343,28 @@ $("#categoria").on("click", function () {
       left: 475,
       behavior: "smooth",
     });
+  }
+});
+
+$("#exSipaObra").click(function () {
+  if ($(this).prop("checked") == true) {
+    exSipaObraVal = 1
+    $("#exObra").prop("checked", false)
+    $("#exObra").prop("disabled", true)
+  } else {
+    exSipaObraVal = 0
+    $("#exObra").prop("disabled", false)
+  }
+});
+
+$("#exObra").click(function () {
+  if ($(this).prop("checked") == true) {
+    exObraVal = 1
+    $("#exSipaObra").prop("checked", false)
+    $("#exSipaObra").prop("disabled", true)
+  } else {
+    exSipaObraVal = 0
+    $("#exSipaObra").prop("disabled", false)
   }
 });
 
