@@ -25,7 +25,7 @@ $("#categoria").on("click", function () {
     $("#printReport").show();
     $("#actividad").hide();
     $("#nuevoCalculo").show();
-    $('#tipoActividad').prop("disabled", true)
+    $("#tipoActividad").prop("disabled", true);
   }
 
   let datosCategoriaAsignada = document.getElementById(
@@ -53,11 +53,18 @@ $("#categoria").on("click", function () {
     let catAsignadaObraSocialValAdherentes =
       categoriaServicios[arrCategoria[3]].obra * (+numeroAdherentes + 1);
     let catAsignadaImpuestoVal = categoriaServicios[arrCategoria[3]].impuesto;
-    let totalPorMesVal =
-      catAsignadaJubilacionVal +
-      catAsignadaObraSocialVal +
-      catAsignadaObraSocialValAdherentes +
-      catAsignadaImpuestoVal;
+    let totalPorMesVal = 0;
+    if ($("#adherentes").prop("checked") == true) {
+      totalPorMesVal =
+        catAsignadaJubilacionVal +
+        catAsignadaObraSocialValAdherentes +
+        catAsignadaImpuestoVal;
+    } else {
+      totalPorMesVal =
+        catAsignadaJubilacionVal +
+        catAsignadaObraSocialVal +
+        catAsignadaImpuestoVal;
+    }
 
     // Ventas
     let catAsignadaIngresosValV =
@@ -69,11 +76,22 @@ $("#categoria").on("click", function () {
     let catAsignadaObraSocialValAdherentesV =
       categoriaVentas[arrCategoria[3]].obra * (+numeroAdherentes + 1);
     let catAsignadaImpuestoValV = categoriaVentas[arrCategoria[3]].impuesto;
-    let totalPorMesValV =
-      catAsignadaJubilacionVal +
-      catAsignadaObraSocialVal +
-      catAsignadaObraSocialValAdherentes +
-      catAsignadaImpuestoVal;
+    let totalPorMesValV = 0;
+    if (exSipaObraVal === 1) {
+      totalPorMesValV =
+        catAsignadaImpuestoValV;
+    } else if ($("#adherentes").prop("checked") == true) {
+      totalPorMesValV =
+        catAsignadaJubilacionValV +
+        catAsignadaObraSocialValAdherentesV +
+        catAsignadaImpuestoValV;
+    } else {
+      totalPorMesValV =
+        catAsignadaJubilacionValV +
+        catAsignadaObraSocialValV +
+        catAsignadaImpuestoValV;
+    }
+  
 
     $("#datosIngresosBrutos").val(
       Intl.NumberFormat("es", {
@@ -260,15 +278,20 @@ $("#categoria").on("click", function () {
             .format(catAsignadaAlquileresValV)
             .replace("US$", "")
         );
-        $("#catAsignadaJubilacion").val(
-          Intl.NumberFormat("es", {
-            style: "currency",
-            currency: "USD",
-            currencySign: "accounting",
-          })
-            .format(catAsignadaJubilacionValV)
-            .replace("US$", "")
-        );
+        if (exSipaObraVal === 1) {
+          $("#catAsignadaJubilacion").val("Exento");
+          catAsignadaJubilacionValV = 0;
+        } else {
+          $("#catAsignadaJubilacion").val(
+            Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(catAsignadaJubilacionValV)
+              .replace("US$", "")
+          );
+        }
         if ($("#adherentes").prop("checked") == true) {
           $("#catAsignadaObraSocialLabel").text("Obra social + adherentes");
           $("#catAsignadaObraSocial").val(
@@ -317,12 +340,12 @@ $("#categoria").on("click", function () {
             currency: "USD",
             currencySign: "accounting",
           })
-            .format(totalPorMesVal)
+            .format(totalPorMesValV)
             .replace("US$", "")
         );
 
-        $('#catAsignadaPrecio').prop("hidden", false)
-        $('#catAsignadaPrecioLabel').prop("hidden", false)
+        $("#catAsignadaPrecio").prop("hidden", false);
+        $("#catAsignadaPrecioLabel").prop("hidden", false);
 
         datosCategoriaAsignada.className = "alert alert-primary";
         catAsignadaEscala.className =
@@ -348,23 +371,23 @@ $("#categoria").on("click", function () {
 
 $("#exSipaObra").click(function () {
   if ($(this).prop("checked") == true) {
-    exSipaObraVal = 1
-    $("#exObra").prop("checked", false)
-    $("#exObra").prop("disabled", true)
+    exSipaObraVal = 1;
+    $("#exObra").prop("checked", false);
+    $("#exObra").prop("disabled", true);
   } else {
-    exSipaObraVal = 0
-    $("#exObra").prop("disabled", false)
+    exSipaObraVal = 0;
+    $("#exObra").prop("disabled", false);
   }
 });
 
 $("#exObra").click(function () {
   if ($(this).prop("checked") == true) {
-    exObraVal = 1
-    $("#exSipaObra").prop("checked", false)
-    $("#exSipaObra").prop("disabled", true)
+    exObraVal = 1;
+    $("#exSipaObra").prop("checked", false);
+    $("#exSipaObra").prop("disabled", true);
   } else {
-    exSipaObraVal = 0
-    $("#exSipaObra").prop("disabled", false)
+    exSipaObraVal = 0;
+    $("#exSipaObra").prop("disabled", false);
   }
 });
 
