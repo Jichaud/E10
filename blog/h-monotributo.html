@@ -127,12 +127,21 @@
               </div>
               <hr>
               <div class="form-check form-switch">
-                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelexSipaObra">¿Exceptuado SIPA y obra
+                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelexImpuesto">¿Exceptuado impuesto
+                  integrado? <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrollingImpuesto"
+                    aria-controls="offcanvasScrolling"> <i class="bi bi-exclamation-circle-fill text-danger text-center"
+                      data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus"
+                      data-bs-title="Información" data-bs-content="Hacer clic para información"></i></a></label>
+                <input class="form-check-input mb-3" type="checkbox" role="switch" id="exImpuesto">
+              </div>
+              <hr>
+              <div class="form-check form-switch">
+                <label class="form-check-label" for="flexSwitchCheckChecked" id="labelexSipaObra">¿Exceptuado SIPA y
+                  obra
                   social? <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
                     aria-controls="offcanvasScrolling"> <i class="bi bi-exclamation-circle-fill text-danger text-center"
                       data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus"
-                      data-bs-title="Información"
-                      data-bs-content="Hacer clic para información"></i></a></label>
+                      data-bs-title="Información" data-bs-content="Hacer clic para información"></i></a></label>
                 <input class="form-check-input mb-3" type="checkbox" role="switch" id="exSipaObra">
               </div>
               <hr>
@@ -141,8 +150,7 @@
                   social? <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrollingObra"
                     aria-controls="offcanvasScrolling"> <i class="bi bi-exclamation-circle-fill text-danger text-center"
                       data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus"
-                      data-bs-title="Información"
-                      data-bs-content="Hacer clic para información"></i></a></label>
+                      data-bs-title="Información" data-bs-content="Hacer clic para información"></i></a></label>
                 <input class="form-check-input mb-3" type="checkbox" role="switch" id="exObra">
               </div>
               <hr>
@@ -481,9 +489,74 @@
     </div>
   </div> <!-- fin modal informar adherente -->
 
+  <!-- Modal exento impuesto -->
+  <div class="modal fade" id="impuestoModal" tabindex="-1" aria-labelledby="impuestoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title text-danger fw-bold fs-5" id="exampleModalLabel">Exención impuesto integrado</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">Consideraciones</h5>
+                <small><span class="fw-bold text-light bg-danger badge fs-6">Error</span></small>
+              </div>
+              <div class="d-flex justify-content-start align-items-start">
+                <span class="mb-1"> Ha seleccionado la exención del impuesto integrado que aplica solo a las categorías
+                  "A" o "B", pero su categoría para los parámetros ingresados, supera las categoriás beneficiadas.
+                  Teniendo en cuenta esta situación, no se aplicará la exención del impuesto integrado. </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin modal informar adherente -->
+
+  <!-- Offcanvas ex impuesto integrado -->
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasScrollingImpuesto"
+    aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Exento impuesto integrado</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="list-group mb-3">
+        <a class="list-group-item list-group-item-action bg-primary-subtle" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1 text-primary">¿Quiénes?</h5>
+            <small><span class="badge bg-primary fs-6">Impuesto integrado</span></small>
+          </div>
+          <p class="mb-1">Estarán exentos del pago del impuesto integrado, los monotributistas de las categorías A y B,
+            siempre que <span class="fw-bold text-danger">NO</span> obtengan ingresos por:</p>
+          <div class="d-flex justify-content-start align-items-start">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
+                Trabajo en relación de dependencia, cargos públicos, jubilaciones, pensiones o retiros.</li>
+              <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
+                Dirección, administración o conducción de sociedades.</li>
+              <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
+                Locación de bienes muebles o inmuebles.</li>
+              <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
+                Prestaciones e inversiones financieras, compraventa de valores mobiliarios y de participaciones en las
+                utilidades de sociedades</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- fin Offcanvas ex impuesto integrado -->
+
   <!-- Offcanvas ex Sipa y Obra social -->
-  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1"
-    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
+    aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Exento SIPA y obra social</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -520,8 +593,8 @@
   <!-- fin Offcanvas ex Sipa y Obra social -->
 
   <!-- Offcanvas ex Obra social -->
-  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1"
-    id="offcanvasScrollingObra" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasScrollingObra"
+    aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Exento Obra social</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -533,7 +606,8 @@
             <h5 class="mb-1 text-primary">¿Quiénes?</h5>
             <small><span class="badge bg-primary fs-6">Obra social</span></small>
           </div>
-          <p class="mb-1">Los jubilados (por leyes anteriores o ley actual) quedan exceptuados de ingresar aportes a la obra social.</p>
+          <p class="mb-1">Los jubilados (por leyes anteriores o ley actual) quedan exceptuados de ingresar aportes a la
+            obra social.</p>
         </a>
       </div>
     </div>

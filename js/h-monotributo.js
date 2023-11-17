@@ -1,4 +1,4 @@
-// cargaInicio();
+cargaInicio();
 let html = "";
 let ingresosBrutosJS = 0;
 let numeroAdherentes = 0;
@@ -9,6 +9,7 @@ let energiaConsumidaIndice = "";
 let alquieresDevengadosIndice = "";
 let exSipaObraVal = 0;
 let exObraVal = 0;
+let exImpuesto = 0;
 
 const monoToGo = document.getElementById("footer-card");
 
@@ -41,6 +42,17 @@ $("#categoria").on("click", function () {
   ];
   arrCategoria.sort();
 
+  if ($("#exImpuesto").prop("checked") == true) {
+    if (arrCategoria[3] === "A") {
+      exImpuesto = 1;
+    } else if (arrCategoria[3] === "B") {
+      exImpuesto = 1;
+    } else {
+      exImpuesto = 0;
+      $("#impuestoModal").modal("show");
+    }
+  }
+
   try {
     // Servicios
     let catAsignadaIngresosVal =
@@ -52,9 +64,18 @@ $("#categoria").on("click", function () {
     let catAsignadaObraSocialVal = categoriaServicios[arrCategoria[3]].obra;
     let catAsignadaObraSocialValAdherentes =
       categoriaServicios[arrCategoria[3]].obra * (+numeroAdherentes + 1);
-    let catAsignadaImpuestoVal = categoriaServicios[arrCategoria[3]].impuesto;
+    let catAsignadaImpuestoVal = 0;
+    if (exImpuesto === 1) {
+      catAsignadaImpuestoVal = 0;
+    } else {
+      catAsignadaImpuestoVal = categoriaServicios[arrCategoria[3]].impuesto;
+    }
     let totalPorMesVal = 0;
-    if ($("#adherentes").prop("checked") == true) {
+    if (exSipaObraVal === 1) {
+      totalPorMesVal = catAsignadaImpuestoVal;
+    } else if (exObraVal === 1) {
+      totalPorMesVal = catAsignadaJubilacionVal + catAsignadaImpuestoVal;
+    } else if ($("#adherentes").prop("checked") == true) {
       totalPorMesVal =
         catAsignadaJubilacionVal +
         catAsignadaObraSocialValAdherentes +
@@ -75,11 +96,17 @@ $("#categoria").on("click", function () {
     let catAsignadaObraSocialValV = categoriaVentas[arrCategoria[3]].obra;
     let catAsignadaObraSocialValAdherentesV =
       categoriaVentas[arrCategoria[3]].obra * (+numeroAdherentes + 1);
-    let catAsignadaImpuestoValV = categoriaVentas[arrCategoria[3]].impuesto;
+    let catAsignadaImpuestoValV = 0;
+    if (exImpuesto === 1) {
+      catAsignadaImpuestoValV = 0;
+    } else {
+      catAsignadaImpuestoValV = categoriaVentas[arrCategoria[3]].impuesto;
+    }
     let totalPorMesValV = 0;
     if (exSipaObraVal === 1) {
-      totalPorMesValV =
-        catAsignadaImpuestoValV;
+      totalPorMesValV = catAsignadaImpuestoValV;
+    } else if (exObraVal === 1) {
+      totalPorMesValV = catAsignadaJubilacionValV + catAsignadaImpuestoValV;
     } else if ($("#adherentes").prop("checked") == true) {
       totalPorMesValV =
         catAsignadaJubilacionValV +
@@ -91,7 +118,6 @@ $("#categoria").on("click", function () {
         catAsignadaObraSocialValV +
         catAsignadaImpuestoValV;
     }
-  
 
     $("#datosIngresosBrutos").val(
       Intl.NumberFormat("es", {
@@ -161,47 +187,63 @@ $("#categoria").on("click", function () {
             .format(catAsignadaAlquileresVal)
             .replace("US$", "")
         );
-        $("#catAsignadaJubilacion").val(
-          Intl.NumberFormat("es", {
-            style: "currency",
-            currency: "USD",
-            currencySign: "accounting",
-          })
-            .format(catAsignadaJubilacionVal)
-            .replace("US$", "")
-        );
-        if ($("#adherentes").prop("checked") == true) {
-          $("#catAsignadaObraSocialLabel").text("Obra social + adherentes");
-          $("#catAsignadaObraSocial").val(
-            Intl.NumberFormat("es", {
-              style: "currency",
-              currency: "USD",
-              currencySign: "accounting",
-            })
-              .format(catAsignadaObraSocialValAdherentes)
-              .replace("US$", "")
-          );
+        if (exSipaObraVal === 1) {
+          $("#catAsignadaJubilacion").val("Exento");
         } else {
-          $("#catAsignadaObraSocialLabel").text("Obra social");
-          $("#catAsignadaObraSocial").val(
+          $("#catAsignadaJubilacion").val(
             Intl.NumberFormat("es", {
               style: "currency",
               currency: "USD",
               currencySign: "accounting",
             })
-              .format(catAsignadaObraSocialVal)
+              .format(catAsignadaJubilacionVal)
               .replace("US$", "")
           );
         }
-        $("#catAsignadaImpuesto").val(
-          Intl.NumberFormat("es", {
-            style: "currency",
-            currency: "USD",
-            currencySign: "accounting",
-          })
-            .format(catAsignadaImpuestoVal)
-            .replace("US$", "")
-        );
+        if (exSipaObraVal === 1) {
+          $("#catAsignadaObraSocialLabel").text("Obra social");
+          $("#catAsignadaObraSocial").val("Exento");
+        } else if (exObraVal === 1) {
+          $("#catAsignadaObraSocialLabel").text("Obra social");
+          $("#catAsignadaObraSocial").val("Exento");
+        } else {
+          if ($("#adherentes").prop("checked") == true) {
+            $("#catAsignadaObraSocialLabel").text("Obra social + adherentes");
+            $("#catAsignadaObraSocial").val(
+              Intl.NumberFormat("es", {
+                style: "currency",
+                currency: "USD",
+                currencySign: "accounting",
+              })
+                .format(catAsignadaObraSocialValAdherentes)
+                .replace("US$", "")
+            );
+          } else {
+            $("#catAsignadaObraSocialLabel").text("Obra social");
+            $("#catAsignadaObraSocial").val(
+              Intl.NumberFormat("es", {
+                style: "currency",
+                currency: "USD",
+                currencySign: "accounting",
+              })
+                .format(catAsignadaObraSocialVal)
+                .replace("US$", "")
+            );
+          }
+        }
+        if (exImpuesto === 1) {
+          $("#catAsignadaImpuesto").val("Exento");
+        } else {
+          $("#catAsignadaImpuesto").val(
+            Intl.NumberFormat("es", {
+              style: "currency",
+              currency: "USD",
+              currencySign: "accounting",
+            })
+              .format(catAsignadaImpuestoVal)
+              .replace("US$", "")
+          );
+        }
         $("#totalPorMes").val(
           Intl.NumberFormat("es", {
             style: "currency",
@@ -280,7 +322,6 @@ $("#categoria").on("click", function () {
         );
         if (exSipaObraVal === 1) {
           $("#catAsignadaJubilacion").val("Exento");
-          catAsignadaJubilacionValV = 0;
         } else {
           $("#catAsignadaJubilacion").val(
             Intl.NumberFormat("es", {
@@ -292,38 +333,50 @@ $("#categoria").on("click", function () {
               .replace("US$", "")
           );
         }
-        if ($("#adherentes").prop("checked") == true) {
-          $("#catAsignadaObraSocialLabel").text("Obra social + adherentes");
-          $("#catAsignadaObraSocial").val(
-            Intl.NumberFormat("es", {
-              style: "currency",
-              currency: "USD",
-              currencySign: "accounting",
-            })
-              .format(catAsignadaObraSocialValAdherentesV)
-              .replace("US$", "")
-          );
-        } else {
+        if (exSipaObraVal === 1) {
           $("#catAsignadaObraSocialLabel").text("Obra social");
-          $("#catAsignadaObraSocial").val(
+          $("#catAsignadaObraSocial").val("Exento");
+        } else if (exObraVal === 1) {
+          $("#catAsignadaObraSocialLabel").text("Obra social");
+          $("#catAsignadaObraSocial").val("Exento");
+        } else {
+          if ($("#adherentes").prop("checked") == true) {
+            $("#catAsignadaObraSocialLabel").text("Obra social + adherentes");
+            $("#catAsignadaObraSocial").val(
+              Intl.NumberFormat("es", {
+                style: "currency",
+                currency: "USD",
+                currencySign: "accounting",
+              })
+                .format(catAsignadaObraSocialValAdherentesV)
+                .replace("US$", "")
+            );
+          } else {
+            $("#catAsignadaObraSocialLabel").text("Obra social");
+            $("#catAsignadaObraSocial").val(
+              Intl.NumberFormat("es", {
+                style: "currency",
+                currency: "USD",
+                currencySign: "accounting",
+              })
+                .format(catAsignadaObraSocialValV)
+                .replace("US$", "")
+            );
+          }
+        }
+        if (exImpuesto === 1) {
+          $("#catAsignadaImpuesto").val("Exento");
+        } else {
+          $("#catAsignadaImpuesto").val(
             Intl.NumberFormat("es", {
               style: "currency",
               currency: "USD",
               currencySign: "accounting",
             })
-              .format(catAsignadaObraSocialValV)
+              .format(catAsignadaImpuestoValV)
               .replace("US$", "")
           );
         }
-        $("#catAsignadaImpuesto").val(
-          Intl.NumberFormat("es", {
-            style: "currency",
-            currency: "USD",
-            currencySign: "accounting",
-          })
-            .format(catAsignadaImpuestoValV)
-            .replace("US$", "")
-        );
         $("#totalPorMes").val(
           Intl.NumberFormat("es", {
             style: "currency",
