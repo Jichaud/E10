@@ -33,6 +33,8 @@ $("#categoria").on("click", function () {
     "datosCategoriaAsignada"
   );
   let catAsignadaEscala = document.getElementById("catAsignadaEscala");
+  let paramCat = document.getElementById("paramCat");
+  let impoPago = document.getElementById("impoPago");
 
   let arrCategoria = [
     ingresosBrutosIndice,
@@ -270,6 +272,8 @@ $("#categoria").on("click", function () {
         $("#datosCategoriaAsignada").show();
         $("#catAsignadaEscala").show();
         $("#alertDatosCategoria").show();
+        paramCat.className = "fs-4 fw-bold badge bg-danger rounded-5 mt-4";
+        impoPago.className = "fs-4 fw-bold badge bg-danger rounded-5";
 
         break;
 
@@ -406,6 +410,8 @@ $("#categoria").on("click", function () {
         $("#datosCategoriaAsignada").show();
         $("#catAsignadaEscala").show();
         $("#alertDatosCategoria").show();
+        paramCat.className = "fs-4 fw-bold badge bg-primary rounded-5 mt-4";
+        impoPago.className = "fs-4 fw-bold badge bg-primary rounded-5";
 
         break;
     }
@@ -415,8 +421,8 @@ $("#categoria").on("click", function () {
     monoToGo.scrollIntoView();
   } else {
     window.scroll({
-      top: 475,
-      left: 475,
+      top: 100,
+      left: 0,
       behavior: "smooth",
     });
   }
