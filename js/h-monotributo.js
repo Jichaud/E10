@@ -45,13 +45,22 @@ $("#categoria").on("click", function () {
   arrCategoria.sort();
 
   if ($("#exImpuesto").prop("checked") == true) {
-    if (arrCategoria[3] === "A") {
-      exImpuesto = 1;
-    } else if (arrCategoria[3] === "B") {
-      exImpuesto = 1;
+    if (
+      superficieAfectadaIndice === "" &&
+      energiaConsumidaIndice === "" &&
+      ingresosBrutosIndice === "" &&
+      alquieresDevengadosIndice === ""
+    ) {
+      $("#parametroModal").modal("show");
     } else {
-      exImpuesto = 0;
-      $("#impuestoModal").modal("show");
+      if (arrCategoria[3] === "A") {
+        exImpuesto = 1;
+      } else if (arrCategoria[3] === "B") {
+        exImpuesto = 1;
+      } else {
+        exImpuesto = 0;
+        $("#impuestoModal").modal("show");
+      }
     }
   }
 
@@ -274,6 +283,8 @@ $("#categoria").on("click", function () {
         $("#alertDatosCategoria").show();
         paramCat.className = "fs-4 fw-bold badge bg-danger rounded-5 mt-4";
         impoPago.className = "fs-4 fw-bold badge bg-danger rounded-5";
+        iconCat.className =
+          "bi bi-arrow-down-circle-fill text-danger text-center";
 
         break;
 
@@ -401,9 +412,6 @@ $("#categoria").on("click", function () {
             .replace("US$", "")
         );
 
-        $("#catAsignadaPrecio").prop("hidden", false);
-        $("#catAsignadaPrecioLabel").prop("hidden", false);
-
         datosCategoriaAsignada.className = "alert alert-primary";
         catAsignadaEscala.className =
           "badge bg-primary rounded fs-1 me-4 text-light";
@@ -412,6 +420,7 @@ $("#categoria").on("click", function () {
         $("#alertDatosCategoria").show();
         paramCat.className = "fs-4 fw-bold badge bg-primary rounded-5 mt-4";
         impoPago.className = "fs-4 fw-bold badge bg-primary rounded-5";
+        $("#precioUnitario").prop("hidden", false);
 
         break;
     }
