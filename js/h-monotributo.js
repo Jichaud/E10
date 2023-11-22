@@ -65,71 +65,6 @@ $("#categoria").on("click", function () {
   }
 
   try {
-    // Servicios
-    let catAsignadaIngresosVal =
-      categoriaServicios[arrCategoria[3]].ingresosBrutosT;
-    let catAsignadaEnergiaVal = categoriaServicios[arrCategoria[3]].energia;
-    let catAsignadaAlquileresVal =
-      categoriaServicios[arrCategoria[3]].alquileres;
-    let catAsignadaJubilacionVal = categoriaServicios[arrCategoria[3]].sipa;
-    let catAsignadaObraSocialVal = categoriaServicios[arrCategoria[3]].obra;
-    let catAsignadaObraSocialValAdherentes =
-      categoriaServicios[arrCategoria[3]].obra * (+numeroAdherentes + 1);
-    let catAsignadaImpuestoVal = 0;
-    if (exImpuesto === 1) {
-      catAsignadaImpuestoVal = 0;
-    } else {
-      catAsignadaImpuestoVal = categoriaServicios[arrCategoria[3]].impuesto;
-    }
-    let totalPorMesVal = 0;
-    if (exSipaObraVal === 1) {
-      totalPorMesVal = catAsignadaImpuestoVal;
-    } else if (exObraVal === 1) {
-      totalPorMesVal = catAsignadaJubilacionVal + catAsignadaImpuestoVal;
-    } else if ($("#adherentes").prop("checked") == true) {
-      totalPorMesVal =
-        catAsignadaJubilacionVal +
-        catAsignadaObraSocialValAdherentes +
-        catAsignadaImpuestoVal;
-    } else {
-      totalPorMesVal =
-        catAsignadaJubilacionVal +
-        catAsignadaObraSocialVal +
-        catAsignadaImpuestoVal;
-    }
-
-    // Ventas
-    let catAsignadaIngresosValV =
-      categoriaVentas[arrCategoria[3]].ingresosBrutosT;
-    let catAsignadaEnergiaValV = categoriaVentas[arrCategoria[3]].energia;
-    let catAsignadaAlquileresValV = categoriaVentas[arrCategoria[3]].alquileres;
-    let catAsignadaJubilacionValV = categoriaVentas[arrCategoria[3]].sipa;
-    let catAsignadaObraSocialValV = categoriaVentas[arrCategoria[3]].obra;
-    let catAsignadaObraSocialValAdherentesV =
-      categoriaVentas[arrCategoria[3]].obra * (+numeroAdherentes + 1);
-    let catAsignadaImpuestoValV = 0;
-    if (exImpuesto === 1) {
-      catAsignadaImpuestoValV = 0;
-    } else {
-      catAsignadaImpuestoValV = categoriaVentas[arrCategoria[3]].impuesto;
-    }
-    let totalPorMesValV = 0;
-    if (exSipaObraVal === 1) {
-      totalPorMesValV = catAsignadaImpuestoValV;
-    } else if (exObraVal === 1) {
-      totalPorMesValV = catAsignadaJubilacionValV + catAsignadaImpuestoValV;
-    } else if ($("#adherentes").prop("checked") == true) {
-      totalPorMesValV =
-        catAsignadaJubilacionValV +
-        catAsignadaObraSocialValAdherentesV +
-        catAsignadaImpuestoValV;
-    } else {
-      totalPorMesValV =
-        catAsignadaJubilacionValV +
-        catAsignadaObraSocialValV +
-        catAsignadaImpuestoValV;
-    }
-
     $("#datosIngresosBrutos").val(
       Intl.NumberFormat("es", {
         style: "currency",
@@ -152,6 +87,39 @@ $("#categoria").on("click", function () {
 
     switch (tipoActividadValue) {
       case "1":
+        // Servicios
+        let catAsignadaIngresosVal =
+          categoriaServicios[arrCategoria[3]].ingresosBrutosT;
+        let catAsignadaEnergiaVal = categoriaServicios[arrCategoria[3]].energia;
+        let catAsignadaAlquileresVal =
+          categoriaServicios[arrCategoria[3]].alquileres;
+        let catAsignadaJubilacionVal = categoriaServicios[arrCategoria[3]].sipa;
+        let catAsignadaObraSocialVal = categoriaServicios[arrCategoria[3]].obra;
+        let catAsignadaObraSocialValAdherentes =
+          categoriaServicios[arrCategoria[3]].obra * (+numeroAdherentes + 1);
+        let catAsignadaImpuestoVal = 0;
+        if (exImpuesto === 1) {
+          catAsignadaImpuestoVal = 0;
+        } else {
+          catAsignadaImpuestoVal = categoriaServicios[arrCategoria[3]].impuesto;
+        }
+        let totalPorMesVal = 0;
+        if (exSipaObraVal === 1) {
+          totalPorMesVal = catAsignadaImpuestoVal;
+        } else if (exObraVal === 1) {
+          totalPorMesVal = catAsignadaJubilacionVal + catAsignadaImpuestoVal;
+        } else if ($("#adherentes").prop("checked") == true) {
+          totalPorMesVal =
+            catAsignadaJubilacionVal +
+            catAsignadaObraSocialValAdherentes +
+            catAsignadaImpuestoVal;
+        } else {
+          totalPorMesVal =
+            catAsignadaJubilacionVal +
+            catAsignadaObraSocialVal +
+            catAsignadaImpuestoVal;
+        }
+
         if ($("#datosSuperficieAfectada").val() == "Selecciona...") {
           $("#datosSuperficieAfectada").val("Sin información");
         }
@@ -287,6 +255,39 @@ $("#categoria").on("click", function () {
         break;
 
       case "2":
+        // Ventas
+        let catAsignadaIngresosValV =
+          categoriaVentas[arrCategoria[3]].ingresosBrutosT;
+        let catAsignadaEnergiaValV = categoriaVentas[arrCategoria[3]].energia;
+        let catAsignadaAlquileresValV =
+          categoriaVentas[arrCategoria[3]].alquileres;
+        let catAsignadaJubilacionValV = categoriaVentas[arrCategoria[3]].sipa;
+        let catAsignadaObraSocialValV = categoriaVentas[arrCategoria[3]].obra;
+        let catAsignadaObraSocialValAdherentesV =
+          categoriaVentas[arrCategoria[3]].obra * (+numeroAdherentes + 1);
+        let catAsignadaImpuestoValV = 0;
+        if (exImpuesto === 1) {
+          catAsignadaImpuestoValV = 0;
+        } else {
+          catAsignadaImpuestoValV = categoriaVentas[arrCategoria[3]].impuesto;
+        }
+        let totalPorMesValV = 0;
+        if (exSipaObraVal === 1) {
+          totalPorMesValV = catAsignadaImpuestoValV;
+        } else if (exObraVal === 1) {
+          totalPorMesValV = catAsignadaJubilacionValV + catAsignadaImpuestoValV;
+        } else if ($("#adherentes").prop("checked") == true) {
+          totalPorMesValV =
+            catAsignadaJubilacionValV +
+            catAsignadaObraSocialValAdherentesV +
+            catAsignadaImpuestoValV;
+        } else {
+          totalPorMesValV =
+            catAsignadaJubilacionValV +
+            catAsignadaObraSocialValV +
+            catAsignadaImpuestoValV;
+        }
+
         if ($("#datosSuperficieAfectada").val() == "Selecciona...") {
           $("#datosSuperficieAfectada").val("Sin información");
         }
@@ -422,7 +423,9 @@ $("#categoria").on("click", function () {
 
         break;
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 
   if ($(window).width() < 992) {
     monoToGo.scrollIntoView();
@@ -606,78 +609,82 @@ function calcIngresos() {
   let pTopeModal = document.getElementById("pTopeModal");
   let topeIngresosSer = categoriaServicios.H.ingresosBrutosT;
   let topeIngresosV = categoriaVentas.K.ingresosBrutosT;
-  if (tipoActividadValue === "1") {
-    if (ingresosBrutosJS <= categoriaServicios.A.ingresosBrutosT) {
-      ingresosBrutosIndice = "A";
-    } else if (ingresosBrutosJS <= categoriaServicios.B.ingresosBrutosT) {
-      ingresosBrutosIndice = "B";
-    } else if (ingresosBrutosJS <= categoriaServicios.C.ingresosBrutosT) {
-      ingresosBrutosIndice = "C";
-    } else if (ingresosBrutosJS <= categoriaServicios.D.ingresosBrutosT) {
-      ingresosBrutosIndice = "D";
-    } else if (ingresosBrutosJS <= categoriaServicios.E.ingresosBrutosT) {
-      ingresosBrutosIndice = "E";
-    } else if (ingresosBrutosJS <= categoriaServicios.F.ingresosBrutosT) {
-      ingresosBrutosIndice = "F";
-    } else if (ingresosBrutosJS <= categoriaServicios.G.ingresosBrutosT) {
-      ingresosBrutosIndice = "G";
-    } else if (ingresosBrutosJS <= categoriaServicios.H.ingresosBrutosT) {
-      ingresosBrutosIndice = "H";
-    } else if (ingresosBrutosJS > categoriaServicios.H.ingresosBrutosT) {
-      $("#ingresosBrutos").val("0,00");
-      ingresosBrutosJS = 0;
-      pTopeModal.innerText =
-        "Superás el tope para quedar dentro del régimen de monotributo para locaciones y/o prestaciones de servicios.";
-      topeModal.innerText =
-        "Tope " +
-        Intl.NumberFormat("es", {
-          style: "currency",
-          currency: "USD",
-          currencySign: "accounting",
-        })
-          .format(topeIngresosSer)
-          .replace("US$", "");
-      $("#ingresosModal").modal("show");
-    }
-  } else {
-    if (ingresosBrutosJS <= categoriaVentas.A.ingresosBrutosT) {
-      ingresosBrutosIndice = "A";
-    } else if (ingresosBrutosJS <= categoriaVentas.B.ingresosBrutosT) {
-      ingresosBrutosIndice = "B";
-    } else if (ingresosBrutosJS <= categoriaVentas.C.ingresosBrutosT) {
-      ingresosBrutosIndice = "C";
-    } else if (ingresosBrutosJS <= categoriaVentas.D.ingresosBrutosT) {
-      ingresosBrutosIndice = "D";
-    } else if (ingresosBrutosJS <= categoriaVentas.E.ingresosBrutosT) {
-      ingresosBrutosIndice = "E";
-    } else if (ingresosBrutosJS <= categoriaVentas.F.ingresosBrutosT) {
-      ingresosBrutosIndice = "F";
-    } else if (ingresosBrutosJS <= categoriaVentas.G.ingresosBrutosT) {
-      ingresosBrutosIndice = "G";
-    } else if (ingresosBrutosJS <= categoriaVentas.H.ingresosBrutosT) {
-      ingresosBrutosIndice = "H";
-    } else if (ingresosBrutosJS <= categoriaVentas.I.ingresosBrutosT) {
-      ingresosBrutosIndice = "I";
-    } else if (ingresosBrutosJS <= categoriaVentas.J.ingresosBrutosT) {
-      ingresosBrutosIndice = "J";
-    } else if (ingresosBrutosJS <= categoriaVentas.K.ingresosBrutosT) {
-      ingresosBrutosIndice = "K";
-    } else if (ingresosBrutosJS > categoriaVentas.K.ingresosBrutosT) {
-      $("#ingresosBrutos").val("0,00");
-      ingresosBrutosJS = 0;
-      pTopeModal.innerText =
-        "Superás el tope para quedar dentro del régimen de monotributo para venta de cosas muebles.";
-      topeModal.innerText =
-        "Tope " +
-        Intl.NumberFormat("es", {
-          style: "currency",
-          currency: "USD",
-          currencySign: "accounting",
-        })
-          .format(topeIngresosV)
-          .replace("US$", "");
-      $("#ingresosModal").modal("show");
-    }
+  switch (tipoActividadValue) {
+    case "1":
+      if (ingresosBrutosJS <= categoriaServicios.A.ingresosBrutosT) {
+        ingresosBrutosIndice = "A";
+      } else if (ingresosBrutosJS <= categoriaServicios.B.ingresosBrutosT) {
+        ingresosBrutosIndice = "B";
+      } else if (ingresosBrutosJS <= categoriaServicios.C.ingresosBrutosT) {
+        ingresosBrutosIndice = "C";
+      } else if (ingresosBrutosJS <= categoriaServicios.D.ingresosBrutosT) {
+        ingresosBrutosIndice = "D";
+      } else if (ingresosBrutosJS <= categoriaServicios.E.ingresosBrutosT) {
+        ingresosBrutosIndice = "E";
+      } else if (ingresosBrutosJS <= categoriaServicios.F.ingresosBrutosT) {
+        ingresosBrutosIndice = "F";
+      } else if (ingresosBrutosJS <= categoriaServicios.G.ingresosBrutosT) {
+        ingresosBrutosIndice = "G";
+      } else if (ingresosBrutosJS <= categoriaServicios.H.ingresosBrutosT) {
+        ingresosBrutosIndice = "H";
+      } else if (ingresosBrutosJS > categoriaServicios.H.ingresosBrutosT) {
+        $("#ingresosBrutos").val("0,00");
+        ingresosBrutosJS = 0;
+        pTopeModal.innerText =
+          "Superás el tope para quedar dentro del régimen de monotributo para locaciones y/o prestaciones de servicios.";
+        topeModal.innerText =
+          "Tope " +
+          Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(topeIngresosSer)
+            .replace("US$", "");
+        $("#ingresosModal").modal("show");
+      }
+      break;
+
+    case "2":
+      if (ingresosBrutosJS <= categoriaVentas.A.ingresosBrutosT) {
+        ingresosBrutosIndice = "A";
+      } else if (ingresosBrutosJS <= categoriaVentas.B.ingresosBrutosT) {
+        ingresosBrutosIndice = "B";
+      } else if (ingresosBrutosJS <= categoriaVentas.C.ingresosBrutosT) {
+        ingresosBrutosIndice = "C";
+      } else if (ingresosBrutosJS <= categoriaVentas.D.ingresosBrutosT) {
+        ingresosBrutosIndice = "D";
+      } else if (ingresosBrutosJS <= categoriaVentas.E.ingresosBrutosT) {
+        ingresosBrutosIndice = "E";
+      } else if (ingresosBrutosJS <= categoriaVentas.F.ingresosBrutosT) {
+        ingresosBrutosIndice = "F";
+      } else if (ingresosBrutosJS <= categoriaVentas.G.ingresosBrutosT) {
+        ingresosBrutosIndice = "G";
+      } else if (ingresosBrutosJS <= categoriaVentas.H.ingresosBrutosT) {
+        ingresosBrutosIndice = "H";
+      } else if (ingresosBrutosJS <= categoriaVentas.I.ingresosBrutosT) {
+        ingresosBrutosIndice = "I";
+      } else if (ingresosBrutosJS <= categoriaVentas.J.ingresosBrutosT) {
+        ingresosBrutosIndice = "J";
+      } else if (ingresosBrutosJS <= categoriaVentas.K.ingresosBrutosT) {
+        ingresosBrutosIndice = "K";
+      } else if (ingresosBrutosJS > categoriaVentas.K.ingresosBrutosT) {
+        $("#ingresosBrutos").val("0,00");
+        ingresosBrutosJS = 0;
+        pTopeModal.innerText =
+          "Superás el tope para quedar dentro del régimen de monotributo para venta de cosas muebles.";
+        topeModal.innerText =
+          "Tope " +
+          Intl.NumberFormat("es", {
+            style: "currency",
+            currency: "USD",
+            currencySign: "accounting",
+          })
+            .format(topeIngresosV)
+            .replace("US$", "");
+        $("#ingresosModal").modal("show");
+      }
+      break;
   }
 }
 
