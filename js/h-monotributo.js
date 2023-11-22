@@ -283,8 +283,6 @@ $("#categoria").on("click", function () {
         $("#alertDatosCategoria").show();
         paramCat.className = "fs-4 fw-bold badge bg-danger rounded-5 mt-4";
         impoPago.className = "fs-4 fw-bold badge bg-danger rounded-5";
-        iconCat.className =
-          "bi bi-arrow-down-circle-fill text-danger text-center";
 
         break;
 
