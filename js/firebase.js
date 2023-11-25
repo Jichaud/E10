@@ -76,7 +76,24 @@ onAuthStateChanged(auth, (user) => {
       const existCert = doc(db, "users", uid);
       const existCons = await getDoc(existCert);
       let certi = existCons.data().certificado;
-      window.open(certi, "")
+      if (existCons.data().Descargado > 0) {
+        let clicks = existCons.data().Descargado;
+        await setDoc(
+          doc(db, "users", uid),
+          {
+            Descargado: clicks + 1,
+          },
+          { merge: true }
+        );          
+      } else {
+      await setDoc(
+        doc(db, "users", uid),
+        {
+          Descargado: 1,
+        },
+        { merge: true }
+      );}
+      window.open(certi, "");
     });
 
     // signout process
