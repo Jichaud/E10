@@ -809,11 +809,15 @@ $("#year").on("change", function () {
     $("#mes").prop("hidden", true);
     $("#mesLabel").prop("hidden", true);
     $("#verNovedades").prop("hidden", true);
+    $("#verMaterial").prop("hidden", true);
+    $('#yearExpo').text("");
+    $('#mesExpo').text("- Reforma Tributaria");
     $("#reformaTributariaDiv").prop("hidden", false);
   } else {
     $("#mes").prop("hidden", false);
     $("#mesLabel").prop("hidden", false);
     $("#verNovedades").prop("hidden", false);
+    $("#verMaterial").prop("hidden", false);
     $("#reformaTributariaDiv").prop("hidden", true);
   }
 });
