@@ -1184,3 +1184,7 @@ $("#procedimiento").on("click", function () {
     procedimiento.onclick = window.open(impuestosNovedades.year2017.procedimientoLink, "");
   }
 });
+
+$('#ultimaNovedades').on("click", function () {
+  window.open("https://docs.google.com/document/d/1Cq7imYxuy9DAQwDnALPIppNmKVy501dzs45TMb48pcw/edit", "")
+})
