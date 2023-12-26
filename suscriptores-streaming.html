@@ -253,7 +253,7 @@
         <hr class="text-primary">
         <h1 class="mt-4 mb-3">Ciclo de Actualización Tributaria</h1>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-between">
           <!-- INICIO PRÓXIMA REUNIÓN -->
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="alert alert-danger" role="alert">
@@ -264,7 +264,33 @@
           </div>
           <!-- FIN PRÓXIMA REUNIÓN -->
 
-          <!-- INICIO PRÓXIMA REUNIÓN -->
+          <!-- INICIO REUNIÓN 
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="alert alert-primary" role="alert">
+              <span class="fw-medium fs-4">Transmitiendo <i class="bi bi-broadcast"></i></span> <br>
+              <span class="fw-medium fs-4">Ciclo de Actualización Tributaria 2024 | 1era. reunión</span> <br><br>
+              <button type="button" class="btn btn-primary mb-3 me-3" data-bs-toggle="collapse" data-bs-target="#streaming"
+                aria-expanded="false" aria-controls="streaming">Visualizar video <i
+                  class="bi bi-camera-reels"></i></button>
+                  <button class="btn btn-primary mb-3" type="submit" onclick="window.open('#')">Descargar material <i class="bi bi-card-text"></i></button> <br>
+              <span class="fw-medium float-end">#15/marzo/2024 | #22/marzo/2024</span>
+            </div>
+          </div>
+          FIN REUNIÓN -->
+
+          <!-- INICIO CONSULTAS
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="alert alert-warning" role="alert">
+              <span class="fw-medium fs-4">Consultas <i class="bi bi-question-circle"></i></span> <br>
+              <span class="fw-medium fs-4">Ciclo de Actualización Tributaria 2024 | 1era. reunión</span> <br><br>
+              <button type="button" class="btn btn-warning mb-3">Realizar consulta <i
+                  class="bi bi-question-circle"></i></button> <br>
+              <span class="fw-medium float-end">#15/marzo/2024 | #22/marzo/2024</span>
+            </div>
+          </div>
+          FIN CONSULTAS -->
+
+          <!-- ÚLTIMAS NOVEDADES IMPOSITIVAS -->
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="alert alert-success" role="alert">
               <span class="fw-medium fs-4">Novedades Impositivas - Última publicación</span>
@@ -274,7 +300,17 @@
               <span class="float-end">#25/diciembre/2023</span>
             </div>
           </div>
-          <!-- FIN PRÓXIMA REUNIÓN -->
+          <!-- FIN ÚLTIMAS NOVEDADES IMPOSITIVAS -->
+
+          <!-- VIDEO STREAMING -->
+          <div class="collapse" id="streaming">
+            <div class="ratio ratio-16x9">
+              <iframe class="embed-responsive-item rounded" width="460" height="315"
+                src="https://www.youtube.com/embed/?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0"
+                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          </div>
+          <!-- FIN VIDEO STREAMING -->
 
           <!-- Descarga Certificado de asistencia -->
           <div class="col-lg-4 d-flex align-items-stretch">
@@ -329,7 +365,8 @@ FIN CONSULTAS -->
         <div class="row d-flex align-items-stretch">
           <div class="col-lg-6">
             <div class="card border-primary mb-3">
-              <div class="card-header text-primary bg-primary-subtle">Novedades Impositivas <span id="mesExpo">Enero 2023</span>
+              <div class="card-header text-primary bg-primary-subtle">Novedades Impositivas <span id="mesExpo">Enero
+                  2023</span>
                 <span id="yearExpo"></span>
               </div>
               <div class="card-body text-primary">
