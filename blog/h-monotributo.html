@@ -92,7 +92,7 @@
     <br><br>
     <h1 class="mt-4 mb-3 h1-a">Monotributo <span
         class="badge text-bg-primary text-white px-3 py-3">Categorización</span></h1>
-    <a href="16062023-3.html"> <span class="badge bg-primary fs-4">Ver tablas <i
+    <a href="27122023-1.html"> <span class="badge bg-primary fs-4">Ver tablas <i
           class="bi bi-arrow-right-circle-fill"></i></span> </a>
     <div class="row mt-4">
       <div class="col-lg-4 mb-3">
@@ -184,12 +184,12 @@
               <select class="form-select form-select-lg border-3 border-dark" id="alquieresDevengados"
                 aria-label="alquileres devengados anualmente">
                 <option selected>Selecciona...</option>
-                <option value="1">$ 230.178,48</option>
-                <option value="2">$ 460.356,93</option>
-                <option value="3">$ 573.619,32</option>
-                <option value="4">$ 575.446,12</option>
-                <option value="5">$ 690.535,39</option>
-                <option value="6">$ 920.713,84</option>
+                <option value="1">$ 485.448,92</option>
+                <option value="2">$ 970.897,79</option>
+                <option value="3">$ 1.209.769,40</option>
+                <option value="4">$ 1.213.622,14</option>
+                <option value="5">$ 1.456.346,67</option>
+                <option value="6">$ 1.941.795,53</option>
               </select>
               <hr>
               <div class="row justify-content-between">
@@ -224,6 +224,14 @@
                 <button class="btn btn-outline-dark fs-5 fw-bold" type="button" data-bs-toggle="modal"
                   data-bs-target="#ayudaModal">Ver ayuda <i class="bi bi-info-circle-fill"></i></button>
               </div>
+            </div>
+            <div class="alert alert-info mb-3 text-end" role="alert">
+              <p class="fs-5 fw-bold text-center">Actualizaciones</p>
+              <div class="d-grid gap-2 mb-3">
+                <button class="btn btn-outline-info fs-5 fw-bold" type="button" data-bs-toggle="modal"
+                  data-bs-target="#actualizacionesModal">Ver <i class="bi bi-asterisk"></i></button>
+              </div>
+              <small>Última actualización #27-dic-2023</small>
             </div>
           </div>
 
@@ -521,6 +529,36 @@
       </div>
     </div>
   </div> <!-- fin modal informar adherente -->
+
+  <!-- Modal Actualizaciones -->
+  <div class="modal fade" id="actualizacionesModal" tabindex="-1" aria-labelledby="actualizacionesModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizaciones</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">Novedades</h5>
+                <small><span class="badge bg-success fs-6">Escalas 2024</span></small>
+              </div>
+              <p class="mt-4">Categorización con los parámetros de las <button
+                  class="btn btn-success btn-sm fs-6 text-white" data-bs-toggle="tooltip" data-bs-placement="top"
+                  title="Ver Ecalas 2024" onclick="window.open('27122023-1.html', '_self')"> <small class="fw-bold">Escalas 2024</small> &nbsp; <i class="bi bi-arrow-right-circle-fill"></i></button></p>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin modal actualizaciones -->
+
 
   <!-- Offcanvas ex impuesto integrado -->
   <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasScrollingImpuesto"
