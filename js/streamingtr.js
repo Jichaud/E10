@@ -7,10 +7,22 @@ function verNovedades() {
   window.open(verNovedadesValue, "");
 }
 
+function cargaInicio() {
+  $("#arba").prop("hidden", true);
+  $("#bienesPersonales").prop("hidden", true);
+  $("#convenioMultilateral").prop("hidden", true);
+  $("#ganancias").prop("hidden", true);
+  $("#impuestosVarios").prop("hidden", true);
+  $("#iva").prop("hidden", true);
+  $("#previsional").prop("hidden", true);
+}
+
+cargaInicio();
+
 let novedadesImpositivas = {
   enero2024: {
     link: "https://docs.google.com/document/d/1OxaS-VK5EFfuauN3Sk_V1diU0E6kGFSIzLwUV2gITg0/edit",
-    public: "no",
+    public: "si",
   },
   febrero2024: {
     link: "https://docs.google.com/document/d/1S91-hSezLMwK7anmsqHrN6xliyZnLmIZCZ6iEAroK0w/edit",
@@ -251,6 +263,31 @@ let novedadesImpositivas = {
 };
 
 let impuestosNovedades = {
+  year2024: {
+    agipLink:
+      "https://docs.google.com/document/d/1oNONUCkrYGHb3DsFki62JSGB5Knx8fIQCXN--SbTx6Y/edit",
+    arbaLink:
+      "https://docs.google.com/document/d/13nv7vONvoA1f_gyBhrhFWse10fGjHPJN55BktXstqFI/edit",
+    bienesPersonalesLink:
+      "https://docs.google.com/document/d/1j0TnyRp29szAkdkmhBX91Y075c6TZOKDFheO1cjqvf8/edit",
+    convenioMultilateralLink:
+      "https://docs.google.com/document/d/1NPCwT_qIZ5ttqAr6zsx92gaN_Xtv2_ND0LtDmNX8yT8/edit",
+    deInteresLink:
+      "https://docs.google.com/document/d/1jgWcEUgNqkx2qUA5aGh2jyhJVrN87dwFBpUibUY2l4U/edit",
+    gananciasLink:
+      "https://docs.google.com/document/d/1NjXsCPKiMuEbZgdlxtnIsqWQiRQphL93t5P1IuXWosU/edit",
+    gmpLink: "no",
+    impuestosVariosLink:
+      "https://docs.google.com/document/d/1fnrqy9dTJ_NZ20i2VyaL3APltWeIo0aDwwBQyE-Xv0g/edit",
+    ivaLink:
+      "https://docs.google.com/document/d/1LR621FjkKulD2ajYgI2qIkJumx39al0NuWa4FawCWWM/edit",
+    monotributoLink:
+      "https://docs.google.com/document/d/1rII_84lzKqY9A35jnyEVDj4ajN9ZdlAqnrAQxL9Yx50/edit",
+    previsionalLink:
+      "https://docs.google.com/document/d/1P_lgoRLpX7lci_uEdnGFg7Opu75bn7iff6p5CpibxpE/edit",
+    procedimientoLink:
+      "https://docs.google.com/document/d/1OpSzbJwMO9XMoPli_nSdCK3JWfuluC5WMoBSEMpszkg/edit",
+  },
   year2023: {
     agipLink:
       "https://docs.google.com/document/d/1a9BplIC2XxxGYbJTdrHFiR4bBpvlflygiBWgK-7bTRU/edit",
@@ -339,7 +376,6 @@ let impuestosNovedades = {
       "https://docs.google.com/document/d/1DJ6L4wWjNy_lUyDk8Cx3YxlVJfsLDANQh0K_GKbK8As/edit",
     gananciasLink:
       "https://docs.google.com/document/d/1ty64fVAqrkmkdTwWwsdIj10BdecGZuJujhMdrNuMQM8/edit",
-    gmpLink: "no",
     impuestosVariosLink:
       "https://docs.google.com/document/d/1snbV-zzcvGhtFJG1kGnH2u_aqSb0pskiXMpp-tc8EEM/edit",
     ivaLink:
@@ -361,7 +397,6 @@ $("#seleccionaMesYear").on("change", function () {
     let mes = document.getElementById("mes").value;
     let mesYear = mes + year;
     let verNovedadesPublic = novedadesImpositivas[mesYear].public;
-    let verMaterialPublic = novedadesImpositivas[mesYear].material;
     mesExpo.innerText = $("#mes option:selected").text();
     yearExpo.innerText = $("#year option:selected").text();
     if (verNovedadesPublic == "no") {
@@ -376,22 +411,71 @@ $("#verNovedades").on("click", function () {
   verNovedades();
 });
 
+$("#yearImpuestos").on("change", function () {
+  let yearImpuestos = document.getElementById("yearImpuestos").value;
+  if (yearImpuestos === "2024") {
+    $("#arba").prop("hidden", true);
+    $("#bienesPersonales").prop("hidden", true);
+    $("#convenioMultilateral").prop("hidden", true);
+    $("#ganancias").prop("hidden", true);
+    $("#impuestosVarios").prop("hidden", true);
+    $("#iva").prop("hidden", true);
+    $("#previsional").prop("hidden", true);
+  } else if (yearImpuestos === "2023") {
+    $("#arba").prop("hidden", false);
+    $("#bienesPersonales").prop("hidden", false);
+    $("#convenioMultilateral").prop("hidden", false);
+    $("#ganancias").prop("hidden", false);
+    $("#impuestosVarios").prop("hidden", false);
+    $("#iva").prop("hidden", false);
+    $("#previsional").prop("hidden", false);
+  } else if (yearImpuestos === "2022") {
+    $("#arba").prop("hidden", false);
+    $("#bienesPersonales").prop("hidden", false);
+    $("#convenioMultilateral").prop("hidden", false);
+    $("#ganancias").prop("hidden", false);
+    $("#impuestosVarios").prop("hidden", false);
+    $("#iva").prop("hidden", false);
+    $("#previsional").prop("hidden", false);
+  } else if (yearImpuestos === "2021") {
+    $("#arba").prop("hidden", false);
+    $("#bienesPersonales").prop("hidden", false);
+    $("#convenioMultilateral").prop("hidden", false);
+    $("#ganancias").prop("hidden", false);
+    $("#impuestosVarios").prop("hidden", false);
+    $("#iva").prop("hidden", false);
+    $("#previsional").prop("hidden", false);
+  } else if (yearImpuestos === "2020") {
+    $("#arba").prop("hidden", false);
+    $("#bienesPersonales").prop("hidden", false);
+    $("#convenioMultilateral").prop("hidden", false);
+    $("#ganancias").prop("hidden", false);
+    $("#impuestosVarios").prop("hidden", false);
+    $("#iva").prop("hidden", false);
+    $("#previsional").prop("hidden", false);
+  }
+});
+
 $("#agip").on("click", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
-  if (yearImpuestos === "2023") {
+  if (yearImpuestos === "2024") {
+    agip.onclick = window.open(impuestosNovedades.year2024.agipLink, "");
+  } else if (yearImpuestos === "2023") {
     agip.onclick = window.open(impuestosNovedades.year2023.agipLink, "");
   } else if (yearImpuestos === "2022") {
     agip.onclick = window.open(impuestosNovedades.year2022.agipLink, "");
   } else if (yearImpuestos === "2021") {
     agip.onclick = window.open(impuestosNovedades.year2021.agipLink, "");
   } else if (yearImpuestos === "2020") {
-    agip.onclick = window.open(impuestosNovedades.year2020.agipLink, "");  
+    agip.onclick = window.open(impuestosNovedades.year2020.agipLink, "");
   }
 });
 
 $("#arba").on("click", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
-  if (yearImpuestos === "2023") {
+  if (yearImpuestos === "2024") {
+    arba.onclick = window.open(impuestosNovedades.year2024.arbaLink, "");
+  } else if (yearImpuestos === "2023") {
     arba.onclick = window.open(impuestosNovedades.year2023.arbaLink, "");
   } else if (yearImpuestos === "2022") {
     arba.onclick = window.open(impuestosNovedades.year2022.arbaLink, "");
@@ -404,7 +488,12 @@ $("#arba").on("click", function () {
 
 $("#bienesPersonales").on("click", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
-  if (yearImpuestos === "2023") {
+  if (yearImpuestos === "2024") {
+    bienesPersonales.onclick = window.open(
+      impuestosNovedades.year2024.bienesPersonalesLink,
+      ""
+    );
+  } else if (yearImpuestos === "2023") {
     bienesPersonales.onclick = window.open(
       impuestosNovedades.year2023.bienesPersonalesLink,
       ""
@@ -429,7 +518,12 @@ $("#bienesPersonales").on("click", function () {
 
 $("#convenioMultilateral").on("click", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
-  if (yearImpuestos === "2023") {
+  if (yearImpuestos === "2024") {
+    convenioMultilateral.onclick = window.open(
+      impuestosNovedades.year2024.convenioMultilateralLink,
+      ""
+    );
+  } else if (yearImpuestos === "2023") {
     convenioMultilateral.onclick = window.open(
       impuestosNovedades.year2023.convenioMultilateralLink,
       ""
@@ -454,7 +548,12 @@ $("#convenioMultilateral").on("click", function () {
 
 $("#deInteres").on("click", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
-  if (yearImpuestos === "2023") {
+  if (yearImpuestos === "2024") {
+    deInteres.onclick = window.open(
+      impuestosNovedades.year2024.deInteresLink,
+      ""
+    );
+  } else if (yearImpuestos === "2023") {
     deInteres.onclick = window.open(
       impuestosNovedades.year2023.deInteresLink,
       ""
@@ -479,7 +578,12 @@ $("#deInteres").on("click", function () {
 
 $("#ganancias").on("click", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
-  if (yearImpuestos === "2023") {
+  if (yearImpuestos === "2024") {
+    ganancias.onclick = window.open(
+      impuestosNovedades.year2024.gananciasLink,
+      ""
+    );
+  } else if (yearImpuestos === "2023") {
     ganancias.onclick = window.open(
       impuestosNovedades.year2023.gananciasLink,
       ""
@@ -504,7 +608,12 @@ $("#ganancias").on("click", function () {
 
 $("#impuestosVarios").on("click", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
-  if (yearImpuestos === "2023") {
+  if (yearImpuestos === "2024") {
+    impuestosVarios.onclick = window.open(
+      impuestosNovedades.year2024.impuestosVariosLink,
+      ""
+    );
+  } else if (yearImpuestos === "2023") {
     impuestosVarios.onclick = window.open(
       impuestosNovedades.year2023.impuestosVariosLink,
       ""
@@ -529,7 +638,9 @@ $("#impuestosVarios").on("click", function () {
 
 $("#iva").on("click", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
-  if (yearImpuestos === "2023") {
+  if (yearImpuestos === "2024") {
+    iva.onclick = window.open(impuestosNovedades.year2023.ivaLink, "");
+  } else if (yearImpuestos === "2024") {
     iva.onclick = window.open(impuestosNovedades.year2023.ivaLink, "");
   } else if (yearImpuestos === "2022") {
     iva.onclick = window.open(impuestosNovedades.year2022.ivaLink, "");
@@ -542,7 +653,12 @@ $("#iva").on("click", function () {
 
 $("#monotributo").on("click", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
-  if (yearImpuestos === "2023") {
+  if (yearImpuestos === "2024") {
+    monotributo.onclick = window.open(
+      impuestosNovedades.year2024.monotributoLink,
+      ""
+    );
+  } else if (yearImpuestos === "2023") {
     monotributo.onclick = window.open(
       impuestosNovedades.year2023.monotributoLink,
       ""
@@ -567,7 +683,12 @@ $("#monotributo").on("click", function () {
 
 $("#previsional").on("click", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
-  if (yearImpuestos === "2023") {
+  if (yearImpuestos === "2024") {
+    previsional.onclick = window.open(
+      impuestosNovedades.year2024.previsionalLink,
+      ""
+    );
+  } else if (yearImpuestos === "2023") {
     previsional.onclick = window.open(
       impuestosNovedades.year2023.previsionalLink,
       ""
@@ -592,7 +713,12 @@ $("#previsional").on("click", function () {
 
 $("#procedimiento").on("click", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
-  if (yearImpuestos === "2023") {
+  if (yearImpuestos === "2024") {
+    procedimiento.onclick = window.open(
+      impuestosNovedades.year2024.procedimientoLink,
+      ""
+    );
+  } else if (yearImpuestos === "2023") {
     procedimiento.onclick = window.open(
       impuestosNovedades.year2023.procedimientoLink,
       ""
@@ -617,7 +743,7 @@ $("#procedimiento").on("click", function () {
 
 $("#ultimaNovedades").on("click", function () {
   window.open(
-    "https://docs.google.com/document/d/1Cq7imYxuy9DAQwDnALPIppNmKVy501dzs45TMb48pcw/edit",
+    "https://docs.google.com/document/d/1OxaS-VK5EFfuauN3Sk_V1diU0E6kGFSIzLwUV2gITg0/edit",
     ""
   );
 });
