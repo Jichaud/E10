@@ -13,10 +13,11 @@
   <title>ED blog - Herramientas - Honorarios al directorio</title>
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
   <!-- Bootstrap icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
   <!-- Custom styles for this template 
     <link href="css/modern-business.css" rel="stylesheet"> -->
@@ -90,21 +91,24 @@
 
   <div class="container" id="container">
     <br><br>
-    <h1 class="mt-4 mb-3 h1-a">Honorarios al <span
-        class="badge text-bg-primary text-white px-3 py-3">directorio</span></h1>
-        <span class="fs-4 fw-bold">Régimen RG AFIP 830 incluido (hacé clic en el botón para más detalle)</span>
-        <div class="d-grid gap-2 d-md-block">
-          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#codigo116" aria-expanded="false" aria-controls="codigo116">Código 116</button>
-      </div>
-        <div class="row">
-          <div class="collapse multi-collapse mt-3" id="codigo116" style="max-width: 500px;">
-            <div class="card card-body bg-primary-subtle">
-              <span class="fs-5 fw-bold">Código 116</span>
-              <hr>
-              Anexo ll, inc. k) | Honorarios de director de sociedades anónimas, síndico, fiduciario, consejero de sociedades cooperativas, integrante de consejos de vigilancia y socios administradores de las sociedades de responsabilidad limitada, en comandita simple y en comandita por acciones.
-            </div>
-          </div>
+    <h1 class="mt-4 mb-3 h1-a">Honorarios al <span class="badge text-bg-primary text-white px-3 py-3">directorio</span>
+    </h1>
+    <span class="fs-4 fw-bold">Régimen RG AFIP 830 incluido (hacé clic en el botón para más detalle)</span>
+    <div class="d-grid gap-2 d-md-block">
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#codigo116"
+        aria-expanded="false" aria-controls="codigo116">Código 116</button>
+    </div>
+    <div class="row">
+      <div class="collapse multi-collapse mt-3" id="codigo116" style="max-width: 500px;">
+        <div class="card card-body bg-primary-subtle">
+          <span class="fs-5 fw-bold">Código 116</span>
+          <hr>
+          Anexo ll, inc. k) | Honorarios de director de sociedades anónimas, síndico, fiduciario, consejero de
+          sociedades cooperativas, integrante de consejos de vigilancia y socios administradores de las sociedades de
+          responsabilidad limitada, en comandita simple y en comandita por acciones.
         </div>
+      </div>
+    </div>
     <div class="row mt-4">
       <div class="col-lg-4 mb-3">
         <div class="card border-primary">
@@ -118,6 +122,8 @@
                 <option selected>Selecciona el período fiscal...</option>
                 <option value="2021">2021</option>
                 <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
               </select>
             </div>
 
@@ -133,20 +139,23 @@
                     <input type="text" class="form-control text-end" id="resultadoEECC">
                     <div class="form-check form-switch mt-3 text-start">
                       <input class="form-check-input" type="checkbox" role="switch" id="resultadoPositivo" checked>
-                      <label class="form-check-label" for="resultadoPositivo" id="labelresultadoPositivo">Resultado positivo</label>
-                      <i class="bi bi-exclamation-circle-fill text-danger" type="button" data-bs-toggle="modal" data-bs-target="#ayudaresultadoPositivo"></i>
+                      <label class="form-check-label" for="resultadoPositivo" id="labelresultadoPositivo">Resultado
+                        positivo</label>
+                      <i class="bi bi-exclamation-circle-fill text-danger" type="button" data-bs-toggle="modal"
+                        data-bs-target="#ayudaresultadoPositivo"></i>
                     </div>
-                </div>
+                  </div>
                   <div class="col-12 mt-4 text-warning">
                     <span class="fw-bold" id="labelIIGG">Impuesto a las ganancias</span>
                   </div>
                   <div class="col-12">
                     <input type="text" class="form-control text-end" id="impuestoGanancias">
-                      <div class="form-check form-switch mt-3 text-start">
-                        <input class="form-check-input" type="checkbox" role="switch" id="IIGGdiferido" checked>
-                        <label class="form-check-label" for="IIGGdiferido" id="labelIIGGdiferido">IIGG negativo</label>
-                        <i class="bi bi-exclamation-circle-fill text-danger" type="button" data-bs-toggle="modal" data-bs-target="#ayudaIIGGnegativo"></i>
-                      </div>
+                    <div class="form-check form-switch mt-3 text-start">
+                      <input class="form-check-input" type="checkbox" role="switch" id="IIGGdiferido" checked>
+                      <label class="form-check-label" for="IIGGdiferido" id="labelIIGGdiferido">IIGG negativo</label>
+                      <i class="bi bi-exclamation-circle-fill text-danger" type="button" data-bs-toggle="modal"
+                        data-bs-target="#ayudaIIGGnegativo"></i>
+                    </div>
                   </div>
                   <div class="col-12 mt-4 text-warning">
                     <span class="fw-bold" id="labelUiHono">Utilidad impositiva antes de deducción de honorarios</span>
@@ -156,7 +165,8 @@
                     <div class="form-check form-switch mt-3 text-start">
                       <input class="form-check-input" type="checkbox" role="switch" id="UiHonoQuebranto" checked>
                       <label class="form-check-label" for="UiHonoQuebranto" id="labelUiHonoQuebranto">Utilidad</label>
-                      <i class="bi bi-exclamation-circle-fill text-danger" type="button" data-bs-toggle="modal" data-bs-target="#ayudaUiHonoQuebranto"></i>
+                      <i class="bi bi-exclamation-circle-fill text-danger" type="button" data-bs-toggle="modal"
+                        data-bs-target="#ayudaUiHonoQuebranto"></i>
                     </div>
                   </div>
                 </div>
@@ -172,30 +182,43 @@
                     <span class="fw-bold" id="labelBeneficiarios">Cantidad</span>
                   </div>
                   <div class="col-4">
-                    <input type="text" class="form-control text-center" aria-label="Cantidad directores" aria-describedby="basic-addon2"
-                      id="cantidadDirectores">
+                    <input type="text" class="form-control text-center" aria-label="Cantidad directores"
+                      aria-describedby="basic-addon2" id="cantidadDirectores">
                   </div>
                   <small class="text-center mt-2">(Indicá un número)</small>
                   <div class="col">
-                    <button type="button" id="btnDirectores" class="btn btn-outline-success btn-sm mt-4 mb-3 fs-5">Cargar directores <i class="bi bi-person-plus-fill fs-4"></i></button>
+                    <button type="button" id="btnDirectores"
+                      class="btn btn-outline-success btn-sm mt-4 mb-3 fs-5">Cargar directores <i
+                        class="bi bi-person-plus-fill fs-4"></i></button>
                   </div>
                   <div class="row justify-content-center camposDirectoresSection" id="camposDirectores">
-                      <!-- vía JS -->
+                    <!-- vía JS -->
                   </div>
                 </div>
               </div>
-              </div> <!-- fin carga datos directores -->
+            </div> <!-- fin carga datos directores -->
 
-              <!-- btn carga datos directores - EECC -->
-              <div class="col d-grid">
-                <button type="button" id="btnSiguienteDirectores" class="btn btn-primary btn-sm py-2 mb-3 fs-5 rounded-pill" hidden>Siguiente <i class="bi bi-arrow-right-circle-fill"></i></button>
-              </div>
+            <!-- btn carga datos directores - EECC -->
+            <div class="col d-grid">
+              <button type="button" id="btnSiguienteDirectores"
+                class="btn btn-primary btn-sm py-2 mb-3 fs-5 rounded-pill" hidden>Siguiente <i
+                  class="bi bi-arrow-right-circle-fill"></i></button>
+            </div>
 
             <div class="alert alert-dark mb-3" role="alert">
               <p class="fs-5 fw-bold text-center">Leer primero</p>
               <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-outline-dark fs-5 fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#ayudaModal">Ver <i class="bi bi-info-circle-fill"></i></button>
+                <button class="btn btn-outline-dark fs-5 fw-bold" type="button" data-bs-toggle="modal"
+                  data-bs-target="#ayudaModal">Ver <i class="bi bi-info-circle-fill"></i></button>
               </div>
+            </div>
+            <div class="alert alert-info mb-3 text-end" role="alert">
+              <p class="fs-5 fw-bold text-center">Actualizaciones</p>
+              <div class="d-grid gap-2 mb-3">
+                <button class="btn btn-outline-info fs-5 fw-bold" type="button" data-bs-toggle="modal"
+                  data-bs-target="#actualizacionesModal">Ver <i class="bi bi-asterisk"></i></button>
+              </div>
+              <small>Última actualización #02-ene-2024</small>
             </div>
           </div>
 
@@ -207,7 +230,7 @@
 
       <div class="col-lg">
         <div class="alert alert-secondary text-center fs-3 fw-bold" role="alert" id="periodoFiscalDato">
-          
+
         </div>
         <div class="row" id="resumenCargaDatos">
           <div class="col">
@@ -228,10 +251,12 @@
                   <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">Mujer
                     <span class="badge bg-dark rounded-pill" id="femeninoList"></span>
                   </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">Masculino
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">
+                    Masculino
                     <span class="badge bg-dark rounded-pill" id="masculinoList"></span>
                   </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">Transgénero
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-warning-subtle">
+                    Transgénero
                     <span class="badge bg-dark rounded-pill" id="transgeneroList"></span>
                   </li>
                 </ul>
@@ -243,7 +268,8 @@
                   <h5 class="mb-1 totalProvisionadoList">Total aprobado</h5>
                   <i class="bi bi-check-circle-fill text-primary fs-4"></i>
                 </div>
-                <input type="text" class="form-control mb-1 fs-3 bg-primary-subtle border-0 fw-bold text-center text-break"
+                <input type="text"
+                  class="form-control mb-1 fs-3 bg-primary-subtle border-0 fw-bold text-center text-break"
                   id="totalHonorario" disabled>
               </span>
               <span class="list-group-item list-group-item-action bg-secondary-subtle">
@@ -251,9 +277,11 @@
                   <h5 class="mb-1 totalProvisionadoList">Total UI antes de honorarios</h5>
                   <i class="bi bi-check-circle-fill text-secondary fs-4"></i>
                 </div>
-                <input type="text" class="form-control mb-1 fs-3 bg-secondary-subtle border-0 fw-bold text-center text-break"
+                <input type="text"
+                  class="form-control mb-1 fs-3 bg-secondary-subtle border-0 fw-bold text-center text-break"
                   id="totalUiHono" disabled>
-                  <small class="text-center rounded-pill bg-danger badge fw-bold fs-6" id="quebrantoIIGG" hidden>Quebranto</small>
+                <small class="text-center rounded-pill bg-danger badge fw-bold fs-6" id="quebrantoIIGG"
+                  hidden>Quebranto</small>
               </span>
             </div>
             <div class="list-group list-group-horizontal-lg mb-3">
@@ -262,9 +290,11 @@
                   <h5 class="mb-1">Resutado EECC</h5>
                   <i class="bi bi-check-circle-fill text-danger fs-4"></i>
                 </div>
-                <input type="text" class="form-control mb-1 fs-3 bg-danger-subtle border-0 fw-bold text-center text-break"
-                id="totalEECC" disabled>
-                <small class="text-center rounded-pill bg-danger badge fw-bold fs-6" id="negativoEECC" hidden>Negativo</small>
+                <input type="text"
+                  class="form-control mb-1 fs-3 bg-danger-subtle border-0 fw-bold text-center text-break" id="totalEECC"
+                  disabled>
+                <small class="text-center rounded-pill bg-danger badge fw-bold fs-6" id="negativoEECC"
+                  hidden>Negativo</small>
               </span>
               <span class="list-group-item list-group-item-action bg-info-subtle">
                 <div class="d-flex w-100 justify-content-between">
@@ -272,8 +302,9 @@
                   <i class="bi bi-check-circle-fill text-info fs-4"></i>
                 </div>
                 <input type="text" class="form-control mb-1 fs-3 bg-info-subtle border-0 fw-bold text-center text-break"
-                id="totalIIGG" disabled>
-                <small class="text-center rounded-pill bg-danger badge fw-bold fs-6" id="negativoIG" hidden>IG diferido - positivo</small>
+                  id="totalIIGG" disabled>
+                <small class="text-center rounded-pill bg-danger badge fw-bold fs-6" id="negativoIG" hidden>IG diferido
+                  - positivo</small>
               </span>
             </div>
           </div>
@@ -286,7 +317,8 @@
           <div class="col">
             <div class="alert alert-light border border-3" role="alert">
               <div class="col-sm-3">
-                <div class="alert alert-light text-center fs-5 bg-secondary-subtle border border-secondary" role="alert">Tope 1</div>
+                <div class="alert alert-light text-center fs-5 bg-secondary-subtle border border-secondary"
+                  role="alert">Tope 1</div>
               </div>
               <ol class="list-group list-group-numbered" id="datosTope1">
                 <!-- vía JS -->
@@ -296,9 +328,10 @@
                   <label for="totalTopeUno" class="form-label fs-4 mt-3 fw-bold">Total tope 1</label>
                 </div>
                 <div class="col">
-              <input type="text" class="form-control mb-1 mt-2 fs-4 bg-secondary-subtle border-0 fw-bold text-center text-break"
-                id="totalTopeUno" disabled>
-              </div>
+                  <input type="text"
+                    class="form-control mb-1 mt-2 fs-4 bg-secondary-subtle border-0 fw-bold text-center text-break"
+                    id="totalTopeUno" disabled>
+                </div>
               </div>
             </div>
           </div>
@@ -308,7 +341,8 @@
           <div class="col">
             <div class="alert alert-light border border-primary border-3" role="alert">
               <div class="col-sm-3">
-                <div class="alert alert-primary text-center text-primary fs-5 bg-primary-subtle" role="alert">Tope 2</div>
+                <div class="alert alert-primary text-center text-primary fs-5 bg-primary-subtle" role="alert">Tope 2
+                </div>
               </div>
               <div id="datosTope2">
                 <!-- vía JS -->
@@ -318,9 +352,10 @@
                   <label for="totalTopeDos" class="form-label fs-4 mt-3 fw-bold text-primary">Total tope 2</label>
                 </div>
                 <div class="col">
-              <input type="text" class="form-control mb-1 mt-2 fs-4 bg-primary-subtle border-0 fw-bold text-center text-break"
-                id="totalTopeDos" disabled>
-              </div>
+                  <input type="text"
+                    class="form-control mb-1 mt-2 fs-4 bg-primary-subtle border-0 fw-bold text-center text-break"
+                    id="totalTopeDos" disabled>
+                </div>
               </div>
             </div>
           </div>
@@ -334,22 +369,26 @@
               <div class="row">
                 <div class="col-lg-6 text-center">
                   <label for="maxTope"
-                    class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-dark px-3 py-2">Máximo tope 1 - tope
+                    class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-dark px-3 py-2">Máximo tope 1
+                    - tope
                     2</label>
-                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-dark-subtle border-0 fw-bold text-center text-break"
+                  <input type="text"
+                    class="form-control mb-1 mt-2 fs-4 bg-dark-subtle border-0 fw-bold text-center text-break"
                     id="maxTope" disabled>
                 </div>
                 <div class="col-lg-6 text-center">
                   <label for="honoAsignado"
                     class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-dark px-3 py-2">Honorario
                     asignado</label>
-                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-dark-subtle border-0 fw-bold text-center text-break"
+                  <input type="text"
+                    class="form-control mb-1 mt-2 fs-4 bg-dark-subtle border-0 fw-bold text-center text-break"
                     id="honoAsignado" disabled>
                 </div>
               </div>
               <div class="row">
                 <div class="col text-center">
-                  <label for="honoDeducible" class="form-label mt-3 fw-bold bg-primary text-light rounded-2 px-3 py-2 d-grid">Honorario
+                  <label for="honoDeducible"
+                    class="form-label mt-3 fw-bold bg-primary text-light rounded-2 px-3 py-2 d-grid">Honorario
                     deducible</label>
                   <input type="text"
                     class="form-control mb-1 mt-2 fs-4 bg-primary-subtle border-0 fw-bold text-center text-break"
@@ -369,29 +408,36 @@
                 <div class="col-lg-6 text-center">
                   <label for="aprobadoPerceptores"
                     class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-warning px-3 py-2">Aprobado</label>
-                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-warning-subtle border-0 fw-bold text-center text-break"
+                  <input type="text"
+                    class="form-control mb-1 mt-2 fs-4 bg-warning-subtle border-0 fw-bold text-center text-break"
                     id="aprobadoPerceptores" disabled>
-                    <label for="deducidoPerceptores"
+                  <label for="deducidoPerceptores"
                     class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-warning px-3 py-2">Deducido</label>
-                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-warning-subtle border-0 fw-bold text-center text-break"
+                  <input type="text"
+                    class="form-control mb-1 mt-2 fs-4 bg-warning-subtle border-0 fw-bold text-center text-break"
                     id="deducidoPerceptores" disabled>
-                    <label for="excedentePerceptores"
+                  <label for="excedentePerceptores"
                     class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-warning px-3 py-2">Excedente</label>
-                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-warning border-0 fw-bold text-center text-break"
+                  <input type="text"
+                    class="form-control mb-1 mt-2 fs-4 bg-warning border-0 fw-bold text-center text-break"
                     id="excedentePerceptores" disabled>
                 </div>
                 <div class="col-lg-6 text-center">
                   <label for="UIPerceptores"
-                    class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-danger px-3 py-2" id="labelUIPerceptores">UI antes de honorarios</label>
-                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-danger-subtle border-0 fw-bold text-center text-break"
+                    class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-danger px-3 py-2"
+                    id="labelUIPerceptores">UI antes de honorarios</label>
+                  <input type="text"
+                    class="form-control mb-1 mt-2 fs-4 bg-danger-subtle border-0 fw-bold text-center text-break"
                     id="UIPerceptores" disabled>
-                    <label for="deducidoPerceptoresDos"
+                  <label for="deducidoPerceptoresDos"
                     class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-danger px-3 py-2">Deducido</label>
-                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-danger-subtle border-0 fw-bold text-center text-break"
+                  <input type="text"
+                    class="form-control mb-1 mt-2 fs-4 bg-danger-subtle border-0 fw-bold text-center text-break"
                     id="deducidoPerceptoresDos" disabled>
-                    <label for="gnsaiPerceptores"
+                  <label for="gnsaiPerceptores"
                     class="form-label mt-3 fw-bold text-dark border-bottom border-2 border-danger px-3 py-2">GNSAI</label>
-                  <input type="text" class="form-control mb-1 mt-2 fs-4 bg-danger border-0 fw-bold text-center text-light text-break"
+                  <input type="text"
+                    class="form-control mb-1 mt-2 fs-4 bg-danger border-0 fw-bold text-center text-light text-break"
                     id="gnsaiPerceptores" disabled>
                 </div>
               </div>
@@ -428,155 +474,210 @@
         </div>
 
       </div> <!-- col -->
-      
+
     </div> <!-- row -->
   </div> <!-- container -->
 
-            <!-- Modal Ayuda -->
-            <div class="modal fade" id="ayudaModal" tabindex="-1" aria-labelledby="ayudaModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ayuda</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="list-group mb-3">
-                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-success">Consideraciones</h5>
-                          <small><span class="badge bg-success fs-6">Alcance</span></small>
-                        </div>
-                        <p class="mb-1">La presente herramienta es de alcance limitado. Corresponde al régimen de retención por honorarios al directorio (código 116 de la RG AFIP 830). No se contempla el caso de donaciones o quebrantos de ejercicios anteriores.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-warning-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Utilización de la herramienta</h5>
-                          <small><span class="badge bg-warning fs-6 text-dark">Cálculos</span></small>
-                        </div>
-                        <p class="mb-1">La correcta utilización de la herramienta implica tener el conocimiento de determinados conceptos definidos en la Ley de Impuesto a las ganancias, su decreto reglamentario y la RG AFIP 830. Si no está familiarizado con ellos, recomendamos no utilizarla teniendo en cuenta las implicancias fiscales que puedan acarrear a los clientes que asesora.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-primary-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Criterio profesional</h5>
-                          <small><span class="badge bg-primary fs-6">Expertise</span></small>
-                        </div>
-                        <p class="mb-1">Bajo ningún aspecto esta herramienta reemplaza el criterio profesional, ni los cálculos obtenidos de la herramienta deben ser considerados como exactos. La complejidad de la operación a considerar y los datos cargados en la herramienta, pueden dar resultados inesperados y no ajustados al criterio fiscal. <br><br>
-                        Puede utilizarla como herramienta de verificación de sus propios cálculos y en caso de discrepancia, utilizar el formulario de comentarios mencionado en el siguiente punto para hacernos llegar la inquietud.
-                        </p>
-                      </a>
-                    </div>
-                    <div class="alert alert-dark" role="alert">
-                      Tenés algún comentario, encontraste un error, o querés enviarnos un agradecimiento...
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh8o_HIE6M_OaUEZn81cfg2agxZIjFmtUZjMbP4zbGcO57SQ/viewform" target="_blank"><button type="button" class="btn btn-outline-success mt-3">Enviar comentario <i class="bi bi-arrow-right-circle-fill"></i></button></a>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-                </div>
+  <!-- Modal Ayuda -->
+  <div class="modal fade" id="ayudaModal" tabindex="-1" aria-labelledby="ayudaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Ayuda</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">Consideraciones</h5>
+                <small><span class="badge bg-success fs-6">Alcance</span></small>
               </div>
-            </div> <!-- fin modal ayuda -->
+              <p class="mb-1">La presente herramienta es de alcance limitado. Corresponde al régimen de retención por
+                honorarios al directorio (código 116 de la RG AFIP 830). No se contempla el caso de donaciones o
+                quebrantos de ejercicios anteriores.</p>
+            </a>
+            <a class="list-group-item list-group-item-action bg-warning-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Utilización de la herramienta</h5>
+                <small><span class="badge bg-warning fs-6 text-dark">Cálculos</span></small>
+              </div>
+              <p class="mb-1">La correcta utilización de la herramienta implica tener el conocimiento de determinados
+                conceptos definidos en la Ley de Impuesto a las ganancias, su decreto reglamentario y la RG AFIP 830. Si
+                no está familiarizado con ellos, recomendamos no utilizarla teniendo en cuenta las implicancias fiscales
+                que puedan acarrear a los clientes que asesora.</p>
+            </a>
+            <a class="list-group-item list-group-item-action bg-primary-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Criterio profesional</h5>
+                <small><span class="badge bg-primary fs-6">Expertise</span></small>
+              </div>
+              <p class="mb-1">Bajo ningún aspecto esta herramienta reemplaza el criterio profesional, ni los cálculos
+                obtenidos de la herramienta deben ser considerados como exactos. La complejidad de la operación a
+                considerar y los datos cargados en la herramienta, pueden dar resultados inesperados y no ajustados al
+                criterio fiscal. <br><br>
+                Puede utilizarla como herramienta de verificación de sus propios cálculos y en caso de discrepancia,
+                utilizar el formulario de comentarios mencionado en el siguiente punto para hacernos llegar la
+                inquietud.
+              </p>
+            </a>
+          </div>
+          <div class="alert alert-dark" role="alert">
+            Tenés algún comentario, encontraste un error, o querés enviarnos un agradecimiento...
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh8o_HIE6M_OaUEZn81cfg2agxZIjFmtUZjMbP4zbGcO57SQ/viewform"
+              target="_blank"><button type="button" class="btn btn-outline-success mt-3">Enviar comentario <i
+                  class="bi bi-arrow-right-circle-fill"></i></button></a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin modal ayuda -->
 
-            <!-- Modal IIGG negativo -->
-            <div class="modal fade" id="ayudaIIGGnegativo" tabindex="-1" aria-labelledby="ayudaIIGGnegativoLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">IIGG</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="list-group mb-3">
-                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-success">IIGG negativo</h5>
-                          <small><span class="badge bg-success fs-6">Caso normal</span></small>
-                        </div>
-                        <p class="mb-1">El caso general del impuesto a las ganancias, es que su valor es negativo en los EECC. De esta manera simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se encuentra  a la izquierda.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-warning-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">IIGG positivo</h5>
-                          <small><span class="badge bg-warning fs-6 text-dark">Impuesto diferido</span></small>
-                        </div>
-                        <p class="mb-1">Si por aplicación de la técnica contable del impuesto diferido el IIGG es positivo en los EECC, por favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.</p>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-                </div>
+  <!-- Modal IIGG negativo -->
+  <div class="modal fade" id="ayudaIIGGnegativo" tabindex="-1" aria-labelledby="ayudaIIGGnegativoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">IIGG</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">IIGG negativo</h5>
+                <small><span class="badge bg-success fs-6">Caso normal</span></small>
               </div>
-            </div> <!-- fin IIGG negativo -->
+              <p class="mb-1">El caso general del impuesto a las ganancias, es que su valor es negativo en los EECC. De
+                esta manera simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se
+                encuentra a la izquierda.</p>
+            </a>
+            <a class="list-group-item list-group-item-action bg-warning-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">IIGG positivo</h5>
+                <small><span class="badge bg-warning fs-6 text-dark">Impuesto diferido</span></small>
+              </div>
+              <p class="mb-1">Si por aplicación de la técnica contable del impuesto diferido el IIGG es positivo en los
+                EECC, por favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la
+                izquierda.</p>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin IIGG negativo -->
 
-            <!-- Modal resultado negativo -->
-            <div class="modal fade" id="ayudaresultadoPositivo" tabindex="-1" aria-labelledby="ayudaresultadoPositivoLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Resultado</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="list-group mb-3">
-                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-success">Resultado positivo</h5>
-                          <small><span class="badge bg-success fs-6">EECC</span></small>
-                        </div>
-                        <p class="mb-1">Si el resultado del ejercicio es <span class="text-success fw-bold">positivo</span>, simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se encuentra  a la izquierda.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-warning-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Reultado negativo</h5>
-                          <small><span class="badge bg-warning fs-6 text-dark">EECC</span></small>
-                        </div>
-                        <p class="mb-1">Si el resultado del ejercicio es <span class="text-danger fw-bold">negativo</span>, por favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.</p>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-                </div>
+  <!-- Modal resultado negativo -->
+  <div class="modal fade" id="ayudaresultadoPositivo" tabindex="-1" aria-labelledby="ayudaresultadoPositivoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Resultado</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">Resultado positivo</h5>
+                <small><span class="badge bg-success fs-6">EECC</span></small>
               </div>
-            </div> <!-- fin resultado negativo -->
+              <p class="mb-1">Si el resultado del ejercicio es <span class="text-success fw-bold">positivo</span>,
+                simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se encuentra a la
+                izquierda.</p>
+            </a>
+            <a class="list-group-item list-group-item-action bg-warning-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Reultado negativo</h5>
+                <small><span class="badge bg-warning fs-6 text-dark">EECC</span></small>
+              </div>
+              <p class="mb-1">Si el resultado del ejercicio es <span class="text-danger fw-bold">negativo</span>, por
+                favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.
+              </p>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin resultado negativo -->
 
-            <!-- Modal quebranto impositivo -->
-            <div class="modal fade" id="ayudaUiHonoQuebranto" tabindex="-1" aria-labelledby="ayudaUiHonoQuebrantoLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Utilidad impositiva</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="list-group mb-3">
-                      <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1 text-success">Utilidad positiva</h5>
-                          <small><span class="badge bg-success fs-6">DDJJ</span></small>
-                        </div>
-                        <p class="mb-1">Si la utilidad impositiva antes de la deducción de honorarios es <span class="text-success fw-bold">positiva</span>, simplemente cargá el dato <span class="fw-bold">SIN</span> desactivar la opción que se encuentra  a la izquierda.</p>
-                      </a>
-                      <a class="list-group-item list-group-item-action bg-warning-subtle">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Quebranto impositivo</h5>
-                          <small><span class="badge bg-warning fs-6 text-dark">DDJJ</span></small>
-                        </div>
-                        <p class="mb-1">Si la utilidad impositiva antes de la deducción de honorarios es <span class="text-danger fw-bold">quebranto</span>, por favor cargá el dato y <span class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.</p>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-                </div>
+  <!-- Modal quebranto impositivo -->
+  <div class="modal fade" id="ayudaUiHonoQuebranto" tabindex="-1" aria-labelledby="ayudaUiHonoQuebrantoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Utilidad impositiva</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">Utilidad positiva</h5>
+                <small><span class="badge bg-success fs-6">DDJJ</span></small>
               </div>
-            </div> <!-- fin quebranto impositivo -->
-            
+              <p class="mb-1">Si la utilidad impositiva antes de la deducción de honorarios es <span
+                  class="text-success fw-bold">positiva</span>, simplemente cargá el dato <span
+                  class="fw-bold">SIN</span> desactivar la opción que se encuentra a la izquierda.</p>
+            </a>
+            <a class="list-group-item list-group-item-action bg-warning-subtle">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Quebranto impositivo</h5>
+                <small><span class="badge bg-warning fs-6 text-dark">DDJJ</span></small>
+              </div>
+              <p class="mb-1">Si la utilidad impositiva antes de la deducción de honorarios es <span
+                  class="text-danger fw-bold">quebranto</span>, por favor cargá el dato y <span
+                  class="fw-bold">DESTILDÁ</span> la opción que se encuentra a la izquierda.</p>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin quebranto impositivo -->
+
+  <!-- Modal Actualizaciones -->
+  <div class="modal fade" id="actualizacionesModal" tabindex="-1" aria-labelledby="actualizacionesModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizaciones</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group mb-3">
+            <a class="list-group-item list-group-item-action bg-success-subtle" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">Novedades</h5>
+                <small><span class="badge bg-success fs-6">Escalas 2023-2024</span></small>
+              </div>
+              <p class="mt-4">Cálculo con las tablas de los períodos fiscales 2023 - 2024.
+              </p>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin modal actualizaciones -->
+
   <hr>
 
   <!-- Footer -->
@@ -621,7 +722,8 @@
         </div>
         <div class="col-lg-3 mb-4">
           <div class="list-group">
-            <a class="list-group-item list-group-item-action list-group-item-warning fw-normal lead px-3 py-3">Conecta</a>
+            <a
+              class="list-group-item list-group-item-action list-group-item-warning fw-normal lead px-3 py-3">Conecta</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
               href="https://www.estudiodiez.com/contact.html">Contacto</a>
             <a class="list-group-item list-group-item-action px-3 py-3"
@@ -651,11 +753,17 @@
     crossorigin="anonymous"></script>
 
   <!-- Mask -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
-  <!-- Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+    integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
 
   <script type="text/javascript">
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -674,11 +782,11 @@
 
   <!-- toast -->
   <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
       $(".toast").toast("hide");
     });
   </script>
-  
+
 </body>
 
 </html>
