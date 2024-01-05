@@ -8,11 +8,9 @@ function verNovedades() {
 }
 
 function cargaInicio() {
-  $("#arba").prop("hidden", true);
   $("#bienesPersonales").prop("hidden", true);
   $("#convenioMultilateral").prop("hidden", true);
   $("#ganancias").prop("hidden", true);
-  $("#impuestosVarios").prop("hidden", true);
   $("#iva").prop("hidden", true);
   $("#previsional").prop("hidden", true);
 }
@@ -414,11 +412,11 @@ $("#verNovedades").on("click", function () {
 $("#yearImpuestos").on("change", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
   if (yearImpuestos === "2024") {
-    $("#arba").prop("hidden", true);
+    $("#arba").prop("hidden", false);
     $("#bienesPersonales").prop("hidden", true);
     $("#convenioMultilateral").prop("hidden", true);
     $("#ganancias").prop("hidden", true);
-    $("#impuestosVarios").prop("hidden", true);
+    $("#impuestosVarios").prop("hidden", false);
     $("#iva").prop("hidden", true);
     $("#previsional").prop("hidden", true);
   } else if (yearImpuestos === "2023") {
