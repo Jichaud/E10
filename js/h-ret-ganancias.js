@@ -553,7 +553,7 @@ function retCalc() {
                                     } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) <= 213000) {
                                       calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) - 142000) * 0.12 + 9940 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
                                     } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) <= 284000) {
-                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) - 213000) * 0.15 + 18640 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
+                                      calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) - 213000) * 0.15 + 18460 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
                                     } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) <= 426000) {
                                       calculoSumaPlu = (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) - 284000) * 0.19 + 29110 - (parseFloat(sumaPlu.value) / 100 * +retencionesMesNum)
                                     } else if (((parseFloat(sumaPlu.value) / 100 * (+importeNetoNum + +pagosMesNum)) - 160000) <= 568000) {
@@ -607,7 +607,7 @@ function retCalc() {
                                 } else if ((+importeNetoNum + +pagosMesNum - 160000) <= 213000) {
                                   importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 142000) * 0.12 + 9940 - +retencionesMesNum
                                 } else if ((+importeNetoNum + +pagosMesNum - 160000) <= 284000) {
-                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 213000) * 0.15 + 18640 - +retencionesMesNum
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 213000) * 0.15 + 18460 - +retencionesMesNum
                                 } else if ((+importeNetoNum + +pagosMesNum - 160000) <= 426000) {
                                   importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 284000) * 0.19 + 29110 - +retencionesMesNum
                                 } else if ((+importeNetoNum + +pagosMesNum - 160000) <= 568000) {
