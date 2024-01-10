@@ -600,7 +600,6 @@ function retCalc() {
                                 retCalcFin();
             
                             } else {
-                                let importeRetInscripto = (+importeNetoNum + +pagosMesNum - 67170) * 0.02 - +retencionesMesNum
                                 if ((+importeNetoNum + +pagosMesNum - 160000) <= 71000) {
                                   importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000) * 0.05 - +retencionesMesNum
                                 } else if ((+importeNetoNum + +pagosMesNum - 160000) <= 142000) {
@@ -616,7 +615,7 @@ function retCalc() {
                                 } else if ((+importeNetoNum + +pagosMesNum - 160000) <= 852000) {
                                   importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 568000) * 0.27 + 88750 - +retencionesMesNum
                                 } else if ((+importeNetoNum + +pagosMesNum - 160000) > 852000) {
-                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 852000) * 0.31 + 165340 - +retencionesMesNum
+                                  importeRetInscripto = (+importeNetoNum + +pagosMesNum - 160000 - 852000) * 0.31 + 165430 - +retencionesMesNum
                                 }
 
                                 if (importeRetInscripto < 240) {
