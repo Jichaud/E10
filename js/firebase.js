@@ -146,7 +146,6 @@ function cargaInicio() {
   $("#ganancias").prop("hidden", true);
   $("#gmp").prop("hidden", true);
   $("#iva").prop("hidden", true);
-  $("#previsional").prop("hidden", true);
 }
 
 cargaInicio();
@@ -979,7 +978,7 @@ $("#yearImpuestos").on("change", function () {
     $("#gmp").prop("hidden", true);
     $("#impuestosVarios").prop("hidden", false);
     $("#iva").prop("hidden", true);
-    $("#previsional").prop("hidden", true);
+    $("#previsional").prop("hidden", false);
   } else if (yearImpuestos === "2023") {
     $("#gmp").prop("hidden", true);
     $("#arba").prop("hidden", false);

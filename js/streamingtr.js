@@ -12,7 +12,6 @@ function cargaInicio() {
   $("#convenioMultilateral").prop("hidden", true);
   $("#ganancias").prop("hidden", true);
   $("#iva").prop("hidden", true);
-  $("#previsional").prop("hidden", true);
 }
 
 cargaInicio();
@@ -418,7 +417,7 @@ $("#yearImpuestos").on("change", function () {
     $("#ganancias").prop("hidden", true);
     $("#impuestosVarios").prop("hidden", false);
     $("#iva").prop("hidden", true);
-    $("#previsional").prop("hidden", true);
+    $("#previsional").prop("hidden", false);
   } else if (yearImpuestos === "2023") {
     $("#arba").prop("hidden", false);
     $("#bienesPersonales").prop("hidden", false);
