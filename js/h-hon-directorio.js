@@ -1493,7 +1493,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-          <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
+          <img src="bimages/primerTramo2023.webp" class="ms-3 img-fluid" alt="Primer tramo">
           `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -1544,7 +1544,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-          <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+          <img src="bimages/segundoTramo2023.webp" class="ms-3 img-fluid" alt="Segundo tramo">
           `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -1595,7 +1595,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-          <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+          <img src="bimages/tercerTramo2023.webp" class="ms-3 img-fluid" alt="Segundo tramo">
           `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -1647,7 +1647,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-          <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
+          <img src="bimages/primerTramo2023.webp" class="ms-3 img-fluid" alt="Primer tramo">
           `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -1698,7 +1698,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-          <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+          <img src="bimages/segundoTramo2023.webp" class="ms-3 img-fluid" alt="Segundo tramo">
           `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -1749,7 +1749,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-          <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+          <img src="bimages/tercerTramo2023.webp" class="ms-3 img-fluid" alt="Segundo tramo">
           `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -1805,7 +1805,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-          <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
+          <img src="bimages/primerTramo2023.webp" class="ms-3 img-fluid" alt="Primer tramo">
           `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -1856,7 +1856,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-          <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+          <img src="bimages/segundoTramo2023.webp" class="ms-3 img-fluid" alt="Segundo tramo">
           `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -1907,7 +1907,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-          <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+          <img src="bimages/tercerTramo2023.webp" class="ms-3 img-fluid" alt="Segundo tramo">
           `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -1959,7 +1959,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-          <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
+          <img src="bimages/primerTramo2023.webp" class="ms-3 img-fluid" alt="Primer tramo">
           `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2010,7 +2010,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-          <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+          <img src="bimages/segundoTramo2023.webp" class="ms-3 img-fluid" alt="Segundo tramo">
           `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2061,7 +2061,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-          <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+          <img src="bimages/tercerTramo2023.webp" class="ms-3 img-fluid" alt="Segundo tramo">
           `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2124,7 +2124,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-              <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
+              <img src="bimages/primerTramo2024.webp" class="ms-3 img-fluid" alt="Primer tramo">
               `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2175,7 +2175,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-              <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+              <img src="bimages/segundoTramo2024.webp" class="ms-3 img-fluid" alt="Segundo tramo">
               `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2226,7 +2226,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-              <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+              <img src="bimages/tercerTramo2024.webp" class="ms-3 img-fluid" alt="Segundo tramo">
               `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2278,7 +2278,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-              <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
+              <img src="bimages/primerTramo2024.webp" class="ms-3 img-fluid" alt="Primer tramo">
               `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2329,7 +2329,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-              <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+              <img src="bimages/segundoTramo2024.webp" class="ms-3 img-fluid" alt="Segundo tramo">
               `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2380,7 +2380,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-              <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+              <img src="bimages/tercerTramo2024.webp" class="ms-3 img-fluid" alt="Segundo tramo">
               `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2436,7 +2436,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-              <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
+              <img src="bimages/primerTramo2024.webp" class="ms-3 img-fluid" alt="Primer tramo">
               `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2487,7 +2487,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-              <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+              <img src="bimages/segundoTramo2024.webp" class="ms-3 img-fluid" alt="Segundo tramo">
               `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2538,7 +2538,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-              <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+              <img src="bimages/tercerTramo2024.webp" class="ms-3 img-fluid" alt="Segundo tramo">
               `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2590,7 +2590,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-              <img src="bimages/primerTramo2022.webp" class="ms-3 img-fluid" alt="Primer tramo">
+              <img src="bimages/primerTramo2024.webp" class="ms-3 img-fluid" alt="Primer tramo">
               `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2641,7 +2641,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-              <img src="bimages/segundoTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+              <img src="bimages/segundoTramo2024.webp" class="ms-3 img-fluid" alt="Segundo tramo">
               `;
               datosTope2.innerHTML = htmlTopeDos;
 
@@ -2692,7 +2692,7 @@ $("#btnSiguienteDirectores").click(function () {
                 0.25;
 
               htmlTopeDos += `
-              <img src="bimages/tercerTramo2022.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+              <img src="bimages/tercerTramo2024.webp" class="ms-3 img-fluid" alt="Segundo tramo">
               `;
               datosTope2.innerHTML = htmlTopeDos;
 
