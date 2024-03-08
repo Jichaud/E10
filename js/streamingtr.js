@@ -10,7 +10,6 @@ function verNovedades() {
 function cargaInicio() {
   $("#bienesPersonales").prop("hidden", true);
   $("#convenioMultilateral").prop("hidden", true);
-  $("#ganancias").prop("hidden", true);
   $("#iva").prop("hidden", true);
 }
 
