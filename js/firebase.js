@@ -144,7 +144,6 @@ function cargaInicio() {
   $("#bienesPersonales").prop("hidden", true);
   $("#convenioMultilateral").prop("hidden", true);
   $("#gmp").prop("hidden", true);
-  $("#iva").prop("hidden", true);
 }
 
 cargaInicio();
@@ -970,13 +969,14 @@ $("#reformaTributariaDiv9").on("click", function () {
 $("#yearImpuestos").on("change", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
   if (yearImpuestos === "2024") {
+    $("#agip").prop("hidden", false);
     $("#arba").prop("hidden", false);
     $("#bienesPersonales").prop("hidden", true);
     $("#convenioMultilateral").prop("hidden", true);
-    $("#ganancias").prop("hidden", true);
+    $("#ganancias").prop("hidden", false);
     $("#gmp").prop("hidden", true);
     $("#impuestosVarios").prop("hidden", false);
-    $("#iva").prop("hidden", true);
+    $("#iva").prop("hidden", false);
     $("#previsional").prop("hidden", false);
   } else if (yearImpuestos === "2023") {
     $("#gmp").prop("hidden", true);
@@ -1325,7 +1325,7 @@ $("#impuestosVarios").on("click", function () {
 $("#iva").on("click", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
   if (yearImpuestos === "2024") {
-    iva.onclick = window.open(impuestosNovedades.year2023.ivaLink, "");
+    iva.onclick = window.open(impuestosNovedades.year2024.ivaLink, "");
   } else if (yearImpuestos === "2024") {
     iva.onclick = window.open(impuestosNovedades.year2023.ivaLink, "");
   } else if (yearImpuestos === "2022") {
