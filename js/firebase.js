@@ -141,7 +141,6 @@ function verMaterial() {
 }
 
 function cargaInicio() {
-  $("#bienesPersonales").prop("hidden", true);
   $("#convenioMultilateral").prop("hidden", true);
   $("#gmp").prop("hidden", true);
 }
@@ -167,7 +166,7 @@ let novedadesImpositivas = {
   abril2024: {
     link: "https://docs.google.com/document/d/14TQmEB-aD0Q41ztcpowFxS6zMWvCSIyAlHXeHQng9SQ/edit",
     material: "no",
-    public: "no",
+    public: "si",
   },
   mayo2024: {
     link: "https://docs.google.com/document/d/1y3wXpuxv9F_oxd9Hn4TMc6DBoQXlz1wXQg04A1nDzOI/edit",
@@ -971,7 +970,7 @@ $("#yearImpuestos").on("change", function () {
   if (yearImpuestos === "2024") {
     $("#agip").prop("hidden", false);
     $("#arba").prop("hidden", false);
-    $("#bienesPersonales").prop("hidden", true);
+    $("#bienesPersonales").prop("hidden", false);
     $("#convenioMultilateral").prop("hidden", true);
     $("#ganancias").prop("hidden", false);
     $("#gmp").prop("hidden", true);
@@ -1480,7 +1479,7 @@ $("#procedimiento").on("click", function () {
 
 $("#ultimaNovedades").on("click", function () {
   window.open(
-    "https://docs.google.com/document/d/1EaVJC18NFvXxZN7Ikqjh-vwFUvJVxv4PtAuHmfUX6aI/edit",
+    "https://docs.google.com/document/d/14TQmEB-aD0Q41ztcpowFxS6zMWvCSIyAlHXeHQng9SQ/edit",
     ""
   );
 });
