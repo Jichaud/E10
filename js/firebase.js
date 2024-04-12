@@ -165,7 +165,7 @@ let novedadesImpositivas = {
   },
   abril2024: {
     link: "https://docs.google.com/document/d/14TQmEB-aD0Q41ztcpowFxS6zMWvCSIyAlHXeHQng9SQ/edit",
-    material: "no",
+    material: "https://www.dropbox.com/scl/fo/noc9entgdyy9dl11zcsib/AAqhuaWKlth_Gv8Or2kvPdw?rlkey=ryncry6zkb48woye9rkrbcg6d&dl=0",
     public: "si",
   },
   mayo2024: {
