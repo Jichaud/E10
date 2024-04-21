@@ -269,10 +269,20 @@
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="alert alert-primary" role="alert">
               <span class="fw-medium fs-4">Transmitiendo <i class="bi bi-broadcast"></i></span> <br>
-              <span class="fw-medium fs-4">Ciclo de Actualización Tributaria 2024 | La Previa</span> <br><br>
-              <button class="btn btn-primary mb-3" type="submit"
-                onclick="window.open('https://www.dropbox.com/scl/fo/noc9entgdyy9dl11zcsib/AAqhuaWKlth_Gv8Or2kvPdw?rlkey=ryncry6zkb48woye9rkrbcg6d&dl=0')">Descargar
-                material <i class="bi bi-card-text"></i></button> <br>
+              <span class="fw-medium fs-4">Ciclo de Actualización Tributaria 2024 | La Previa</span>
+              <!-- <div class="d-grid gap-2">
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#streamingUno">
+                  Ver video parte 1 <i class="bi bi-camera-reels"></i>
+                </button>
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#streamingDos">
+                  Ver video parte 2 <i class="bi bi-camera-reels"></i>
+                </button>
+              </div> -->
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary btn-lg mt-2 mb-3" type="submit"
+                  onclick="window.open('https://www.dropbox.com/scl/fo/noc9entgdyy9dl11zcsib/AAqhuaWKlth_Gv8Or2kvPdw?rlkey=ryncry6zkb48woye9rkrbcg6d&dl=0')">Descargar
+                  material <i class="bi bi-card-text"></i></button>
+              </div>
               <span class="fw-medium float-end">#10/abril/2024 | #24/abril/2024</span>
             </div>
           </div>
@@ -282,9 +292,11 @@
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="alert alert-warning" role="alert">
               <span class="fw-medium fs-4">Consultas <i class="bi bi-question-circle"></i></span> <br>
-              <span class="fw-medium fs-4">Ciclo de Actualización Tributaria 2024 | La Previa</span> <br><br>
-              <button type="button" class="btn btn-warning mb-3" data-bs-toggle="modal"
-                data-bs-target="#consultasModal">Realizar consulta <i class="bi bi-question-circle"></i></button> <br>
+              <span class="fw-medium fs-4">Ciclo de Actualización Tributaria 2024 | La Previa</span>
+              <div class="d-grid gap-2">
+                <button type="button" class="btn btn-warning btn-lg mt-2 mb-3" data-bs-toggle="modal"
+                  data-bs-target="#consultasModal">Realizar consulta <i class="bi bi-question-circle"></i></button>
+              </div>
               <span class="fw-medium float-end">#10/abril/2024 | #24/abril/2024</span>
             </div>
           </div>
@@ -294,10 +306,10 @@
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="alert alert-success" role="alert">
               <span class="fw-medium fs-4">Novedades Impositivas - Última publicación</span>
-              <div class="d-grid gap-2 mt-2">
-                <button class="btn btn-success btn-lg mt-4" id="ultimaNovedades">Abril/2024</button>
+              <div class="d-grid gap-2 mt-3">
+                <button class="btn btn-success btn-lg mb-3 mt-4" id="ultimaNovedades">Abril/2024</button>
               </div>
-              <span class="fw-medium mt-4 float-end">#19/abril/2024</span>
+              <span class="fw-medium float-end">#19/abril/2024</span>
             </div>
           </div>
           <!-- FIN ÚLTIMAS NOVEDADES IMPOSITIVAS -->
@@ -306,21 +318,56 @@
           <div class="col-lg">
             <div class="ratio ratio-16x9">
               <iframe class="embed-responsive-item rounded" width="460" height="315"
-                src="https://www.youtube.com/embed/BN5xa04D-48?vq=hd1080&rel=0&controls=1&modestbranding=1" frameborder="0"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                src="https://www.youtube.com/embed/BN5xa04D-48?vq=hd1080&rel=0&controls=1&modestbranding=1"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
           </div>
           <!-- FIN VIDEO LOAD -->
 
-          <!-- VIDEO STREAMING
-          <div class="collapse mb-3" id="streaming">
-            <div class="ratio ratio-16x9">
-              <iframe class="embed-responsive-item rounded" width="460" height="315"
-                src="https://www.youtube.com/embed/?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <!-- VIDEO STREAMING -->
+          <div class="modal fade" id="streamingUno" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Personas Jurídicas | Parte nº 1</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="ratio ratio-16x9">
+                    <iframe class="embed-responsive-item rounded" width="460" height="315"
+                      src="https://www.youtube.com/embed/?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0"
+                      allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
             </div>
           </div>
-          FIN VIDEO STREAMING -->
+          <div class="modal fade" id="streamingDos" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Personas Jurídicas | Parte nº 2</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="ratio ratio-16x9">
+                    <iframe class="embed-responsive-item rounded" width="460" height="315"
+                      src="https://www.youtube.com/embed/?vq=hd720&rel=0&controls=1&modestbranding=1" frameborder="0"
+                      allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FIN VIDEO STREAMING -->
 
           <!-- INICIO CONSULTAS MODAL -->
           <div class="modal fade" id="consultasModal" tabindex="-1" aria-labelledby="consultasModalLabel"
