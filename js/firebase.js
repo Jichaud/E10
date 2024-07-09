@@ -180,7 +180,7 @@ let novedadesImpositivas = {
   },
   julio2024: {
     link: "https://docs.google.com/document/d/1mXuD-SliqgvXwsDt-XWeCldVI4x7IaA1WRgBl6NWuFE/edit",
-    material: "no",
+    material: "https://www.dropbox.com/scl/fo/22qirhrs5r0hc8l01lgtt/ABmRuU6rxoRUKNn1qWir2q0?rlkey=83wnyilvvfmhbkvts2iyuaxg1&st=tra7mqbe&dl=0",
     public: "si",
   },
   agosto2024: {
