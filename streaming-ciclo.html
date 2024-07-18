@@ -66,6 +66,19 @@
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
         const email = user.email;
+        console.log(uid)
+
+        if (uid === "Z6LLZ5btVgcVDXpzWfFywaQrq3x1") {
+          $("#videoUno").prop("hidden", false)
+          $("#videoDos").prop("hidden", false)
+          $("#videoTres").prop("hidden", false)
+
+        }
+
+        if (uid === "W2HcFPpEoqennbqZmmhHULqc5o73") {
+          $("#videoTres").prop("hidden", false)
+
+        }
 
         // signout process
         document.getElementById('signOut').addEventListener('click', function (event) {
@@ -171,14 +184,19 @@
       <hr>
       <p class="mb-0 alert-heading">Departamento de Capacitación</p>
     </div>
-    <div class="ratio ratio-16x9 mb-4">
+    <div class="ratio ratio-16x9 mb-4" hidden id="videoUno">
       <iframe class="embed-responsive-item rounded-4" width="460" height="315"
-        src="https://player.vimeo.com/video/956856676?h=34a7a54eb3&app_id=58479?autoplay=1&loop=1&autopause=0#t=12m30s" frameborder="0"
-        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        src="https://player.vimeo.com/video/956856676?h=34a7a54eb3&app_id=58479?autoplay=1&loop=1&autopause=0#t=12m30s"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
-    <div class="ratio ratio-16x9 mb-4">
+    <div class="ratio ratio-16x9 mb-4" hidden id="videoDos">
       <iframe class="embed-responsive-item rounded-4" width="460" height="315"
-        src="https://player.vimeo.com/video/958073036?h=54b305a43a&app_id=58479?autoplay=1&loop=1&autopause=0#t=12m22s" frameborder="0"
+        src="https://player.vimeo.com/video/958073036?h=54b305a43a&app_id=58479?autoplay=1&loop=1&autopause=0#t=12m22s"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="ratio ratio-16x9 mb-4" hidden id="videoTres">
+      <iframe class="embed-responsive-item rounded border border-primary border-2" width="460" height="315"
+        src="https://www.youtube.com/embed/2mMYQbLkQ3g?vq=hd1080&rel=0&controls=1&modestbranding=1" frameborder="0"
         allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
   </div>
