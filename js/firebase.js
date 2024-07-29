@@ -51,6 +51,49 @@ onAuthStateChanged(auth, (user) => {
       const existUID = doc(db, "users", uid);
       const existName = await getDoc(existUID);
 
+      document.getElementById("moratoriaBlanqueo").innerHTML += `
+            <div class="modal-dialog modal-dialog-scrollable modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Media Jornada Moratoria y Blanqueo de Activos</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p class="pre text-start fs-5">
+Estimado ${existName.data().nombre + " " + existName.data().apellido},
+
+El martes 03/septiembre/2024 desde las 8:30 hs. a 12:30 hs., estaremos realizando una Media Jornada de Moratoria y Blanqueo de Activos.
+
+Por ser suscriptor del Ciclo de Actualización Tributaria 2024, podés registrar tú asistencia sin costo alguno.
+
+Como las vacantes son limitadas, te recomendamos reservar con tiempo.
+
+En caso que alcancemos el límite, puede que se abra una nueva fecha y te asignemos otro día.
+
+En el botón que figura debajo, podés registrarte.
+
+Atentamente,
+
+Por Estudio Diez
+Departamento de Capacitación
+<i>"1952-2024. 72 años brindando servicios profesionales"</i>
+</p>
+                </div>
+                <div class="modal-footer">
+                  <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" value="" id="noMostrar">
+                    <label class="form-check-label text-danger fw-medium" for="noMostrar">
+                      No volver a mostrarme.
+                    </label>
+                  </div>
+                  <button type="button" class="btn btn-success" id="altaMoratoria">Registrarme</button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      `;
+
       // Greet process
       var myDate = new Date();
       var hrs = myDate.getHours();
@@ -75,6 +118,80 @@ onAuthStateChanged(auth, (user) => {
       } catch (error) {
         console.log(error);
       }
+
+      // Baja recordatorio moratoria
+      let existModalMoratoria = onSnapshot(doc(db, "users", uid), (modalDoc) => {
+        let modalMoratoria = modalDoc.data().modalMoratoria;
+        if (modalMoratoria === "") {
+          async function checkFields () {
+            await setDoc(
+              doc(db, "users", uid),
+              {
+                moratoria: 0,
+                fechaMoratoria: "",
+                modalMoratoria: 0,
+              },
+              { merge: true }
+            )};
+
+            checkFields();
+
+        } else if (modalMoratoria === 1) {
+          $("#moratoriaBlanqueo").modal("hide");
+        } else {
+          // chequeo moratoria
+          let existMoratoria = onSnapshot(doc(db, "users", uid), (doc) => {
+            let showMoratoria = doc.data().moratoria;
+            if (showMoratoria === 0) {
+              $("#moratoriaOk").prop("hidden", true);
+              $("#moratoriaBlanqueo").modal("show");
+            } else if (showMoratoria === 1) {
+              $("#moratoriaOk").prop("hidden", false);
+              $("#moratoriaBlanqueo").modal("hide");
+            } else {
+              $("#moratoriaOk").prop("hidden", false);
+              $("#moratoriaBlanqueo").modal("hide");
+            }
+          });
+
+          // Alta registro moratoria
+          let fechaMoratoriaRegistrada = new Date();
+          let fechaMoratoria = fechaMoratoriaRegistrada.toLocaleString();
+          $("#altaMoratoria").on("click", async function () {
+            await setDoc(
+              doc(db, "users", uid),
+              {
+                moratoria: 1,
+                fechaMoratoria: fechaMoratoria,
+              },
+              { merge: true }
+            );
+          });
+
+          // Baja registro moratoria
+          $("#bajaMoratoria").on("click", async function () {
+            await setDoc(
+              doc(db, "users", uid),
+              {
+                moratoria: 0,
+                fechaMoratoria: "",
+              },
+              { merge: true }
+            );
+          });
+
+          $("#noMostrar").on("click", async function () {
+            await setDoc(
+              doc(db, "users", uid),
+              {
+                modalMoratoria: 1,
+                fechaMoratoria: fechaMoratoria,
+              },
+              { merge: true }
+            );
+          });
+        }
+      });
     }
 
     checkDataUID();
@@ -160,27 +277,32 @@ let novedadesImpositivas = {
   },
   marzo2024: {
     link: "https://docs.google.com/document/d/1EaVJC18NFvXxZN7Ikqjh-vwFUvJVxv4PtAuHmfUX6aI/edit",
-    material: "https://www.dropbox.com/scl/fo/m6b495cb3g1xn0z1yuztj/h?rlkey=4bnpm7xzmikjqmx5y5t7p42y1&dl=0",
+    material:
+      "https://www.dropbox.com/scl/fo/m6b495cb3g1xn0z1yuztj/h?rlkey=4bnpm7xzmikjqmx5y5t7p42y1&dl=0",
     public: "si",
   },
   abril2024: {
     link: "https://docs.google.com/document/d/14TQmEB-aD0Q41ztcpowFxS6zMWvCSIyAlHXeHQng9SQ/edit",
-    material: "https://www.dropbox.com/scl/fo/noc9entgdyy9dl11zcsib/AAqhuaWKlth_Gv8Or2kvPdw?rlkey=ryncry6zkb48woye9rkrbcg6d&dl=0",
+    material:
+      "https://www.dropbox.com/scl/fo/noc9entgdyy9dl11zcsib/AAqhuaWKlth_Gv8Or2kvPdw?rlkey=ryncry6zkb48woye9rkrbcg6d&dl=0",
     public: "si",
   },
   mayo2024: {
     link: "https://docs.google.com/document/d/1y3wXpuxv9F_oxd9Hn4TMc6DBoQXlz1wXQg04A1nDzOI/edit",
-    material: "https://www.dropbox.com/scl/fo/vzupiyluxkttmhvdazkpe/AKzcX6-zg2ABEfwepRwF9So?rlkey=1hpbrv47hezac1a3d05kqkul2&st=k7dxumff&dl=0",
+    material:
+      "https://www.dropbox.com/scl/fo/vzupiyluxkttmhvdazkpe/AKzcX6-zg2ABEfwepRwF9So?rlkey=1hpbrv47hezac1a3d05kqkul2&st=k7dxumff&dl=0",
     public: "si",
   },
   junio2024: {
     link: "https://docs.google.com/document/d/1_w_lwiqpFcX6p2GrISnstO-pHQcecCkIEBXqxkGc7p0/edit",
-    material: "https://www.dropbox.com/scl/fo/u30ap7mhxuabpxguas2ph/AB2tWPhM0CBM9oa4nK5l1lw?rlkey=r43dlh53uhut1ll8qf5lqxr7d&st=bzfusgn6&dl=0",
+    material:
+      "https://www.dropbox.com/scl/fo/u30ap7mhxuabpxguas2ph/AB2tWPhM0CBM9oa4nK5l1lw?rlkey=r43dlh53uhut1ll8qf5lqxr7d&st=bzfusgn6&dl=0",
     public: "si",
   },
   julio2024: {
     link: "https://docs.google.com/document/d/1mXuD-SliqgvXwsDt-XWeCldVI4x7IaA1WRgBl6NWuFE/edit",
-    material: "https://www.dropbox.com/scl/fo/22qirhrs5r0hc8l01lgtt/ABmRuU6rxoRUKNn1qWir2q0?rlkey=83wnyilvvfmhbkvts2iyuaxg1&st=tra7mqbe&dl=0",
+    material:
+      "https://www.dropbox.com/scl/fo/22qirhrs5r0hc8l01lgtt/ABmRuU6rxoRUKNn1qWir2q0?rlkey=83wnyilvvfmhbkvts2iyuaxg1&st=tra7mqbe&dl=0",
     public: "si",
   },
   agosto2024: {

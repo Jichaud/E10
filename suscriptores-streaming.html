@@ -174,6 +174,26 @@
                     class="d-flex justify-content-center btn btn-outline-warning btn-sm">ver</button></a>
                 </div>
               </div> <!-- fin row -->
+              <hr class="text-primary">
+              <div class="row">
+                <div class="col-lg-8">
+                  <small>Resolución STEySS 13/2024 | Salario mínimo, vital y móvil. Actualización de importes</small>
+                </div>
+                <div class="col-lg-4 mt-auto">
+                  <a href="blog/26072024-1.html" <button type="button"
+                    class="d-flex justify-content-center btn btn-outline-primary btn-sm">ver</button></a>
+                </div>
+              </div> <!-- fin row -->
+              <hr class="text-danger">
+              <div class="row">
+                <div class="col-lg-8">
+                  <small>RG AFIP 5532 | Suspensión juicios de ejecución fiscal y traba de medidas cautelares</small>
+                </div>
+                <div class="col-lg-4 mt-auto">
+                  <a href="blog/26072024-2.html" <button type="button"
+                    class="d-flex justify-content-center btn btn-outline-danger btn-sm">ver</button></a>
+                </div>
+              </div> <!-- fin row -->
             </div>
           </div> <!-- fin temas varios -->
 
@@ -243,6 +263,15 @@
 
         <!-- Page Heading/Breadcrumbs -->
         <hr class="text-primary">
+        <div class="alert alert-success" role="alert" id="moratoriaOk" hidden>
+          <span class="fs-3 fw-bold">¡Estás registrado en la Media Jornada Moratoria y Blanqueo de Activos <i class="bi bi-hand-thumbs-up-fill text-warning"></i>!</span>
+          <hr>
+          <span class="fs-6">Recordá que este mensaje es el aviso que has registrado tú intención de particiar de la Media Jornada.</span> <br>
+          <span class="fs-6">En caso que alcancemos el límite, puede que te asignemos una fecha distinta.</span> <br>
+          <div class="d-grid mt-2 justify-content-md-end">
+            <button class="btn btn-danger" id="bajaMoratoria">Retirar mí registro</button>
+          </div>
+        </div>
         <h1 class="mt-4 mb-3">Ciclo de Actualización Tributaria</h1>
         <div class="d-grid gap-2">
           <!-- Button trigger modal
@@ -251,26 +280,26 @@
           </button> -->
 
           <!-- Modal -->
-          <div class="modal fade" id="reunionTres" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-xl">
+          <div class="modal fade" id="moratoriaBlanqueo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- <div class="modal-dialog modal-dialog-scrollable modal-xl">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Reunión nº 3 | Pospuesta</h1>
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Media Jornada Moratoria y Blanqueo de Activos</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 <p class="pre text-start fs-5">
 Estimados asistentes,
 
-Nos dirigimos a ustedes para informarles que la reunión del Ciclo de Actualización programada para el día 28 del mes de junio de 2024, ha sido postergada.
+El martes 03/septiembre/2024 desde las 8:30 hs. a 12:30 hs., estaremos realizando una Media Jornada de Moratoria y Blanqueo de Activos.
 
-Entendemos la importancia de ofrecer contenido relevante y actualizado en nuestros eventos, por lo que hemos tomado esta decisión esperando contar con la "Ley de Medidas Fiscales Paliativas y Relevantes" aprobada, para garantizar que podamos proporcionarles información precisa y detallada una vez que se aprueben las nuevas medidas.
+Por ser suscriptor del Ciclo de Actualización Tributaria 2024, podés registrar tú asistencia sin costo alguno.
 
-Agradecemos su comprensión y paciencia mientras trabajamos para asegurar la calidad y la pertinencia de nuestro Ciclo de Actualización.
+Como las vacantes son limitadas, te recomendamos reservar con tiempo.
 
-Les pedimos que por favor queden atentos a futuras comunicaciones donde anunciaremos la nueva fecha en la que se llevará a cabo esta reunión.
+En caso que alcancemos el límite, puede que se abra una nueva fecha y te asignemos otro día.
 
-Para cualquier consulta adicional, no duden en ponerse en contacto con nuestro equipo organizador.
+En el botón que figura debajo, podés registrarte.
 
 Atentamente,
 
@@ -280,10 +309,17 @@ Departamento de Capacitación
 </p>
                 </div>
                 <div class="modal-footer">
+                  <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" value="" id="noMostrar">
+                    <label class="form-check-label text-danger fw-medium" for="noMostrar">
+                      No volver a mostrarme.
+                    </label>
+                  </div>
+                  <button type="button" class="btn btn-success" id="altaMoratoria">Registrarme</button>
                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
 
