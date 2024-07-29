@@ -60,7 +60,7 @@ onAuthStateChanged(auth, (user) => {
                 </div>
                 <div class="modal-body">
 <p class="pre text-start fs-5">
-Estimado ${existName.data().nombre + " " + existName.data().apellido},
+Hola ${existName.data().nombre + " " + existName.data().apellido},
 
 El martes 03/septiembre/2024 desde las 8:30 hs. a 12:30 hs., estaremos realizando una Media Jornada de Moratoria y Blanqueo de Activos.
 
@@ -120,78 +120,81 @@ Departamento de Capacitación
       }
 
       // Baja recordatorio moratoria
-      let existModalMoratoria = onSnapshot(doc(db, "users", uid), (modalDoc) => {
-        let modalMoratoria = modalDoc.data().modalMoratoria;
-        if (modalMoratoria === "") {
-          async function checkFields () {
-            await setDoc(
-              doc(db, "users", uid),
-              {
-                moratoria: 0,
-                fechaMoratoria: "",
-                modalMoratoria: 0,
-              },
-              { merge: true }
-            )};
+      let existModalMoratoria = onSnapshot(
+        doc(db, "users", uid),
+        (modalDoc) => {
+          let modalMoratoria = modalDoc.data().modalMoratoria;
+          if (modalMoratoria === "") {
+            async function checkFields() {
+              await setDoc(
+                doc(db, "users", uid),
+                {
+                  moratoria: 0,
+                  fechaMoratoria: "",
+                  modalMoratoria: 0,
+                },
+                { merge: true }
+              );
+            }
 
             checkFields();
+          } else if (modalMoratoria === 1) {
+            $("#moratoriaBlanqueo").modal("hide");
+          } else {
+            // chequeo moratoria
+            let existMoratoria = onSnapshot(doc(db, "users", uid), (doc) => {
+              let showMoratoria = doc.data().moratoria;
+              if (showMoratoria === 0) {
+                $("#moratoriaOk").prop("hidden", true);
+                $("#moratoriaBlanqueo").modal("show");
+              } else if (showMoratoria === 1) {
+                $("#moratoriaOk").prop("hidden", false);
+                $("#moratoriaBlanqueo").modal("hide");
+              } else {
+                $("#moratoriaOk").prop("hidden", false);
+                $("#moratoriaBlanqueo").modal("hide");
+              }
+            });
 
-        } else if (modalMoratoria === 1) {
-          $("#moratoriaBlanqueo").modal("hide");
-        } else {
-          // chequeo moratoria
-          let existMoratoria = onSnapshot(doc(db, "users", uid), (doc) => {
-            let showMoratoria = doc.data().moratoria;
-            if (showMoratoria === 0) {
-              $("#moratoriaOk").prop("hidden", true);
-              $("#moratoriaBlanqueo").modal("show");
-            } else if (showMoratoria === 1) {
-              $("#moratoriaOk").prop("hidden", false);
-              $("#moratoriaBlanqueo").modal("hide");
-            } else {
-              $("#moratoriaOk").prop("hidden", false);
-              $("#moratoriaBlanqueo").modal("hide");
-            }
-          });
+            // Alta registro moratoria
+            let fechaMoratoriaRegistrada = new Date();
+            let fechaMoratoria = fechaMoratoriaRegistrada.toLocaleString();
+            $("#altaMoratoria").on("click", async function () {
+              await setDoc(
+                doc(db, "users", uid),
+                {
+                  moratoria: 1,
+                  fechaMoratoria: fechaMoratoria,
+                },
+                { merge: true }
+              );
+            });
 
-          // Alta registro moratoria
-          let fechaMoratoriaRegistrada = new Date();
-          let fechaMoratoria = fechaMoratoriaRegistrada.toLocaleString();
-          $("#altaMoratoria").on("click", async function () {
-            await setDoc(
-              doc(db, "users", uid),
-              {
-                moratoria: 1,
-                fechaMoratoria: fechaMoratoria,
-              },
-              { merge: true }
-            );
-          });
+            // Baja registro moratoria
+            $("#bajaMoratoria").on("click", async function () {
+              await setDoc(
+                doc(db, "users", uid),
+                {
+                  moratoria: 0,
+                  fechaMoratoria: "",
+                },
+                { merge: true }
+              );
+            });
 
-          // Baja registro moratoria
-          $("#bajaMoratoria").on("click", async function () {
-            await setDoc(
-              doc(db, "users", uid),
-              {
-                moratoria: 0,
-                fechaMoratoria: "",
-              },
-              { merge: true }
-            );
-          });
-
-          $("#noMostrar").on("click", async function () {
-            await setDoc(
-              doc(db, "users", uid),
-              {
-                modalMoratoria: 1,
-                fechaMoratoria: fechaMoratoria,
-              },
-              { merge: true }
-            );
-          });
+            $("#noMostrar").on("click", async function () {
+              await setDoc(
+                doc(db, "users", uid),
+                {
+                  modalMoratoria: 1,
+                  fechaMoratoria: fechaMoratoria,
+                },
+                { merge: true }
+              );
+            });
+          }
         }
-      });
+      );
     }
 
     checkDataUID();
