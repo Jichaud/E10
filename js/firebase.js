@@ -119,7 +119,7 @@ Departamento de Capacitación
         console.log(error);
       }
 
-      // Baja recordatorio moratoria
+      // Chequeo campos moratoria
       let existModalMoratoria = onSnapshot(
         doc(db, "users", uid),
         (modalDoc) => {
@@ -190,6 +190,7 @@ Departamento de Capacitación
               );
             });
 
+            // Baja recordatorio moratoria
             $("#noMostrar").on("click", async function () {
               await setDoc(
                 doc(db, "users", uid),
