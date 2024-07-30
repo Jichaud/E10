@@ -184,7 +184,6 @@ Departamento de Capacitación
                 doc(db, "users", uid),
                 {
                   moratoria: 0,
-                  fechaMoratoria: "",
                 },
                 { merge: true }
               );
@@ -196,7 +195,6 @@ Departamento de Capacitación
                 doc(db, "users", uid),
                 {
                   modalMoratoria: 1,
-                  fechaMoratoria: fechaMoratoria,
                 },
                 { merge: true }
               );
