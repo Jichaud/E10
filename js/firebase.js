@@ -62,13 +62,11 @@ onAuthStateChanged(auth, (user) => {
 <p class="pre text-start fs-5">
 Hola ${existName.data().nombre + " " + existName.data().apellido},
 
-El martes 03/septiembre/2024 desde las 8:30 hs. a 12:30 hs., estaremos realizando una Media Jornada de Moratoria y Blanqueo de Activos.
+Como se ha alcanzado el límite de vacantes, estaremos realizando otra Media Jornada de Moratoria y Blanqueo de Activos en una nueva fecha a determinar.
 
 Por ser suscriptor del Ciclo de Actualización Tributaria 2024, podés registrar tú asistencia sin costo alguno.
 
 Como las vacantes son limitadas, te recomendamos reservar con tiempo.
-
-En caso que alcancemos el límite, puede que se abra una nueva fecha y te asignemos otro día.
 
 En el botón que figura debajo, podés registrarte.
 
@@ -171,7 +169,7 @@ Departamento de Capacitación
               await setDoc(
                 doc(db, "users", uid),
                 {
-                  moratoria: 1,
+                  moratoria: 2,
                   fechaMoratoria: fechaMoratoria,
                 },
                 { merge: true }
