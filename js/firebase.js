@@ -62,11 +62,9 @@ onAuthStateChanged(auth, (user) => {
 <p class="pre text-start fs-5">
 Hola ${existName.data().nombre + " " + existName.data().apellido},
 
-Como se ha alcanzado el límite de vacantes, estaremos realizando otra Media Jornada de Moratoria y Blanqueo de Activos en una nueva fecha a determinar.
+El martes 03/septiembre/2024 desde las 8:30 hs. a 12:30 hs., estaremos realizando una Media Jornada de Moratoria y Blanqueo de Activos.
 
 Por ser suscriptor del Ciclo de Actualización Tributaria 2024, podés registrar tú asistencia sin costo alguno.
-
-Como las vacantes son limitadas, te recomendamos reservar con tiempo.
 
 En el botón que figura debajo, podés registrarte.
 
@@ -144,23 +142,18 @@ Departamento de Capacitación
               let showMoratoria = doc.data().moratoria;
               if (showMoratoria === 0) {
                 $("#moratoriaOk").prop("hidden", true);
-                $("#moratoriaBlanqueo").modal("hide");
-                $("#bajaMoratoria").prop("hidden", true);
+                $("#moratoriaBlanqueo").modal("show");
               } else if (showMoratoria === 1) {
                 $("#moratoriaOk").prop("hidden", false);
                 $("#moratoriaBlanqueo").modal("hide");
-                document.getElementById("spanRegistro").innerHTML += `¡Estás registrado en la Media Jornada Moratoria y Blanqueo de Activos <i class="bi bi-hand-thumbs-up-fill text-warning"></i>!`
-                $("#participaMoratoria").text ("Recordá que este mensaje es el aviso que has registrado tú asistencia a la Media Jornada a desarrollarse el martes 03/septiembre/2024.");
+                $("#participaMoratoria").text ("Recordá que este mensaje es el aviso que has registrado tú intención de participar de la Media Jornada a desarrollarse el martes 03/septiembre/2024.");
                 $("#infoMoratoria").text ("Unos días antes del evento, te enviaremos un mail con los datos de acceso.");
-                $("#bajaMoratoria").prop("hidden", true);
               } else if (showMoratoria === 2) {
                 $("#moratoriaOk").prop("hidden", false);
-                document.getElementById("spanRegistro").innerHTML += `Sin vacantes disponibles en la Media Jornada Moratoria y Blanqueo de Activos <i class="bi bi-x-circle-fill"></i>`
                 $("#moratoriaBlanqueo").modal("hide");
-                $("#moratoriaOk").removeClass("alert-success").addClass("alert-danger");
-                $("#participaMoratoria").text ("Al no desarrollarse una nueva fecha, luego del dictado de la media jornada se pondrá a disposición la grabación por el término de 2 semanas.");
-                $("#infoMoratoria").text ("Informaremos por la página la fecha de puesta a disposición.");
-                $("#bajaMoratoria").prop("hidden", true);
+                // $("#moratoriaOk").removeClass("alert-success").addClass("alert-warning");
+                $("#participaMoratoria").text ("¡Buenas noticias! Se han habilitado vacantes. Recordá que este mensaje es el aviso que has registrado tú intención de participar de la Media Jornada a desarrollarse el martes 03/septiembre/2024.");
+                $("#infoMoratoria").text ("Unos días antes del evento, te enviaremos un mail con los datos de acceso.");
               } else {
                 $("#moratoriaOk").prop("hidden", false);
                 $("#moratoriaBlanqueo").modal("hide");
