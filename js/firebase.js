@@ -147,13 +147,13 @@ Departamento de Capacitación
                 $("#moratoriaOk").prop("hidden", false);
                 $("#moratoriaBlanqueo").modal("hide");
                 $("#participaMoratoria").text ("Recordá que este mensaje es el aviso que has registrado tú intención de participar de la Media Jornada a desarrollarse el martes 03/septiembre/2024.");
-                $("#infoMoratoria").text ("Unos días antes del evento, te enviaremos un mail con los datos de acceso.");
+                $("#infoMoratoria").text ("En la página figurarán los datos de acceso.");
               } else if (showMoratoria === 2) {
                 $("#moratoriaOk").prop("hidden", false);
                 $("#moratoriaBlanqueo").modal("hide");
                 // $("#moratoriaOk").removeClass("alert-success").addClass("alert-warning");
                 $("#participaMoratoria").text ("¡Buenas noticias! Se han habilitado vacantes. Recordá que este mensaje es el aviso que has registrado tú intención de participar de la Media Jornada a desarrollarse el martes 03/septiembre/2024.");
-                $("#infoMoratoria").text ("Unos días antes del evento, te enviaremos un mail con los datos de acceso.");
+                $("#infoMoratoria").text ("En la página figurarán los datos de acceso.");
               } else {
                 $("#moratoriaOk").prop("hidden", false);
                 $("#moratoriaBlanqueo").modal("hide");
