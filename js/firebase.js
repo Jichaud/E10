@@ -105,14 +105,27 @@ Departamento de Capacitación
           " " +
           existName.data().apellido;
 
+        /* const existCert = doc(db, "users", uid);
+        const existCons = await getDoc(existCert);
+        let certi = existCons.data().certificado;
+        if (!certi) {
+          $("#certVisAsis").prop("hidden", true);
+        } */
+      } catch (error) {
+        console.log(error);
+      }
+
+      // Chequeo certificado moratoria
+      async function checkCertMoratoria () {
+                  
         const existCert = doc(db, "users", uid);
         const existCons = await getDoc(existCert);
         let certi = existCons.data().certificado;
         if (!certi) {
           $("#certVisAsis").prop("hidden", true);
+        } else {
+          $("#certVisAsis").prop("hidden", false);
         }
-      } catch (error) {
-        console.log(error);
       }
 
       // Chequeo campos moratoria
@@ -146,14 +159,11 @@ Departamento de Capacitación
               } else if (showMoratoria === 1) {
                 $("#moratoriaOk").prop("hidden", false);
                 $("#moratoriaBlanqueo").modal("hide");
-                $("#participaMoratoria").text ("Recordá que este mensaje es el aviso que has registrado tú intención de participar de la Media Jornada a desarrollarse el martes 03/septiembre/2024.");
-                $("#infoMoratoria").text ("En la página figurarán los datos de acceso.");
+                checkCertMoratoria();
               } else if (showMoratoria === 2) {
                 $("#moratoriaOk").prop("hidden", false);
                 $("#moratoriaBlanqueo").modal("hide");
-                // $("#moratoriaOk").removeClass("alert-success").addClass("alert-warning");
-                $("#participaMoratoria").text ("¡Buenas noticias! Se han habilitado vacantes. Recordá que este mensaje es el aviso que has registrado tú intención de participar de la Media Jornada a desarrollarse el martes 03/septiembre/2024.");
-                $("#infoMoratoria").text ("En la página figurarán los datos de acceso.");
+                checkCertMoratoria();
               } else {
                 $("#moratoriaOk").prop("hidden", false);
                 $("#moratoriaBlanqueo").modal("hide");
