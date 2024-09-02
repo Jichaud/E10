@@ -155,7 +155,7 @@ Departamento de Capacitación
               let showMoratoria = doc.data().moratoria;
               if (showMoratoria === 0) {
                 $("#moratoriaOk").prop("hidden", true);
-                $("#moratoriaBlanqueo").modal("show");
+                $("#moratoriaBlanqueo").modal("hide");
               } else if (showMoratoria === 1) {
                 $("#moratoriaOk").prop("hidden", false);
                 $("#moratoriaBlanqueo").modal("hide");
