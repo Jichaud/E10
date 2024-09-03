@@ -117,18 +117,14 @@ onAuthStateChanged(auth, (user) => {
               let showMoratoria = doc.data().moratoria;
               if (showMoratoria === 0) {
                 $("#moratoriaOk").prop("hidden", true);
-                $("#moratoriaBlanqueo").modal("hide");
               } else if (showMoratoria === 1) {
                 $("#moratoriaOk").prop("hidden", false);
-                $("#moratoriaBlanqueo").modal("hide");
                 checkCertMoratoria();
               } else if (showMoratoria === 2) {
                 $("#moratoriaOk").prop("hidden", false);
-                $("#moratoriaBlanqueo").modal("hide");
                 checkCertMoratoria();
               } else {
                 $("#moratoriaOk").prop("hidden", false);
-                $("#moratoriaBlanqueo").modal("hide");
               }
             });
 
