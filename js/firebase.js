@@ -51,44 +51,6 @@ onAuthStateChanged(auth, (user) => {
       const existUID = doc(db, "users", uid);
       const existName = await getDoc(existUID);
 
-      document.getElementById("moratoriaBlanqueo").innerHTML += `
-            <div class="modal-dialog modal-dialog-scrollable modal-xl">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Media Jornada Moratoria y Blanqueo de Activos</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-<p class="pre text-start fs-5">
-Hola ${existName.data().nombre + " " + existName.data().apellido},
-
-El martes 03/septiembre/2024 desde las 8:30 hs. a 12:30 hs., estaremos realizando una Media Jornada de Moratoria y Blanqueo de Activos.
-
-Por ser suscriptor del Ciclo de Actualización Tributaria 2024, podés registrar tú asistencia sin costo alguno.
-
-En el botón que figura debajo, podés registrarte.
-
-Atentamente,
-
-Por Estudio Diez
-Departamento de Capacitación
-<i>"1952-2024. 72 años brindando servicios profesionales"</i>
-</p>
-                </div>
-                <div class="modal-footer">
-                  <div class="form-check me-3">
-                    <input class="form-check-input" type="checkbox" value="" id="noMostrar">
-                    <label class="form-check-label text-danger fw-medium" for="noMostrar">
-                      No volver a mostrarme.
-                    </label>
-                  </div>
-                  <button type="button" class="btn btn-success" id="altaMoratoria">Registrarme</button>
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-      `;
 
       // Greet process
       var myDate = new Date();
