@@ -91,28 +91,6 @@ onAuthStateChanged(auth, (user) => {
       }
 
       // Chequeo campos moratoria
-      let existModalMoratoria = onSnapshot(
-        doc(db, "users", uid),
-        (modalDoc) => {
-          let modalMoratoria = modalDoc.data().modalMoratoria;
-          if (modalMoratoria === "") {
-            async function checkFields() {
-              await setDoc(
-                doc(db, "users", uid),
-                {
-                  moratoria: 0,
-                  fechaMoratoria: "",
-                  modalMoratoria: 0,
-                },
-                { merge: true }
-              );
-            }
-
-            checkFields();
-          } else if (modalMoratoria === 1) {
-            $("#moratoriaBlanqueo").modal("hide");
-          } else {
-            // chequeo moratoria
             let existMoratoria = onSnapshot(doc(db, "users", uid), (doc) => {
               let showMoratoria = doc.data().moratoria;
               if (showMoratoria === 0) {
@@ -128,44 +106,6 @@ onAuthStateChanged(auth, (user) => {
               }
             });
 
-            // Alta registro moratoria
-            let fechaMoratoriaRegistrada = new Date();
-            let fechaMoratoria = fechaMoratoriaRegistrada.toLocaleString();
-            $("#altaMoratoria").on("click", async function () {
-              await setDoc(
-                doc(db, "users", uid),
-                {
-                  moratoria: 2,
-                  fechaMoratoria: fechaMoratoria,
-                },
-                { merge: true }
-              );
-            });
-
-            // Baja registro moratoria
-            $("#bajaMoratoria").on("click", async function () {
-              await setDoc(
-                doc(db, "users", uid),
-                {
-                  moratoria: 0,
-                },
-                { merge: true }
-              );
-            });
-
-            // Baja recordatorio moratoria
-            $("#noMostrar").on("click", async function () {
-              await setDoc(
-                doc(db, "users", uid),
-                {
-                  modalMoratoria: 1,
-                },
-                { merge: true }
-              );
-            });
-          }
-        }
-      );
     }
 
     checkDataUID();
