@@ -226,7 +226,7 @@ let novedadesImpositivas = {
   },
   septiembre2024: {
     link: "https://docs.google.com/document/d/1amLgRJomIbLQLXiULdI84ZlAi0yyUatXmKIWknyU5so/edit",
-    material: "no",
+    material: "https://www.dropbox.com/scl/fo/h1jfp8gvzlnky9t43iheh/AHya5flqkDo1lEU5E3pM3bc?rlkey=90gmifgrug2buqxfdmt44726j&st=hxdir4rj&dl=0",
     public: "si",
   },
   octubre2024: {
