@@ -68,33 +68,6 @@
         const email = user.email;
         console.log(uid)
 
-        if (uid === "Z6LLZ5btVgcVDXpzWfFywaQrq3x1") {
-          $("#videoUno").prop("hidden", false)
-          $("#videoDos").prop("hidden", false)
-          $("#videoTres").prop("hidden", false)
-
-        }
-
-        if (uid === "W2HcFPpEoqennbqZmmhHULqc5o73") {
-          $("#videoTres").prop("hidden", false)
-
-        }
-
-        if (uid === "3x5G6Uo0DPQFJw0yaosRK9oe6Tq1") {
-          $("#videoTres").prop("hidden", false)
-
-        }
-
-        if (uid === "3IKqx72ITkcQZz9zf6FJ6qbprFu2") {
-          $("#videoTres").prop("hidden", false)
-
-        }
-
-        if (uid === "4AP5Aom496PEJGWapRF4H4smfSw2") {
-          $("#videoTres").prop("hidden", false)
-
-        }
-
         // signout process
         document.getElementById('signOut').addEventListener('click', function (event) {
           const auth = getAuth();
@@ -199,21 +172,12 @@
       <hr>
       <p class="mb-0 alert-heading">Departamento de Capacitación</p>
     </div>
-    <div class="ratio ratio-16x9 mb-4" hidden id="videoUno">
+    <div class="ratio ratio-16x9 mb-4">
       <iframe class="embed-responsive-item rounded-4" width="460" height="315"
-        src="https://player.vimeo.com/video/956856676?h=34a7a54eb3&app_id=58479?autoplay=1&loop=1&autopause=0#t=12m30s"
+        src="https://www.youtube.com/embed/SreA6rNwIKQ?vq=hd1080&rel=0&controls=1&modestbranding=1"
         frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
-    <div class="ratio ratio-16x9 mb-4" hidden id="videoDos">
-      <iframe class="embed-responsive-item rounded-4" width="460" height="315"
-        src="https://player.vimeo.com/video/958073036?h=54b305a43a&app_id=58479?autoplay=1&loop=1&autopause=0#t=12m22s"
-        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-    <div class="ratio ratio-16x9 mb-4" hidden id="videoTres">
-      <iframe class="embed-responsive-item rounded border border-primary border-2" width="460" height="315"
-        src="https://www.youtube.com/embed/2mMYQbLkQ3g?vq=hd1080&rel=0&controls=1&modestbranding=1" frameborder="0"
-        allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+
   </div>
 
   </div> <!-- row videos -->
