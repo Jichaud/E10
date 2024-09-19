@@ -78,7 +78,7 @@ onAuthStateChanged(auth, (user) => {
       }
 
       // Chequeo certificado moratoria
-      async function checkCertMoratoria () {
+      /* async function checkCertMoratoria () {
                   
         const existCert = doc(db, "users", uid);
         const existCons = await getDoc(existCert);
@@ -104,7 +104,7 @@ onAuthStateChanged(auth, (user) => {
               } else {
                 $("#moratoriaOk").prop("hidden", false);
               }
-            });
+            }); */
 
     }
 
