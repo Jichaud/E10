@@ -53,7 +53,7 @@ let novedadesImpositivas = {
   },
   octubre2024: {
     link: "https://docs.google.com/document/d/1WZTxL7WJlFu9pvu2c08n5NxirJ1pzy6c1TW7UGMyh0Q/edit",
-    public: "no",
+    public: "si",
   },
   noviembre2024: {
     link: "https://docs.google.com/document/d/1DtFWu4YNXm2xbyQoOwcAsbDfTSHhQ9uMYz-pQNX-0y8/edit",
@@ -739,7 +739,7 @@ $("#procedimiento").on("click", function () {
 
 $("#ultimaNovedades").on("click", function () {
   window.open(
-    "https://docs.google.com/document/d/1amLgRJomIbLQLXiULdI84ZlAi0yyUatXmKIWknyU5so/edit",
+    "https://docs.google.com/document/d/1WZTxL7WJlFu9pvu2c08n5NxirJ1pzy6c1TW7UGMyh0Q/edit",
     ""
   );
 });
