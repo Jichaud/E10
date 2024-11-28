@@ -67,12 +67,12 @@ onAuthStateChanged(auth, (user) => {
           " " +
           existName.data().apellido;
 
-        /* const existCert = doc(db, "users", uid);
+        const existCert = doc(db, "users", uid);
         const existCons = await getDoc(existCert);
         let certi = existCons.data().certificado;
         if (!certi) {
-          $("#certVisAsis").prop("hidden", true);
-        } */
+          $("#certAsis").prop("hidden", true);
+        }
       } catch (error) {
         console.log(error);
       }
