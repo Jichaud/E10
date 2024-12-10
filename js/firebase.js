@@ -236,7 +236,7 @@ let novedadesImpositivas = {
   },
   noviembre2024: {
     link: "https://docs.google.com/document/d/1DtFWu4YNXm2xbyQoOwcAsbDfTSHhQ9uMYz-pQNX-0y8/edit",
-    material: "no",
+    material: "https://www.dropbox.com/scl/fo/huhweww56edr1iyuy6ulr/AP8AKbgkvcbB8qTFzVmpNFM?rlkey=y6586i3zr6om75h7hm5i2g4jt&st=b8t7tarp&dl=0",
     public: "si",
   },
   diciembre2024: {
