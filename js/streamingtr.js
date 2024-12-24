@@ -8,7 +8,6 @@ function verNovedades() {
 }
 
 function cargaInicio() {
-  $("#convenioMultilateral").prop("hidden", true);
   $("#iva").prop("hidden", true);
 }
 

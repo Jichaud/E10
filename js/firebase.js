@@ -172,7 +172,6 @@ function verMaterial() {
 }
 
 function cargaInicio() {
-  $("#convenioMultilateral").prop("hidden", true);
   $("#gmp").prop("hidden", true);
 }
 
