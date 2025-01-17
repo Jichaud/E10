@@ -62,9 +62,13 @@ $("#categoria").on("click", function () {
     ) {
       $("#parametroModal").modal("show");
     } else {
-      if (ingresosBrutosJS <= categoriaServicios.A.ingresosBrutosT && $("#tipoExImpuesto").val() === "1") {
+      if (ingresosBrutosJS <= categoriaServicios.A.ingresosBrutosT && $("#tipoExImpuesto").val() === "2") {
+        exImpuesto = 1;
+      } else if (ingresosBrutosJS <= categoriaServicios.A.ingresosBrutosT && $("#tipoExImpuesto").val() === "4") {
         exImpuesto = 1;
       } else if (ingresosBrutosJS <= categoriaServicios.D.ingresosBrutosT && $("#tipoExImpuesto").val() === "5") {
+        exImpuesto = 1;
+      } else if ($("#tipoExImpuesto").val() === "1" || $("#tipoExImpuesto").val() === "3") {
         exImpuesto = 1;
       } else {
         exImpuesto = 0;
