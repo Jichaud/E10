@@ -175,7 +175,6 @@ function cargaInicio() {
   $("#gmp").prop("hidden", true);
   $("#bienesPersonales").prop("hidden", true);
   $("#impuestosVarios").prop("hidden", true);
-  $("#monotributo").prop("hidden", true);
 }
 
 cargaInicio();
@@ -1099,6 +1098,7 @@ $("#yearImpuestos").on("change", function () {
     $("#gmp").prop("hidden", true);
     $("#impuestosVarios").prop("hidden", true);
     $("#iva").prop("hidden", false);
+    $("#monotributo").prop("hidden", false);
     $("#previsional").prop("hidden", false);
   } else if (yearImpuestos === "2024") {
     $("#agip").prop("hidden", false);
