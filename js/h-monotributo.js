@@ -13,6 +13,15 @@ let exImpuesto = 0;
 
 const monoToGo = document.getElementById("footer-card");
 
+// Habilita la selección del tipo de exención impuesto integrado
+$("#exImpuesto").on("click", function() {
+  if ($("#exImpuesto").prop("checked") == true) {
+  $("#tipoExImpuesto").prop("hidden", false);
+  } else {
+  $("#tipoExImpuesto").prop("hidden", true);
+  }
+});
+
 $("#categoria").on("click", function () {
   // Verifica carga algún dato
   if (
@@ -53,9 +62,9 @@ $("#categoria").on("click", function () {
     ) {
       $("#parametroModal").modal("show");
     } else {
-      if (arrCategoria[3] === "A") {
+      if (ingresosBrutosJS <= categoriaServicios.A.ingresosBrutosT && $("#tipoExImpuesto").val() === "1") {
         exImpuesto = 1;
-      } else if (arrCategoria[3] === "B") {
+      } else if (ingresosBrutosJS <= categoriaServicios.D.ingresosBrutosT && $("#tipoExImpuesto").val() === "5") {
         exImpuesto = 1;
       } else {
         exImpuesto = 0;

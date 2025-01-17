@@ -128,12 +128,21 @@
               <div class="form-check form-switch">
                 <label class="form-check-label" for="flexSwitchCheckChecked" id="labelexImpuesto">¿Exceptuado impuesto
                   integrado? <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrollingImpuesto"
-                    aria-controls="offcanvasScrolling"> <i class="bi bi-exclamation-circle-fill text-danger text-center"
+                    aria-controls="offcanvasScrolling"> Clic para ver los "Casos" <i class="bi bi-exclamation-circle-fill text-danger text-center"
                       data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus"
                       data-bs-title="Información" data-bs-content="Hacer clic para información"></i></a></label>
                 <input class="form-check-input mb-3" type="checkbox" role="switch" id="exImpuesto">
-              </div>
-              <hr>
+                <select class="form-select form-select-lg border-3 border-dark mt-3" id="tipoExImpuesto"
+                aria-label="tipo de exención" hidden>
+                <option selected>Selecciona...</option>
+                <option value="1">Caso nº 1</option>
+                <option value="2">Caso nº 2</option>
+                <option value="3">Caso nº 3</option>
+                <option value="4">Caso nº 4</option>
+                <option value="5">Caso nº 5</option>
+              </select>
+                </div>
+            <hr>
               <div class="form-check form-switch">
                 <label class="form-check-label" for="flexSwitchCheckChecked" id="labelexSipaObra">¿Exceptuado SIPA y
                   obra
@@ -515,7 +524,7 @@
               </div>
               <div class="d-flex justify-content-start align-items-start">
                 <span class="mb-1"> Ha seleccionado la exención del impuesto integrado que aplica solo a las categorías
-                  "A" o "B", pero su categoría para los parámetros ingresados, supera las categoriás beneficiadas.
+                  "A" (Caso nº 1) o "D" (Caso nº 5), pero su categoría para los parámetros ingresados, supera las categoriás beneficiadas.
                   Teniendo en cuenta esta situación, no se aplicará la exención del impuesto integrado. </span>
               </div>
             </a>
@@ -562,7 +571,7 @@
   <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasScrollingImpuesto"
     aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Exento impuesto integrado</h5>
+      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">No ingresarán el impuesto integrado:</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -572,20 +581,19 @@
             <h5 class="mb-1 text-primary">¿Quiénes?</h5>
             <small><span class="badge bg-primary fs-6">Impuesto integrado</span></small>
           </div>
-          <p class="mb-1">Estarán exentos del pago del impuesto integrado, los monotributistas de las categorías A y B,
-            siempre que <span class="fw-bold text-danger">NO</span> obtengan ingresos por:</p>
           <div class="d-flex justify-content-start align-items-start">
             <ul class="list-group list-group-flush">
               <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
-                Trabajo en relación de dependencia, cargos públicos, jubilaciones, pensiones o retiros.</li>
+                Los trabajadores independientes promovidos. Caso nº 1.</li>
               <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
-                Dirección, administración o conducción de sociedades.</li>
+                Los asociados a cooperativas cuando sus ingresos brutos no superen la suma máxima establecida para la categoría A. Caso nº 2.</li>
               <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
-                Locación de bienes muebles o inmuebles.</li>
+                Los sujetos que adhieran, exclusivamente en su condición de locadores de bienes inmuebles -cualquiera sea su destino-, siempre que la cantidad de inmuebles que mantengan en locación -incluyendo los que integren condominios por los que se haya adherido en forma individual- no exceda de 2. Caso nº 3.</li>
               <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
-                Prestaciones e inversiones financieras, compraventa de valores mobiliarios y de participaciones en las
-                utilidades de sociedades</li>
-            </ul>
+                Los inscriptos en el Registro Nacional de Efectores cuando sus ingresos brutos no superen la suma máxima establecida para la categoría A. Caso nº 4.</li>
+              <li class="list-group-item list-group-item-primary"><i class="bi bi-check-circle-fill text-primary"></i>
+                Quienes desarrollen exclusivamente actividades primarias siendo su actividad principal el cultivo de tabaco, caña de azúcar, yerba mate o té; y sus ingresos brutos no superen la suma máxima establecida para la categoría D. Caso nº 5.</li>
+              </ul>
           </div>
         </a>
       </div>
