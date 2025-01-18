@@ -433,6 +433,13 @@ $("#categoria").on("click", function () {
         paramCat.className = "fs-4 fw-bold badge bg-primary rounded-5 mt-4";
         impoPago.className = "fs-4 fw-bold badge bg-primary rounded-5";
         $("#precioUnitario").prop("hidden", false);
+        $("#catAsignadaPrecio").val(Intl.NumberFormat("es", {
+          style: "currency",
+          currency: "USD",
+          currencySign: "accounting",
+        })
+          .format(categoriaVentas.A.pUnitario)
+          .replace("US$", ""));
 
         break;
     }
