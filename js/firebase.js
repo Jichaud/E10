@@ -174,7 +174,6 @@ function verMaterial() {
 function cargaInicio() {
   $("#gmp").prop("hidden", true);
   $("#bienesPersonales").prop("hidden", true);
-  $("#impuestosVarios").prop("hidden", true);
 }
 
 cargaInicio();
@@ -188,7 +187,7 @@ let novedadesImpositivas = {
   febrero2025: {
     link: "https://docs.google.com/document/d/15MzI-tcZyRXwgicMFONcPi0JTo5nfkRZ7EoXulFDmu8/edit?usp=sharing",
     material: "no",
-    public: "no",
+    public: "si",
   },
   marzo2025: {
     link: "https://docs.google.com/document/d/19MloTXkjUfF4jrvkGU8y7exrlrTltKxtSWmNkJFlfx8/edit?usp=sharing",
@@ -1096,7 +1095,7 @@ $("#yearImpuestos").on("change", function () {
     $("#convenioMultilateral").prop("hidden", false);
     $("#ganancias").prop("hidden", false);
     $("#gmp").prop("hidden", true);
-    $("#impuestosVarios").prop("hidden", true);
+    $("#impuestosVarios").prop("hidden", false);
     $("#iva").prop("hidden", false);
     $("#monotributo").prop("hidden", false);
     $("#previsional").prop("hidden", false);
@@ -1658,7 +1657,7 @@ $("#procedimiento").on("click", function () {
 
 $("#ultimaNovedades").on("click", function () {
   window.open(
-    "https://docs.google.com/document/d/1VoINLRZnxKUCrhCJoJbirvq3lN-RQrokyRciKKNiCtk/edit?usp=sharing",
+    "https://docs.google.com/document/d/15MzI-tcZyRXwgicMFONcPi0JTo5nfkRZ7EoXulFDmu8/edit?usp=sharing",
     ""
   );
 });
