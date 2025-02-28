@@ -192,7 +192,7 @@ let novedadesImpositivas = {
   marzo2025: {
     link: "https://docs.google.com/document/d/19MloTXkjUfF4jrvkGU8y7exrlrTltKxtSWmNkJFlfx8/edit?usp=sharing",
     material: "no",
-    public: "no",
+    public: "si",
   },
   abril2025: {
     link: "https://docs.google.com/document/d/1uJHGlv1E-l38mNX_rl44DI7qwQBQBzQnpViqUwg90f4/edit?usp=sharing",
@@ -1657,7 +1657,7 @@ $("#procedimiento").on("click", function () {
 
 $("#ultimaNovedades").on("click", function () {
   window.open(
-    "https://docs.google.com/document/d/15MzI-tcZyRXwgicMFONcPi0JTo5nfkRZ7EoXulFDmu8/edit?usp=sharing",
+    "https://docs.google.com/document/d/19MloTXkjUfF4jrvkGU8y7exrlrTltKxtSWmNkJFlfx8/edit?usp=sharing",
     ""
   );
 });
