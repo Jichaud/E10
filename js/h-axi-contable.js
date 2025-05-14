@@ -40,6 +40,10 @@ let index = [
         indice: 8353.3158
     },
     {
+        mes: "Abril 2025",
+        indice: 8585.6078
+    },
+    {
         mes: "Enero 2024",
         indice: 4261.5324
     },
