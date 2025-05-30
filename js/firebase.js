@@ -173,7 +173,6 @@ function verMaterial() {
 
 function cargaInicio() {
   $("#gmp").prop("hidden", true);
-  $("#bienesPersonales").prop("hidden", true);
 }
 
 cargaInicio();
@@ -207,7 +206,7 @@ let novedadesImpositivas = {
   junio2025: {
     link: "https://docs.google.com/document/d/13aef9XbstLNmJT4CPewKYMyyJAfA6IkefmOnlav7yjY/edit?usp=sharing",
     material: "no",
-    public: "no",
+    public: "si",
   },
   julio2025: {
     link: "https://docs.google.com/document/d/1V7kbj3EFnlo2dOr44Y0HQ2nEdVr4vl6-sOdvlX353cw/edit?usp=sharing",
@@ -1091,7 +1090,7 @@ $("#yearImpuestos").on("change", function () {
   if (yearImpuestos === "2025") {
     $("#agip").prop("hidden", false);
     $("#arba").prop("hidden", false);
-    $("#bienesPersonales").prop("hidden", true);
+    $("#bienesPersonales").prop("hidden", false);
     $("#convenioMultilateral").prop("hidden", false);
     $("#ganancias").prop("hidden", false);
     $("#gmp").prop("hidden", true);
@@ -1657,7 +1656,7 @@ $("#procedimiento").on("click", function () {
 
 $("#ultimaNovedades").on("click", function () {
   window.open(
-    "https://docs.google.com/document/d/1RMIVQbpZlsLG0aZ7PAZ7HEs8K1sdB2XQvvmy0z_j8Ns/edit?usp=sharing",
+    "https://docs.google.com/document/d/13aef9XbstLNmJT4CPewKYMyyJAfA6IkefmOnlav7yjY/edit?usp=sharing",
     ""
   );
 });
