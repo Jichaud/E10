@@ -200,7 +200,7 @@ let novedadesImpositivas = {
   },
   mayo2025: {
     link: "https://docs.google.com/document/d/1RMIVQbpZlsLG0aZ7PAZ7HEs8K1sdB2XQvvmy0z_j8Ns/edit?usp=sharing",
-    material: "no",
+    material: "https://www.dropbox.com/scl/fo/sm050qn77nxnzdajzq8gz/AK6WZkLO488t8X03oEoBVns?rlkey=vk74kw2mplxb1egmpvwjmn08k&st=1xk7x0tf&dl=0",
     public: "si",
   },
   junio2025: {
