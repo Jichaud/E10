@@ -230,7 +230,7 @@ body {
                   </tr>
                   <tr>
                     <td class="text-center align-middle" style="border-color:#F68A1A">3</td>
-                    <td class="text-center align-middle" style="border-color:#F68A1A">Martes 24/junio/2025 <i class="bi bi-alarm text-danger text-success"></i></td>
+                    <td class="text-center align-middle" style="border-color:#F68A1A">Martes 01/julio/2025 <span class="badge bg-danger">CAMBIO DE FECHA</span> <i class="bi bi-alarm text-danger text-success"></i></td>
                   </tr>
                   <tr>
                     <td class="text-center align-middle" style="border-color:#F68A1A">4</td>
@@ -260,6 +260,46 @@ body {
     </div>
   </div>
 
+<!-- MODAL CAMBIO 3ERA REUNIÓN -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">IMPORTANTE PARA AGENDAR | Cambio de fecha de la próxima reunión del Ciclo de Actualización Tributaria - MARTES 01/07/2025</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+        <div class="col-lg">
+<p class="fs-5 pre text-justify">Estimado Asistente,
+
+Esperamos que se encuentren muy bien.
+
+Les informamos que el encuentro del Ciclo de Actualización Tributaria originalmente previsto para el día 24/junio/2025 ha sido reprogramado para el día <span class="fw-bold text-danger">01/julio/2025</span>, en el mismo horario y modalidad.
+
+La decisión responde a la proximidad de los vencimientos, lo que nos permitirá ofrecer una reunión con contenido más actualizado y de mayor utilidad técnica, asegurando así la mejor calidad en la información brindada.
+
+Agradecemos su comprensión y esperamos contar con su participación en la nueva fecha.
+
+Para cualquier consulta adicional, no duden en ponerse en contacto con nuestro equipo organizador.
+
+Esperamos contar con tu participación.
+
+Saludos cordiales,
+
+Por Estudio Diez
+Departamento de Capacitación
+<span class="fst-italic">"1952-2025. 73 años brindando servicios profesionales"</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div> <!-- FIN MODAL CAMBIO 3ERA REUNIÓN -->
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
   crossorigin="anonymous"></script>
@@ -278,6 +318,11 @@ body {
   $(document).ready(function(){
     $(".toast").toast("hide");
   });
+
+  $(document).ready(function(){
+    $("#exampleModal").modal("show");
+    });
+
 </script>
 
 </body>
