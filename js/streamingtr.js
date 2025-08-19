@@ -43,8 +43,8 @@ let novedadesImpositivas = {
     public: "si",
   },
   agosto2025: {
-    link: "https://docs.google.com/document/d/1iVdDAGYndZdUjej13LgcfNYH4LPnDfjCGaLP6zMyiug/edit?usp=sharing",
-    public: "no",
+    link: "https://docs.google.com/document/d/1PvgKh9txJXXqs3qDQeu_iC0-YMVlqE8naklK646biv4/edit?usp=sharing",
+    public: "si",
   },
   septiembre2025: {
     link: "https://docs.google.com/document/d/1sWgCwwBWEx7t3mw9jDWWa_lXFnzFhEimONKqvqXt8UE/edit?usp=sharing",
@@ -868,7 +868,7 @@ $("#procedimiento").on("click", function () {
 
 $("#ultimaNovedades").on("click", function () {
   window.open(
-    "https://docs.google.com/document/d/1V7kbj3EFnlo2dOr44Y0HQ2nEdVr4vl6-sOdvlX353cw/edit?usp=sharing",
+    "https://docs.google.com/document/d/1PvgKh9txJXXqs3qDQeu_iC0-YMVlqE8naklK646biv4/edit?usp=sharing",
     ""
   );
 });
