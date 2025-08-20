@@ -39,7 +39,7 @@ let novedadesImpositivas = {
     public: "si",
   },
   julio2025: {
-    link: "https://docs.google.com/document/d/1V7kbj3EFnlo2dOr44Y0HQ2nEdVr4vl6-sOdvlX353cw/edit?usp=sharing",
+    link: "https://docs.google.com/document/d/1Qb9coSKcfxUUEJskanH-Wl42-b7jeVa7EeHmzKbrw2o/edit?usp=sharing",
     public: "si",
   },
   agosto2025: {

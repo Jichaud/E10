@@ -209,7 +209,7 @@ let novedadesImpositivas = {
     public: "si",
   },
   julio2025: {
-    link: "https://docs.google.com/document/d/1V7kbj3EFnlo2dOr44Y0HQ2nEdVr4vl6-sOdvlX353cw/edit?usp=sharing",
+    link: "https://docs.google.com/document/d/1Qb9coSKcfxUUEJskanH-Wl42-b7jeVa7EeHmzKbrw2o/edit?usp=sharing",
     material: "https://www.dropbox.com/scl/fo/wxovqpyo2b063psy9cjzr/AGZxEXNtFPnDhmNo04-rVcg?rlkey=l5l5zzw0385cog0fq38t6vkfo&st=6ji2mzih&dl=0",
     public: "si",
   },
