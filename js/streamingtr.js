@@ -48,7 +48,7 @@ let novedadesImpositivas = {
   },
   septiembre2025: {
     link: "https://docs.google.com/document/d/1sWgCwwBWEx7t3mw9jDWWa_lXFnzFhEimONKqvqXt8UE/edit?usp=sharing",
-    public: "no",
+    public: "si",
   },
   octubre2025: {
     link: "https://docs.google.com/document/d/1O5p5-WEA9n-gbW3flrR1n-qla4bm-nLIjWPqMLvPmro/edit?usp=sharing",
@@ -868,7 +868,7 @@ $("#procedimiento").on("click", function () {
 
 $("#ultimaNovedades").on("click", function () {
   window.open(
-    "https://docs.google.com/document/d/1PvgKh9txJXXqs3qDQeu_iC0-YMVlqE8naklK646biv4/edit?usp=sharing",
+    "https://docs.google.com/document/d/1sWgCwwBWEx7t3mw9jDWWa_lXFnzFhEimONKqvqXt8UE/edit?usp=sharing",
     ""
   );
 });
