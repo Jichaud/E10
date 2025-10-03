@@ -52,7 +52,7 @@ let novedadesImpositivas = {
   },
   octubre2025: {
     link: "https://docs.google.com/document/d/1O5p5-WEA9n-gbW3flrR1n-qla4bm-nLIjWPqMLvPmro/edit?usp=sharing",
-    public: "no",
+    public: "si",
   },
   noviembre2025: {
     link: "https://docs.google.com/document/d/15MGV5ir3KgWCqXlAzvOZFh6oscnflRwQLLXry3i0sz0/edit?usp=sharing",
