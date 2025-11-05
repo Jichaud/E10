@@ -83,6 +83,13 @@
         window.location.href = "streaming-suscriptores.html";
         // User is signed out    
       }
+      if (user.email === "gstella@estudiostella.com.ar") {
+        $(iframeVideo1).prop('hidden', false)
+        $(iframeVideo2).prop('hidden', false)
+      }
+      if (user.email === "aixarodiz@gmail.com") {
+        $(iframeVideo2).prop('hidden', false)
+      }
     });
 
   </script>
@@ -175,7 +182,13 @@
       <hr>
       <p class="mb-0 alert-heading">Departamento de Capacitación</p>
     </div>
-    <div class="ratio ratio-16x9 mb-4">
+    <div class="ratio ratio-16x9 mb-4" id="iframeVideo1" hidden>
+      <iframe class="embed-responsive-item rounded-4" width="460" height="315"
+        src="https://www.youtube.com/embed/RoRurDctmGM?vq=hd1080&rel=0&controls=1&modestbranding=1"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <div class="ratio ratio-16x9 mb-4" id="iframeVideo2" hidden>
       <iframe class="embed-responsive-item rounded-4" width="460" height="315"
         src="https://www.youtube.com/embed/vXWCsDGZ10Q?vq=hd1080&rel=0&controls=1&modestbranding=1"
         frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
