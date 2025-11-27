@@ -67,12 +67,13 @@ onAuthStateChanged(auth, (user) => {
           " " +
           existName.data().apellido;
 
-        const existCert = doc(db, "users", uid);
-        const existCons = await getDoc(existCert);
-        let certi = existCons.data().certificado;
+        const existCert = onSnapshot(doc(db, "users", uid), (doc) => {
+        let certi = doc.data().certificado;
         if (!certi) {
           $("#certAsis").prop("hidden", true);
-        }
+        } else {
+          $("#certAsis").prop("hidden", false);
+        }})
       } catch (error) {
         console.log(error);
       }
@@ -230,7 +231,7 @@ let novedadesImpositivas = {
   },
   noviembre2025: {
     link: "https://docs.google.com/document/d/15MGV5ir3KgWCqXlAzvOZFh6oscnflRwQLLXry3i0sz0/edit?usp=sharing",
-    material: "no",
+    material: "https://www.dropbox.com/scl/fo/hmye3hhw85wdl9qa6hk3f/AK2lg_WUpqn1dHd1VlLUM04?rlkey=kjlngjfav98merk4kak5le3rz&st=6x8xpkou&dl=0",
     public: "si",
   },
   diciembre2025: {
