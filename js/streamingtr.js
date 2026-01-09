@@ -9,7 +9,6 @@ function verNovedades() {
 
 function cargaInicio() {
   $("#gmp").prop("hidden", true);
-  $("#arba").prop("hidden", true);
   $("#bienesPersonales").prop("hidden", true);
   $("#convenioMultilateral").prop("hidden", true);
   $("#monotributo").prop("hidden", true);
@@ -559,7 +558,7 @@ $("#yearImpuestos").on("change", function () {
   let yearImpuestos = document.getElementById("yearImpuestos").value;
   if (yearImpuestos === "2026") {
     $("#agip").prop("hidden", false);
-    $("#arba").prop("hidden", true);
+    $("#arba").prop("hidden", false);
     $("#bienesPersonales").prop("hidden", true);
     $("#convenioMultilateral").prop("hidden", true);
     $("#ganancias").prop("hidden", false);
