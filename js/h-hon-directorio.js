@@ -193,6 +193,15 @@ $("#btnSiguienteDirectores").click(function () {
     tercerTramoDesde = 1016795752.62;
     tercerTramoFijo = 299954747.02;
     tercerTamoExcedente = 101679575.26;
+  } else if ($("#regRet").val() == 2026) {
+    primerTramoHasta = 133514185.74;
+    segundoTramoDesde = 133514185.74;
+    segundoTramoHasta = 1335141857.38;
+    segundoTramoFijo = 33378546.43;
+    segundoTramoExcedente = 1335141857.38;
+    tercerTramoDesde = 1335141857.38;
+    tercerTramoFijo = 393866847.93;
+    tercerTamoExcedente = 1335141857.38;
   }
 
   let totalTope2Val = function () {
@@ -3350,6 +3359,637 @@ $("#btnSiguienteDirectores").click(function () {
         } // FIN Resultado negativo - IIGG positivo
       }
     } // FINAL PERÍODO FISCAL 2025
+
+    // PERÍODO FISCAL 2026
+    if ($("#regRet").val() == 2026) {
+      $("#periodoFiscalDato").text(
+        "Estás calculando para el período fiscal 2026"
+      );
+
+      // Resultado positivo - IIGG negativo
+      if ($("#resultadoPositivo").prop("checked") == true) {
+        if ($("#IIGGdiferido").prop("checked") == true) {
+          if (UiHonoTopeDos <= primerTramoHasta) {
+            let totalTope2HtmlIIGG =
+              (0.25 * +UiHonoTopeDos -
+                0.25 *
+                  0.25 *
+                  (+resultadoEECCTopeDos +
+                    +impuestoGananciasTopeDos +
+                    +totalHonorarioTopeDos)) /
+              (1 - 0.25 * 0.25);
+
+            if (totalTope2HtmlIIGG < 0) {
+              totalTope2Html =
+                (+resultadoEECCTopeDos +
+                  +impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos) *
+                0.25;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            } else {
+              totalTope2Html =
+                (+resultadoEECCTopeDos +
+                  +impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos -
+                  totalTope2HtmlIIGG) *
+                0.25;
+
+              htmlTopeDos += `
+              <img src="bimages/primerTramo2026.webp" class="ms-3 img-fluid" alt="Primer tramo">
+              `;
+              datosTope2.innerHTML = htmlTopeDos;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            }
+          } else if (UiHonoTopeDos <= segundoTramoHasta) {
+            let totalTope2HtmlIIGG =
+              (segundoTramoFijo +
+                0.3 * +UiHonoTopeDos -
+                0.25 *
+                  0.3 *
+                  (+resultadoEECCTopeDos +
+                    +impuestoGananciasTopeDos +
+                    +totalHonorarioTopeDos) -
+                segundoTramoDesde * 0.3) /
+              (1 - 0.25 * 0.3);
+
+            if (totalTope2HtmlIIGG < 0) {
+              totalTope2Html =
+                (+resultadoEECCTopeDos +
+                  +impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos) *
+                0.25;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            } else {
+              totalTope2Html =
+                (+resultadoEECCTopeDos +
+                  +impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos -
+                  totalTope2HtmlIIGG) *
+                0.25;
+
+              htmlTopeDos += `
+              <img src="bimages/segundoTramo2026.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+              `;
+              datosTope2.innerHTML = htmlTopeDos;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            }
+          } else {
+            let totalTope2HtmlIIGG =
+              (tercerTramoFijo +
+                0.35 * +UiHonoTopeDos -
+                0.25 *
+                  0.35 *
+                  (+resultadoEECCTopeDos +
+                    +impuestoGananciasTopeDos +
+                    +totalHonorarioTopeDos) -
+                tercerTamoExcedente * 0.35) /
+              (1 - 0.25 * 0.35);
+
+            if (totalTope2HtmlIIGG < 0) {
+              let totalTope2Html =
+                (+resultadoEECCTopeDos +
+                  +impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos) *
+                0.25;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            } else {
+              let totalTope2Html =
+                (+resultadoEECCTopeDos +
+                  +impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos -
+                  totalTope2HtmlIIGG) *
+                0.25;
+
+              htmlTopeDos += `
+              <img src="bimages/tercerTramo2026.webp" class="ms-3 img-fluid" alt="Tercer tramo">
+              `;
+              datosTope2.innerHTML = htmlTopeDos;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            }
+          } // FIN Resultado positivo - IIGG negativo
+        } else {
+          // Resultado positivo - IIGG positivo
+          if (UiHonoTopeDos <= primerTramoHasta) {
+            let totalTope2HtmlIIGG =
+              (0.25 * +UiHonoTopeDos -
+                0.25 *
+                  0.25 *
+                  (+resultadoEECCTopeDos +
+                    +-impuestoGananciasTopeDos +
+                    +totalHonorarioTopeDos)) /
+              (1 - 0.25 * 0.25);
+
+            if (totalTope2HtmlIIGG < 0) {
+              totalTope2Html =
+                (+resultadoEECCTopeDos +
+                  +-impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos) *
+                0.25;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            } else {
+              totalTope2Html =
+                (+resultadoEECCTopeDos +
+                  +-impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos -
+                  totalTope2HtmlIIGG) *
+                0.25;
+
+              htmlTopeDos += `
+              <img src="bimages/primerTramo2026.webp" class="ms-3 img-fluid" alt="Primer tramo">
+              `;
+              datosTope2.innerHTML = htmlTopeDos;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            }
+          } else if (UiHonoTopeDos <= segundoTramoHasta) {
+            let totalTope2HtmlIIGG =
+              (segundoTramoFijo +
+                0.3 * +UiHonoTopeDos -
+                0.25 *
+                  0.3 *
+                  (+resultadoEECCTopeDos +
+                    +-impuestoGananciasTopeDos +
+                    +totalHonorarioTopeDos) -
+                segundoTramoDesde * 0.3) /
+              (1 - 0.25 * 0.3);
+
+            if (totalTope2HtmlIIGG < 0) {
+              totalTope2Html =
+                (+resultadoEECCTopeDos +
+                  +-impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos) *
+                0.25;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            } else {
+              totalTope2Html =
+                (+resultadoEECCTopeDos +
+                  +-impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos -
+                  totalTope2HtmlIIGG) *
+                0.25;
+
+              htmlTopeDos += `
+              <img src="bimages/segundoTramo2026.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+              `;
+              datosTope2.innerHTML = htmlTopeDos;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            }
+          } else {
+            let totalTope2HtmlIIGG =
+              (tercerTramoFijo +
+                0.35 * +UiHonoTopeDos -
+                0.25 *
+                  0.35 *
+                  (+resultadoEECCTopeDos +
+                    +-impuestoGananciasTopeDos +
+                    +totalHonorarioTopeDos) -
+                tercerTamoExcedente * 0.35) /
+              (1 - 0.25 * 0.35);
+
+            if (totalTope2HtmlIIGG < 0) {
+              let totalTope2Html =
+                (+resultadoEECCTopeDos +
+                  +-impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos) *
+                0.25;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            } else {
+              let totalTope2Html =
+                (+resultadoEECCTopeDos +
+                  +-impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos -
+                  totalTope2HtmlIIGG) *
+                0.25;
+
+              htmlTopeDos += `
+              <img src="bimages/tercerTramo2026.webp" class="ms-3 img-fluid" alt="Tercer tramo">
+              `;
+              datosTope2.innerHTML = htmlTopeDos;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            }
+          }
+        } // FIN Resultado positivo - IIGG positivo
+      }
+
+      // Resultado negativo - IIGG negativo
+      if ($("#resultadoPositivo").prop("checked") == false) {
+        if ($("#IIGGdiferido").prop("checked") == true) {
+          if (UiHonoTopeDos <= primerTramoHasta) {
+            let totalTope2HtmlIIGG =
+              (0.25 * +UiHonoTopeDos -
+                0.25 *
+                  0.25 *
+                  (+-resultadoEECCTopeDos +
+                    +impuestoGananciasTopeDos +
+                    +totalHonorarioTopeDos)) /
+              (1 - 0.25 * 0.25);
+
+            if (totalTope2HtmlIIGG < 0) {
+              totalTope2Html =
+                (+-resultadoEECCTopeDos +
+                  +impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos) *
+                0.25;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            } else {
+              totalTope2Html =
+                (+-resultadoEECCTopeDos +
+                  +impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos -
+                  totalTope2HtmlIIGG) *
+                0.25;
+
+              htmlTopeDos += `
+              <img src="bimages/primerTramo2026.webp" class="ms-3 img-fluid" alt="Primer tramo">
+              `;
+              datosTope2.innerHTML = htmlTopeDos;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            }
+          } else if (UiHonoTopeDos <= segundoTramoHasta) {
+            let totalTope2HtmlIIGG =
+              (segundoTramoFijo +
+                0.3 * +UiHonoTopeDos -
+                0.25 *
+                  0.3 *
+                  (+-resultadoEECCTopeDos +
+                    +impuestoGananciasTopeDos +
+                    +totalHonorarioTopeDos) -
+                segundoTramoExcedente * 0.3) /
+              (1 - 0.25 * 0.3);
+
+            if (totalTope2HtmlIIGG < 0) {
+              totalTope2Html =
+                (+-resultadoEECCTopeDos +
+                  +impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos) *
+                0.25;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            } else {
+              totalTope2Html =
+                (+-resultadoEECCTopeDos +
+                  +impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos -
+                  totalTope2HtmlIIGG) *
+                0.25;
+
+              htmlTopeDos += `
+              <img src="bimages/segundoTramo2026.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+              `;
+              datosTope2.innerHTML = htmlTopeDos;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            }
+          } else {
+            let totalTope2HtmlIIGG =
+              (tercerTramoFijo +
+                0.35 * +UiHonoTopeDos -
+                0.25 *
+                  0.35 *
+                  (+-resultadoEECCTopeDos +
+                    +impuestoGananciasTopeDos +
+                    +totalHonorarioTopeDos) -
+                tercerTamoExcedente * 0.35) /
+              (1 - 0.25 * 0.35);
+
+            if (totalTope2HtmlIIGG < 0) {
+              let totalTope2Html =
+                (+-resultadoEECCTopeDos +
+                  +impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos) *
+                0.25;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            } else {
+              let totalTope2Html =
+                (+-resultadoEECCTopeDos +
+                  +impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos -
+                  totalTope2HtmlIIGG) *
+                0.25;
+
+              htmlTopeDos += `
+              <img src="bimages/tercerTramo2026.webp" class="ms-3 img-fluid" alt="Tercer tramo">
+              `;
+              datosTope2.innerHTML = htmlTopeDos;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            }
+          } // FIN Resultado negativo - IIGG negativo
+        } else {
+          // Resultado negativo - IIGG positivo
+          if (UiHonoTopeDos <= primerTramoHasta) {
+            let totalTope2HtmlIIGG =
+              (0.25 * +UiHonoTopeDos -
+                0.25 *
+                  0.25 *
+                  (+-resultadoEECCTopeDos +
+                    +-impuestoGananciasTopeDos +
+                    +totalHonorarioTopeDos)) /
+              (1 - 0.25 * 0.25);
+
+            if (totalTope2HtmlIIGG < 0) {
+              totalTope2Html =
+                (+-resultadoEECCTopeDos +
+                  +-impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos) *
+                0.25;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            } else {
+              totalTope2Html =
+                (+-resultadoEECCTopeDos +
+                  +-impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos -
+                  totalTope2HtmlIIGG) *
+                0.25;
+
+              htmlTopeDos += `
+              <img src="bimages/primerTramo2026.webp" class="ms-3 img-fluid" alt="Primer tramo">
+              `;
+              datosTope2.innerHTML = htmlTopeDos;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            }
+          } else if (UiHonoTopeDos <= segundoTramoHasta) {
+            let totalTope2HtmlIIGG =
+              (segundoTramoFijo +
+                0.3 * +UiHonoTopeDos -
+                0.25 *
+                  0.3 *
+                  (+-resultadoEECCTopeDos +
+                    +-impuestoGananciasTopeDos +
+                    +totalHonorarioTopeDos) -
+                segundoTramoExcedente * 0.3) /
+              (1 - 0.25 * 0.3);
+
+            if (totalTope2HtmlIIGG < 0) {
+              totalTope2Html =
+                (+-resultadoEECCTopeDos +
+                  +-impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos) *
+                0.25;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            } else {
+              totalTope2Html =
+                (+-resultadoEECCTopeDos +
+                  +-impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos -
+                  totalTope2HtmlIIGG) *
+                0.25;
+
+              htmlTopeDos += `
+              <img src="bimages/segundoTramo2026.webp" class="ms-3 img-fluid" alt="Segundo tramo">
+              `;
+              datosTope2.innerHTML = htmlTopeDos;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            }
+          } else {
+            let totalTope2HtmlIIGG =
+              (tercerTramoFijo +
+                0.35 * +UiHonoTopeDos -
+                0.25 *
+                  0.35 *
+                  (+-resultadoEECCTopeDos +
+                    +-impuestoGananciasTopeDos +
+                    +totalHonorarioTopeDos) -
+                tercerTamoExcedente * 0.35) /
+              (1 - 0.25 * 0.35);
+
+            if (totalTope2HtmlIIGG < 0) {
+              let totalTope2Html =
+                (+-resultadoEECCTopeDos +
+                  +-impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos) *
+                0.25;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            } else {
+              let totalTope2Html =
+                (+-resultadoEECCTopeDos +
+                  +-impuestoGananciasTopeDos +
+                  +totalHonorarioTopeDos -
+                  totalTope2HtmlIIGG) *
+                0.25;
+
+              htmlTopeDos += `
+              <img src="bimages/tercerTramo2026.webp" class="ms-3 img-fluid" alt="Tercer tramo">
+              `;
+              datosTope2.innerHTML = htmlTopeDos;
+
+              $("#totalTopeDos").val(
+                `$${Intl.NumberFormat("es", {
+                  style: "currency",
+                  currency: "USD",
+                  currencySign: "accounting",
+                })
+                  .format(totalTope2Html)
+                  .replace("US$", "")}`
+              );
+            }
+          }
+        } // FIN Resultado negativo - IIGG positivo
+      }
+    } // FINAL PERÍODO FISCAL 2026
   };
 
   totalTope2Val();
