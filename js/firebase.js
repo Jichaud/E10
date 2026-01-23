@@ -175,7 +175,6 @@ function verMaterial() {
 function cargaInicio() {
   $("#gmp").prop("hidden", true);
   $("#bienesPersonales").prop("hidden", true);
-  $("#convenioMultilateral").prop("hidden", true);
   $("#monotributo").prop("hidden", true);
 }
 
@@ -1180,7 +1179,7 @@ $("#yearImpuestos").on("change", function () {
     $("#agip").prop("hidden", false);
     $("#arba").prop("hidden", false);
     $("#bienesPersonales").prop("hidden", true);
-    $("#convenioMultilateral").prop("hidden", true);
+    $("#convenioMultilateral").prop("hidden", false);
     $("#ganancias").prop("hidden", false);
     $("#gmp").prop("hidden", true);
     $("#impuestosVarios").prop("hidden", false);
