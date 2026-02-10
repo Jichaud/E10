@@ -28,6 +28,10 @@ $('#selectDate').change(function(){
 
 let index = [
     {
+        mes: "Enero 2026",
+        indice: 10413.0309
+    },
+    {
         mes: "Enero 2025",
         indice: 7864.1257
     },
