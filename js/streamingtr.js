@@ -26,7 +26,7 @@ let novedadesImpositivas = {
   },
   marzo2026: {
     link: "https://docs.google.com/document/d/1_b7xOwkGWHBZyTtnaNC3U2--LlxhpwxTuycWRvYG_fY/edit?usp=sharing",
-    public: "no",
+    public: "si",
   },
   abril2026: {
     link: "https://docs.google.com/document/d/1YdLl1c6FXxr5KuEMe00h6V-PMRN9CdY9r0EhTMWfX7g/edit?usp=sharing",
@@ -1138,7 +1138,7 @@ $("#procedimiento").on("click", function () {
 
 $("#ultimaNovedades").on("click", function () {
   window.open(
-    "https://docs.google.com/document/d/11A_XZPmfNBfv4f1BlXEaMfKOFyUbNhPbVufNvxGMVKU/edit?usp=sharing",
+    "https://docs.google.com/document/d/1_b7xOwkGWHBZyTtnaNC3U2--LlxhpwxTuycWRvYG_fY/edit?usp=sharing",
     ""
   );
 });
