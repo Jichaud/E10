@@ -111,7 +111,8 @@ onAuthStateChanged(auth, (user) => {
 
     checkDataUID();
 
-    $("#certAsis").on("click", async function () {
+    // inicio certificado
+    /* $("#certAsis").on("click", async function () {
       const existCert = doc(db, "users", uid);
       const existCons = await getDoc(existCert);
       let certi = existCons.data().certificado;
@@ -134,7 +135,7 @@ onAuthStateChanged(auth, (user) => {
         );
       }
       window.open(certi, "");
-    });
+    });*/ // end certificado
 
     // signout process
     document
