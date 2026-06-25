@@ -208,8 +208,8 @@ let novedadesImpositivas = {
   },
   junio2026: {
     link: "https://docs.google.com/document/d/1GMHNcLty-xLtO0EUJwKK8D7WG4W2VZSQm7GFpPOrMu0/edit?usp=sharing",
-    material: "no",
-    public: "no",
+    material: "https://www.dropbox.com/scl/fo/mr0cdh2p0fa9h3c4c9ej8/AKCjOwmCNHDpZAErgI62Z0M?rlkey=jyu25hhen13a5vnvjs3opssxa&st=3iwoj1j8&dl=0",
+    public: "si",
   },
   julio2026: {
     link: "https://docs.google.com/document/d/1klBv_DBBmc64V05sXiTfKJD8a9VWgMlvFObc40HAaS0/edit?usp=sharing",
@@ -1801,7 +1801,7 @@ $("#procedimiento").on("click", function () {
 
 $("#ultimaNovedades").on("click", function () {
   window.open(
-    "https://docs.google.com/document/d/1JOcKSqqPhLA0c5a3dZ6UPjQJZuJaSK4S1ec-j2aLg3A/edit?usp=sharing",
+    "https://docs.google.com/document/d/1GMHNcLty-xLtO0EUJwKK8D7WG4W2VZSQm7GFpPOrMu0/edit?usp=sharing",
     ""
   );
 });
