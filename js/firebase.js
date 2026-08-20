@@ -218,7 +218,7 @@ let novedadesImpositivas = {
   },
   agosto2026: {
     link: "https://docs.google.com/document/d/10mcNndkqN0u3qfYKA2bDA1MwTCdHakKxkZCZoYlGiPU/edit?usp=sharing",
-    material: "no",
+    material: "https://www.dropbox.com/scl/fo/x2mkhrp4cqcj5o1dbwn46/AC0X5hRwf6W5tUxHq2tEKgw?rlkey=esvzq7chzikhs7u7sc2pfoxnn&st=8c7lu5uz&dl=0",
     public: "si",
   },
   septiembre2026: {
