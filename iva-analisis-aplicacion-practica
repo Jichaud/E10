@@ -374,7 +374,7 @@
                     </button>
                 </div>
                 </p>
-                <div class="collapse h-25 overflow-auto" id="collapseVolumenI">
+                <div class="collapse h-25 overflow-auto" style="max-height: 200px;" id="collapseVolumenI">
                     <div class="card card-body">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed ante quam. Fusce
                         mattis elit purus, et tincidunt eros accumsan a. Quisque eu mauris molestie, vulputate
@@ -461,7 +461,7 @@
                         </button>
                     </div>
                     </p>
-                    <div class="collapse h-25 overflow-auto" id="collapseExample">
+                    <div class="collapse h-25 overflow-auto" style="max-height: 200px;" id="collapseExample">
                         <div class="card card-body">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed ante quam. Fusce
                             mattis elit purus, et tincidunt eros accumsan a. Quisque eu mauris molestie, vulputate
@@ -549,7 +549,7 @@
                         </button>
                     </div>
                     </p>
-                    <div class="collapse h-25 overflow-auto" id="collapseExample">
+                    <div class="collapse h-25 overflow-auto" style="max-height: 200px;" id="collapseExample">
                         <div class="card card-body">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed ante quam. Fusce
                             mattis elit purus, et tincidunt eros accumsan a. Quisque eu mauris molestie, vulputate
