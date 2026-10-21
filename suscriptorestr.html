@@ -175,7 +175,7 @@ background-size: cover;
                   <p class="m-0 text-center text-wrap text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear());</script>. Estudio Diez - Consultores Impositivos. Buenos Aires. Argentina</p>
                 </div>
               </div>
-              <!-- TRANSMISIÓN -->
+              <!-- TRANSMISIÓN
               <div class="card text-white bg-success mb-3" style="max-width: 30rem;display: block;margin-left: auto;margin-right: auto">
                 <div class="card-header border-light"> 5º reunión | 22/septiembre/2026
               </div>
@@ -185,7 +185,17 @@ background-size: cover;
                   <p class="card-text text-light">desde el martes 22/septiembre/2026 <b class="lead">17:30 hs.</b></p>
                 </div>
               </div>
-              <!-- FIN TRANSMISIÓN -->
+              FIN TRANSMISIÓN -->
+
+              <!-- POSTERGACIÓN -->
+              <div class="card text-white bg-danger mb-2" style="max-width: 30rem;display: block;margin-left: auto;margin-right: auto">
+                <div class="card-header border-light"> 6º reunión | Fecha a determinar
+              </div>
+                <div class="card-body">
+                  <h5 class="card-title">POSTERGADA</h5>
+                </div>
+              </div>
+              <!-- FIN POSTERGACIÓN -->
 
               <!-- PRÓXIMA REUNIÓN
               <div class="card text-white bg-danger mb-2" style="max-width: 30rem;display: block;margin-left: auto;margin-right: auto">
@@ -241,7 +251,9 @@ background-size: cover;
                   </tr>
                   <tr>
                     <td class="text-center align-middle" style="border-color:#F68A1A">6</td>
-                    <td class="text-center align-middle" style="border-color:#F68A1A">Jueves 22/octubre/2026 <i class="bi bi-bell-fill text-danger"></i></td>
+                    <td class="text-center align-middle" style="border-color:#F68A1A">Postergada <i class="bi bi-bell-fill text-danger"><button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#quintaReunion">
+                        Postergada - Ver aviso
+                      </button></i></td>
                   </tr>
                   <tr>
                     <td class="text-center align-middle" style="border-color:#F68A1A">7</td>
@@ -260,44 +272,40 @@ background-size: cover;
   </div>
 
 <!-- MODAL CAMBIO 3ERA REUNIÓN -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">IMPORTANTE PARA AGENDAR | Cambio de fecha de la próxima reunión del Ciclo de Actualización Tributaria - MARTES 01/07/2026</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-        <div class="col-lg">
-<p class="fs-5 pre text-justify">Estimado Asistente,
-
-Esperamos que se encuentren muy bien.
-
-Les informamos que el encuentro del Ciclo de Actualización Tributaria originalmente previsto para el día 24/junio/2026 ha sido reprogramado para el día <span class="fw-bold text-danger">01/julio/2026</span>, en el mismo horario y modalidad.
-
-La decisión responde a la proximidad de los vencimientos, lo que nos permitirá ofrecer una reunión con contenido más actualizado y de mayor utilidad técnica, asegurando así la mejor calidad en la información brindada.
-
-Agradecemos su comprensión y esperamos contar con su participación en la nueva fecha.
-
-Para cualquier consulta adicional, no duden en ponerse en contacto con nuestro equipo organizador.
-
-Esperamos contar con tu participación.
-
+            <!--Modal -->
+          <div class="modal fade" id="quintaReunion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">5º reunión | Postergación de fecha</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p class="text-start text-dark">
+Estimado Colega, <br><br>
+Dado que al día de la fecha no se ha reglamentado la Ley 27.826 (Régimen de Inocencia Fiscal II), hemos decidido posponer la 6ta. Reunión de nuestro Ciclo de Actualidad Tributaria.
+<br><br>
+Consideramos que, tratándose de una temática de especial relevancia para el ejercicio profesional, resulta conveniente aguardar hasta contar con las precisiones normativas necesarias que permitan abordar su análisis de manera integral y brindar información clara, actualizada y de utilidad para nuestra labor cotidiana.
+<br><br>
+Por tal motivo, una vez publicada la reglamentación del régimen, les haremos saber por esta vía la nueva fecha en que se llevará a cabo nuestro encuentro.
+<br><br>
+La grabación de la jornada quedará posteriormente disponible en el área de suscriptores para que pueda ser visualizada durante el plazo oportunamente informado.
+<br><br>
+Agradecemos su comprensión.
+<br><br>
 Saludos cordiales,
-
-Por Estudio Diez
-Departamento de Capacitación
-<span class="fst-italic">"1952-2026. 73 años brindando servicios profesionales"</span></p>
+<br><br>
+Por Estudio Diez <br>
+Departamento de Capacitación <br>
+<i>"1952-2026. 74 años brindando servicios profesionales"</i>
+</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div> <!-- FIN MODAL CAMBIO 3ERA REUNIÓN -->
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -318,9 +326,11 @@ Departamento de Capacitación
     $(".toast").toast("hide");
   });
 
-  $(document).ready(function(){
-    $("#exampleModal").modal("hide");
-    });
+    $(document).ready(function(){
+        $("#quintaReunion").modal("show");
+        });
+  </script>
+
 
 </script>
 
