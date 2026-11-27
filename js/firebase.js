@@ -112,7 +112,7 @@ onAuthStateChanged(auth, (user) => {
     checkDataUID();
 
     // inicio certificado
-    /* $("#certAsis").on("click", async function () {
+    $("#certAsis").on("click", async function () {
       const existCert = doc(db, "users", uid);
       const existCons = await getDoc(existCert);
       let certi = existCons.data().certificado;
@@ -135,7 +135,7 @@ onAuthStateChanged(auth, (user) => {
         );
       }
       window.open(certi, "");
-    });*/ // end certificado
+    }); // end certificado
 
     // signout process
     document
@@ -233,7 +233,7 @@ let novedadesImpositivas = {
   },
   noviembre2026: {
     link: "https://docs.google.com/document/d/1u79yJzabfZlt1JtfOjroJ-278-FHyzIItXvvQZte8Mk/edit?usp=sharing",
-    material: "no",
+    material: "https://www.dropbox.com/scl/fo/btj0gszdf14v3n2qn8c3j/ABdFqAGLBPVH8f49mUqvxbo?rlkey=x00yu24cvkm8q9yoeg5ut4mc5&st=0810tt7s&dl=0",
     public: "si",
   },
   diciembre2026: {
